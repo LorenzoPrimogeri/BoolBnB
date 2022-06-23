@@ -107,6 +107,19 @@
                     value="{{old('price')}}" required>
             </div>
             {{-- /price --}}
+            {{--Service--}}
+            <div class="col-12">
+                <h5 class="pt-2">Servizi</h5>
+            </div>
+            <div class="col-12">
+                @foreach($services as $service)
+                <input type="checkbox" value="{{$service->id}}" name="services[]" {{in_array($service->id,
+                old('services',[]))?'checked':''}}>
+                <span class="form-check-label">{{$service->name}}</span>
+
+                @endforeach
+            </div>
+            {{--Service--}}
             <div class="col-12 pt-2">
                 {{-- ['','','','','','','','','img','slug','visible','',''] --}}
                 <button type="submit" class="btn btn-success text-white">Crea appartamento</button>

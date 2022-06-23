@@ -111,6 +111,19 @@
                     value="{{$apartment->price}}" required>
             </div>
             {{-- /price --}}
+            {{-- service --}}
+            <div class="col-12">
+                <h5 class="pt-2">Servizi</h5>
+            </div>
+            <div class="col-12">
+                @foreach($services as $service)
+                <input type="checkbox" value="{{$service->id}}" name="services[]" {{
+                    $apartment->services->contains($service)?'checked':''
+                }}>
+                <span class="form-check-label">{{$service->name}}</span>
+                @endforeach
+            </div>
+            {{-- /service --}}
             <div class="col-12 pt-2">
                 <button type="submit" class="btn btn-success text-white">Aggiorna appartamento</button>
             </div>

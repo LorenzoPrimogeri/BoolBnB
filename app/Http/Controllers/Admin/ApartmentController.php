@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Apartment;
-use Illuminate\Support\Str;
+use App\Service;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -28,10 +28,11 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        return view('admin.apartments.create');
+        $services = Service::all();
+        return view('admin.apartments.create', compact('services'));
     }
 
-    /**
+    /*
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -62,6 +63,10 @@ class ApartmentController extends Controller
         $newApartment->fill($apartment);
         $newApartment->slug = Apartment::convertToSlug($newApartment->title);
         $newApartment->save();
+        if (array_key_exists('services', $apartment)) {
+            $newApartment->services()->sync($apartment['services']);
+        }
+        $newApartment->save();
         return redirect()->route('admin.apartments.index');
     }
 
@@ -84,7 +89,9 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-        return view('admin.apartments.edit', compact('apartment'));
+
+        $services = Service::all();
+        return view('admin.apartments.edit', compact('apartment', 'services'));
     }
 
     /**
@@ -105,6 +112,11 @@ class ApartmentController extends Controller
         $apartment->fill($data);
         $apartment->slug = Apartment::convertToSlug($apartment->title);
 
+        if (array_key_exists('services', $data)) {
+            $apartment->services()->sync($data['services']);
+        } else {
+            $apartment->services()->sync([]);
+        }
         $apartment->update();
         return redirect()->route('admin.apartments.index');
     }
@@ -117,7 +129,10 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
+        //riguardare il delete di Ruggiero con cover
+        $apartment->services()->sync([]);
         $apartment->delete();
+
         return redirect()->route("admin.apartments.index");
     }
 }

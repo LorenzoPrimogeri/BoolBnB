@@ -21,4 +21,8 @@ class Apartment extends Model
         }
         return $alternateslug;
     }
+    public function services()
+    {
+        return $this->belongsToMany('App\Service');
+    }
 }

@@ -87,6 +87,15 @@
             <div class="col-12">
                 <p class="w-100 p-1"> {{$apartment->price}} </p>
             </div>
+            <div class="col-12">
+                <h5 class="pt-2">Service</h5>
+            </div>
+            <div class="col-12">
+                @foreach ($apartment->services as $service)
+                <p class="w-100 p-1">{{$service->name}} </p>
+                @endforeach
+
+            </div>
         </div>
     </div>
 </div>
