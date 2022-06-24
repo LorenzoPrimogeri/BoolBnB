@@ -18,7 +18,7 @@
                 <h4>ID</h4>
             </div>
             <div class="col-3 border-bottom">
-                <h4>Titolo-Marco</h4>
+                <h4>Titolo-Marco-Version-2</h4>
             </div>
             <div class="col-3 border-bottom">
                 <h4>User ID</h4>
@@ -41,7 +41,8 @@
                 <div class="col-3 border-bottom">
                     <a href="{{ route('admin.apartments.show', $apartment->id) }}">show </a>/
                     <a href="{{ route('admin.apartments.edit', $apartment->id) }}">edit </a>/
-                    <form class="d-inline" action="{{ route('admin.apartments.destroy', $apartment->id) }}" method="POST">
+                    <form class="d-inline" action="{{ route('admin.apartments.destroy', $apartment->id) }}"
+                        method="POST">
                         @csrf
                         @method('DELETE')
                         <input name="_method" type="hidden" value="DELETE">
