@@ -16,7 +16,7 @@
     <div class="row">
         @foreach ($apartments as $apartment)
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 p-2 d-flex align-items-center  border-bottom">
-            <img src="{{asset('storage/'. $apartment->img)}}" alt="immagine">
+            <img src="{{asset('uploads/'. $apartment->img)}}" alt="immagine">
         </div>
         <div class="col-xs-3 col-sm-2 col-md-3 col-lg-4 p-2 d-flex align-items-center  border-bottom">
             <p class="m-0">{{$apartment->title}}</p>
