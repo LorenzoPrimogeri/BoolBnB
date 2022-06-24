@@ -52,7 +52,7 @@ class ApartmentController extends Controller
                 'room' => 'required|numeric|min:1|max:15',
                 'bed' => 'required|numeric|min:1|max:30',
                 'bathroom' => 'required|numeric|min:1|max:15',
-                'mq' => 'required|numeric|min:1|max:1000',
+                'mq' => 'required|numeric|min:6|max:1000',
                 'address' => 'required|min:3|max:100',
                 'img' => 'required|image',
                 'price' => 'required|numeric|min:1|max:7000',
@@ -67,6 +67,7 @@ class ApartmentController extends Controller
                 'mq.required' => 'inserisci il numero di metri quadri',
                 'address.required' => 'inserisci l\'indirizzo dell\'appartamento',
                 'img.required' => 'Carica un\'immagine',
+                'img.image' => 'Carica un\'immagine con estensione( JPG, PNG, GIF, , , )',
                 'price.required' => 'inserisci il prezzo',
                 'title.max' => 'hai superato i :max caratteri del titolo',
                 'title.min' => 'il numero minimo di caratteri del titolo è :min',
@@ -96,9 +97,9 @@ class ApartmentController extends Controller
         $newApartment = new Apartment();
         $newApartment->user_id = $user->id;
         $address = $apartment['address'];
-
         $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $address . '.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK');
         $data = $response->json();
+        dd($data);
         $lat = $data['results'][0]['position']['lat'];
         $long = $data['results'][0]['position']['lon'];
         $newApartment->lat = $lat;
@@ -156,7 +157,7 @@ class ApartmentController extends Controller
                 'room' => 'required|numeric|min:1|max:15',
                 'bed' => 'required|numeric|min:1|max:30',
                 'bathroom' => 'required|numeric|min:1|max:15',
-                'mq' => 'required|numeric|min:1|max:1000',
+                'mq' => 'required|numeric|min:5|max:1000',
                 'address' => 'required|min:3|max:100',
                 //'img' => 'required|image',
                 'price' => 'required|numeric|min:1|max:7000',
