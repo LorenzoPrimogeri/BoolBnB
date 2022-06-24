@@ -2,6 +2,8 @@ a {
   color: #af9eff;
   text-decoration: none;
   font-weight: bold;
+  border: 1px solid black;
+  border-radius: 5%;
 }
 
 a a:hover {
