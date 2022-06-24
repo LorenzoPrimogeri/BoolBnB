@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Apartment;
 use App\Service;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
@@ -17,7 +19,10 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::all();
+        $user = Auth::user();
+
+        $apartments = Apartment::where('user_id', $user->id)->get();
+        //  dd($apartments);
         return view('admin.apartments.index', compact('apartments'));
     }
 
@@ -40,32 +45,74 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //['title','room','bed','bathroom','mq','address','lat','lng','img','slug','visible','price','description']
         $request->validate(
-            [ //da riguardare 
-                'title' => 'required|max:250',
-                'description' => 'required|min:10|max:250',
+            [
+                'title' => 'required|min:5|max:30',
+                'description' => 'required|min:10|max:300',
+                'room' => 'required|numeric|min:1|max:15',
+                'bed' => 'required|numeric|min:1|max:30',
+                'bathroom' => 'required|numeric|min:1|max:15',
+                'mq' => 'required|numeric|min:6|max:1000',
+                'address' => 'required|min:3|max:100',
+                'img' => 'required|image',
+                'price' => 'required|numeric|min:1|max:7000',
+
             ],
             [
                 'title.required' => 'Inserire il titolo',
-                'title.max' => 'hai superato i :attribute caratteri',
-                'description.required' => 'Inserire il contenuto del post',
-                'description.max' => 'hai superato i :attribute caratteri',
-                'description.min' => 'devi almeno inserire :attribute caratteri',
+                'description.required' => 'Inserire il contenuto dell\'appartamento',
+                'room.required' => 'inserisci il numero di stanze',
+                'bed.required' => 'inserisci il numero di letti',
+                'bathroom.required' => 'inserisci il numero di bagni',
+                'mq.required' => 'inserisci il numero di metri quadri',
+                'address.required' => 'inserisci l\'indirizzo dell\'appartamento',
+                'img.required' => 'Carica un\'immagine',
+                'img.image' => 'Carica un\'immagine con estensione( JPG, PNG, GIF, , , )',
+                'price.required' => 'inserisci il prezzo',
+                'title.max' => 'hai superato i :max caratteri del titolo',
+                'title.min' => 'il numero minimo di caratteri del titolo è :min',
+                'description.max' => 'hai superato i :max caratteri della descrizione',
+                'description.min' => 'il numero minimo di caratteri della descrizione è :min',
+                'room.max' => 'puoi inserire massimo :max stanze',
+                'room.min' => 'il numero minimo di stanze è :min',
+                'bed.max' => 'puoi inserire massimo :max letti',
+                'bed.min' => 'il numero minimo di letti è :min',
+                'bathroom.max' => 'puoi inserire massimo :max bagni',
+                'bathroom.min' => 'il numero minimo di bagni è :min',
+                'mq.max' => 'puoi inserire massimo :max mq',
+                'mq.min' => 'il numero minimo di mq è :min',
+                'address.max' => 'l\'indirizzo non è valido',
+                'address.min' => 'l\'indirizzo non è valido',
+                'price.max' => 'il prezzo massimo è :max $',
+                'price.min' => 'il prezzo minimo è :min $',
             ]
         );
+        $user = Auth::user();
         $apartment = $request->all();
+
         if (array_key_exists('img', $apartment)) {
             $img_path = Storage::put('uploads', $apartment['img']);
             $apartment['img'] = $img_path;
         }
         $newApartment = new Apartment();
+        $newApartment->user_id = $user->id;
+        $address = $apartment['address'];
+        $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $address . '.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK');
+        $data = $response->json();
+        dd($data);
+        $lat = $data['results'][0]['position']['lat'];
+        $long = $data['results'][0]['position']['lon'];
+        $newApartment->lat = $lat;
+        $newApartment->lng = $long;
+        $newApartment->visible = $apartment['visible'];
         $newApartment->fill($apartment);
         $newApartment->slug = Apartment::convertToSlug($newApartment->title);
         $newApartment->save();
         if (array_key_exists('services', $apartment)) {
             $newApartment->services()->sync($apartment['services']);
         }
+
+
         $newApartment->save();
         return redirect()->route('admin.apartments.index');
     }
@@ -103,12 +150,56 @@ class ApartmentController extends Controller
      */
     public function update(Request $request, Apartment $apartment)
     {
+        $request->validate(
+            [
+                'title' => 'required|min:5|max:30',
+                'description' => 'required|min:10|max:300',
+                'room' => 'required|numeric|min:1|max:15',
+                'bed' => 'required|numeric|min:1|max:30',
+                'bathroom' => 'required|numeric|min:1|max:15',
+                'mq' => 'required|numeric|min:5|max:1000',
+                'address' => 'required|min:3|max:100',
+                //'img' => 'required|image',
+                'price' => 'required|numeric|min:1|max:7000',
+
+            ],
+            [
+                'title.required' => 'Inserire il titolo',
+                'description.required' => 'Inserire il contenuto dell\'appartamento',
+                'room.required' => 'inserisci il numero di stanze',
+                'bed.required' => 'inserisci il numero di letti',
+                'bathroom.required' => 'inserisci il numero di bagni',
+                'mq.required' => 'inserisci il numero di metri quadri',
+                'address.required' => 'inserisci l\'indirizzo dell\'appartamento',
+                'img.required' => 'Carica un\'immagine',
+                'price.required' => 'inserisci il prezzo',
+                'title.max' => 'hai superato i :max caratteri del titolo',
+                'title.min' => 'il numero minimo di caratteri del titolo è :min',
+                'description.max' => 'hai superato i :max caratteri della descrizione',
+                'description.min' => 'il numero minimo di caratteri della descrizione è :min',
+                'room.max' => 'puoi inserire massimo :max stanze',
+                'room.min' => 'il numero minimo di stanze è :min',
+                'bed.max' => 'puoi inserire massimo :max letti',
+                'bed.min' => 'il numero minimo di letti è :min',
+                'bathroom.max' => 'puoi inserire massimo :max bagni',
+                'bathroom.min' => 'il numero minimo di bagni è :min',
+                'mq.max' => 'puoi inserire massimo :max mq',
+                'mq.min' => 'il numero minimo di mq è :min',
+                'address.max' => 'l\'indirizzo non è valido',
+                'address.min' => 'l\'indirizzo non è valido',
+                'price.max' => 'il prezzo massimo è :max $',
+                'price.min' => 'il prezzo minimo è :min $',
+            ]
+        );
+
         $data = $request->all();
+        //  dd($data);
         Storage::delete($apartment->img);
         if (array_key_exists('img', $data)) {
             $img_path = Storage::put('uploads', $data['img']);
             $data['img'] = $img_path;
         }
+        $apartment->visible = $data['visible'];
         $apartment->fill($data);
         $apartment->slug = Apartment::convertToSlug($apartment->title);
 
@@ -132,7 +223,6 @@ class ApartmentController extends Controller
         //riguardare il delete di Ruggiero con cover
         $apartment->services()->sync([]);
         $apartment->delete();
-
         return redirect()->route("admin.apartments.index");
     }
 }

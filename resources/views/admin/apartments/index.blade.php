@@ -34,9 +34,6 @@
                 <button class="btn btn-danger w-100 " onclick="return confirm('Are your sure?')" type="submit">CANCELLA</button>
             </form>
         </div>
-        @endforeach
 
     </div>
-
-</div>
 @endsection
