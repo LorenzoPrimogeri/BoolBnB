@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-10  border-bottom">
             <h1>
-                Creazione nuovo appartamento
+                Creazione appartamento
             </h1>
         </div>
         <div class="col-2  border-bottom d-flex justify-content-end">
