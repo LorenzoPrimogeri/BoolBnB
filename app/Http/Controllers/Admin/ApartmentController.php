@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Apartment;
 use App\Service;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
@@ -17,7 +19,10 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::all();
+        $user = Auth::user();
+
+        $apartments = Apartment::where('user_id', $user->id)->get();
+        //  dd($apartments);
         return view('admin.apartments.index', compact('apartments'));
     }
 
@@ -40,9 +45,11 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //['title','room','bed','bathroom','mq','address','lat','lng','img','slug','visible','price','description']
+
+
         $request->validate(
             [ //da riguardare 
+                //['title','room','bed','bathroom','mq','address','lat','lng','img','slug','visible','price','description']
                 'title' => 'required|max:250',
                 'description' => 'required|min:10|max:250',
             ],
@@ -54,18 +61,31 @@ class ApartmentController extends Controller
                 'description.min' => 'devi almeno inserire :attribute caratteri',
             ]
         );
+        $user = Auth::user();
         $apartment = $request->all();
+
         if (array_key_exists('img', $apartment)) {
             $img_path = Storage::put('uploads', $apartment['img']);
             $apartment['img'] = $img_path;
         }
         $newApartment = new Apartment();
+        $newApartment->user_id = $user->id;
+        $address = $apartment['address'];
+
+        $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $address . '.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK');
+        $response->json();
+        $lat = '';
+        $long = '';
+        dd($response);
+
         $newApartment->fill($apartment);
         $newApartment->slug = Apartment::convertToSlug($newApartment->title);
         $newApartment->save();
         if (array_key_exists('services', $apartment)) {
             $newApartment->services()->sync($apartment['services']);
         }
+
+
         $newApartment->save();
         return redirect()->route('admin.apartments.index');
     }

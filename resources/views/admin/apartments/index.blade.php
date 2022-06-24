@@ -21,7 +21,7 @@
             <h4>Titolo</h4>
         </div>
         <div class="col-3 border-bottom">
-            <h4>Slug</h4>
+            <h4>User ID</h4>
         </div>
         <div class="col-3 border-bottom">
             <h4>Azioni</h4>
@@ -36,7 +36,7 @@
             <p>{{$apartment->title}}</p>
         </div>
         <div class="col-3 border-bottom">
-            <p>{{$apartment->slug}}</p>
+            <p>{{$apartment->user_id}}</p>
         </div>
         <div class="col-3 border-bottom">
             <a href="{{route('admin.apartments.show', $apartment->id)}}">show </a>/
@@ -51,7 +51,6 @@
             </form>
         </div>
         @endforeach
-
     </div>
 
 </div>
