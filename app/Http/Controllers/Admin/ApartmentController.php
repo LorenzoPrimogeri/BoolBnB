@@ -158,7 +158,7 @@ class ApartmentController extends Controller
                 'bathroom' => 'required|numeric|min:1|max:15',
                 'mq' => 'required|numeric|min:1|max:1000',
                 'address' => 'required|min:3|max:100',
-                'img' => 'required|image',
+                //'img' => 'required|image',
                 'price' => 'required|numeric|min:1|max:7000',
 
             ],
@@ -192,11 +192,13 @@ class ApartmentController extends Controller
         );
 
         $data = $request->all();
+        //  dd($data);
         Storage::delete($apartment->img);
         if (array_key_exists('img', $data)) {
             $img_path = Storage::put('uploads', $data['img']);
             $data['img'] = $img_path;
         }
+        $apartment->visible = $data['visible'];
         $apartment->fill($data);
         $apartment->slug = Apartment::convertToSlug($apartment->title);
 

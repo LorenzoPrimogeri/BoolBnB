@@ -78,8 +78,8 @@
                 <h5 class="pt-2">Visible</h5>
             </div>
             <div class="col-12">
-                {{-- Fare funzione per stampare visibile/non visibile --}}
-                <p class="w-100 p-1"> {{$apartment->visible}} </p>
+                {{-- Fare funzione per stampare visibile/non visibile  Fatto--}}
+                <p class="w-100 p-1"> {{$apartment->visible?'visibile al momento':'Non visibile'}} </p>
             </div>
             <div class="col-12">
                 <h5 class="pt-2">Prezzo</h5>

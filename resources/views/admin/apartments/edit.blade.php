@@ -124,6 +124,19 @@
                 @endforeach
             </div>
             {{-- /service --}}
+            {{-- service --}}
+            <div class="col-12">
+                <h5 class="pt-2">Visibile</h5>
+            </div>
+            <div class="col-12">
+                <select class="form-select" aria-label="Default select example" name="visible">
+                    <option value="{{$apartment->visible}}">{{$apartment->visible?'Visibile':'Non visibile'}}
+                    </option>
+                    <option value="{{!$apartment->visible}}">{{!$apartment->visible?'Visibile':'Non
+                        visibile'}}</option>
+                </select>
+            </div>
+            {{-- /service --}}
             <div class="col-12 pt-2">
                 <button type="submit" class="btn btn-success text-white">Aggiorna appartamento</button>
             </div>
