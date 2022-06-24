@@ -103,7 +103,7 @@ class ApartmentController extends Controller
         $long = $data['results'][0]['position']['lon'];
         $newApartment->lat = $lat;
         $newApartment->lng = $long;
-
+        $newApartment->visible = $apartment['visible'];
         $newApartment->fill($apartment);
         $newApartment->slug = Apartment::convertToSlug($newApartment->title);
         $newApartment->save();
@@ -222,7 +222,6 @@ class ApartmentController extends Controller
         //riguardare il delete di Ruggiero con cover
         $apartment->services()->sync([]);
         $apartment->delete();
-
         return redirect()->route("admin.apartments.index");
     }
 }

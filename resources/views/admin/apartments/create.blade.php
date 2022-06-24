@@ -120,6 +120,17 @@
                 @endforeach
             </div>
             {{--Service--}}
+            {{-- Visible --}}
+            <div class="col-12">
+                <h5 class="pt-2">Visibile</h5>
+            </div>
+            <div class="col-12">
+                <select class="form-select" aria-label="Default select example" name="visible">
+                    <option value="1">si</option>
+                    <option value="0">no</option>
+                </select>
+            </div>
+            {{-- /Visible --}}
             <div class="col-12 pt-2">
                 {{-- ['','','','','','','','','img','slug','visible','',''] --}}
                 <button type="submit" class="btn btn-success text-white">Crea appartamento</button>

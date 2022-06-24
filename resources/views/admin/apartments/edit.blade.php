@@ -124,7 +124,7 @@
                 @endforeach
             </div>
             {{-- /service --}}
-            {{-- service --}}
+            {{-- Visible --}}
             <div class="col-12">
                 <h5 class="pt-2">Visibile</h5>
             </div>
@@ -132,11 +132,16 @@
                 <select class="form-select" aria-label="Default select example" name="visible">
                     <option value="{{$apartment->visible}}">{{$apartment->visible?'Visibile':'Non visibile'}}
                     </option>
-                    <option value="{{!$apartment->visible}}">{{!$apartment->visible?'Visibile':'Non
+                    @if ($apartment->visible == 1)
+                    <option value="0">{{!$apartment->visible?'Visibile':'Non
                         visibile'}}</option>
+                    @else
+                    <option value="1">{{!$apartment->visible?'Visibile':'Non
+                        visibile'}}</option>
+                    @endif
                 </select>
             </div>
-            {{-- /service --}}
+            {{-- /Visible --}}
             <div class="col-12 pt-2">
                 <button type="submit" class="btn btn-success text-white">Aggiorna appartamento</button>
             </div>
