@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.app')
 @section('content')
 <div class="container">
     <div class="row">
@@ -46,8 +46,7 @@
                 @method('DELETE')
                 <input name="_method" type="hidden" value="DELETE">
 
-                <button class="border-0 text-primary bg-transparent" onclick="return confirm('Are your sure?')"
-                    type="submit">remove</button>
+                <button class="border-0 text-primary bg-transparent" onclick="return confirm('Are your sure?')" type="submit">remove</button>
             </form>
         </div>
         @endforeach

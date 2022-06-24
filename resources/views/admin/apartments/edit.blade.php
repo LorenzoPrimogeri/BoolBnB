@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.app')
 @section('content')
 <div class="container">
     <div class="row">
@@ -33,8 +33,7 @@
                 <h5 class="pt-2">Titolo</h5>
             </div>
             <div class="col-12">
-                <input class="w-100 p-1" type="text" name="title" placeholder="Inserisci il titolo"
-                    value="{{$apartment->title}}" required>
+                <input class="w-100 p-1" type="text" name="title" placeholder="Inserisci il titolo" value="{{$apartment->title}}" required>
             </div>
             {{-- /Titolo --}}
             {{--description--}}
@@ -50,8 +49,7 @@
                 <h5 class="pt-2">Stanze</h5>
             </div>
             <div class="col-12">
-                <input class="w-100 p-1" type="number" name="room" placeholder="Inserisci il numero di stanze"
-                    value="{{$apartment->room}}" required>
+                <input class="w-100 p-1" type="number" name="room" placeholder="Inserisci il numero di stanze" value="{{$apartment->room}}" required>
             </div>
             {{-- /room --}}
             {{-- bed --}}
@@ -59,8 +57,7 @@
                 <h5 class="pt-2">letti</h5>
             </div>
             <div class="col-12">
-                <input class="w-100 p-1" type="number" name="bed" placeholder="Inserisci il numero di letti"
-                    value="{{$apartment->bed}}" required>
+                <input class="w-100 p-1" type="number" name="bed" placeholder="Inserisci il numero di letti" value="{{$apartment->bed}}" required>
             </div>
             {{-- /bed --}}
             {{-- bathroom --}}
@@ -68,8 +65,7 @@
                 <h5 class="pt-2">bagni</h5>
             </div>
             <div class="col-12">
-                <input class="w-100 p-1" type="number" name="bathroom" placeholder="Inserisci il numero di bagni"
-                    value="{{$apartment->bathroom}}" required>
+                <input class="w-100 p-1" type="number" name="bathroom" placeholder="Inserisci il numero di bagni" value="{{$apartment->bathroom}}" required>
             </div>
             {{-- /bathroom --}}
             {{-- mq --}}
@@ -77,8 +73,7 @@
                 <h5 class="pt-2">Metri quadri</h5>
             </div>
             <div class="col-12">
-                <input class="w-100 p-1" type="number" name="mq" placeholder="Inserisci il numero di quadri"
-                    value="{{$apartment->mq}}" required>
+                <input class="w-100 p-1" type="number" name="mq" placeholder="Inserisci il numero di quadri" value="{{$apartment->mq}}" required>
             </div>
             {{-- /mq --}}
             {{-- address --}}
@@ -86,8 +81,7 @@
                 <h5 class="pt-2">Indirizzo</h5>
             </div>
             <div class="col-12">
-                <input class="w-100 p-1" type="text" name="address" placeholder="Inserisci l'indirizzo"
-                    value="{{$apartment->address}}" required>
+                <input class="w-100 p-1" type="text" name="address" placeholder="Inserisci l'indirizzo" value="{{$apartment->address}}" required>
             </div>
             {{-- /address --}}
             {{-- img --}}
@@ -107,8 +101,7 @@
                 <h5 class="pt-2">Prezzo</h5>
             </div>
             <div class="col-12">
-                <input class="w-100 p-1" type="text" name="price" placeholder="Inserisci il prezzo"
-                    value="{{$apartment->price}}" required>
+                <input class="w-100 p-1" type="text" name="price" placeholder="Inserisci il prezzo" value="{{$apartment->price}}" required>
             </div>
             {{-- /price --}}
             {{-- service --}}

@@ -1,0 +1,13 @@
+@import url("./_layout-preset.css");
+
+.cnt-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 150px;
+
+    img {
+        width: 90%;
+    }
+}
