@@ -51,7 +51,7 @@
             </div>
             <div class="col-12">
                 <input class="w-100 p-1" type="number" name="room" placeholder="Inserisci il numero di stanze"
-                    value="{{old('room')}}" required>
+                    value="{{old('room')}}">
             </div>
             {{-- /room --}}
             {{-- bed --}}
