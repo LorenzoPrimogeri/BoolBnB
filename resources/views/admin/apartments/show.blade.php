@@ -39,31 +39,31 @@
                 <p class="w-100 p-1"> {{$apartment->address}} </p>
             </div>
             <div class="col-12">
-                <h5 class="pt-2">cover</h5>
+                <h5 class="pt-2">Immagine</h5>
             </div>
             <div class="col-12">
                 <img class="w-100" src="{{asset('storage/'. $apartment->img)}}" alt="{{$apartment->title}}">
             </div>
             <div class="col-12">
-                <h5 class="pt-2">descrizione</h5>
+                <h5 class="pt-2">Descrizione</h5>
             </div>
             <div class="col-12">
                 <p class="w-100 p-1"> {{$apartment->description}} </p>
             </div>
             <div class="col-12">
-                <h5 class="pt-2">Numero Stanze</h5>
+                <h5 class="pt-2">Stanze</h5>
             </div>
             <div class="col-12">
                 <p class="w-100 p-1"> {{$apartment->room}} </p>
             </div>
             <div class="col-12">
-                <h5 class="pt-2">Numero Bagni</h5>
+                <h5 class="pt-2">Bagni</h5>
             </div>
             <div class="col-12">
                 <p class="w-100 p-1"> {{$apartment->bathroom}} </p>
             </div>
             <div class="col-12">
-                <h5 class="pt-2">Numero letti</h5>
+                <h5 class="pt-2">Letti</h5>
             </div>
             <div class="col-12">
                 <p class="w-100 p-1"> {{$apartment->bed}} </p>
@@ -75,7 +75,7 @@
                 <p class="w-100 p-1"> {{$apartment->mq}} </p>
             </div>
             <div class="col-12">
-                <h5 class="pt-2">Visible</h5>
+                <h5 class="pt-2">Visibile</h5>
             </div>
             <div class="col-12">
                 {{-- Fare funzione per stampare visibile/non visibile --}}
@@ -88,7 +88,7 @@
                 <p class="w-100 p-1"> {{$apartment->price}} </p>
             </div>
             <div class="col-12">
-                <h5 class="pt-2">Service</h5>
+                <h5 class="pt-2">Servizi</h5>
             </div>
             <div class="col-12">
                 @foreach ($apartment->services as $service)
