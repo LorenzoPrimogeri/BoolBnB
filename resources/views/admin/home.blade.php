@@ -24,7 +24,7 @@
 
 <body>
     <nav class="navbar navbar-expand-md flex-md-nowrap p-0">
-        <div class="cnt-logo ">
+        <div class="cnt-logo">
             <img src="{{url('/img/boolbnb-logo.svg')}}" alt="logo">
         </div>
         <ul class="navbar-nav px-3 ml-auto">
