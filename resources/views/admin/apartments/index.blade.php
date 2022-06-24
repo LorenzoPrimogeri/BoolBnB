@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <div class="row d-flex flex-column">
-        <div class=" col-12   border-bottom d-flex justify-content-center ">
+        <div class=" col-12    d-flex justify-content-center ">
             <h1>
                 Appartamenti
             </h1>
@@ -15,13 +15,13 @@
     </div>
     <div class="row">
         @foreach ($apartments as $apartment)
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 p-2 d-flex align-items-center  border-bottom">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 p-2 d-flex align-items-center  border-bottom">
             <img src="{{asset('/storage/'. $apartment->img)}}" alt="immagine">
         </div>
-        <div class="col-xs-3 col-sm-2 col-md-3 col-lg-3 p-2 d-flex align-items-center  border-bottom">
+        <div class="col-xs-3 col-sm-2 col-md-3 col-lg-4 p-2 d-flex align-items-center  border-bottom">
             <p class="m-0">{{$apartment->title}}</p>
         </div>
-        <div class="col-xs-3 col-sm-2 col-md-3 col-lg-3 p-2 d-flex align-items-center  border-bottom">
+        <div class="col-xs-3 col-sm-2 col-md-3 col-lg-4 p-2 d-flex align-items-center  border-bottom">
             <p class="m-0">{{$apartment->address}}</p>
         </div>
         <div class="pt-2 pb-2 col-xs-3 col-sm-3 col-md-3 col-lg-2 flex-md-column d-flex align-items-center justify-content-center  border-bottom">
