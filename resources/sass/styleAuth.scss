@@ -1,4 +1,14 @@
-@import url("./_layout-preset.css");
+a {
+    color: #af9eff;
+    text-decoration: none;
+    font-weight: bold;
+
+    a:hover {
+        color: #d1c6ff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
 
 .cnt-logo {
     display: flex;
