@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 <div class="container">
     <div class="row d-flex flex-column">
         <div class=" col-12 d-flex justify-content-center ">
@@ -24,8 +25,7 @@
         <div class="col-xs-3 col-sm-2 col-md-3 col-lg-4 p-2 d-flex align-items-center  border-bottom">
             <p class="m-0">{{$apartment->address}}</p>
         </div>
-        <div
-            class="pt-2 pb-2 col-xs-3 col-sm-3 col-md-3 col-lg-2 flex-md-column d-flex align-items-center justify-content-center  border-bottom">
+        <div class="pt-2 pb-2 col-xs-3 col-sm-3 col-md-3 col-lg-2 flex-md-column d-flex align-items-center justify-content-center  border-bottom">
             <a class='btn btn-primary w-100' href="{{route('admin.apartments.show', $apartment->id)}}">DETTAGLI </a>
             <a class='m-1 btn btn-secondary w-100' href="{{route('admin.apartments.edit', $apartment->id)}}">MODIFICA
             </a>
@@ -33,8 +33,7 @@
                 @csrf
                 @method('DELETE')
                 <input name="_method" type="hidden" value="DELETE">
-                <button class="btn btn-danger w-100 " onclick="return confirm('Are your sure?')"
-                    type="submit">CANCELLA</button>
+                <button class="btn btn-danger w-100 " onclick="return confirm('Are your sure?')" type="submit">CANCELLA</button>
             </form>
         </div>
         @endforeach
