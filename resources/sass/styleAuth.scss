@@ -23,6 +23,13 @@ a {
     }
 }
 
+.cnt-img {
+    width: 150px;
+    img {
+        width: 100%;
+    }
+}
+
 .btn-insert {
     background-color: $clr-brand;
     color: white;
@@ -42,7 +49,7 @@ a {
 
 .nav-sidebar-home {
     height: 100vh;
-    background-color: $clr-sidebar ;
+    background-color: $clr-sidebar;
 
     a {
         color: white;

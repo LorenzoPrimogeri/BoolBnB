@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,8 +24,7 @@ Route::middleware('auth')
         Route::resource('/apartments', 'ApartmentController');
     });
 
- /*
+
 Route::get('{any?}', function () {
-    return view('guest.home');
+    return view('auth.login');
 })->where('any', '.*');
-    */

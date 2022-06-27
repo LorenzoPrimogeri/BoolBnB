@@ -18,6 +18,14 @@ a a:hover {
   cursor: pointer;
 }
 
+.cnt-img {
+  width: 150px;
+}
+
+.cnt-img img {
+  width: 100%;
+}
+
 .btn-insert {
   background-color: #7274b4;
   color: white;

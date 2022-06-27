@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+* {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+[class*="col-"] {
+    /* flex-direction: grow basis width; */
+    /* flex-direction: 0 0 auto; */
+}
+[class*="col-"] {
+    position: relative;
+}
+.row {
+    display: flex;
+}
+.col-1 {
+    flex-basis: calc((100% / 12) * 1);
+}
+.col-2 {
+    flex-basis: calc((100% / 12) * 2);
+}
+.col-3 {
+    flex-basis: calc((100% / 12) * 3);
+}
+.col-4 {
+    flex-basis: calc((100% / 12) * 4);
+}
+.col-5 {
+    flex-basis: calc((100% / 12) * 5);
+}
+.col-6 {
+    flex-basis: calc((100% / 12) * 6);
+}
+.col-7 {
+    flex-basis: calc((100% / 12) * 7);
+}
+.col-8 {
+    flex-basis: calc((100% / 12) * 8);
+}
+.col-9 {
+    flex-basis: calc((100% / 12) * 9);
+}
+.col-10 {
+    flex-basis: calc((100% / 12) * 10);
+}
+.col-11 {
+    flex-basis: calc((100% / 12) * 11);
+}
+.col-12 {
+    flex-basis: calc((100% / 12) * 12);
+}
+.d-flex {
+    display: flex;
+}
+.flex-dr-col {
+    flex-direction: column;
+}
+.w-auto {
+    width: auto;
+}
+.h-vh {
+    height: 100vh;
+}
+.gp-5 {
+    gap: 5px;
+}
+.gp-10 {
+    gap: 10px;
+}
+.gp-15 {
+    gap: 15px;
+}
+.gp-20 {
+    gap: 20px;
+}
+.gp-25 {
+    gap: 25px;
+}
+.gp-30 {
+    gap: 30px;
+}
+.jc-c {
+    justify-content: center;
+}
+.w-100 {
+    max-width: 100%;
+}
+.w-max {
+    width: max-content;
+}
+.h-100 {
+    height: 100%;
+}
+.txt-c {
+    font-weight: 600;
+    margin: 0 15px;
+    text-align: center;
+}
+.m-tb {
+    margin: 10px 0;
+}
+.pd-20 {
+    padding: 20px !important;
+}
+.pd-20-lr {
+    padding: 0 20px !important;
+}
+.algn-itm-init {
+    align-items: initial !important;
+}
+.b-0 {
+    border: 0 !important;
+}
+.red {
+    color: red !important;
+}
+
+@media screen and (max-width: 480px) {
+    .col-xs-12 {
+        flex-basis: calc((100% / 12) * 12);
+    }
+}
