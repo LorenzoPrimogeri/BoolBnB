@@ -99,7 +99,6 @@ class ApartmentController extends Controller
         $address = $apartment['address'];
         $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $address . '.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK');
         $data = $response->json();
-        /* dd($data); */
         $lat = $data['results'][0]['position']['lat'];
         $long = $data['results'][0]['position']['lon'];
         $newApartment->lat = $lat;
@@ -134,11 +133,15 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Apartment $apartment)
+    public function edit($id)
     {
+        //dd(Auth::id());
+        $user = Auth::user()->id;
+
+        $apartmentEdit = Apartment::where('user_id', '=', $user)->findOrFail($id);
 
         $services = Service::all();
-        return view('admin.apartments.edit', compact('apartment', 'services'));
+        return view('admin.apartments.edit', compact('apartmentEdit', 'services'));
     }
 
     /**
