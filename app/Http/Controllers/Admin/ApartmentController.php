@@ -134,12 +134,17 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Apartment $apartment)
+    public function edit($id)
     {
+        //dd(Auth::id());
+        $user = Auth::user()->id;
+
+        $apartmentEdit = Apartment::where('user_id', '=', $user)->findOrFail($id);
 
         $services = Service::all();
-        return view('admin.apartments.edit', compact('apartment', 'services'));
+        return view('admin.apartments.edit', compact('apartmentEdit', 'services'));
     }
+
 
     /**
      * Update the specified resource in storage.
