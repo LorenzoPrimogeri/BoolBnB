@@ -12,6 +12,41 @@
 
     <title>Boolbnb</title>
 
+    <link rel='stylesheet' type='text/css'
+        href='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css' />
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.1.2-public-preview.15/services/services-web.min.js">
+    </script>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js">
+    </script>
+
+    <script>
+        (function() {
+            window.SS = window.SS || {};
+            SS.Require = function(callback) {
+                if (typeof callback === 'function') {
+                    if (window.SS && SS.EventTrack) {
+                        callback();
+                    } else {
+                        var siteSpect = document.getElementById('siteSpectLibraries');
+                        var head = document.getElementsByTagName('head')[0];
+                        if (siteSpect === null && typeof head !== 'undefined') {
+                            siteSpect = document.createElement('script');
+                            siteSpect.type = 'text/javascript';
+                            siteSpect.src = '/__ssobj/core.js+ssdomvar.js+generic-adapter.js';
+                            siteSpect.async = true;
+                            siteSpect.id = 'siteSpectLibraries';
+                            head.appendChild(siteSpect);
+                        }
+                        if (window.addEventListener) {
+                            siteSpect.addEventListener('load', callback, false);
+                        } else {
+                            siteSpect.attachEvent('onload', callback, false);
+                        }
+                    }
+                }
+            };
+        })();
+    </script>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Fonts -->
@@ -21,6 +56,8 @@
     {{--
     <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/searchstyle.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/search.js') }}" defer></script>
     {{--
     <link href="{{ asset('css/styleAuth.css') }}" rel="stylesheet"> --}}
 </head>
@@ -128,7 +165,7 @@
                 <div class="cnt-ul">
                     <ul>
                         <li>
-                            <div class="ico aprt"></div><a href="dashboard.php">Dashboard</a>
+                            <div class="ico aprt"></div><a href="{{route('admin.apartments.index')}}">Dashboard</a>
                         </li>
                         <li>
                             <div class="ico msg"></div><a href="#">Messaggi</a>
