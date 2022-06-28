@@ -99,7 +99,7 @@ class ApartmentController extends Controller
         $address = $apartment['address'];
         $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $address . '.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK');
         $data = $response->json();
-        dd($data);
+        /* dd($data); */
         $lat = $data['results'][0]['position']['lat'];
         $long = $data['results'][0]['position']['lon'];
         $newApartment->lat = $lat;
@@ -194,7 +194,7 @@ class ApartmentController extends Controller
 
         $data = $request->all();
         //  dd($data);
-        Storage::delete($apartment->img);
+        /* Storage::delete($apartment->img); */
         if (array_key_exists('img', $data)) {
             $img_path = Storage::put('uploads', $data['img']);
             $data['img'] = $img_path;

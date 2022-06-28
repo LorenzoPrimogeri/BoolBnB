@@ -1,57 +1,108 @@
-@extends('layouts.dashboard')
+@extends('layouts.app')
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-10  border-bottom">
-            <h1>
-                Tutti gli Appartamenti
-            </h1>
+    <div class="main-slct-item">
+        <div class="cnt-slct-btn">
+            <div class="cnt-th cnt-btn h-100">
+                <a href="{{ route('admin.apartments.create') }}">
+                    <button>Inserisci</button>
+                </a>
+            </div>
         </div>
-        <div class="col-2 pb-2 border-bottom d-flex justify-content-end">
-            <div>
-                <a class="btn btn-primary" href="{{ route('admin.apartments.create') }}">Crea nuovo appartamento</a>
+        <div class="cnt-item-dash">
+            <div class="cnt-table">
+                <div class="main-body-th">
+                    <div class="cnt-th col-3">Immagine</div>
+                    <div class="cnt-th col-3">Titolo</div>
+                    <div class="cnt-th col-3">Prezzo</div>
+                    <div class="cnt-th col-3"></div>
+                </div>
+                @foreach ($apartments as $apartment)
+                    <div class="main-columns">
+                        <div class="cnt-column col-3">
+                            <div class="cnt-th">
+                                <div class="cnt-img">
+                                    <img src="{{ asset('storage/' . $apartment->img) }}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cnt-column col-3">
+                            <div class="cnt-th h-100">
+                                {{ $apartment->title }}
+                            </div>
+                        </div>
+                        <div class="cnt-column col-3">
+                            <div class="cnt-th h-100">
+                                {{ $apartment->price }}
+                            </div>
+                        </div>
+                        <div class="cnt-column col-3">
+                            <div class="cnt-th cnt-btn h-100">
+                                <a href="{{ route('admin.apartments.show', $apartment->id) }}">
+                                    <button>Mostra</button>
+                                </a>
+                                <a href="{{ route('admin.apartments.edit', $apartment->id) }}">
+                                    <button>Modifica</button>
+                                </a>
+                                <form class="d-inline  w-100"
+                                    action="{{ route('admin.apartments.destroy', $apartment->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input name="_method" type="hidden" value="DELETE">
+                                    <button class="btn btn-danger w-100 " onclick="return confirm('Are your sure?')"
+                                        type="submit">Elimina</button>
+                                </form>
+                                {{-- <a href="#">
+                                        <button>Elimina</button>
+                                    </a> --}}
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
-    <div class="row py-2 ">
-        <div class="col-3 border-bottom">
-            <h4>ID</h4>
+    {{-- </main> --}}
+    {{-- <div class="container">
+        <div class="row d-flex flex-column">
+            <div class=" col-12 d-flex justify-content-center ">
+                <h1>
+                    Appartamenti
+                </h1>
+            </div>
+            <div class=" col-12 p-2  border-bottom d-flex justify-content-center">
+                <div>
+                    <a class="btn btn-insert " href="{{ route('admin.apartments.create') }}">Inserisci</a>
+                </div>
+            </div>
         </div>
-        <div class="col-3 border-bottom">
-            <h4>Titolo-Marco-Version-2</h4>
+        <div class="row">
+            @foreach ($apartments ?? '' as $apartment)
+                <div class="cnt-img col-xs-3 col-sm-3 col-md-3 col-lg-2 p-2 d-flex align-items-center  border-bottom">
+                    <img src="{{ asset('storage/' . $apartment->img) }}" alt="immagine">
+                </div>
+                <div class="col-xs-3 col-sm-2 col-md-3 col-lg-4 p-2 d-flex align-items-center  border-bottom">
+                    <p class="m-0">{{ $apartment->title }}</p>
+                </div>
+                <div class="col-xs-3 col-sm-2 col-md-3 col-lg-4 p-2 d-flex align-items-center  border-bottom">
+                    <p class="m-0">{{ $apartment->address }}</p>
+                </div>
+                <div
+                    class="pt-2 pb-2 col-xs-3 col-sm-3 col-md-3 col-lg-2 flex-md-column d-flex align-items-center justify-content-center  border-bottom">
+                    <a class='btn btn-primary w-100' href="{{ route('admin.apartments.show', $apartment->id) }}">DETTAGLI
+                    </a>
+                    <a class='m-1 btn btn-secondary w-100'
+                        href="{{ route('admin.apartments.edit', $apartment->id) }}">MODIFICA
+                    </a>
+                    <form class="d-inline  w-100" action="{{ route('admin.apartments.destroy', $apartment->id) }}"
+                        method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <input name="_method" type="hidden" value="DELETE">
+                        <button class="btn btn-danger w-100 " onclick="return confirm('Are your sure?')"
+                            type="submit">CANCELLA</button>
+                    </form>
+                </div>
+            @endforeach
         </div>
-        <div class="col-3 border-bottom">
-            <h4>User ID</h4>
-        </div>
-        <div class="col-3 border-bottom">
-            <h4>Azioni</h4>
-        </div>
-    </div>
-    <div class="row py-2 ">
-        @foreach ($apartments as $apartment)
-        <div class="col-3 border-bottom">
-            <p>{{ $apartment->id }}</p>
-        </div>
-        <div class="col-3 border-bottom">
-            <p>{{ $apartment->title }}</p>
-        </div>
-        <div class="col-3 border-bottom">
-            <p>{{ $apartment->user_id }}</p>
-        </div>
-        <div class="col-3 border-bottom">
-            <a href="{{ route('admin.apartments.show', $apartment->id) }}">show </a>/
-            <a href="{{ route('admin.apartments.edit', $apartment->id) }}">edit </a>/
-            <form class="d-inline" action="{{ route('admin.apartments.destroy', $apartment->id) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <input name="_method" type="hidden" value="DELETE">
-
-                <button class="border-0 text-primary bg-transparent" onclick="return confirm('Are your sure?')"
-                    type="submit">remove</button>
-            </form>
-        </div>
-        @endforeach
-    </div>
-
-</div>
+    </div> --}}
 @endsection
