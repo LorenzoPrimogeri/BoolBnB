@@ -21,6 +21,17 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+import tt from '@tomtom-international/web-sdk-maps';
+
+
+
+var map = tt.map({
+    key: 'NJWytmtgnBFV1Gj4fOdLxqoKVCnhN4c0',
+    container: 'map',
+});
+map.addControl(new tt.FullscreenControl());
+map.addControl(new tt.NavigationControl());
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
