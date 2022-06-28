@@ -1,9 +1,4 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-<<<<<<< HEAD
-    "/css/dashboard.css": "/css/dashboard.css",
-=======
->>>>>>> 0abfbce7f7cb3e944baf2d2f4fdc6e1259943377
-    "/css/styleAuth.css": "/css/styleAuth.css"
+    "/css/app.css": "/css/app.css"
 }
