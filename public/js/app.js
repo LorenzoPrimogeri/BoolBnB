@@ -49924,6 +49924,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./resources/sass/dashboard.scss":
 /*!***************************************!*\
   !*** ./resources/sass/dashboard.scss ***!
@@ -49935,6 +49936,8 @@ throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\
 
 /***/ }),
 
+=======
+>>>>>>> 0abfbce7f7cb3e944baf2d2f4fdc6e1259943377
 /***/ "./resources/sass/styleAuth.scss":
 /*!***************************************!*\
   !*** ./resources/sass/styleAuth.scss ***!
@@ -49942,11 +49945,16 @@ throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nError: ENOENT: no such file or directory, open '/Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/styleAuth.scss'\n    at /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/node_modules/webpack/lib/NormalModule.js:316:20\n    at /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/node_modules/loader-runner/lib/LoaderRunner.js:203:19\n    at /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/node_modules/enhanced-resolve/lib/CachedInputFileSystem.js:85:15\n    at processTicksAndRejections (node:internal/process/task_queues:78:11)");
+=======
+throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nError: ENOENT: no such file or directory, open 'C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\resources\\sass\\styleAuth.scss'\n    at C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\webpack\\lib\\NormalModule.js:316:20\n    at C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\loader-runner\\lib\\LoaderRunner.js:203:19\n    at C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\enhanced-resolve\\lib\\CachedInputFileSystem.js:85:15\n    at processTicksAndRejections (node:internal/process/task_queues:78:11)");
+>>>>>>> 0abfbce7f7cb3e944baf2d2f4fdc6e1259943377
 
 /***/ }),
 
 /***/ 0:
+<<<<<<< HEAD
 /*!*****************************************************************************************************************************!*\
   !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/dashboard.scss ./resources/sass/styleAuth.scss ***!
   \*****************************************************************************************************************************/
@@ -49957,6 +49965,17 @@ __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/
 __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/dashboard.scss */"./resources/sass/dashboard.scss");
 module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/styleAuth.scss */"./resources/sass/styleAuth.scss");
+=======
+/*!*********************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/styleAuth.scss ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! C:\Users\Michele\Documents\Boolean\Esercizi\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Users\Michele\Documents\Boolean\Esercizi\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\Users\Michele\Documents\Boolean\Esercizi\BoolBnB\resources\sass\styleAuth.scss */"./resources/sass/styleAuth.scss");
+>>>>>>> 0abfbce7f7cb3e944baf2d2f4fdc6e1259943377
 
 
 /***/ })
