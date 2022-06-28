@@ -136,18 +136,22 @@
     }
 </style>
 <script>
-    let address = [];
+    let address = ['afghanistan','albania','livorno'];
     function array(){
         var indirizzo = document.getElementById('myInput').value;
         if(indirizzo.length >5){
-            let arrayAddress=[];
+       address=[];
         axios
       .get('https://api.tomtom.com/search/2/geocode/' +indirizzo+'.json?storeResult=false&limit=5&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK')
       .then((response) => {
+        console.log(response);
         this.result = response.data.results[0].address.freeformAddress;
         this.result2 = response.data.results[1].address.freeformAddress;
-        arrayAddress.push(this.result);
-        address= arrayAddress;
+        this.result3 = response.data.results[2].address.freeformAddress;
+        this.result4 = response.data.results[3].address.freeformAddress;
+        this.result5 = response.data.results[4].address.freeformAddress;
+        address.push(this.result,this.result2,this.result3,this.result4,this.result5);
+       // address= arrayAddress;
         console.log(address);
       });
     }
@@ -194,7 +198,7 @@
       }
   });
   /*execute a function presses a key on the keyboard:*/
-  inp.addEventListener("keydown", function(e) {
+  inp.addEventListener("onkeyup", function(e) {
       var x = document.getElementById(this.id + "autocomplete-list");
       if (x) x = x.getElementsByTagName("div");
       if (e.keyCode == 40) {

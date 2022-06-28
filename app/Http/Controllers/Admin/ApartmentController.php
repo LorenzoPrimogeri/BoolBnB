@@ -138,10 +138,10 @@ class ApartmentController extends Controller
         //dd(Auth::id());
         $user = Auth::user()->id;
 
-        $apartmentEdit = Apartment::where('user_id', '=', $user)->findOrFail($id);
+        $apartment = Apartment::where('user_id', '=', $user)->findOrFail($id);
 
         $services = Service::all();
-        return view('admin.apartments.edit', compact('apartmentEdit', 'services'));
+        return view('admin.apartments.edit', compact('apartment', 'services'));
     }
 
     /**
