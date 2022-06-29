@@ -1,22 +1,3 @@
-/* SIGNUP */
-/* nav,
-.cnt-obj-hdr:nth-child(3) {
-    display: none;
-}
-.cnt-obj-hdr:nth-child(1) {
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-    width: max-content;
-} */
-/* .cnt-blur {
-  position: absolute;
-  width: 410px;
-  height: 76%;
-  background: rgba(193, 193, 193, 0.48);
-  filter: blur(8px);
-  -webkit-filter: blur(10px);
-} */
 .form-container {
     width: auto;
     display: flex;
@@ -24,34 +5,30 @@
     justify-content: center;
     /* background: url("../img/home/3.jpg") no-repeat center; */
     background-size: cover;
-
     height: calc(100vh - 60px);
 }
 .form-container form {
     width: 450px;
-    height: auto;
     align-items: center;
     text-align: center;
     background: rgba(255, 255, 255, 0.1);
     background: rgba(51, 51, 51, 0.61);
+    background: #fff;
     border-radius: 5px;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    border-left: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
+    border-top: 1px solid rgba(196, 196, 196, 0.3);
+    border-left: 1px solid rgba(196, 196, 196, 0.3);
+    box-shadow: 0 0px 15px 3px rgba(0, 0, 0, 0.1);
     transform-style: preserve-3d;
-
     padding: 20px;
 }
-.form-container form h3 {
-    font-size: 2.5em;
-    letter-spacing: 1px;
-    color: orange;
+.cnt-ttl {
+    width: 100%;
+    margin: 10px 0 50px;
 }
-span.icon {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 40px;
+.cnt-ttl span {
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    color: rgb(53, 52, 100);
 }
 .form-container form i {
     width: 100%;
@@ -67,7 +44,7 @@ span.icon {
 .psw {
     background: url("../img/ico/login/lock.svg") no-repeat center;
 }
-.row-login {
+.row-log-reg {
     display: flex;
     flex-wrap: wrap;
     /*! justify-content: center; */
@@ -75,32 +52,46 @@ span.icon {
     flex-direction: column;
     position: relative;
 }
-.row-login:nth-child(2) {
+.row-log-reg:nth-child(2) {
     margin: 20px auto;
 }
-.row-login:nth-child(3) {
+.row-log-reg:nth-child(3) {
     margin-bottom: 20px;
 }
 .contInput {
     display: flex;
+    flex-direction: column;
     margin: 0 auto;
     width: 60%;
     align-items: center;
+    justify-content: center;
 }
 .form-container form input {
-    display: initial;
+    /* display: initial;
     width: 60%;
     height: 30px;
     background: rgba(32, 32, 32, 0.5);
     outline: none;
     border: none;
     color: rgb(255, 255, 255);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 0 5px rgba(72, 72, 72, 0.7) inset;
     font-size: 0.8em;
     padding: 0 10px;
-    /*! margin: 5px 0 10px; */
+    /*! margin: 5px 0 10px;
+    letter-spacing: 1px;
+    border-radius: 30px; */
+    display: initial;
+    width: 60%;
+    height: 30px;
+    outline: none;
+    border: none;
+    color: #484848;
+    font-size: 0.8em;
+    padding: 0 10px;
+    margin: 5px 0 10px;
     letter-spacing: 1px;
     border-radius: 5px;
+    border: 1px solid rgba(196, 196, 196, 0.66);
 }
 .form-container form input:nth-child(2) {
     margin-bottom: 10px;
@@ -119,7 +110,6 @@ span.icon {
     font-size: 1em;
     margin: 15px 0 10px;
 }
-/* The container */
 .cnt-checkbox {
     /* display: block;
     position: relative;
@@ -134,8 +124,6 @@ span.icon {
     -ms-user-select: none;
     user-select: none;
 }
-
-/* Hide the browser's default checkbox */
 .cnt-checkbox input {
     position: absolute;
     opacity: 0;
@@ -143,8 +131,6 @@ span.icon {
     height: 0;
     width: 0;
 }
-
-/* Create a custom checkbox */
 .checkmark {
     position: absolute;
     top: 0;
@@ -153,30 +139,20 @@ span.icon {
     width: 25px;
     background-color: #eee;
 }
-
-/* On mouse-over, add a grey background color */
 .cnt-checkbox:hover input ~ .checkmark {
     background-color: #ccc;
 }
-
-/* When the checkbox is checked, add a blue background */
 .cnt-checkbox input:checked ~ .checkmark {
     background-color: #2196f3;
 }
-
-/* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
-
-/* Show the checkmark when checked */
 .cnt-checkbox input:checked ~ .checkmark:after {
     display: block;
 }
-
-/* Style the checkmark/indicator */
 .cnt-checkbox .checkmark:after {
     left: 9px;
     top: 5px;
@@ -198,7 +174,7 @@ label {
     left: 30px;
     position: relative;
     line-height: 40px;
-    color: #fff;
+    color: #5c5c5c;
 }
 form input.input-check {
     width: 25px;
@@ -206,21 +182,30 @@ form input.input-check {
     left: 0;
     z-index: 2;
 }
-.btn-login {
+form .error {
+    color: #ff0000;
+}
+.article-reference {
+    margin-top: 15px;
+}
+.article-reference a {
+    color: #e67e22;
+}
+.btn-logReg {
     width: 150px;
-    cursor: pointer;
     margin: 30px;
     border-radius: 50px;
     background: #fff;
     transition: 0.3s ease-in-out;
     padding: 10px;
-    height: auto;
     font-size: 1em;
     border: 0;
+    border: 1px solid rgb(146, 144, 253);
     color: 4b5663;
+    cursor: pointer;
 }
 
-.btn-login:hover {
+.btn-logReg:hover {
     background: rgb(53, 52, 100);
     transition: 0.3s ease-in-out;
     color: #fff;
@@ -243,7 +228,6 @@ form input.input-check {
 .progress-bar_wrap {
     width: 60%;
     height: 5px;
-    background: #f6f6fa;
     display: flex;
     /*! vertical-align: middle; */
     /*! overflow: hidden; */
@@ -265,7 +249,7 @@ form input.input-check {
 .progress-bar_text {
     display: flex;
     color: #aaa;
-    /*! margin: 10px auto; */
+    margin: 5px auto;
     transition: 0.2s;
 }
 .form-2 .progress-bar_item {
@@ -329,14 +313,3 @@ a.aLog-reg {
     justify-content: center;
 }
 /* SIGNUP */
-@media only screen and (max-width: 600px) {
-    .form-container {
-        height: calc(100vh + 80px);
-    }
-    .form-container form {
-        padding: 0;
-    }
-    span.icon {
-        left: 20px;
-    }
-}

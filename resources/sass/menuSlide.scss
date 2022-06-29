@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+/* @media screen and (max-width: 1050px) { */
+.subMenu {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 80px;
+    max-height: 0;
+    overflow: hidden;
+    background: white;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    z-index: 2;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    .contSubMenuSlide {
+        padding: 50px 0 20px;
+        -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+        box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.2);
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        ul {
+            width: max-content;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin: 0 auto;
+            li {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                a {
+                    text-decoration: none;
+                    color: #4b5663;
+                    font-size: 1.2em;
+                }
+                /* .ico {
+                    width: 40px;
+                    height: 40px;
+                    background-color: violet;
+                }
+                .aprt {
+                    background: url("../img/ico/ico-apartment.svg") no-repeat
+                        center/contain;
+                }
+                .msg {
+                    background: url("../img/ico/ico-message.svg") no-repeat
+                        center/contain;
+                }
+                .ads {
+                    background: url("../img/ico/ico-sponsored.svg") no-repeat
+                        center/contain;
+                }
+                .stcs {
+                    background: url("../img/ico/ico-statistic.svg") no-repeat
+                        center/contain;
+                } */
+            }
+        }
+    }
+
+    .cnt-obj-hdr-mob {
+        justify-content: center;
+        .cnt-actions {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px;
+            a {
+                &.a-log,
+                &.a-reg {
+                    font-size: 0.8em;
+                    font-weight: 400;
+                    text-decoration: none;
+                    color: #666565;
+                }
+                .obj-actions {
+                    height: 100%;
+                    background-color: #af69ff;
+                    /*! margin-bottom: 5px; */
+                }
+                /* .log,
+        .reg {
+          height: 25px;
+        }
+        .log {
+          background: url("../img/login.svg") no-repeat center/contain;
+        }
+        .reg {
+          background: url("../img/register.svg") no-repeat center/contain;
+        } */
+                .ico {
+                    width: 30px;
+                    height: 30px;
+                    background-color: violet;
+                }
+                .aprt {
+                    background: url("../img/ico/dashboard/ico-dash-lgt.svg")
+                        no-repeat center/contain;
+                }
+                .msg {
+                    background: url("../img/ico/dashboard/ico-msg-lgt.svg")
+                        no-repeat center/contain;
+                }
+                .ads {
+                    background: url("../img/ico/dashboard/ico-ads-lgt.svg")
+                        no-repeat center/contain;
+                }
+                .stcs {
+                    background: url("../img/ico/dashboard/ico-stcs-lgt.svg")
+                        no-repeat center/contain;
+                }
+            }
+        }
+    }
+}
+
+#contLabelTop {
+    position: relative;
+    width: 100%;
+    height: 32px;
+    background-color: white;
+    cursor: pointer;
+}
+/* } */
+
+/* @media screen and (min-width: 1050px) {
+  .subMenu,
+  .contSubMenuSlide {
+    display: none;
+  }
+} */

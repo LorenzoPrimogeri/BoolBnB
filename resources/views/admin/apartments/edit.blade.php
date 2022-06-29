@@ -1,7 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
-
     <div class="main-slct-item">
         <div class="cnt-slct-btn">
             <div class="cnt-th cnt-btn h-100">
@@ -23,7 +21,6 @@
                     </div>
                 @endif
             </div>
-
             <form action="{{ route('admin.apartments.update', $apartment->id) }}" method="POST"
                 enctype="multipart/form-data">
                 @csrf
@@ -31,8 +28,18 @@
                 <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                     <h3>Visibilità:</h3>
                     <select class="form-select" aria-label="Default select example" name="visible">
-                        <option value="1">si</option>
-                        <option value="0">no</option>
+                        <option value="{{ $apartment->visible }}">
+                            {{ $apartment->visible ? 'Visibile' : 'Non visibile' }}
+                        </option>
+                        @if ($apartment->visible == 1)
+                            <option value="0">
+                                {{ !$apartment->visible ? 'Visibile' : 'Non visibile' }}
+                            </option>
+                        @else
+                            <option value="1">
+                                {{ !$apartment->visible ? 'Visibile' : 'Non visibile' }}
+                            </option>
+                        @endif
                     </select>
                 </div>
                 <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
@@ -95,7 +102,9 @@
                     <span class="form-check-label">{{ $service->name }}</span>
                 @endforeach --}}
                 </div>
-                <button class="btn-modify" type="submit">Salva modifiche</button>
+                <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
+                    <button class="btn-modify" type="submit">Salva modifiche</button>
+                </div>
             </form>
         </div>
     </div>
@@ -229,14 +238,14 @@
                                 {{ !$apartment->visible
                                     ? 'Visibile'
                                     : 'Non
-                                                                                                                                                                                                                                                                                                                                                        visibile' }}
+                            visibile' }}
                             </option>
                         @else
                             <option value="1">
                                 {{ !$apartment->visible
                                     ? 'Visibile'
                                     : 'Non
-                                                                                                                                                                                                                                                                                                                                                        visibile' }}
+                            visibile' }}
                             </option>
                         @endif
                     </select>

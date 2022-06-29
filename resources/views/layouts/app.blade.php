@@ -11,18 +11,62 @@
     <title>Boolbnb</title>
 
     <!-- Scripts -->
+    {{-- <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script src="{{ asset('js/client-validate-reg.js') }}"></script>
+    <script src="{{ asset('js/dropDwn-menu.js') }}"></script>
+    <script src="{{ asset('js/check-password-equal.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/dropDwn-menu.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('css/styleAuth.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/btn-burger.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/menuSlide.css') }}" rel="stylesheet">
 </head>
 
 <body>
     <div id="app">
+        <div class="subMenu closeMenu" id="subMenuSlide"
+            style="filter: progid:DXImageTransform.Microsoft.Shadow(color='#dedede', Direction=135, Strength=10);
+-webkit-overflow-scrolling:touch;">
+            <div class="contSubMenuSlide">
+                <div class="cnt-ul">
+                    <ul>
+                        <li>
+                            <div class="ico aprt"></div><a href="{{ route('admin.apartments.index') }}">Dashboard</a>
+                        </li>
+                        <li>
+                            <div class="ico msg"></div><a href="#">Messaggi</a>
+                        </li>
+                        <li>
+                            <div class="ico ads"></div><a href="#">Sponsorizzate</a>
+                        </li>
+                        <li>
+                            <div class="ico stcs"></div><a href="#">Statistiche</a>
+                        </li>
+                    </ul>
+                </div>
+                {{-- <div class="cnt-obj-hdr-mob">
+                    <div class="cnt-actions">
+                        <!-- <div class="obj-actions"></div> -->
+                        <a class="a-log" href="#">
+                            <div class="obj-actions log"></div>
+                            <div>LogIn</div>
+                        </a>
+                        <a class="a-reg" href="#">
+                            <div class="obj-actions reg"></div>
+                            <div>Register</div>
+                        </a>
+                    </div>
+                </div> --}}
+            </div>
+        </div>
         <header>
             <div class="container w-100 h-100 pd-20-lr">
                 <div class="cnt-hdr-items">
@@ -36,93 +80,68 @@
                     {{-- <div class="cnt-ttl cnt-row col-12">
                         Appartamenti
                     </div> --}}
-                    <ul class="navbar-nav ml-auto">
+                </div>
+                <div class="main-usr-set">
+                    <ul class="ul-log-reg">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a href="{{ route('login') }}">
+                                <li>
+                                    <div class="ico-log ico-login"></div>
+                                    <span>Login</span>
                                 </li>
+                            </a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}">
+                                    <li>
+                                        <div class="ico-log ico-reg"></div>
+                                        <span>Register</span>
+                                    </li>
+                                </a>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                            <div class="cnt-usr-set">
+                                <div class="cnt-span">
+                                    <span>{{ Auth::user()->name }}</span>
+                                    <a id="arrowUsr" href="#">
+                                        <div class="cnt-arrow">
+                                            <span class="arrow"></span>
+                                        </div>
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
                                 </div>
-                            </li>
+                                <div id="subMenuUsr" class="contUlAccount">
+                                    <ul class="ulSet-usr">
+                                        <li>
+                                            <a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                                {{ __('Logout') }}
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                class="d-none">
+                                                @csrf
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         @endguest
                     </ul>
+                </div>
+                <div id="btn-hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
         </header>
-
-        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <div class="cnt-logo">
-                    <img src="{{url('/img/boolbnb-logo.svg')}}" alt="logo">
-                </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                    </ul>
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                        @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav> --}}
-
         <main>
             <div class="sidebar">
                 <div class="cnt-ul">
                     <ul>
                         <li>
-                            <div class="ico aprt"></div><a href="dashboard.php">Dashboard</a>
+                            <div class="ico aprt"></div><a href="{{ route('admin.apartments.index') }}">Dashboard</a>
                         </li>
                         <li>
                             <div class="ico msg"></div><a href="#">Messaggi</a>
@@ -139,6 +158,7 @@
             @yield('content')
         </main>
     </div>
+
 </body>
 
 </html>

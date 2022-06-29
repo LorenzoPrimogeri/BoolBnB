@@ -1,0 +1,154 @@
+.main-usr-set {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 200px;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 40px;
+}
+
+.main-usr-set .cnt-usr-set {
+  position: relative;
+  width: 100%;
+}
+
+.main-usr-set .cnt-usr-set .contUlAccount {
+  position: fixed;
+  width: auto;
+  max-height: 0;
+  /* transform: translate(-50%, 0); */
+  left: -4px;
+  top: 55px;
+  overflow: hidden;
+  background-color: transparent;
+  transition: all 0.5s ease-in-out;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  z-index: 4;
+}
+
+.main-usr-set .cnt-usr-set .contUlAccount::-webkit-scrollbar {
+  display: none;
+}
+
+.main-usr-set .cnt-usr-set .contUlAccount ul.ulSet-usr {
+  padding: 10px;
+  list-style-type: none;
+}
+
+.main-usr-set .cnt-usr-set .contUlAccount ul.ulSet-usr::-webkit-scrollbar {
+  display: none;
+}
+
+.main-usr-set .cnt-usr-set .contUlAccount ul.ulSet-usr:before {
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+.main-usr-set .cnt-usr-set .contUlAccount ul.ulSet-usr li a {
+  text-decoration: none;
+  color: grey;
+  font-size: 0.9em;
+}
+
+.main-usr-set ul.ul-log-reg {
+  position: absolute;
+  display: flex;
+  width: 70px;
+  gap: 20px;
+  list-style-type: none;
+}
+
+.main-usr-set ul.ul-log-reg li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.main-usr-set ul.ul-log-reg li:hover .ico-login {
+  background: url(/images/login.svg?d99977f35d4b129a95cb2787c1422611) no-repeat center/contain;
+}
+
+.main-usr-set ul.ul-log-reg li:hover .ico-reg {
+  background: url(/images/register.svg?3c6cd24aee4ad0f0e4b064ed5e4190bc) no-repeat center/contain;
+}
+
+.main-usr-set ul.ul-log-reg li:hover span {
+  color: #4b5663;
+  /* transition: 0.4s ease-in-out; */
+}
+
+.main-usr-set ul.ul-log-reg .ico-log {
+  width: 30px;
+  height: 30px;
+}
+
+.main-usr-set ul.ul-log-reg .ico-login {
+  background: url(/images/login-lgt.svg?dd9f332e91b8436aa908f505efae312d) no-repeat center/contain;
+}
+
+.main-usr-set ul.ul-log-reg .ico-reg {
+  background: url(/images/register-lgt.svg?950dc65f8f6315451e3371d54df438b9) no-repeat center/contain;
+}
+
+.main-usr-set ul.ul-log-reg a {
+  font-weight: 600;
+  text-decoration: none;
+  color: grey;
+  font-size: 0.9em;
+}
+
+.main-usr-set ul.ul-log-reg .cnt-arrow {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 0;
+  top: 0;
+}
+
+.main-usr-set ul.ul-log-reg .cnt-arrow .arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.main-usr-set ul.ul-log-reg .cnt-arrow .arrow::before,
+.main-usr-set ul.ul-log-reg .cnt-arrow .arrow::after {
+  position: relative;
+  content: "";
+  display: block;
+  width: 10px;
+  height: 1px;
+  background: #7174b6;
+  transition: 0.3s ease-in-out;
+}
+
+.main-usr-set ul.ul-log-reg .cnt-arrow .arrow::before {
+  transform: rotate(45deg);
+}
+
+.main-usr-set ul.ul-log-reg .cnt-arrow .arrow::after {
+  left: 6px;
+  top: -1px;
+  transform: rotate(-45deg);
+}
+
+.main-usr-set ul.ul-log-reg #arrowUsr.active .arrow::before {
+  transform: rotate(-45deg);
+}
+
+.main-usr-set ul.ul-log-reg #arrowUsr.active .arrow::after {
+  transform: rotate(45deg);
+}
+
+@media screen and (max-width: 820px) {
+  /* .main-usr-set {
+      display: none;
+  } */
+}
+

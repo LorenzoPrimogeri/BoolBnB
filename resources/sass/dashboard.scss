@@ -57,19 +57,19 @@ header {
         }
     }
 }
-.main-usr-set {
+/* .main-usr-set {
     position: fixed;
     top: 0;
     height: auto;
     width: 200px;
     /* top: 50%;
-  transform: translate(0, -50%); */
+  transform: translate(0, -50%);
     right: 40px;
     .cnt-usr-set {
         position: relative;
         height: 100%;
     }
-}
+} */
 main {
     /* height: 100vw; */
     /* background-color: antiquewhite; */
@@ -83,72 +83,6 @@ main {
         background-color: #38383f;
         background-color: #fff;
         border-right: 1px solid #dbdbdb;
-        .cnt-ul {
-            /* background-color: coral; */
-            ul {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                gap: 25px;
-                margin: 0 auto;
-                padding: 0 0 0 20px;
-                li {
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    cursor: pointer;
-                    /* transition: 2s ease-in-out;
-          transition: all 4s ease-in-out; */
-                    transition: 4s ease-in-out;
-                    &:hover .aprt {
-                        background: url("../img/ico/dashboard/ico-dash.svg")
-                            no-repeat center/contain;
-                    }
-                    &:hover .msg {
-                        background: url("../img/ico/dashboard/ico-msg.svg")
-                            no-repeat center/contain;
-                    }
-                    &:hover .ads {
-                        background: url("../img/ico/dashboard/ico-ads.svg")
-                            no-repeat center/contain;
-                    }
-                    &:hover .stcs {
-                        background: url("../img/ico/dashboard/ico-stcs.svg")
-                            no-repeat center/contain;
-                    }
-                    &:hover a {
-                        color: #4b5663;
-                        transition: 0.4s ease-in-out;
-                    }
-                    a {
-                        text-decoration: none;
-                        color: #8da1b3;
-                        font-size: 1.2em;
-                    }
-                    .ico {
-                        width: 30px;
-                        height: 30px;
-                        background-color: violet;
-                    }
-                    .aprt {
-                        background: url("../img/ico/dashboard/ico-dash-lgt.svg")
-                            no-repeat center/contain;
-                    }
-                    .msg {
-                        background: url("../img/ico/dashboard/ico-msg-lgt.svg")
-                            no-repeat center/contain;
-                    }
-                    .ads {
-                        background: url("../img/ico/dashboard/ico-ads-lgt.svg")
-                            no-repeat center/contain;
-                    }
-                    .stcs {
-                        background: url("../img/ico/dashboard/ico-stcs-lgt.svg")
-                            no-repeat center/contain;
-                    }
-                }
-            }
-        }
     }
     .main-slct-item {
         display: flex;
@@ -191,6 +125,13 @@ main {
                 gap: 15px;
                 align-items: center !important;
                 padding: 20px;
+                .cnt-items-services {
+                    display: flex;
+                    gap: 15px;
+                    flex-wrap: wrap;
+                    .cnt-item-service {
+                    }
+                }
             }
         }
         .cnt-item-details {
@@ -274,4 +215,124 @@ main {
     /* .main-details {
     padding: 180px 0;
   } */
+    .invalid-feedback {
+        display: block;
+        color: red;
+        font-size: 0.8em;
+        margin: 5px 0;
+    }
+}
+.cnt-ul {
+    /* background-color: coral; */
+    ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        margin: 0 auto;
+        padding: 0 0 0 20px;
+        li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            /* transition: 2s ease-in-out;
+  transition: all 4s ease-in-out; */
+            transition: 4s ease-in-out;
+            &:hover .aprt {
+                background: url("../img/ico/dashboard/ico-dash.svg") no-repeat
+                    center/contain;
+            }
+            &:hover .msg {
+                background: url("../img/ico/dashboard/ico-msg.svg") no-repeat
+                    center/contain;
+            }
+            &:hover .ads {
+                background: url("../img/ico/dashboard/ico-ads.svg") no-repeat
+                    center/contain;
+            }
+            &:hover .stcs {
+                background: url("../img/ico/dashboard/ico-stcs.svg") no-repeat
+                    center/contain;
+            }
+            &:hover a {
+                color: #4b5663;
+                transition: 0.4s ease-in-out;
+            }
+            a {
+                text-decoration: none;
+                color: #b38d8d;
+                font-size: 1.2em;
+            }
+            .ico {
+                width: 30px;
+                height: 30px;
+                background-color: violet;
+            }
+            .aprt {
+                background: url("../img/ico/dashboard/ico-dash-lgt.svg")
+                    no-repeat center/contain;
+            }
+            .msg {
+                background: url("../img/ico/dashboard/ico-msg-lgt.svg")
+                    no-repeat center/contain;
+            }
+            .ads {
+                background: url("../img/ico/dashboard/ico-ads-lgt.svg")
+                    no-repeat center/contain;
+            }
+            .stcs {
+                background: url("../img/ico/dashboard/ico-stcs-lgt.svg")
+                    no-repeat center/contain;
+            }
+        }
+    }
+}
+/* @import url("btn-burger.scss"); */
+@media screen and (max-width: 820px) {
+    .sidebar {
+        display: none;
+    }
+    main {
+        .main-slct-item {
+            width: 100%;
+            left: auto;
+        }
+        .cnt-item-dash {
+            padding: 30px 20px;
+        }
+        .main-body-th {
+            .cnt-th:nth-child(4) {
+                display: none;
+            }
+        }
+        .main-columns {
+            flex-wrap: wrap;
+        }
+    }
+    .cnt-service {
+        display: inherit;
+        flex-direction: row;
+        gap: 15px;
+        align-items: center !important;
+        padding: 20px;
+        .cnt-items-services {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            .cnt-item-service {
+            }
+        }
+    }
+}
+@media only screen and (max-width: 600px) {
+    .form-container {
+        height: calc(100vh + 80px);
+    }
+    .form-container form {
+        padding: 0;
+    }
+    span.icon {
+        left: 20px;
+    }
 }
