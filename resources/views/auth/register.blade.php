@@ -12,18 +12,18 @@
             </span>
             <input id="name" type="text" placeholder="nome" class="inpt-nm-srnm @error('name') is-invalid @enderror"
                 name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
-            {{-- @error('name')
+            @error('name')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
-            @enderror --}}
+            @enderror
             <input id="surname" type="text" class="inpt-nm-srnm @error('surname') is-invalid @enderror" name="surname"
                 placeholder="cognome" value="{{ old('surname') }}" autocomplete="surname" autofocus>
-            {{-- @error('surname')
+            @error('surname')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
-            @enderror --}}
+            @enderror
         </div>
         <div class="row-log-reg">
             <input type="date" name="date_of_birth">

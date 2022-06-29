@@ -91,19 +91,6 @@
                         </li>
                     </ul>
                 </div>
-                {{-- <div class="cnt-obj-hdr-mob">
-                    <div class="cnt-actions">
-                        <!-- <div class="obj-actions"></div> -->
-                        <a class="a-log" href="#">
-                            <div class="obj-actions log"></div>
-                            <div>LogIn</div>
-                        </a>
-                        <a class="a-reg" href="#">
-                            <div class="obj-actions reg"></div>
-                            <div>Register</div>
-                        </a>
-                    </div>
-                </div> --}}
             </div>
         </div>
         <header>
@@ -116,9 +103,6 @@
                             </a>
                         </div>
                     </div>
-                    {{-- <div class="cnt-ttl cnt-row col-12">
-                        Appartamenti
-                    </div> --}}
                 </div>
                 <div class="main-usr-set">
                     <ul class="ul-log-reg">
@@ -130,7 +114,7 @@
                                 <span>Login</span>
                             </li>
                         </a>
-                        @if (Route::has('register'))
+                        @if(Route::has('register'))
                         <a href="{{ route('register') }}">
                             <li>
                                 <div class="ico-log ico-reg"></div>
@@ -141,7 +125,11 @@
                         @else
                         <div class="cnt-usr-set">
                             <div class="cnt-span">
+                                @if( Auth::user()->name)
                                 <span>{{ Auth::user()->name }}</span>
+                                @else
+                                <span>{{ Auth::user()->email }}</span>
+                                @endif
                                 <a id="arrowUsr" href="#">
                                     <div class="cnt-arrow">
                                         <span class="arrow"></span>
@@ -166,7 +154,7 @@
                         @endguest
                     </ul>
                 </div>
-                <div id="btn-hamburger">
+                <div id="btn-hamburger" class="d-none">
                     <span></span>
                     <span></span>
                     <span></span>
