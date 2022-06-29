@@ -198,11 +198,24 @@ class ApartmentController extends Controller
 
         $data = $request->all();
         //  dd($data);
-        Storage::delete($apartment->img);
-        if (array_key_exists('img', $data)) {
+        if(array_key_exists('img', $data)){
+            Storage::delete($apartment->img);
+
             $img_path = Storage::put('uploads', $data['img']);
             $data['img'] = $img_path;
         }
+
+
+        //  if(array_key_exists('image', $postData)){
+        //     if($post->cover){
+        //         Storage::delete($post->cover);
+        //     }
+
+        //     $img_path = Storage::put('uploads', $postData['image']);
+        //     $postData['cover'] = $img_path;
+        // }
+
+
         $apartment->visible = $data['visible'];
         $apartment->fill($data);
         $apartment->slug = Apartment::convertToSlug($apartment->title);
