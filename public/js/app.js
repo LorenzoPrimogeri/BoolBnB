@@ -45579,9 +45579,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/dropDwn-menu.scss":
 /*!******************************************!*\
-  !*** ./resources/sass/dropDwn-menu.scss ***!
   \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
@@ -45593,12 +45591,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ "./resources/sass/menuSlide.scss":
 /*!***************************************!*\
   !*** ./resources/sass/menuSlide.scss ***!
+=======
+/*!***************************************!*\
   \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
 /***/ }),
 
 /***/ 0:
@@ -45614,6 +45611,16 @@ __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/
 __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/dropDwn-menu.scss */"./resources/sass/dropDwn-menu.scss");
 __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/btn-burger.scss */"./resources/sass/btn-burger.scss");
 module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/menuSlide.scss */"./resources/sass/menuSlide.scss");
+/*!*****************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/dashboard.scss ./resources/sass/styleAuth.scss ***!
+  \*****************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\sass\dashboard.scss */"./resources/sass/dashboard.scss");
+module.exports = __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\sass\styleAuth.scss */"./resources/sass/styleAuth.scss");
 
 
 /***/ })
