@@ -174,3 +174,11 @@
         transform: translate(-50%, -50%);
     }
 }
+
+@media only screen and (min-width: 0) and (max-width: 1000px) {
+    .main-usr-set {
+        ul.ul-log-reg {
+            display: none;
+        }
+    }
+}
