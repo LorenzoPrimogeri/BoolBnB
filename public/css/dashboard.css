@@ -91,6 +91,9 @@
     justify-content: center;
 }
 .w-100 {
+    width: 100%;
+}
+.wmax-100 {
     max-width: 100%;
 }
 .w-max {
@@ -131,8 +134,20 @@
     }
 }
 @media screen and (max-width: 820px) {
+    .col-md-1 {
+        flex-basis: calc((100% / 12) * 1);
+    }
+    .col-md-2 {
+        flex-basis: calc((100% / 12) * 2);
+    }
+    .col-md-3 {
+        flex-basis: calc((100% / 12) * 3);
+    }
     .col-md-4 {
         flex-basis: calc((100% / 12) * 4);
+    }
+    .col-md-5 {
+        flex-basis: calc((100% / 12) * 5);
     }
     .col-md-12 {
         flex-basis: calc((100% / 12) * 12);
@@ -778,7 +793,7 @@ main .invalid-feedback {
 
 /* @import url("btn-burger.scss"); */
 
-@media screen and (max-width: 820px) {
+@media screen and (min-width: 0px) and (max-width: 1000px) {
   .sidebar {
     display: none;
   }
@@ -788,8 +803,25 @@ main .invalid-feedback {
     left: auto;
   }
 
-  main .cnt-item-dash {
+  main .main-slct-item .cnt-item-dash {
     padding: 30px 20px;
+  }
+
+  main .main-slct-item .cnt-btn {
+    padding: 30px 0;
+  }
+
+  main .main-slct-item .cnt-slct-btn {
+    width: 100%;
+  }
+
+  main .main-slct-item .cnt-slct-btn .cnt-btn {
+    padding: 10px;
+  }
+
+  main .main-slct-item .cnt-row {
+    align-items: flex-start !important;
+    flex-direction: column;
   }
 
   main .main-body-th .cnt-th:nth-child(4) {
@@ -826,6 +858,17 @@ main .invalid-feedback {
 
   span.icon {
     left: 20px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  header .cnt-logo img,
+  header .cnt-logo a {
+    width: 80%;
+  }
+
+  main .main-slct-item .cnt-item-details {
+    padding: 30px 10px;
   }
 }
 

@@ -87,20 +87,21 @@
                     <input class="w-100 p-1" type="text" name="price" placeholder="prezzo"
                         value="{{ $apartment->price }}" required>
                 </div>
-                <div class="cnt-service">
-                    <h3>Servizi:</h3>
-
-                    @foreach ($services as $service)
-                        <input type="checkbox" value="{{ $service->id }}" name="services[]"
-                            {{ $apartment->services->contains($service) ? 'checked' : '' }}>
-                        <span class="form-check-label">{{ $service->name }}</span>
-                    @endforeach
-
-                    {{-- @foreach ($services as $service)
-                    <input type="checkbox" value="{{ $service->id }}" name="services[]"
-                        {{ in_array($service->id, old('services', [])) ? 'checked' : '' }}>
-                    <span class="form-check-label">{{ $service->name }}</span>
-                @endforeach --}}
+                <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
+                    <div class="cnt-service">
+                        <div class="col-1">
+                            <h3>Servizi:</h3>
+                        </div>
+                    </div>
+                    <div class="cnt-items-services col-11">
+                        @foreach ($services as $service)
+                            <div class="cnt-item-service">
+                                <input type="checkbox" value="{{ $service->id }}" name="services[]"
+                                    {{ $apartment->services->contains($service) ? 'checked' : '' }}>
+                                <span class="form-check-label">{{ $service->name }}</span>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
                 <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                     <button class="btn-modify" type="submit">Salva modifiche</button>
