@@ -52,10 +52,11 @@
                 </div>
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
-                <h3>Indirizzo:</h3>
+                <h3>Indirizzo: {{ $apartment->address }}</h3>
                 <div class="autocomplete">
-                    <input class="w-100 p-1" type="text" id="myInput" name="address" placeholder="indirizzo"
-                        value="{{ $apartment->address }}" onkeyup="array()" required>
+                    {{-- <input class="w-100 p-1" type="text" id="myInput" name="address" placeholder="indirizzo"
+                        value="{{ $apartment->address }}" onkeyup="array()" required> --}}
+                        <input type="hidden" name="address" value="{{ $apartment->address }}" id="inputValue">
                 </div>
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">

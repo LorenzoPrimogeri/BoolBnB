@@ -48,10 +48,11 @@
                 <h3>Indirizzo:</h3>
                 {{-- <input class="w-100 p-1" type="text" name="address" placeholder="indirizzo"
                     value="{{ old('address') }}" required> --}}
-                <div class="autocomplete" name="address">
+                <div class="autocomplete">
 
-                    <input class="w-100" id="myInput" type="text" name="address" placeholder="Indirizzo"
-                        value="{{ old('address') }}" onkeyup="array()">
+                    {{-- <input class="w-100" id="myInput" type="text" name="address" placeholder="Indirizzo"
+                        value="{{ old('address') }}" onkeyup="array()"> --}}
+                        <input type="hidden" name="address" value="" id="inputValue">
                 </div>
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
