@@ -62,27 +62,27 @@
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Stanze: <span class="red">*</span></h3>
                 <input class="w-100 p-1" type="number" name="room" placeholder="numero di stanze"
-                    value="{{ old('room') }}" required>
+                    value="{{ old('room') }}" required min="1" max="15">
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Bagni: <span class="red">*</span></h3>
                 <input class="w-100 p-1" type="number" name="bathroom" placeholder="numero di bagni"
-                    value="{{ old('bathroom') }}" required>
+                    value="{{ old('bathroom') }}" required min="1" max="15">
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Letti: <span class="red">*</span></h3>
                 <input class="w-100 p-1" type="number" name="bed" placeholder="numero di letti" value="{{ old('bed') }}"
-                    required>
+                    required min="1" max="30">
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Metri Quadri: <span class="red">*</span></h3>
                 <input class="w-100 p-1" type="number" name="mq" placeholder="numero di metri quadri"
-                    value="{{ old('mq') }}" required>
+                    value="{{ old('mq') }}" required min="5" max="1000">
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Prezzo: <span class="red">*</span></h3>
-                <input class="w-100 p-1" type="text" name="price" placeholder="prezzo" value="{{ old('price') }}"
-                    required>
+                <input class="w-100 p-1" type="number" name="price" placeholder="prezzo" value="{{ old('price') }}"
+                    required min="1" max="7000">
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <div class="cnt-service">

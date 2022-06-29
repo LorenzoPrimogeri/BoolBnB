@@ -56,6 +56,7 @@ class ApartmentController extends Controller
                 'address' => 'required|min:3|max:100',
                 'img' => 'required|image',
                 'price' => 'required|integer|min:1|max:7000',
+                'services' => 'exists:services, id',
 
             ],
             [
@@ -85,6 +86,7 @@ class ApartmentController extends Controller
                 'address.min' => 'l\'indirizzo non è valido',
                 'price.max' => 'il prezzo massimo è :max $',
                 'price.min' => 'il prezzo minimo è :min $',
+                'services' => 'Il servizio non esiste',
             ]
         );
         $user = Auth::user();
@@ -163,7 +165,7 @@ class ApartmentController extends Controller
                 'bathroom' => 'required|numeric|min:1|max:15',
                 'mq' => 'required|numeric|min:5|max:1000',
                 'address' => 'required|min:3|max:100',
-                //'img' => 'required|image',
+                'img' => 'required|image',
                 'price' => 'required|numeric|min:1|max:7000',
 
             ],
