@@ -94,7 +94,7 @@
             </div>
         </div>
         <header>
-            <div class="container w-100 h-100 pd-20-lr">
+            <div class="container wmax-100 h-100 pd-20-lr">
                 <div class="cnt-hdr-items">
                     <div class="col-2 col-xs-12">
                         <div class="cnt-logo">

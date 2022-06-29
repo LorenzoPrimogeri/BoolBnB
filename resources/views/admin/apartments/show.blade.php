@@ -23,11 +23,11 @@
         </div>
         <div class="cnt-row col-12">
             <h3>Titolo:</h3>
-            <p>{{ $apartment->title }}</p>
+            <p> {{ $apartment->title }}</p>
         </div>
         <div class="cnt-row col-12">
             <h3>Indirizzo:</h3>
-            <p>{{ $apartment->address }}</p>
+            <p> {{ $apartment->address }}</p>
         </div>
         <div class="cnt-row col-12">
             <div class="cnt-img">
@@ -36,32 +36,32 @@
         </div>
         <div class="cnt-row col-12">
             <h3>Descrizione:</h3>
-            <p>{{ $apartment->description }}</p>
+            <p> {{ $apartment->description }}</p>
         </div>
         <div class="cnt-row col-12">
             <h3>Stanze:</h3>
-            <p>{{ $apartment->room }}</p>
+            <p> {{ $apartment->room }}</p>
         </div>
         <div class="cnt-row col-12">
             <h3>Bagni:</h3>
-            <p>{{ $apartment->bathroom }}</p>
+            <p> {{ $apartment->bathroom }}</p>
         </div>
         <div class="cnt-row col-12">
             <h3>Letti:</h3>
-            <p>{{ $apartment->bed }}</p>
+            <p> {{ $apartment->bed }}</p>
         </div>
         <div class="cnt-row col-12">
             <h3>Metri Quadri:</h3>
-            <p>{{ $apartment->mq }}</p>
+            <p> {{ $apartment->mq }}</p>
         </div>
         <div class="cnt-row col-12">
             <h3>Prezzo:</h3>
-            <p>{{ $apartment->price }}</p>
+            <p> {{ $apartment->price }}$</p>
         </div>
         <div class="cnt-row col-12">
             <h3>Servizi:</h3>
             @foreach ($apartment->services as $service)
-            <p>{{ $service->name }} </p>
+            <p> {{ $service->name }} </p>
             @endforeach
         </div>
     </div>

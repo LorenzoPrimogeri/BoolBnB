@@ -6,6 +6,10 @@
         <div class="cnt-ttl">
             <span>Signup</span>
         </div>
+        <div style="width: 60%;
+        margin:0 auto 20px;">
+            <p class="grey">(*) i campi contrassegnati con l’asterisco sono obbligatori</p>
+        </div>
         <div class="row-log-reg">
             <span class="icon">
                 <i class="usr"></i>
@@ -32,8 +36,9 @@
             <span class="icon">
                 <i class="mail"></i>
             </span>
+
             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                placeholder="email" value="{{ old('email') }}" required autocomplete="email">
+                placeholder="email *" value="{{ old('email') }}" required autocomplete="email">
             @error('email')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -47,13 +52,13 @@
             <div class="contInput">
                 <input id="password" type="password"
                     class="txtNewPassword inputLog input-1 @error('password') is-invalid @enderror" name="password"
-                    placeholder="password" required autocomplete="new-password">
+                    placeholder="password *" required autocomplete="new-password">
                 @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
                 @enderror
-                <span toggle="#psw" class="field-icon toggle-password fa-eye-slash"></span>
+                {{-- <span toggle="#psw" class="field-icon toggle-password fa-eye-slash"></span> --}}
             </div>
             <div class="progress-bar_wrap">
                 <div class="progress-bar_item progress-bar_item-1"></div>
@@ -63,8 +68,8 @@
             <span class="progress-bar_text">La Password è vuota</span>
             <div class="contInput">
                 <input id="password-rpt" type="password" class="txtConfirmPassword inputLog"
-                    name="password_confirmation" placeholder="ridigita password" required autocomplete="new-password">
-                <span toggle="#psw-rpt" class="field-icon-rpt toggle-password fa-eye-slash"></span>
+                    name="password_confirmation" placeholder="conferma password *" required autocomplete="new-password">
+                   {{-- <span toggle="#psw-rpt" class="field-icon-rpt toggle-password fa-eye-slash"></span> --}}
             </div>
             <div id="CheckPasswordMatch"></div>
         </div>

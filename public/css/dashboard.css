@@ -161,6 +161,7 @@
     /* background: url("../img/home/3.jpg") no-repeat center; */
     background-size: cover;
     height: calc(100vh - 60px);
+    margin-top: 50px;
 }
 .form-container form {
     width: 450px;
@@ -610,7 +611,7 @@ main .main-slct-item .cnt-item-details .cnt-service {
   flex-direction: row;
   gap: 15px;
   align-items: center !important;
-  padding: 20px;
+  padding: 20px 0px;
 }
 
 main .main-slct-item .cnt-item-dash .cnt-service .cnt-items-services,
@@ -837,7 +838,7 @@ main .invalid-feedback {
     flex-direction: row;
     gap: 15px;
     align-items: center !important;
-    padding: 20px;
+    padding: 20px 0px;
   }
 
   .cnt-service .cnt-items-services {
