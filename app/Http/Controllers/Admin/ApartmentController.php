@@ -55,7 +55,7 @@ class ApartmentController extends Controller
                 'mq' => 'required|numeric|min:6|max:1000',
                 'address' => 'required|min:3|max:100',
                 'img' => 'required|image',
-                'price' => 'required|numeric|min:1|max:7000',
+                'price' => 'required|integer|min:1|max:7000',
 
             ],
             [
@@ -67,7 +67,7 @@ class ApartmentController extends Controller
                 'mq.required' => 'inserisci il numero di metri quadri',
                 'address.required' => 'inserisci l\'indirizzo dell\'appartamento',
                 'img.required' => 'Carica un\'immagine',
-                'img.image' => 'Carica un\'immagine con estensione( JPG, PNG, GIF, , , )',
+                'img.image' => 'Carica un\'immagine con estensione( JPG, JPEG, PNG, BMP, GIF, SVG or WEBP)',
                 'price.required' => 'inserisci il prezzo',
                 'title.max' => 'hai superato i :max caratteri del titolo',
                 'title.min' => 'il numero minimo di caratteri del titolo è :min',
@@ -99,7 +99,6 @@ class ApartmentController extends Controller
         $address = $apartment['address'];
         $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $address . '.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK');
         $data = $response->json();
-        /* dd($data); */
         $lat = $data['results'][0]['position']['lat'];
         $long = $data['results'][0]['position']['lon'];
         $newApartment->lat = $lat;
@@ -199,11 +198,24 @@ class ApartmentController extends Controller
 
         $data = $request->all();
         //  dd($data);
-        /* Storage::delete($apartment->img); */
-        if (array_key_exists('img', $data)) {
+        if(array_key_exists('img', $data)){
+            Storage::delete($apartment->img);
+
             $img_path = Storage::put('uploads', $data['img']);
             $data['img'] = $img_path;
         }
+
+
+        //  if(array_key_exists('image', $postData)){
+        //     if($post->cover){
+        //         Storage::delete($post->cover);
+        //     }
+
+        //     $img_path = Storage::put('uploads', $postData['image']);
+        //     $postData['cover'] = $img_path;
+        // }
+
+
         $apartment->visible = $data['visible'];
         $apartment->fill($data);
         $apartment->slug = Apartment::convertToSlug($apartment->title);

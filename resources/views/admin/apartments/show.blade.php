@@ -6,23 +6,22 @@
                 <a href="{{ route('admin.apartments.edit', $apartment->id) }}">
                     <button>Modifica</button>
                 </a>
-                <form class="d-inline  wmax-100" action="{{ route('admin.apartments.destroy', $apartment->id) }}"
+                <form class="d-inline  w-100" action="{{ route('admin.apartments.destroy', $apartment->id) }}"
                     method="POST">
                     @csrf
                     @method('DELETE')
                     <input name="_method" type="hidden" value="DELETE">
-                    <button class="btn btn-danger wmax-100 " onclick="return confirm('Are your sure?')"
+                    <button class="btn btn-danger w-100 " onclick="return confirm('Are your sure?')"
                         type="submit">Elimina</button>
                 </form>
-                {{-- <div class="cnt-btn-delete">
-                    <a href="{{ route('admin.apartments.index') }}">
-                        <button>Appartamenti</button>
-                    </a>
-                </div> --}}
+                <a href="{{ route('admin.apartments.index') }}">
+                    <button>Appartamenti</button>
+                </a>
             </div>
         </div>
         <div class="cnt-item-details">
             <div class="cnt-row col-12">
+                <h3>Visibilità:</h3>
                 <p class="w-100 p-1"> {{ $apartment->visible ? 'visibile al momento' : 'Non visibile' }} </p>
             </div>
             <div class="cnt-row col-12">
