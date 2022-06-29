@@ -58,9 +58,11 @@
                 </div>
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
-                <h3>Indirizzo:</h3>
-                <input class="w-100 p-1" type="text" name="address" placeholder="indirizzo"
-                    value="{{ $apartment->address }}" required>
+                <div class="autocomplete">
+                    <h3>Indirizzo: {{$apartment->address}}</h3>
+                    {{-- <input class="w-100 p-1" type="text" name="address" placeholder="indirizzo"
+                        value="{{ $apartment->address }}" required> --}}
+                </div>
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Stanze:</h3>
