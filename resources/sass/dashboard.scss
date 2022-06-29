@@ -289,7 +289,8 @@ main {
     }
 }
 /* @import url("btn-burger.scss"); */
-@media screen and (max-width: 820px) {
+
+@media screen and (min-width: 0px) and (max-width: 1000px) {
     .sidebar {
         display: none;
     }
@@ -297,9 +298,22 @@ main {
         .main-slct-item {
             width: 100%;
             left: auto;
-        }
-        .cnt-item-dash {
-            padding: 30px 20px;
+            .cnt-item-dash {
+                padding: 30px 20px;
+            }
+            .cnt-btn {
+                padding: 30px 0;
+            }
+            .cnt-slct-btn {
+                width: 100%;
+                .cnt-btn {
+                    padding: 10px;
+                }
+            }
+            .cnt-row {
+                align-items: flex-start !important;
+                flex-direction: column;
+            }
         }
         .main-body-th {
             .cnt-th:nth-child(4) {
@@ -320,8 +334,6 @@ main {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
-            .cnt-item-service {
-            }
         }
     }
 }
@@ -334,5 +346,21 @@ main {
     }
     span.icon {
         left: 20px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    header {
+        .cnt-logo img,
+        .cnt-logo a {
+            width: 80%;
+        }
+    }
+    main {
+        .main-slct-item {
+            .cnt-item-details {
+                padding: 30px 10px;
+            }
+        }
     }
 }

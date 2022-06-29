@@ -59,3 +59,9 @@
   left: 50%;
 }
 
+@media screen and (min-width: 1000px) {
+  #btn-hamburger {
+    display: none;
+  }
+}
+

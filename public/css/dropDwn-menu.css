@@ -1,11 +1,20 @@
 .main-usr-set {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: center;
   position: absolute;
   top: 0;
   height: 100%;
   width: 200px;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 40px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  width: 250px;
   top: 50%;
   transform: translate(0, -50%);
   right: 40px;
@@ -18,13 +27,25 @@
 
 .main-usr-set .cnt-usr-set .contUlAccount {
   position: fixed;
-  width: auto;
   max-height: 0;
   /* transform: translate(-50%, 0); */
-  left: -4px;
+  /*  left: -4px;
   top: 55px;
   overflow: hidden;
   background-color: transparent;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  z-index: 4; */
+  /* transform: translate(-50%, 0); */
+  right: 0;
+  top: 55px;
+  overflow: hidden;
   transition: all 0.5s ease-in-out;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
   background: #fff;
@@ -55,9 +76,16 @@
 }
 
 .main-usr-set ul.ul-log-reg {
-  position: absolute;
+  /* position: absolute;
   display: flex;
   width: 70px;
+  gap: 20px;
+  list-style-type: none; */
+  position: absolute;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   gap: 20px;
   list-style-type: none;
 }
@@ -102,10 +130,15 @@
 }
 
 .main-usr-set ul.ul-log-reg .cnt-arrow {
-  position: absolute;
+  /* position: absolute;
   width: 20px;
   height: 20px;
   right: 0;
+  top: 0; */
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -20px;
   top: 0;
 }
 
@@ -147,8 +180,16 @@
 }
 
 @media screen and (max-width: 820px) {
-  /* .main-usr-set {
-      display: none;
-  } */
+  .main-usr-set {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 100%;
+    width: 250px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
