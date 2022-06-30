@@ -12,22 +12,15 @@ var options = {
 var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
 var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
 
-
 var div = document.querySelector(".autocomplete");
 if (div) {
     div.append(searchBoxHTML);
 }
 ttSearchBox.on("tomtom.searchbox.resultselected", function (data) {
-    console.log(data.data.text);
-    inputValue = data.data.text;
-    input = document.getElementById("inputValue");
-    console.log(input);
-    input.value = inputValue;
-    console.log(input.value);
+    console.log(data);
 });
 
-const miaVar = document.querySelector('.tt-search-box-input');
-
-console.log(miaVar);
-
-miaVar.value = 'ciaoooo';
+const miaVar = document.querySelector(".tt-search-box-input");
+miaVar.setAttribute("name", "address");
+const oldAddress = document.getElementById("oldAddress").value;
+miaVar.value = oldAddress;

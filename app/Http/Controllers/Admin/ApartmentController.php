@@ -45,6 +45,8 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
+
         $request->validate(
             [
                 'title' => 'required|min:5|max:30',
@@ -202,7 +204,7 @@ class ApartmentController extends Controller
 
         $data = $request->all();
         //  dd($data);
-        if(array_key_exists('img', $data)){
+        if (array_key_exists('img', $data)) {
             Storage::delete($apartment->img);
 
             $img_path = Storage::put('uploads', $data['img']);

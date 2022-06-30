@@ -46,18 +46,14 @@
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Immagine: <span class="red">*</span></h3>
-                <input type="file" name="img">
+                <input type="file" name="img" value="{{ old('img') }}">
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Indirizzo: <span class="red">*</span></h3>
-                {{-- <input class="w-100 p-1" type="text" name="address" placeholder="indirizzo"
-                    value="{{ old('address') }}" required> --}}
                 <div class="autocomplete">
 
-                    {{-- <input class="w-100" id="myInput" type="text" name="address" placeholder="Indirizzo"
-                        value="{{ old('address') }}" onkeyup="array()"> --}}
-                    <input type="hidden" name="address" value="" id="inputValue">
                 </div>
+                <input id="oldAddress" type="hidden" value="{{ old('address') }}">
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Stanze: <span class="red">*</span></h3>
@@ -71,8 +67,8 @@
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Letti: <span class="red">*</span></h3>
-                <input class="w-100 p-1 onlynumber" type="number" name="bed" placeholder="numero di letti" value="{{ old('bed') }}"
-                    required min="1" max="30">
+                <input class="w-100 p-1 onlynumber" type="number" name="bed" placeholder="numero di letti"
+                    value="{{ old('bed') }}" required min="1" max="30">
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Metri Quadri: <span class="red">*</span></h3>
@@ -81,13 +77,13 @@
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Prezzo: <span class="red">*</span></h3>
-                <input class="w-100 p-1 onlynumber" type="number" name="price" placeholder="prezzo" value="{{ old('price') }}"
-                    required min="1" max="7000">
+                <input class="w-100 p-1 onlynumber" type="number" name="price" placeholder="prezzo"
+                    value="{{ old('price') }}" required min="1" max="7000">
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <div class="cnt-service">
                     <div class="col-1">
-                        <h3>Servizi: <span class="red">*</span></h3>
+                        <h3>Servizi:<span class="red">*</span></h3>
                     </div>
                 </div>
                 <div class="cnt-items-services col-11">
@@ -105,8 +101,8 @@
             </div>
         </form>
     </div>
-    @push('input-validation')
-        <script type="text/javascript" src="{{ asset('js/validation-input.js') }}"></script>
-    @endpush
+    {{-- @push('input-validation')
+    <script type="text/javascript" src="{{ asset('js/validation-input.js') }}"></script>
+    @endpush --}}
 </div>
 @endsection
