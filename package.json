@@ -24,11 +24,13 @@
     },
     "dependencies": {
         "artisan": "^0.1.2",
+        "bootstrap": "^5.1.3",
         "jquery-validation": "^1.19.4",
         "php": "^1.0.2",
         "serve": "^13.0.2",
         "vue-router": "^3.5.4",
         "vue-simple-complete": "^1.2.0",
-        "vue-simple-suggest": "^1.11.2"
+        "vue-simple-suggest": "^1.11.2",
+        "vue-typeahead-bootstrap": "^2.12.0"
     }
 }
