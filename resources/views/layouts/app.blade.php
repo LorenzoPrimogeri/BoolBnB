@@ -72,7 +72,8 @@
 
 <body>
     <div id="app">
-        <div class="subMenu closeMenu" id="subMenuSlide" style="filter: progid:DXImageTransform.Microsoft.Shadow(color='#dedede', Direction=135, Strength=10);
+        <div class="subMenu closeMenu" id="subMenuSlide"
+            style="filter: progid:DXImageTransform.Microsoft.Shadow(color='#dedede', Direction=135, Strength=10);
 -webkit-overflow-scrolling:touch;">
             <div class="contSubMenuSlide">
                 <div class="cnt-ul">
@@ -98,7 +99,7 @@
                 <div class="cnt-hdr-items">
                     <div class="col-2 col-xs-12">
                         <div class="cnt-logo">
-                            <a href="#">
+                            <a href="/">
                                 <img src="{{ url('/img/boolbnb-logo.svg') }}" alt="logo">
                             </a>
                         </div>
@@ -108,49 +109,50 @@
                     <ul class="ul-log-reg">
                         <!-- Authentication Links -->
                         @guest
-                        <a href="{{ route('login') }}">
-                            <li>
-                                <div class="ico-log ico-login"></div>
-                                <span>Login</span>
-                            </li>
-                        </a>
-                        @if(Route::has('register'))
-                        <a href="{{ route('register') }}">
-                            <li>
-                                <div class="ico-log ico-reg"></div>
-                                <span>Register</span>
-                            </li>
-                        </a>
-                        @endif
-                        @else
-                        <div class="cnt-usr-set">
-                            <div class="cnt-span">
-                                @if( Auth::user()->name)
-                                <span>{{ Auth::user()->name }}</span>
-                                @else
-                                <span>{{ Auth::user()->email }}</span>
-                                @endif
-                                <a id="arrowUsr" href="#">
-                                    <div class="cnt-arrow">
-                                        <span class="arrow"></span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div id="subMenuUsr" class="contUlAccount">
-                                <ul class="ulSet-usr">
+                            <a href="{{ route('login') }}">
+                                <li>
+                                    <div class="ico-log ico-login"></div>
+                                    <span>Login</span>
+                                </li>
+                            </a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}">
                                     <li>
-                                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            class="d-none">
-                                            @csrf
-                                        </form>
+                                        <div class="ico-log ico-reg"></div>
+                                        <span>Register</span>
                                     </li>
-                                </ul>
+                                </a>
+                            @endif
+                        @else
+                            <div class="cnt-usr-set">
+                                <div class="cnt-span">
+                                    @if (Auth::user()->name)
+                                        <span>{{ Auth::user()->name }}</span>
+                                    @else
+                                        <span>{{ Auth::user()->email }}</span>
+                                    @endif
+                                    <a id="arrowUsr" href="#">
+                                        <div class="cnt-arrow">
+                                            <span class="arrow"></span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div id="subMenuUsr" class="contUlAccount">
+                                    <ul class="ulSet-usr">
+                                        <li>
+                                            <a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                                {{ __('Logout') }}
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                class="d-none">
+                                                @csrf
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
                         @endguest
                     </ul>
                 </div>

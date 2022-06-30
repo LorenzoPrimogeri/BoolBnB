@@ -7,6 +7,15 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.axios = require("axios");
+
+import router from "./routes"
+
+/* window.axios.get("http://127.0.0.1:8000/api/posts").then(r => {
+    console.log(r);
+}).catch(e => {
+    console.log(e);
+}) */
 
 /**
  * The following block of code may be used to automatically register your
@@ -19,7 +28,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('app-component', require('./components/App.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,4 +38,5 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    router
 });

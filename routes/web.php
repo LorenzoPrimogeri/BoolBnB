@@ -25,6 +25,6 @@ Route::middleware('auth')
     });
 
 
-Route::get('{any?}', function () {
-    return view('auth.login');
-})->where('any', '.*');
+    Route::get("{any?}", function(){
+        return view("guest.home");
+    })->where("any",".*");
