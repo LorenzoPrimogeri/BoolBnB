@@ -6,10 +6,10 @@ window.Vue = require("vue");
 window.axios
     .get("http://127.0.0.1:8000/api/apartments")
     .then((results) => {
-        console.log(results);
+      //  console.log(results);
     })
     .catch((e) => {
-        console.log(e);
+      //  console.log(e);
     });
 
 import AppComponent from "./app/AppComponent";

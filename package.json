@@ -27,6 +27,7 @@
         "jquery-validation": "^1.19.4",
         "php": "^1.0.2",
         "serve": "^13.0.2",
-        "vue-router": "^3.5.4"
+        "vue-router": "^3.5.4",
+        "vue-simple-complete": "^1.2.0"
     }
 }
