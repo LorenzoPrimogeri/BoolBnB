@@ -15,14 +15,14 @@
                 <i class="usr"></i>
             </span>
             <input id="name" type="text" placeholder="nome" class="inpt-nm-srnm @error('name') is-invalid @enderror"
-                name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
+                name="name" value="{{ old('name') }}" autocomplete="name" autofocus min="3" onkeypress="return /[a-z]/i.test(event.key)">
             @error('name')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
             <input id="surname" type="text" class="inpt-nm-srnm @error('surname') is-invalid @enderror" name="surname"
-                placeholder="cognome" value="{{ old('surname') }}" autocomplete="surname" autofocus>
+                placeholder="cognome" value="{{ old('surname') }}" autocomplete="surname" autofocus min="3" onkeypress="return /[a-z]/i.test(event.key)">
             @error('surname')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>

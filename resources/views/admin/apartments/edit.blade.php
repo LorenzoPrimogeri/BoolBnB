@@ -72,28 +72,28 @@
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Stanze: <span class="red">*</span></h3>
-                <input class="w-100 p-1" type="number" name="room" placeholder="numero di stanze"
+                <input class="w-100 p-1 onlynumber" type="number" name="room" placeholder="numero di stanze"
                     value="{{ $apartment->room }}" required min="1" max="15">
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Bagni: <span class="red">*</span></h3>
-                <input class="w-100 p-1" type="number" name="bathroom" placeholder="numero di bagni"
+                <input class="w-100 p-1 onlynumber" type="number" name="bathroom" placeholder="numero di bagni"
                     value="{{ $apartment->bathroom }}" required min="1" max="15">
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Letti: <span class="red">*</span></h3>
-                <input class="w-100 p-1" type="number" name="bed" placeholder="numero di letti"
+                <input class="w-100 p-1 onlynumber" type="number" name="bed" placeholder="numero di letti"
                     value="{{ $apartment->bed }}" required min="1" max="30">
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Metri Quadri: <span class="red">*</span></h3>
-                <input class="w-100 p-1" type="number" name="mq" placeholder="numero di metri quadri"
-                    value="{{ $apartment->mq }}" required min="5" max="1000">
+                <input class="w-100 p-1 onlynumber" type="number" name="mq" placeholder="numero di metri quadri"
+                    value="{{ $apartment->mq }}" required min="6" max="1000">
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Prezzo: <span class="red">*</span></h3>
-                <input class="w-100 p-1" type="number" name="price" placeholder="prezzo" value="{{ $apartment->price }}"
-                    required>
+                <input class="w-100 p-1 onlynumber" type="number" name="price" placeholder="prezzo" value="{{ $apartment->price }}"
+                    required min="1" max="7000">
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <div class="cnt-service">
@@ -116,5 +116,8 @@
             </div>
         </form>
     </div>
+    @push('input-validation')
+        <script type="text/javascript" src="{{ asset('js/validation-input.js') }}"></script>
+    @endpush
 </div>
 @endsection

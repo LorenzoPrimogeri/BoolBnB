@@ -56,7 +56,7 @@ class ApartmentController extends Controller
                 'address' => 'required|min:3|max:100',
                 'img' => 'required|image',
                 'price' => 'required|integer|min:1|max:7000',
-                'services' => 'exists:services, id',
+                'services' => 'required|array|min:1',
 
             ],
             [
@@ -87,6 +87,7 @@ class ApartmentController extends Controller
                 'price.max' => 'il prezzo massimo è :max $',
                 'price.min' => 'il prezzo minimo è :min $',
                 'services' => 'Il servizio non esiste',
+                'services.required' => 'Inserisci minimo un servizio',
             ]
         );
         $user = Auth::user();
@@ -165,8 +166,8 @@ class ApartmentController extends Controller
                 'bathroom' => 'required|numeric|min:1|max:15',
                 'mq' => 'required|numeric|min:5|max:1000',
                 'address' => 'required|min:3|max:100',
-                'img' => 'required|image',
                 'price' => 'required|numeric|min:1|max:7000',
+                'services' => 'required|array|min:1',
 
             ],
             [
@@ -177,7 +178,6 @@ class ApartmentController extends Controller
                 'bathroom.required' => 'inserisci il numero di bagni',
                 'mq.required' => 'inserisci il numero di metri quadri',
                 'address.required' => 'inserisci l\'indirizzo dell\'appartamento',
-                'img.required' => 'Carica un\'immagine',
                 'price.required' => 'inserisci il prezzo',
                 'title.max' => 'hai superato i :max caratteri del titolo',
                 'title.min' => 'il numero minimo di caratteri del titolo è :min',
@@ -195,6 +195,8 @@ class ApartmentController extends Controller
                 'address.min' => 'l\'indirizzo non è valido',
                 'price.max' => 'il prezzo massimo è :max $',
                 'price.min' => 'il prezzo minimo è :min $',
+                'services.required' => 'Inserisci minimo un servizio',
+
             ]
         );
 

@@ -12,6 +12,7 @@ var options = {
 var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
 var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
 
+
 var div = document.querySelector(".autocomplete");
 if (div) {
     div.append(searchBoxHTML);
@@ -24,3 +25,9 @@ ttSearchBox.on("tomtom.searchbox.resultselected", function (data) {
     input.value = inputValue;
     console.log(input.value);
 });
+
+const miaVar = document.querySelector('.tt-search-box-input');
+
+console.log(miaVar);
+
+miaVar.value = 'ciaoooo';
