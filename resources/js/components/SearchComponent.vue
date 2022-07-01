@@ -16,10 +16,22 @@
     <input type="number" v-model="room" min="1" max="15" placeholder="stanze" />
     <p>letti</p>
     <input type="number" v-model="bed" min="1" max="30" placeholder="letti" />
+    <p>Servizi:</p>
+    <div v-for="(service, index) in allServices" :key="index + service.id">
+      <input
+        type="checkbox"
+        :id="service.id"
+        :name="service.name"
+        :value="service.name"
+        v-model="services"
+      />
+      <label for="vehicle1">{{ service.name }}</label
+      ><br />
+    </div>
     <div
       class="row flex-dr-col"
-      v-for="(indirizzo, index) in indirizzi"
-      :key="index"
+      v-for="(indirizzo, i) in indirizzi"
+      :key="i + indirizzo.address"
     >
       <button
         class="py-4"
@@ -76,6 +88,8 @@ export default {
       indirizzi: [], //indirizzi che stampo per l'auto complete
       allApartaments: [], //tutti gli appartamenti visible
       correctApartments: [], //appartamenti che soddisfano la ricerca
+      allServices: [],
+      services: [],
       distanceKm: 20,
       room: 1,
       bed: 1,
@@ -84,8 +98,10 @@ export default {
   mounted() {
     //prendo tutti gli appartamenti dal database
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
-      this.allApartaments = results.data;
-      //console.log(this.allApartaments);
+      this.allApartaments = results.data.apartments;
+      console.log(this.allApartaments);
+      this.allServices = results.data.services;
+      console.log(this.allServices);
     });
   },
   methods: {
@@ -122,6 +138,7 @@ export default {
       });
     },
     searchApartments() {
+      console.log(this.services);
       //reset degli appartamenti corretti
       this.correctApartments = [];
       console.log(this.correctApartments);

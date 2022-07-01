@@ -21,7 +21,7 @@
             </div>
             @endif
         </div>
-        <form autocomplete="off" action="{{ route('admin.apartments.store') }}" method="POST"
+        <form name="modulo" autocomplete="off" action="{{ route('admin.apartments.store') }}" method="POST"
             enctype="multipart/form-data">
             @csrf
             <div class="cnt-row col-12">
@@ -86,6 +86,7 @@
                         <h3>Servizi:<span class="red">*</span></h3>
                     </div>
                 </div>
+                <div id='checkdiv'></div>
                 <div class="cnt-items-services col-11">
                     @foreach ($services as $service)
                     <div class="cnt-item-service">
@@ -95,9 +96,10 @@
                     </div>
                     @endforeach
                 </div>
+
             </div>
             <div class="cnt-th cnt-btn h-100">
-                <button class="btn-modify" type="submit">Inserisci</button>
+                <button class="btn-modify" type="submit" onclick="SelezTT()">Inserisci</button>
             </div>
         </form>
     </div>

@@ -20,7 +20,7 @@
             </div>
             @endif
         </div>
-        <form action="{{ route('admin.apartments.update', $apartment->id) }}" method="POST"
+        <form name="modulo" action="{{ route('admin.apartments.update', $apartment->id) }}" method="POST"
             enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -98,6 +98,7 @@
                         <h3>Servizi: <span class="red">*</span></h3>
                     </div>
                 </div>
+                <div id='checkdiv'></div>
                 <div class="cnt-items-services col-11">
                     @foreach ($services as $service)
                     <div class="cnt-item-service">
@@ -107,8 +108,9 @@
                     </div>
                     @endforeach
                 </div>
+
                 <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
-                    <button class="btn-modify" type="submit">Salva modifiche</button>
+                    <button class="btn-modify" type="submit" onclick="SelezTT()">Salva modifiche</button>
                 </div>
             </div>
         </form>

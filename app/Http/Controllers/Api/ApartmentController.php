@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Apartment;
 use App\Http\Controllers\Controller;
+use App\Service;
 use Illuminate\Http\Request;
 
 class ApartmentController extends Controller
@@ -17,9 +18,10 @@ class ApartmentController extends Controller
     {
         //$apartments = Apartment::all();
         //mandiamo alla home solo gli apartamenti che gli utenti hanno impostato "visibile"
-        $apartments = Apartment::where('visible', 1)->get();
-
-        return response()->json($apartments);
+        $apartments = Apartment::where('visible', 1)->with(['services'])->get();
+        $services = Service::all();
+        $result = ['apartments' => $apartments, 'services' => $services, 'success' => true];
+        return response()->json($result);
     }
 
     /**

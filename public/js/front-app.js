@@ -1996,6 +1996,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2016,6 +2028,8 @@ __webpack_require__.r(__webpack_exports__);
       //tutti gli appartamenti visible
       correctApartments: [],
       //appartamenti che soddisfano la ricerca
+      allServices: [],
+      services: [],
       distanceKm: 20,
       room: 1,
       bed: 1
@@ -2026,7 +2040,10 @@ __webpack_require__.r(__webpack_exports__);
 
     //prendo tutti gli appartamenti dal database
     axios.get("http://127.0.0.1:8000/api/apartments").then(function (results) {
-      _this.allApartaments = results.data; //console.log(this.allApartaments);
+      _this.allApartaments = results.data.apartments;
+      console.log(_this.allApartaments);
+      _this.allServices = results.data.services;
+      console.log(_this.allServices);
     });
   },
   methods: {
@@ -2070,7 +2087,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     searchApartments: function searchApartments() {
-      //reset degli appartamenti corretti
+      console.log(this.services); //reset degli appartamenti corretti
+
       this.correctApartments = [];
       console.log(this.correctApartments); //console.log(this.apartaments);
 
@@ -2138,13 +2156,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ApartmentComponent",
   data: function data() {
     return {
-      apartment: undefined
+      apartment: undefined,
+      lat: 0,
+      lng: 0
     };
   },
   mounted: function mounted() {
@@ -2153,8 +2171,10 @@ __webpack_require__.r(__webpack_exports__);
     var id = this.$route.params.id;
     var url = "/api/apartments/" + id;
     window.axios.get(url).then(function (result) {
-      _this.apartment = result;
-      console.log(_this.apartment);
+      _this.apartment = result.data.results; //console.log(this.apartment.lat);
+
+      _this.lat = _this.apartment.lat;
+      _this.lng = _this.apartment.lng;
     });
   }
 });
@@ -33562,28 +33582,82 @@ var render = function () {
         },
       }),
       _vm._v(" "),
-      _vm._l(_vm.indirizzi, function (indirizzo, index) {
-        return _c("div", { key: index, staticClass: "row flex-dr-col" }, [
-          _c(
-            "button",
-            {
-              staticClass: "py-4",
-              attrs: { type: "text" },
-              on: {
-                click: function ($event) {
-                  return _vm.take(indirizzo.address.freeformAddress)
-                },
+      _c("p", [_vm._v("Servizi:")]),
+      _vm._v(" "),
+      _vm._l(_vm.allServices, function (service, index) {
+        return _c("div", { key: index + service.id }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.services,
+                expression: "services",
+              },
+            ],
+            attrs: { type: "checkbox", id: service.id, name: service.name },
+            domProps: {
+              value: service.name,
+              checked: Array.isArray(_vm.services)
+                ? _vm._i(_vm.services, service.name) > -1
+                : _vm.services,
+            },
+            on: {
+              change: function ($event) {
+                var $$a = _vm.services,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = service.name,
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.services = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.services = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.services = $$c
+                }
               },
             },
-            [
-              _vm._v(
-                "\n      " +
-                  _vm._s(indirizzo.address["freeformAddress"]) +
-                  "\n    "
-              ),
-            ]
-          ),
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "vehicle1" } }, [
+            _vm._v(_vm._s(service.name)),
+          ]),
+          _c("br"),
         ])
+      }),
+      _vm._v(" "),
+      _vm._l(_vm.indirizzi, function (indirizzo, i) {
+        return _c(
+          "div",
+          { key: i + indirizzo.address, staticClass: "row flex-dr-col" },
+          [
+            _c(
+              "button",
+              {
+                staticClass: "py-4",
+                attrs: { type: "text" },
+                on: {
+                  click: function ($event) {
+                    return _vm.take(indirizzo.address.freeformAddress)
+                  },
+                },
+              },
+              [
+                _vm._v(
+                  "\n      " +
+                    _vm._s(indirizzo.address["freeformAddress"]) +
+                    "\n    "
+                ),
+              ]
+            ),
+          ]
+        )
       }),
       _vm._v(" "),
       _c(
@@ -33693,9 +33767,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col6 offset-3" }, [
-        _vm._v("\n          prova\n      "),
-      ]),
+      _c("div", { staticClass: "col6 offset-3" }, [_vm._v("prova")]),
     ])
   },
 ]
@@ -49376,15 +49448,14 @@ var app = new Vue({
 /*!***************************************************!*\
   !*** ./resources/js/pages/ApartmentComponent.vue ***!
   \***************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ApartmentComponent_vue_vue_type_template_id_1ebf81b4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ApartmentComponent.vue?vue&type=template&id=1ebf81b4& */ "./resources/js/pages/ApartmentComponent.vue?vue&type=template&id=1ebf81b4&");
 /* harmony import */ var _ApartmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ApartmentComponent.vue?vue&type=script&lang=js& */ "./resources/js/pages/ApartmentComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ApartmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ApartmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -49414,7 +49485,7 @@ component.options.__file = "resources/js/pages/ApartmentComponent.vue"
 /*!****************************************************************************!*\
   !*** ./resources/js/pages/ApartmentComponent.vue?vue&type=script&lang=js& ***!
   \****************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -49628,7 +49699,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\Amministratore\Desktop\BooleanProject\php\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })
