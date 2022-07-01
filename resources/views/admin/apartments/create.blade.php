@@ -21,7 +21,7 @@
             </div>
             @endif
         </div>
-        <form autocomplete="off" action="{{ route('admin.apartments.store') }}" method="POST"
+        <form name='modulo' autocomplete="off" action="{{ route('admin.apartments.store') }}" onsubmit="return SelezTT()"  method="POST"
             enctype="multipart/form-data">
             @csrf
             <div class="cnt-row col-12">
@@ -88,7 +88,7 @@
                 </div>
                 <div class="cnt-items-services col-11">
                     @foreach ($services as $service)
-                    <div class="cnt-item-service">
+                    <div  id='check' class="cnt-item-service">
                         <input type="checkbox" value="{{ $service->id }}" name="services[]" {{ in_array($service->id,
                         old('services', [])) ? 'checked' : '' }}>
                         <span class="form-check-label">{{ $service->name }}</span>
@@ -97,7 +97,7 @@
                 </div>
             </div>
             <div class="cnt-th cnt-btn h-100">
-                <button class="btn-modify" type="submit">Inserisci</button>
+                <button class="btn-modify" type="submit " onclick="SelezTT()">Inserisci</button>
             </div>
         </form>
     </div>

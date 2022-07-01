@@ -20,7 +20,7 @@
             </div>
             @endif
         </div>
-        <form action="{{ route('admin.apartments.update', $apartment->id) }}" method="POST"
+        <form name='modulo' action="{{ route('admin.apartments.update', $apartment->id) }}" onsubmit="return SelezTT()" method="POST"
             enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -100,15 +100,15 @@
                 </div>
                 <div class="cnt-items-services col-11">
                     @foreach ($services as $service)
-                    <div class="cnt-item-service">
-                        <input type="checkbox" value="{{ $service->id }}" name="services[]" {{
+                    <div class="cnt-item-service" id='check'>
+                        <input  type="checkbox" value="{{ $service->id }}" name="services[]" {{
                             $apartment->services->contains($service) ? 'checked' : '' }}>
                         <span class="form-check-label">{{ $service->name }}</span>
                     </div>
                     @endforeach
                 </div>
                 <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
-                    <button class="btn-modify" type="submit">Salva modifiche</button>
+                    <button class="btn-modify" type="submit"  onclick="SelezTT()">Salva modifiche</button>
                 </div>
             </div>
         </form>

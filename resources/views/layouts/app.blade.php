@@ -58,6 +58,7 @@
     <script src="{{ asset('js/check-password-equal.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/search.js') }}" defer></script>
+    <script src="{{ asset('js/validation-check.js') }}" defer></script>
 
 
     <!-- Fonts -->

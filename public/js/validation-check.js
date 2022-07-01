@@ -1,0 +1,20 @@
+
+
+function SelezTT()
+{
+    let i = 0;
+    let checked = false;
+    const modulo = document.modulo.elements;
+
+    for (i=0; i<modulo.length; i++)
+    {
+        if(modulo[i].type === "checkbox" && modulo[i].checked  )
+        {
+            checked = true;
+        }
+    }
+    if(checked ===false)
+    {
+        document.getElementById('check').innerHTML = "devi selezionare almeno un servizio!"
+    }
+}
