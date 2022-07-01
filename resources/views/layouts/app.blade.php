@@ -11,21 +11,21 @@
     <title>Boolbnb</title>
 
     <!-- Scripts -->
-    {{-- <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script> --}}
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-    <script src="{{ asset('js/client-validate-reg.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script> --}}
     <script src="{{ asset('js/dropDwn-menu.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('js/validation-input.js') }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset('js/client-validate-reg.js') }}"></script> --}}
     <script src="{{ asset('js/check-password-equal.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
-    <link href="{{ asset('css/dropDwn-menu.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dropDwn-menu.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/log-sign.css') }}" rel="stylesheet">
     <link href="{{ asset('css/btn-burger.css') }}" rel="stylesheet">
     <link href="{{ asset('css/menuSlide.css') }}" rel="stylesheet">
 </head>
@@ -68,9 +68,9 @@
             </div>
         </div>
         <header>
-            <div class="container w-100 h-100 pd-20-lr">
+            <div class="container wmax-100 h-100 pd-20-lr">
                 <div class="cnt-hdr-items">
-                    <div class="col-2 col-xs-12">
+                    <div class="col-1 col-xs-12">
                         <div class="cnt-logo">
                             <a href="#">
                                 <img src="{{ url('/img/boolbnb-logo.svg') }}" alt="logo">
@@ -158,7 +158,8 @@
             @yield('content')
         </main>
     </div>
-
+    @stack('input-validation')
+    @stack('client-validate-reg')
 </body>
 
 </html>

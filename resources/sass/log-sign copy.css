@@ -31,8 +31,8 @@
     color: rgb(53, 52, 100);
 }
 .form-container form i {
-    width: 100%;
-    height: 100%;
+    width: 30px;
+    height: 30px;
     display: inherit;
 }
 .usr {
@@ -58,7 +58,7 @@
 .row-log-reg:nth-child(3) {
     margin-bottom: 20px;
 }
-.contInput {
+.cnt-input {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -85,6 +85,7 @@
     height: 30px;
     outline: none;
     border: none;
+    background: #fff;
     color: #484848;
     font-size: 0.8em;
     padding: 0 10px;

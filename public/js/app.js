@@ -45590,6 +45590,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/log-sign.scss":
+/*!**************************************!*\
+  !*** ./resources/sass/log-sign.scss ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/menuSlide.scss":
 /*!***************************************!*\
   !*** ./resources/sass/menuSlide.scss ***!
@@ -45602,15 +45613,16 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/dashboard.scss ./resources/sass/dropDwn-menu.scss ./resources/sass/btn-burger.scss ./resources/sass/menuSlide.scss ***!
-  \*************************************************************************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/dashboard.scss ./resources/sass/log-sign.scss ./resources/sass/dropDwn-menu.scss ./resources/sass/btn-burger.scss ./resources/sass/menuSlide.scss ***!
+  \********************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/dashboard.scss */"./resources/sass/dashboard.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/log-sign.scss */"./resources/sass/log-sign.scss");
 __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/dropDwn-menu.scss */"./resources/sass/dropDwn-menu.scss");
 __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/btn-burger.scss */"./resources/sass/btn-burger.scss");
 module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/menuSlide.scss */"./resources/sass/menuSlide.scss");

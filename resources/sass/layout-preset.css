@@ -126,7 +126,6 @@
 .red {
     color: red !important;
 }
-
 @media screen and (max-width: 480px) {
     .col-xs-12 {
         flex-basis: calc((100% / 12) * 12);

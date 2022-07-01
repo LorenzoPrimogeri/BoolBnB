@@ -1,16 +1,15 @@
 @extends('layouts.app')
 @section('content')
     <div class="form-container">
-        <div class="cnt-blur"></div>
         {{-- <form class="formLog form-1" name="form_registration" method="POST" action=""> --}}
-        <form method="POST" action="{{ route('login') }}">
+        <form class="formLog form-1" method="POST" action="{{ route('login') }}">
             @csrf
             <div class="cnt-ttl">
                 <span>Login</span>
             </div>
             <div class="row-log-reg">
-                <span class="icon">
-                    <i class="mail"></i>
+                <span class="ico">
+                    <div class="mail"></div>
                 </span>
                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
                     placeholder="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -21,8 +20,8 @@
                 @enderror
             </div>
             <div class="row-log-reg">
-                <span class="icon">
-                    <i class="psw"></i>
+                <span class="ico">
+                    <div class="psw"></div>
                 </span>
                 <div class="contInput">
                     <input id="password" class="txtNewPassword inputLog input-1" type="password"
@@ -45,7 +44,7 @@
                         {{ old('remember') ? 'checked' : '' }}>
                     <span class="checkmark"></span>
                 </div>
-                <label for="remember">
+                <label class="remember" for="remember">
                     Ricordami
                 </label>
             </div>

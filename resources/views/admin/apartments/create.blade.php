@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
     <div class="main-slct-item">
         <div class="cnt-slct-btn">
             <div class="cnt-th cnt-btn h-100">
@@ -50,27 +51,28 @@
                 </div>
                 <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                     <h3>Stanze:</h3>
-                    <input class="w-100 p-1" type="number" name="room" placeholder="numero di stanze"
-                        value="{{ old('room') }}" required>
+                    <input class="w-100 p-1 onlynumber" type="number" min="1" name="room"
+                        placeholder="numero di stanze" value="{{ old('room') }}" required>
                 </div>
                 <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                     <h3>Bagni:</h3>
-                    <input class="w-100 p-1" type="number" name="bathroom" placeholder="numero di bagni"
-                        value="{{ old('bathroom') }}" required>
+                    <input class="w-100 p-1 onlynumber" type="number" min="0" name="bathroom"
+                        placeholder="numero di bagni" value="{{ old('bathroom') }}" required>
                 </div>
                 <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                     <h3>Letti:</h3>
-                    <input class="w-100 p-1" type="text" name="bed" placeholder="numero di letti"
-                        value="{{ old('bed') }}" required>
+                    <input class="w-100 p-1 onlynumber" type="number" min="1" name="bed"
+                        placeholder="numero di letti" value="{{ old('bed') }}" required>
                 </div>
                 <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                     <h3>Metri Quadri:</h3>
-                    <input class="w-100 p-1" type="number" name="mq" placeholder="numero di metri quadri"
-                        value="{{ old('mq') }}" required>
+                    <input class="w-100 p-1 onlynumber" type="number" min="5" name="mq"
+                        placeholder="numero di metri quadri" value="{{ old('mq') }}" required>
                 </div>
+
                 <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                     <h3>Prezzo:</h3>
-                    <input class="w-100 p-1" type="text" name="price" placeholder="prezzo"
+                    <input class="w-100 p-1 onlynumber" type="text" name="price" placeholder="prezzo"
                         value="{{ old('price') }}" required>
                 </div>
                 <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
@@ -94,5 +96,8 @@
                 </div>
             </form>
         </div>
+        @push('input-validation')
+            <script type="text/javascript" src="{{ asset('js/validation-input.js') }}"></script>
+        @endpush
     </div>
 @endsection
