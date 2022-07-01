@@ -15,7 +15,10 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::all();
+        //$apartments = Apartment::all();
+        //mandiamo alla home solo gli apartamenti che gli utenti hanno impostato "visibile"
+        $apartments = Apartment::where('visible', 1)->get();
+
         return response()->json($apartments);
     }
 
@@ -48,7 +51,9 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
-        //
+        $apartments = Apartment::where('id', $id)->with(['services'])->first();
+        $result = ['results' => $apartments, 'success' => true];
+        return response()->json($result);
     }
 
     /**
