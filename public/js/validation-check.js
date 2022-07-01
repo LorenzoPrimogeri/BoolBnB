@@ -2,6 +2,7 @@
 
 function SelezTT()
 {
+    event.preventDefault();
     let i = 0;
     let checked = false;
     const modulo = document.modulo.elements;
@@ -13,8 +14,11 @@ function SelezTT()
             checked = true;
         }
     }
-    if(checked ===false)
+    console.log(checked)
+    if(!checked)
     {
-        document.getElementById('check').innerHTML = "devi selezionare almeno un servizio!"
+        document.getElementById('checkdiv').innerHTML = "devi selezionare almeno un servizio!"
+    } else {
+        document.getElementById('checkdiv').innerHTML = " "
     }
 }
