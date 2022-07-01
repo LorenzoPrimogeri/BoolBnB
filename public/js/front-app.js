@@ -2215,17 +2215,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/bootstrap/dist/js/bootstrap.esm.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/bootstrap/dist/js/bootstrap.esm.js ***!
-  \*********************************************************/
-/*! exports provided: Alert, Button, Carousel, Collapse, Dropdown, Modal, Offcanvas, Popover, ScrollSpy, Tab, Toast, Tooltip */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'C:\\Users\\Amministratore\\Desktop\\BooleanProject\\php\\BoolBnB\\node_modules\\bootstrap\\dist\\js\\bootstrap.esm.js'");
-
-/***/ }),
-
 /***/ "./node_modules/jquery/dist/jquery.js":
 /*!********************************************!*\
   !*** ./node_modules/jquery/dist/jquery.js ***!
@@ -49237,7 +49226,7 @@ try {
   window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
-  __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
+  __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module 'bootstrap'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 } catch (e) {}
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
