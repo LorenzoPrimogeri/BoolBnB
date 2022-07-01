@@ -2135,6 +2135,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ApartmentComponent",
   data: function data() {
@@ -33678,9 +33683,22 @@ var render = function () {
         ),
       ]),
     ]),
+    _vm._v(" "),
+    _vm._m(0),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col6 offset-3" }, [
+        _vm._v("\n          prova\n      "),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -49358,14 +49376,15 @@ var app = new Vue({
 /*!***************************************************!*\
   !*** ./resources/js/pages/ApartmentComponent.vue ***!
   \***************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ApartmentComponent_vue_vue_type_template_id_1ebf81b4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ApartmentComponent.vue?vue&type=template&id=1ebf81b4& */ "./resources/js/pages/ApartmentComponent.vue?vue&type=template&id=1ebf81b4&");
 /* harmony import */ var _ApartmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ApartmentComponent.vue?vue&type=script&lang=js& */ "./resources/js/pages/ApartmentComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ApartmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ApartmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -49395,7 +49414,7 @@ component.options.__file = "resources/js/pages/ApartmentComponent.vue"
 /*!****************************************************************************!*\
   !*** ./resources/js/pages/ApartmentComponent.vue?vue&type=script&lang=js& ***!
   \****************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -49609,7 +49628,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Amministratore\Desktop\BooleanProject\php\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })
