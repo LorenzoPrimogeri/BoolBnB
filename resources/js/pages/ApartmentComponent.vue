@@ -6,9 +6,14 @@
         {{ apartment }}
       </div>
     </div>
+    <div class="row">
+        <div class="col6 offset-3">
+            prova
+        </div>
+    </div>
   </div>
 </template>
- 
+
 <script>
 export default {
   name: "ApartmentComponent",
@@ -27,6 +32,8 @@ export default {
   },
 };
 </script>
- 
+
  <style>
 </style>
+
+
