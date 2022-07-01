@@ -23,6 +23,8 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@tomtom-international/web-sdk-maps": "^6.20.0",
+        "@tomtom-international/web-sdk-services": "^6.20.0",
         "artisan": "^0.1.2",
         "jquery-validation": "^1.19.4",
         "php": "^1.0.2",
