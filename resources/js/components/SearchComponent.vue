@@ -2,6 +2,20 @@
   <div class="">
     <p>Via dispersi in russia 143</p>
     <input type="text" v-model="input" @input="onInputChanged" />
+    <!-- si potrebbe fare un range senza dover scrivere a mano i km -->
+    <p>km</p>
+    <input
+      type="number"
+      v-model="distanceKm"
+      min="20"
+      max="1000"
+      placeholder="km"
+    />
+
+    <p>stanze</p>
+    <input type="number" v-model="room" min="1" max="15" placeholder="stanze" />
+    <p>letti</p>
+    <input type="number" v-model="bed" min="1" max="30" placeholder="letti" />
     <div
       class="row flex-dr-col"
       v-for="(indirizzo, index) in indirizzi"
@@ -16,9 +30,9 @@
       </button>
     </div>
     <button @click="takeLatLng()">Cerca!</button>
-    <div>
+    <div v-if="correctApartments">
       <p>gli appartamenti Nel raggio di 20 km sono:</p>
-      <p v-for="apartment in correctApartaments" :key="apartment.id">
+      <p v-for="apartment in correctApartments" :key="apartment.id">
         {{ apartment.title }}
       </p>
     </div>
@@ -34,24 +48,27 @@ export default {
   data() {
     return {
       input: "",
-      lat: 0,
-      lng: 0,
-      indirizzi: [],
-      apartaments: [],
-      allApartaments: [],
-      correctApartaments: [],
+      lat: 0, //Riferito all'indirizzo inserito dal utente
+      lng: 0, //Riferito all'indirizzo inserito dal utente
+      indirizzi: [], //indirizzi che stampo per l'auto complete
+      allApartaments: [], //tutti gli appartamenti visible
+      correctApartments: [], //appartamenti che soddisfano la ricerca
+      distanceKm: 20,
+      room: 1,
+      bed: 1,
     };
   },
   mounted() {
     //prendo tutti gli appartamenti dal database
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       this.allApartaments = results.data;
-      console.log(this.allApartaments);
-      console.log(this.apartaments);
+      //console.log(this.allApartaments);
     });
   },
   methods: {
     onInputChanged() {
+      // console.log(this.distanceKm);
+      //Call axios che restituisce gli indirizzi autocomplete
       delete axios.defaults.headers.common["X-Requested-With"];
       this.indirizzi = [];
       Axios.get(
@@ -68,40 +85,46 @@ export default {
       this.input = indirizzo;
     },
     takeLatLng() {
+      //prendo lat e long dal indirizzo
       console.log(this.input);
       Axios.get(
         "https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
         { params: { query: this.input } }
       ).then((risp) => {
-        //prendo lat e long dal indirizzo
         const position = risp.data.results[0].position;
         this.lat = position.lat;
         this.lng = position.lon;
         console.log("lat:" + this.lat + " lng:" + this.lng);
-        this.searchApartments(this.allApartaments);
+        this.searchApartments();
       });
     },
-    searchApartments(array) {
-      //reset delle variabili
-      this.apartaments = [];
-      this.allApartaments = [];
-      array.forEach((apartment) => {
-        this.apartaments.push(apartment);
-      });
-      console.log(this.apartaments);
-      for (let i = 0; i < this.apartaments.length; i++) {
-        const apartment = this.apartaments[i];
+    searchApartments() {
+      //reset degli appartamenti corretti
+      this.correctApartments = [];
+      console.log(this.correctApartments);
+      //console.log(this.apartaments);
+      for (let i = 0; i < this.allApartaments.length; i++) {
+        const apartment = this.allApartaments[i];
         const distance = this.distance(
           this.lat,
           this.lng,
           apartment.lat,
           apartment.lng
         );
-        console.log("la distanza è: " + distance.toFixed(3) + " km :)");
-        if (distance <= 20) {
-          this.correctApartaments.push(apartment);
-          console.log(this.correctApartaments);
+        if (
+          distance <= this.distanceKm &&
+          apartment.room >= this.room &&
+          apartment.bed >= this.bed
+        ) {
+          console.log("la distanza è: " + distance.toFixed(3) + " km :)");
+          console.log(apartment.room);
+          console.log(apartment.bed);
+          console.log("Fatto");
+          this.correctApartments.push(apartment);
+        } else {
         }
+
+        console.log(this.correctApartments);
       }
     },
     distance(lat1, lon1, lat2, lon2) {
