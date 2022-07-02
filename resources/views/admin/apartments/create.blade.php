@@ -96,7 +96,6 @@
                     </div>
                     @endforeach
                 </div>
-
             </div>
             <div class="cnt-th cnt-btn h-100">
                 <button class="btn-modify" type="submit" onclick="SelezTT()">Inserisci</button>

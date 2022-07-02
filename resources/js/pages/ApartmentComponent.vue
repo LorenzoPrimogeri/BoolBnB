@@ -1,41 +1,58 @@
 <template>
-  <div class="container-fluid">
-    <div class="row">
-        <div class="col-12 text-center">
-        <h1 >{{ apartment.title }}</h1>
-        <img :src="`/storage/${apartment.img}`" class="img-fluid" :alt="apartment.title">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 text-center">
-            <p>{{ apartment.description }}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-6 offset-3">
-            <div id="map">
-
-            </div>
-            <p>{{ apartment.address }}</p>
-            <router-link class="btn btn-info mt-3" :to="{name: 'home'}">
-                Torna alla Home
-            </router-link>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-6 offset-3">
+    <div class="cnt-item-details text center">
+      <div class="cnt-row col-12">
+        <h3>Titolo:</h3>
+        <p>{{ apartment.title }}</p>
+      </div>
+      <div class="cnt-row col-12">
+        <h3>Indirizzo:</h3>
+        <p>{{ apartment.address }}</p>
+      </div>
+      <div class="cnt-row col-12">
+        <div class="cnt-img">
+          <img :src="`/storage/${apartment.img}`" :alt="apartment.title"/>
 
         </div>
-    </div>
 
-  </div>
+        <!-- map -->
+         <div id="map"></div>
+         <!-- /map -->
+
+      </div>
+      <div class="cnt-row col-12">
+        <h3>Descrizione:</h3>
+        <p>{{ apartment.description }}</p>
+      </div>
+      <div class="cnt-row col-12">
+        <h3>Stanze:</h3>
+        <p>{{ apartment.room }}</p>
+      </div>
+      <div class="cnt-row col-12">
+        <h3>Bagni:</h3>
+        <p>{{ apartment.bathroom }}</p>
+      </div>
+      <div class="cnt-row col-12">
+        <h3>Letti:</h3>
+        <p>{{ apartment.bed }}</p>
+      </div>
+      <div class="cnt-row col-12">
+        <h3>Metri Quadri:</h3>
+        <p>{{ apartment.mq }}</p>
+      </div>
+      <div class="cnt-row col-12">
+        <h3>Prezzo:</h3>
+        <p>{{ apartment.price }}</p>
+      </div>
+      <!-- <div class="cnt-row col-12">
+          <h3>Servizi:</h3>
+          @foreach (apartment.services as service)
+          <p>{{ service->name }}</p>
+          @endforeach
+        </div> -->
+    </div>
 </template>
 
 <script>
-
-
-
-
 export default {
   name: "ApartmentComponent",
   data() {
@@ -59,16 +76,12 @@ export default {
     console.log(this.lng);
     this.createMap(); //funzione per generare la mappa
     });
-
-
-
   },
   methods:{
     createMap(){
 
     let center = [this.lng, this.lat];
-    // let size = 50;
-    //size of map, lo sa dio come funziona
+   
 
 
     const map = tt.map({
@@ -134,11 +147,5 @@ export default {
         height: 225px;
     }
 }
-
 </style>
-
-
-
-
-
 
