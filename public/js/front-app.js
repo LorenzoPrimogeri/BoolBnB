@@ -2018,6 +2018,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2042,7 +2043,8 @@ __webpack_require__.r(__webpack_exports__);
       services: [],
       distanceKm: 20,
       room: 1,
-      bed: 1
+      bed: 1,
+      apartmentService: []
     };
   },
   mounted: function mounted() {
@@ -2108,15 +2110,6 @@ __webpack_require__.r(__webpack_exports__);
         if (distance <= this.distanceKm && apartment.room >= this.room && apartment.bed >= this.bed) {
           this.correctApartments.push(apartment);
         }
-
-        if (this.services.length >= 1) {
-          for (var j = 0; j < apartment.services.length; j++) {
-            //  const element = array[i];
-            if (this.services.icludes(apartment.services[i].name)) {
-              console.log("inserimento  by servizio effettuato"); //this.correctApartments.push(apartment);
-            }
-          }
-        }
       }
     },
     distance: function distance(lat1, lon1, lat2, lon2) {
@@ -2164,6 +2157,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ApartmentComponent",
   data: function data() {
@@ -2196,29 +2232,29 @@ __webpack_require__.r(__webpack_exports__);
       var size = 50;
       var scale = new tt.ScaleControl({
         maxWidth: 80,
-        unit: 'imperial'
+        unit: "imperial"
       });
       var map = tt.map({
         key: "GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
         container: "map",
-        countrySet: 'IT',
+        countrySet: "IT",
         center: center,
         zoom: 15,
         size: size,
         style: {
-          map: 'basic_night'
+          map: "basic_night"
         },
         around: center,
-        renderingMode: '3d'
+        renderingMode: "3d"
       });
-      map.on('load', function () {
+      map.on("load", function () {
         new tt.Popup().setLngLat(center).setText("Il mio appartamento");
         new tt.Marker({
-          anchor: 'center'
+          anchor: "center"
         }).setLngLat(center).addTo(map);
       });
       var nav = new tt.NavigationControl({});
-      map.addControl(nav, 'top-left');
+      map.addControl(nav, "top-left");
     }
   }
 });
@@ -33627,56 +33663,6 @@ var render = function () {
         },
       }),
       _vm._v(" "),
-      _c("p", [_vm._v("Servizi:")]),
-      _vm._v(" "),
-      _vm._l(_vm.allServices, function (service, index) {
-        return _c("div", { key: index + service.id }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.services,
-                expression: "services",
-              },
-            ],
-            attrs: { type: "checkbox", id: service.id, name: service.name },
-            domProps: {
-              value: service.name,
-              checked: Array.isArray(_vm.services)
-                ? _vm._i(_vm.services, service.name) > -1
-                : _vm.services,
-            },
-            on: {
-              change: function ($event) {
-                var $$a = _vm.services,
-                  $$el = $event.target,
-                  $$c = $$el.checked ? true : false
-                if (Array.isArray($$a)) {
-                  var $$v = service.name,
-                    $$i = _vm._i($$a, $$v)
-                  if ($$el.checked) {
-                    $$i < 0 && (_vm.services = $$a.concat([$$v]))
-                  } else {
-                    $$i > -1 &&
-                      (_vm.services = $$a
-                        .slice(0, $$i)
-                        .concat($$a.slice($$i + 1)))
-                  }
-                } else {
-                  _vm.services = $$c
-                }
-              },
-            },
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "vehicle1" } }, [
-            _vm._v(_vm._s(service.name)),
-          ]),
-          _c("br"),
-        ])
-      }),
-      _vm._v(" "),
       _vm._l(_vm.indirizzi, function (indirizzo, i) {
         return _c(
           "div",
@@ -33695,9 +33681,9 @@ var render = function () {
               },
               [
                 _vm._v(
-                  "\n      " +
+                  "\n        " +
                     _vm._s(indirizzo.address["freeformAddress"]) +
-                    "\n    "
+                    "\n      "
                 ),
               ]
             ),
@@ -33745,9 +33731,9 @@ var render = function () {
                         _vm._l(apartment.services, function (service) {
                           return _c("h2", { key: service.name }, [
                             _vm._v(
-                              "\n              " +
+                              "\n                " +
                                 _vm._s(service.name) +
-                                "\n            "
+                                "\n              "
                             ),
                           ])
                         }),
@@ -33807,24 +33793,80 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container-fluid" }, [
+    _c("div", { staticClass: "cnt-item-details text center" }, [
+      _c("div", { staticClass: "cnt-row col-12" }, [
+        _c("h3", [_vm._v("Titolo:")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.apartment.title))]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "cnt-row col-12" }, [
+        _c("h3", [_vm._v("Indirizzo:")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.apartment.address))]),
+      ]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "cnt-row col-12" }, [
+        _c("h3", [_vm._v("Descrizione:")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.apartment.description))]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "cnt-row col-12" }, [
+        _c("h3", [_vm._v("Stanze:")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.apartment.room))]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "cnt-row col-12" }, [
+        _c("h3", [_vm._v("Bagni:")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.apartment.bathroom))]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "cnt-row col-12" }, [
+        _c("h3", [_vm._v("Letti:")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.apartment.bed))]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "cnt-row col-12" }, [
+        _c("h3", [_vm._v("Metri Quadri:")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.apartment.mq))]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "cnt-row col-12" }, [
+        _c("h3", [_vm._v("Prezzo:")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.apartment.price))]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _vm._m(1),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container-fluid" }, [
-      _c("div", { staticClass: "col-6 offset-3" }, [
-        _c("div", {
-          staticStyle: {
-            width: "500px",
-            height: "500px",
-            "margin-top": "50px",
-          },
-          attrs: { id: "map" },
-        }),
-      ]),
+    return _c("div", { staticClass: "cnt-row col-12" }, [
+      _c("div", { staticClass: "cnt-img" }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-6 offset-3" }, [
+      _c("div", {
+        staticStyle: { width: "500px", height: "500px", "margin-top": "50px" },
+        attrs: { id: "map" },
+      }),
     ])
   },
 ]
@@ -49762,7 +49804,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\Amministratore\Desktop\BooleanProject\php\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })

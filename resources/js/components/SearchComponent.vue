@@ -21,6 +21,7 @@
     <input type="number" v-model="room" min="1" max="15" placeholder="stanze" />
     <p>letti</p>
     <input type="number" v-model="bed" min="1" max="30" placeholder="letti" />
+<!--  Almeno non disponibile    
     <p>Servizi:</p>
     <div v-for="(service, index) in allServices" :key="index + service.id">
       <input
@@ -32,7 +33,7 @@
       />
       <label for="vehicle1">{{ service.name }}</label
       ><br />
-    </div>
+    </div> -->
     <div
       class="row flex-dr-col"
       v-for="(indirizzo, i) in indirizzi"
@@ -103,6 +104,7 @@ export default {
       distanceKm: 20,
       room: 1,
       bed: 1,
+      apartmentService: [],
     };
   },
   mounted() {
@@ -160,22 +162,12 @@ export default {
           apartment.lat,
           apartment.lng
         );
-
         if (
           distance <= this.distanceKm &&
           apartment.room >= this.room &&
           apartment.bed >= this.bed
         ) {
           this.correctApartments.push(apartment);
-        }
-        if (this.services.length >= 1) {
-          for (let j = 0; j < apartment.services.length; j++) {
-            //  const element = array[i];
-            if (this.services.icludes(apartment.services[i].name)) {
-              console.log("inserimento  by servizio effettuato");
-              //this.correctApartments.push(apartment);
-            }
-          }
         }
       }
     },
