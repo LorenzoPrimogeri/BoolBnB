@@ -58,6 +58,28 @@
           <p>{{ service->name }}</p>
           @endforeach
         </div> -->
+        <div class="cnt-row col-12">
+            <form method="post" @submit.prevent="sendForm()">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Indirizzo Email</label>
+                    <input type="email" class="form-control" v-model="email"
+                    id="email" placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                    <label for="object" class="form-label">Oggetto</label>
+                    <input type="text" class="form-control" id="object" v-model="object"
+                     placeholder="Oggetto dell'email">
+                </div>
+                <div class="mb-3">
+                    <label for="body" class="form-label">Messaggio</label>
+                    <textarea class="form-control" id="body" rows="3" v-model="body"></textarea>
+                </div>
+
+
+                <button type="submit" :disabled="sending">Invia mail</button>
+            </form>
+        </div>
+
     </div>
 
     <!-- <div v-else>
@@ -80,6 +102,11 @@ export default {
       apartment: [],
       lat: 0,
       lng: 0,
+      email: '',
+      object: '',
+      body: '',
+      sending: false,
+      success: false,
     };
   },
   mounted() {
@@ -152,9 +179,36 @@ export default {
 
       let popup = new tt.Popup({ offset: popupOffsets, className: "my-class" })
         .setLngLat(center)
-        .setHTML(`<span>${title}</span><br><span>${address}</span>`)
+        .setHTML(`<span><strong>${title}</strong></span><br><span>${address}</span>`)
         .addTo(map);
     },
+    sendForm(){
+            this.sending = true;
+            this.success = false;
+
+            window.axios.post(`/api/messages/${id}`, {
+                email: this.email,
+                object: this.object,
+                body: this.body,
+                apartment_id: this.id
+            }).then(({data, status})=>{
+                console.log(data);
+                this.sending = false;
+
+                if(status === 200){
+                    this.success = data.success;
+
+                    if(!data.success){
+                        this.errors = data.errors;
+                        console.log(this.errors)
+                    }
+                }
+                // this.message = '';
+            }).catch(error =>{
+                console.log(error);
+            })
+        }
+
   },
 };
 </script>
