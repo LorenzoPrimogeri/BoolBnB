@@ -1,7 +1,12 @@
 <template>
   <div class="">
-    <p>Via dispersi in russia 143</p>
-    <input type="text" v-model="input" @input="onInputChanged" />
+    <p>Via Dispersi in Russia 143, 73056 Taurisano</p>
+    <input
+      type="text"
+      v-model="input"
+      @input="onInputChanged"
+      style="width: 500px !important"
+    />
     <!-- si potrebbe fare un range senza dover scrivere a mano i km -->
     <p>km</p>
     <input
@@ -47,7 +52,7 @@
       <div v-for="apartment in correctApartments" :key="apartment.id">
         <div class="container">
           <div class="row py-2">
-            <div class="col-3 border-bottom">
+            <div class="col-1 border-bottom">
               <h4>{{ apartment.id }}</h4>
             </div>
             <div class="col-3 border-bottom">
@@ -57,6 +62,11 @@
               <h4>{{ apartment.description }}</h4>
             </div>
             <div class="col-3 border-bottom">
+              <h2 v-for="service in apartment.services" :key="service.name">
+                {{ service.name }}
+              </h2>
+            </div>
+            <div class="col-2 border-bottom">
               <router-link
                 :to="{
                   name: 'single-apartment',
@@ -101,10 +111,11 @@ export default {
       this.allApartaments = results.data.apartments;
       console.log(this.allApartaments);
       this.allServices = results.data.services;
-      console.log(this.allServices);
+      // console.log(this.allServices);
     });
   },
   methods: {
+    axiosCall() {},
     onInputChanged() {
       // console.log(this.distanceKm);
       //Call axios che restituisce gli indirizzi autocomplete
@@ -125,6 +136,7 @@ export default {
     },
     takeLatLng() {
       //prendo lat e long dal indirizzo
+      console.log(this.services);
       console.log(this.input);
       Axios.get(
         "https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
@@ -138,11 +150,8 @@ export default {
       });
     },
     searchApartments() {
-      console.log(this.services);
       //reset degli appartamenti corretti
       this.correctApartments = [];
-      console.log(this.correctApartments);
-      //console.log(this.apartaments);
       for (let i = 0; i < this.allApartaments.length; i++) {
         const apartment = this.allApartaments[i];
         const distance = this.distance(
@@ -151,30 +160,34 @@ export default {
           apartment.lat,
           apartment.lng
         );
+
         if (
           distance <= this.distanceKm &&
           apartment.room >= this.room &&
           apartment.bed >= this.bed
         ) {
-          console.log("la distanza è: " + distance.toFixed(3) + " km :)");
-          console.log(apartment.room);
-          console.log(apartment.bed);
-          console.log("Fatto");
           this.correctApartments.push(apartment);
-        } else {
         }
-        console.log(this.correctApartments);
+        if (this.services.length >= 1) {
+          for (let j = 0; j < apartment.services.length; j++) {
+            //  const element = array[i];
+            if (this.services.icludes(apartment.services[i].name)) {
+              console.log("inserimento  by servizio effettuato");
+              //this.correctApartments.push(apartment);
+            }
+          }
+        }
       }
     },
     distance(lat1, lon1, lat2, lon2) {
       if (lat1 == lat2 && lon1 == lon2) {
         return 0;
       } else {
-        var radlat1 = (Math.PI * lat1) / 180;
-        var radlat2 = (Math.PI * lat2) / 180;
-        var theta = lon1 - lon2;
-        var radtheta = (Math.PI * theta) / 180;
-        var dist =
+        let radlat1 = (Math.PI * lat1) / 180;
+        let radlat2 = (Math.PI * lat2) / 180;
+        let theta = lon1 - lon2;
+        let radtheta = (Math.PI * theta) / 180;
+        let dist =
           Math.sin(radlat1) * Math.sin(radlat2) +
           Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
         if (dist > 1) {

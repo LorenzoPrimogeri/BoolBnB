@@ -2008,6 +2008,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2042,11 +2052,11 @@ __webpack_require__.r(__webpack_exports__);
     axios.get("http://127.0.0.1:8000/api/apartments").then(function (results) {
       _this.allApartaments = results.data.apartments;
       console.log(_this.allApartaments);
-      _this.allServices = results.data.services;
-      console.log(_this.allServices);
+      _this.allServices = results.data.services; // console.log(this.allServices);
     });
   },
   methods: {
+    axiosCall: function axiosCall() {},
     onInputChanged: function onInputChanged() {
       var _this2 = this;
 
@@ -2072,6 +2082,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       //prendo lat e long dal indirizzo
+      console.log(this.services);
       console.log(this.input);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK", {
         params: {
@@ -2087,24 +2098,25 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     searchApartments: function searchApartments() {
-      console.log(this.services); //reset degli appartamenti corretti
-
+      //reset degli appartamenti corretti
       this.correctApartments = [];
-      console.log(this.correctApartments); //console.log(this.apartaments);
 
       for (var i = 0; i < this.allApartaments.length; i++) {
         var apartment = this.allApartaments[i];
         var distance = this.distance(this.lat, this.lng, apartment.lat, apartment.lng);
 
         if (distance <= this.distanceKm && apartment.room >= this.room && apartment.bed >= this.bed) {
-          console.log("la distanza è: " + distance.toFixed(3) + " km :)");
-          console.log(apartment.room);
-          console.log(apartment.bed);
-          console.log("Fatto");
           this.correctApartments.push(apartment);
-        } else {}
+        }
 
-        console.log(this.correctApartments);
+        if (this.services.length >= 1) {
+          for (var j = 0; j < apartment.services.length; j++) {
+            //  const element = array[i];
+            if (this.services.icludes(apartment.services[i].name)) {
+              console.log("inserimento  by servizio effettuato"); //this.correctApartments.push(apartment);
+            }
+          }
+        }
       }
     },
     distance: function distance(lat1, lon1, lat2, lon2) {
@@ -33487,7 +33499,7 @@ var render = function () {
     "div",
     {},
     [
-      _c("p", [_vm._v("Via dispersi in russia 143")]),
+      _c("p", [_vm._v("Via Dispersi in Russia 143, 73056 Taurisano")]),
       _vm._v(" "),
       _c("input", {
         directives: [
@@ -33498,6 +33510,7 @@ var render = function () {
             expression: "input",
           },
         ],
+        staticStyle: { width: "500px !important" },
         attrs: { type: "text" },
         domProps: { value: _vm.input },
         on: {
@@ -33682,7 +33695,7 @@ var render = function () {
                 return _c("div", { key: apartment.id }, [
                   _c("div", { staticClass: "container" }, [
                     _c("div", { staticClass: "row py-2" }, [
-                      _c("div", { staticClass: "col-3 border-bottom" }, [
+                      _c("div", { staticClass: "col-1 border-bottom" }, [
                         _c("h4", [_vm._v(_vm._s(apartment.id))]),
                       ]),
                       _vm._v(" "),
@@ -33697,6 +33710,21 @@ var render = function () {
                       _c(
                         "div",
                         { staticClass: "col-3 border-bottom" },
+                        _vm._l(apartment.services, function (service) {
+                          return _c("h2", { key: service.name }, [
+                            _vm._v(
+                              "\n              " +
+                                _vm._s(service.name) +
+                                "\n            "
+                            ),
+                          ])
+                        }),
+                        0
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 border-bottom" },
                         [
                           _c(
                             "router-link",
@@ -49427,11 +49455,17 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-window.axios.get("http://127.0.0.1:8000/api/apartments").then(function (results) {
-  console.log(results);
-})["catch"](function (e) {
-  console.log(e);
-});
+/**
+window.axios
+    .get("http://127.0.0.1:8000/api/apartments")
+    .then((results) => {
+        console.log(results);
+    })
+    .catch((e) => {
+        console.log(e);
+    });
+ */
+
 
 
 var app = new Vue({
