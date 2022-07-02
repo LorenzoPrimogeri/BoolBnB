@@ -2201,8 +2201,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// import LoaderComponent from '../components/LoaderComponent.vue';
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ApartmentComponent",
+  components: {// LoaderComponent,
+  },
   data: function data() {
     return {
       apartment: [],
@@ -2223,6 +2240,10 @@ __webpack_require__.r(__webpack_exports__);
 
       _this.lng = _this.apartment.lng; //prendo lng
 
+      _this.title = _this.apartment.title; //prendo title
+
+      _this.address = _this.apartment.address; //prendo address
+
       console.log(_this.lat);
       console.log(_this.lng);
 
@@ -2236,40 +2257,42 @@ __webpack_require__.r(__webpack_exports__);
       var map = tt.map({
         key: "GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
         container: "map",
-        countrySet: 'IT',
+        countrySet: "IT",
         center: center,
         zoom: 15,
         style: {
-          map: 'basic_night'
+          map: "basic_night"
         },
         around: center,
-        renderingMode: '3d'
+        renderingMode: "3d"
       });
-      map.on('load', function () {
+      map.on("load", function () {
         new tt.Marker({
-          anchor: 'center'
+          anchor: "center"
         }).setLngLat(center).setPopup(popup).addTo(map); //adding marker
       });
       var nav = new tt.NavigationControl({});
-      map.addControl(nav, 'top-left'); //navigation control (top-left of map)
+      map.addControl(nav, "top-left"); //navigation control (top-left of map)
 
       var markerHeight = 18,
           markerRadius = 10,
           linearOffset = 25;
       var popupOffsets = {
-        'top': [0, 0],
-        'top-left': [0, 0],
-        'top-right': [0, 0],
-        'bottom': [0, -markerHeight],
-        'bottom-left': [linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
-        'bottom-right': [-linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
-        'left': [markerRadius, (markerHeight - markerRadius) * -1],
-        'right': [-markerRadius, (markerHeight - markerRadius) * -1]
+        top: [0, 0],
+        "top-left": [0, 0],
+        "top-right": [0, 0],
+        bottom: [0, -markerHeight],
+        "bottom-left": [linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
+        "bottom-right": [-linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
+        left: [markerRadius, (markerHeight - markerRadius) * -1],
+        right: [-markerRadius, (markerHeight - markerRadius) * -1]
       };
+      var title = this.title;
+      var address = this.address;
       var popup = new tt.Popup({
         offset: popupOffsets,
-        className: 'my-class'
-      }).setLngLat(center).setHTML("Il tuo appartamento!").addTo(map);
+        className: "my-class"
+      }).setLngLat(center).setHTML("<span>".concat(title, "</span><br><span>").concat(address, "</span>")).addTo(map);
     }
   }
 });
@@ -34453,66 +34476,69 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "cnt-item-details text center" }, [
-    _c("div", { staticClass: "cnt-row col-12" }, [
-      _c("h3", [_vm._v("Titolo:")]),
+  return _c("main", [
+    _c("div", { staticClass: "cnt-item-details text center" }, [
+      _c("div", { staticClass: "cnt-row col-12" }, [
+        _c("h3", [_vm._v("Titolo:")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.apartment.title))]),
+      ]),
       _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.apartment.title))]),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "cnt-row col-12" }, [
-      _c("h3", [_vm._v("Indirizzo:")]),
+      _c("div", { staticClass: "cnt-row col-12" }, [
+        _c("h3", [_vm._v("Indirizzo:")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.apartment.address))]),
+      ]),
       _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.apartment.address))]),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "cnt-row col-12" }, [
-      _c("div", { staticClass: "cnt-img" }, [
-        _c("img", {
-          attrs: {
-            src: "/storage/" + _vm.apartment.img,
-            alt: _vm.apartment.title,
-          },
-        }),
+      _c("div", { staticClass: "cnt-row col-12" }, [
+        _c("div", { staticClass: "cnt-img" }, [
+          _c("img", {
+            staticClass: "img-fluid",
+            attrs: {
+              src: "/storage/" + _vm.apartment.img,
+              alt: _vm.apartment.title,
+            },
+          }),
+        ]),
       ]),
       _vm._v(" "),
       _c("div", { attrs: { id: "map" } }),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "cnt-row col-12" }, [
-      _c("h3", [_vm._v("Descrizione:")]),
       _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.apartment.description))]),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "cnt-row col-12" }, [
-      _c("h3", [_vm._v("Stanze:")]),
+      _c("div", { staticClass: "cnt-row col-12" }, [
+        _c("h3", [_vm._v("Descrizione:")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.apartment.description))]),
+      ]),
       _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.apartment.room))]),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "cnt-row col-12" }, [
-      _c("h3", [_vm._v("Bagni:")]),
+      _c("div", { staticClass: "cnt-row col-12" }, [
+        _c("h3", [_vm._v("Stanze:")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.apartment.room))]),
+      ]),
       _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.apartment.bathroom))]),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "cnt-row col-12" }, [
-      _c("h3", [_vm._v("Letti:")]),
+      _c("div", { staticClass: "cnt-row col-12" }, [
+        _c("h3", [_vm._v("Bagni:")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.apartment.bathroom))]),
+      ]),
       _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.apartment.bed))]),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "cnt-row col-12" }, [
-      _c("h3", [_vm._v("Metri Quadri:")]),
+      _c("div", { staticClass: "cnt-row col-12" }, [
+        _c("h3", [_vm._v("Letti:")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.apartment.bed))]),
+      ]),
       _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.apartment.mq))]),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "cnt-row col-12" }, [
-      _c("h3", [_vm._v("Prezzo:")]),
+      _c("div", { staticClass: "cnt-row col-12" }, [
+        _c("h3", [_vm._v("Metri Quadri:")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.apartment.mq))]),
+      ]),
       _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.apartment.price))]),
+      _c("div", { staticClass: "cnt-row col-12" }, [
+        _c("h3", [_vm._v("Prezzo:")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.apartment.price))]),
+      ]),
     ]),
   ])
 }

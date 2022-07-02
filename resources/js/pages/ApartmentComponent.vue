@@ -1,60 +1,80 @@
 <template>
-    <div class="cnt-item-details text center">
-      <div class="cnt-row col-12">
-        <h3>Titolo:</h3>
-        <p>{{ apartment.title }}</p>
-      </div>
-      <div class="cnt-row col-12">
-        <h3>Indirizzo:</h3>
-        <p>{{ apartment.address }}</p>
-      </div>
-      <div class="cnt-row col-12">
-        <div class="cnt-img">
-          <img :src="`/storage/${apartment.img}`" :alt="apartment.title"/>
+    <main>
+  <div class="cnt-item-details text center">
 
+        <div class="cnt-row col-12">
+            <h3>Titolo:</h3>
+            <p>{{ apartment.title }}</p>
+        </div>
+
+        <div class="cnt-row col-12">
+            <h3>Indirizzo:</h3>
+            <p>{{ apartment.address }}</p>
+        </div>
+
+        <div class="cnt-row col-12">
+            <div class="cnt-img">
+            <img class="img-fluid" :src="`/storage/${apartment.img}`" :alt="apartment.title" />
+            </div>
         </div>
 
         <!-- map -->
-         <div id="map"></div>
-         <!-- /map -->
 
-      </div>
-      <div class="cnt-row col-12">
-        <h3>Descrizione:</h3>
-        <p>{{ apartment.description }}</p>
-      </div>
-      <div class="cnt-row col-12">
-        <h3>Stanze:</h3>
-        <p>{{ apartment.room }}</p>
-      </div>
-      <div class="cnt-row col-12">
-        <h3>Bagni:</h3>
-        <p>{{ apartment.bathroom }}</p>
-      </div>
-      <div class="cnt-row col-12">
-        <h3>Letti:</h3>
-        <p>{{ apartment.bed }}</p>
-      </div>
-      <div class="cnt-row col-12">
-        <h3>Metri Quadri:</h3>
-        <p>{{ apartment.mq }}</p>
-      </div>
-      <div class="cnt-row col-12">
-        <h3>Prezzo:</h3>
-        <p>{{ apartment.price }}</p>
-      </div>
-      <!-- <div class="cnt-row col-12">
+        <div id="map"></div>
+        <!-- /map -->
+
+        <div class="cnt-row col-12">
+            <h3>Descrizione:</h3>
+            <p>{{ apartment.description }}</p>
+        </div>
+
+        <div class="cnt-row col-12">
+            <h3>Stanze:</h3>
+            <p>{{ apartment.room }}</p>
+        </div>
+
+        <div class="cnt-row col-12">
+            <h3>Bagni:</h3>
+            <p>{{ apartment.bathroom }}</p>
+        </div>
+
+        <div class="cnt-row col-12">
+            <h3>Letti:</h3>
+            <p>{{ apartment.bed }}</p>
+        </div>
+
+        <div class="cnt-row col-12">
+            <h3>Metri Quadri:</h3>
+            <p>{{ apartment.mq }}</p>
+        </div>
+
+        <div class="cnt-row col-12">
+            <h3>Prezzo:</h3>
+            <p>{{ apartment.price }}</p>
+        </div>
+        <!-- <div class="cnt-row col-12">
           <h3>Servizi:</h3>
           @foreach (apartment.services as service)
           <p>{{ service->name }}</p>
           @endforeach
         </div> -->
     </div>
+
+    <!-- <div v-else>
+        <LoaderComponent />
+    </div> -->
+</main>
 </template>
 
 <script>
+// import LoaderComponent from '../components/LoaderComponent.vue';
+
+
 export default {
   name: "ApartmentComponent",
+   components:{
+        // LoaderComponent,
+    },
   data() {
     return {
       apartment: [],
@@ -69,83 +89,88 @@ export default {
     window.axios.get(url).then((result) => {
       this.apartment = result.data.results;
       console.log(this.apartment);
-       this.lat = this.apartment.lat; //prendo lat
-       this.lng = this.apartment.lng; //prendo lng
+      this.lat = this.apartment.lat; //prendo lat
+      this.lng = this.apartment.lng; //prendo lng
+      this.title = this.apartment.title //prendo title
+      this.address = this.apartment.address //prendo address
 
-    console.log(this.lat);
-    console.log(this.lng);
-    this.createMap(); //funzione per generare la mappa
+      console.log(this.lat);
+      console.log(this.lng);
+      this.createMap(); //funzione per generare la mappa
     });
   },
-  methods:{
-    createMap(){
+  methods: {
+    createMap() {
+      let center = [this.lng, this.lat];
 
-    let center = [this.lng, this.lat];
-   
+      const map = tt.map({
+        key: "GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
+        container: "map",
+        countrySet: "IT",
+        center: center,
+        zoom: 15,
 
+        style: {
+          map: "basic_night",
+        },
+        around: center,
+        renderingMode: "3d",
+      });
+      map.on("load", () => {
+        new tt.Marker({ anchor: "center" })
+          .setLngLat(center)
+          .setPopup(popup)
+          .addTo(map); //adding marker
+      });
 
-    const map = tt.map({
-            key: "GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
-            container: "map",
-            countrySet: 'IT',
-            center: center,
-            zoom: 15,
+      let nav = new tt.NavigationControl({});
+      map.addControl(nav, "top-left");
+      //navigation control (top-left of map)
 
-            style: {
-                map: 'basic_night',
-            },
-            around: center,
-            renderingMode: '3d'
-        })
-    map.on('load', () => {
-                new tt.Marker({anchor: 'center'}).setLngLat(center).setPopup(popup).addTo(map);//adding marker
+      let markerHeight = 18,
+        markerRadius = 10,
+        linearOffset = 25;
+      let popupOffsets = {
+        top: [0, 0],
+        "top-left": [0, 0],
+        "top-right": [0, 0],
+        bottom: [0, -markerHeight],
+        "bottom-left": [
+          linearOffset,
+          (markerHeight - markerRadius + linearOffset) * -1,
+        ],
+        "bottom-right": [
+          -linearOffset,
+          (markerHeight - markerRadius + linearOffset) * -1,
+        ],
+        left: [markerRadius, (markerHeight - markerRadius) * -1],
+        right: [-markerRadius, (markerHeight - markerRadius) * -1],
+      };
 
+      let title = this.title;
+      let address = this.address;
 
-            })
-
-    let nav = new tt.NavigationControl({});
-    map.addControl(nav, 'top-left');
-    //navigation control (top-left of map)
-
-
-    let markerHeight = 18, markerRadius = 10, linearOffset = 25;
-    let popupOffsets = {
-    'top': [0, 0],
-    'top-left': [0,0],
-    'top-right': [0,0],
-    'bottom': [0, -markerHeight],
-    'bottom-left': [linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
-    'bottom-right': [-linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
-    'left': [markerRadius, (markerHeight - markerRadius) * -1],
-    'right': [-markerRadius, (markerHeight - markerRadius) * -1]
-    };
-
-    let popup = new tt.Popup({offset: popupOffsets, className: 'my-class'})
-    .setLngLat(center)
-    .setHTML("Il tuo appartamento!")
-    .addTo(map);
-
-
-  }
-  }
-}
+      let popup = new tt.Popup({ offset: popupOffsets, className: "my-class" })
+        .setLngLat(center)
+        .setHTML(`<span>${title}</span><br><span>${address}</span>`)
+        .addTo(map);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-    #map{
-        width: 300px;
-        height: 300px;
-        margin-top: 50px;
-    }
+#map {
+  width: 300px;
+  height: 300px;
+  margin-top: 50px;
+}
 
-
-
-    @media only screen and (max-width: 360px){
-
-    #map{
-        width: 225px;
-        height: 225px;
-    }
+@media only screen and (max-width: 360px) {
+  #map {
+    width: 225px;
+    height: 225px;
+  }
 }
 </style>
 
