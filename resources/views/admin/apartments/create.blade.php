@@ -37,7 +37,7 @@
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Titolo: <span class="red">*</span></h3>
                 <input class="w-100 p-1" type="text" name="title" placeholder="titolo" value="{{ old('title') }}"
-                    required>
+                    required autocomplete="on">
             </div>
             <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                 <h3>Descrizione: <span class="red">*</span></h3>
@@ -98,7 +98,7 @@
                 </div>
             </div>
             <div class="cnt-th cnt-btn h-100">
-                <button class="btn-modify" type="submit" onclick="SelezTT()">Inserisci</button>
+                <button class="btn-modify" type="submit">Inserisci</button>
             </div>
         </form>
     </div>

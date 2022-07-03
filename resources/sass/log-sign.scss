@@ -1,0 +1,283 @@
+@import url("layout-preset.css");
+.form-container {
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px); */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: calc(100% - 220px); */
+    height: 100vh;
+    /* padding: 80px 0 0; */
+    /* left: 220px; */
+
+    form.formLog {
+        width: 450px;
+        align-items: center;
+        text-align: center;
+        background: #fff;
+        border-radius: 5px;
+        border-top: 1px solid rgba(196, 196, 196, 0.3);
+        border-left: 1px solid rgba(196, 196, 196, 0.3);
+        box-shadow: 0 0px 15px 3px rgba(0, 0, 0, 0.14);
+        transform-style: preserve-3d;
+        padding: 20px;
+        .cnt-ttl {
+            width: 100%;
+            margin: 10px 0 50px;
+            span {
+                font-size: 1.5em;
+                letter-spacing: 1px;
+                color: rgb(53, 52, 100);
+            }
+        }
+
+        .row-log-reg {
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 30px 0;
+            label.label-required {
+                color: rgb(137, 137, 137);
+                font-size: 0.8em;
+                margin: 0 0 5px;
+            }
+            .invalid-feedback {
+                display: block;
+                color: red;
+                font-size: 0.8em;
+                margin: 5px 0;
+            }
+            .ico {
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                left: 55px;
+                bottom: 0;
+                .usr,
+                .mail,
+                .psw {
+                    width: 100%;
+                    height: 100%;
+                    display: inherit;
+                }
+                .usr {
+                    width: 30px;
+                    height: 30px;
+                    background: url("../img/ico/login/usr.svg") no-repeat center;
+                }
+                .mail {
+                    width: 30px;
+                    height: 30px;
+                    background: url("../img/ico/login/email.svg") no-repeat
+                        center;
+                }
+                .psw {
+                    width: 30px;
+                    height: 30px;
+                    background: url("../img/ico/login/lock.svg") no-repeat
+                        center;
+                }
+            }
+            input {
+                display: initial;
+                height: 30px;
+                outline: none;
+                border: none;
+                background: #fff;
+                color: #484848;
+                font-size: 0.8em;
+                padding: 0 10px;
+                letter-spacing: 1px;
+                border-radius: 5px;
+                border: 1px solid rgba(196, 196, 196, 0.66);
+                .input-date {
+                    width: 200px;
+                }
+            }
+
+            #CheckPasswordMatch {
+                width: 55%;
+                margin: 5px auto;
+                text-align: center;
+            }
+            .cnt-ico-eye,
+            .cnt-ico-eye-rpt {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                top: 50%;
+                right: 65px;
+                transform: translate(0, -50%);
+            }
+            .eye {
+                background: url("../img/ico/login/eye.svg") no-repeat center;
+                background-size: contain;
+            }
+            .eye-slash {
+                background: url("../img/ico/login/eye-slash.svg") no-repeat
+                    center;
+                background-size: contain;
+            }
+            /* } */
+            .progress-bar_wrap {
+                position: absolute;
+                width: 50%;
+                height: 5px;
+                background: #f6f6fa;
+                display: flex;
+                bottom: -12px;
+                .progress-bar_item {
+                    display: inline-block;
+                    height: 100%;
+                    width: 33.33%;
+                    float: left;
+                    visibility: hidden;
+                    transition: background-color 0.2s, visisility 0.1s;
+                }
+                .active {
+                    visibility: visible;
+                }
+                /* .progress-bar_item {
+                    display: inline-block;
+                    height: 100%;
+                    width: 32.5%;
+                    margin-right: 0.8%;
+                    border-radius: 5px;
+                    float: left;
+                    transition: background-color 0.2s, visisility 0.1s;
+                } */
+                .progress-bar_item-1.active {
+                    background-color: #ff4b47;
+                }
+                .progress-bar_item-2.active {
+                    background-color: #f9ae35;
+                }
+                .progress-bar_item-3.active {
+                    background-color: #2daf7d;
+                }
+            }
+            #password-rpt {
+                margin: 5px;
+            }
+        }
+
+        .row-psw:nth-child(6) {
+            margin: 0 0 15px;
+        }
+        .row-psw:nth-child(8) {
+            margin: 20px 0 10px;
+        }
+        .cnt-txt-psw-check {
+            .progress-bar_text {
+                display: flex;
+                color: #aaa;
+                justify-content: center;
+                transition: 0.2s;
+            }
+        }
+        .btn-logReg {
+            width: 150px;
+            margin: 30px;
+            border-radius: 50px;
+            background: #fff;
+            transition: 0.3s ease-in-out;
+            padding: 10px;
+            font-size: 1em;
+            border: 0;
+            border: 1px solid rgb(146, 144, 253);
+            color: 4b5663;
+            cursor: pointer;
+        }
+        .btn-logReg:hover {
+            background: rgb(53, 52, 100);
+            transition: 0.3s ease-in-out;
+            color: #fff;
+        }
+    }
+    .main-check {
+        display: grid;
+        height: 40px;
+        justify-content: space-around;
+        align-items: center;
+        .cnt-checkbox {
+            /* display: block;
+            position: relative;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            font-size: 22px; */
+            top: 8px;
+            position: relative;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            .cnt-checkbox:hover input ~ .checkmark {
+                background-color: #ccc;
+            }
+            .cnt-checkbox input:checked ~ .checkmark {
+                background-color: #2196f3;
+            }
+            .cnt-checkbox input:checked ~ .checkmark:after {
+                display: block;
+            }
+            input.input-check {
+                position: absolute;
+                width: 25px;
+                height: 25px;
+                left: 0;
+                z-index: 2;
+            }
+        }
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+            &:after {
+                content: "";
+                position: absolute;
+                display: none;
+            }
+            &:after {
+                left: 9px;
+                top: 5px;
+                width: 5px;
+                height: 10px;
+                border: solid white;
+                border-width: 0 3px 3px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+        }
+    }
+    .form-field {
+        &.error input.input-log-reg {
+            border-color: red;
+        }
+        &.success input.input-log-reg {
+            border-color: green;
+        }
+        & small {
+            color: red;
+            position: absolute;
+            bottom: -25px;
+        }
+    }
+    label.remember {
+        left: 30px;
+        position: relative;
+        line-height: 40px;
+        color: #5c5c5c;
+    }
+    .input-error {
+        outline: 1px solid red;
+    }
+}
