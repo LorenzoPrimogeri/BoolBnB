@@ -11,14 +11,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Boolbnb</title>
-    <script src="{{ asset('js/validation-check.js') }}" defer></script>
+    <!-- Scripts -->
     <link rel='stylesheet' type='text/css'
         href='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css' />
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.1.2-public-preview.15/services/services-web.min.js">
     </script>
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js">
     </script>
-
     <script>
         (function() {
             window.SS = window.SS || {};
@@ -47,35 +46,30 @@
             };
         })();
     </script>
-    <!-- Scripts -->
-    {{-- <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script> --}}
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-    --}}
-    {{-- <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script> --}}
-    <script src="{{ asset('js/client-validate-reg.js') }}"></script>
+    <script src="{{ asset('js/validation-check.js') }}" defer></script>
+    <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('js/dropDwn-menu.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/validation-input.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('js/client-validate-reg.js') }}"></script> --}}
     <script src="{{ asset('js/check-password-equal.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/search.js') }}" defer></script>
-
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
-    <link href="{{ asset('css/dropDwn-menu.css') }}" rel="stylesheet">
+
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dropDwn-menu.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/log-sign.css') }}" rel="stylesheet">
     <link href="{{ asset('css/btn-burger.css') }}" rel="stylesheet">
     <link href="{{ asset('css/menuSlide.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/searchstyle.css') }}" rel="stylesheet">
 
 </head>
 
 <body>
     <div id="app">
-        <div class="subMenu closeMenu" id="subMenuSlide" style="filter: progid:DXImageTransform.Microsoft.Shadow(color='#dedede', Direction=135, Strength=10);
+        <div class="subMenu closeMenu" id="subMenuSlide"
+            style="filter: progid:DXImageTransform.Microsoft.Shadow(color='#dedede', Direction=135, Strength=10);
 -webkit-overflow-scrolling:touch;">
             <div class="contSubMenuSlide">
                 <div class="cnt-ul">
@@ -111,49 +105,50 @@
                     <ul class="ul-log-reg">
                         <!-- Authentication Links -->
                         @guest
-                        <a href="{{ route('login') }}">
-                            <li>
-                                <div class="ico-log ico-login"></div>
-                                <span>Login</span>
-                            </li>
-                        </a>
-                        @if(Route::has('register'))
-                        <a href="{{ route('register') }}">
-                            <li>
-                                <div class="ico-log ico-reg"></div>
-                                <span>Register</span>
-                            </li>
-                        </a>
-                        @endif
-                        @else
-                        <div class="cnt-usr-set">
-                            <div class="cnt-span">
-                                @if( Auth::user()->name)
-                                <span>{{ Auth::user()->name }}</span>
-                                @else
-                                <span>{{ Auth::user()->email }}</span>
-                                @endif
-                                <a id="arrowUsr" href="#">
-                                    <div class="cnt-arrow">
-                                        <span class="arrow"></span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div id="subMenuUsr" class="contUlAccount">
-                                <ul class="ulSet-usr">
+                            <a href="{{ route('login') }}">
+                                <li>
+                                    <div class="ico-log ico-login"></div>
+                                    <span>Login</span>
+                                </li>
+                            </a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}">
                                     <li>
-                                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            class="d-none">
-                                            @csrf
-                                        </form>
+                                        <div class="ico-log ico-reg"></div>
+                                        <span>Register</span>
                                     </li>
-                                </ul>
+                                </a>
+                            @endif
+                        @else
+                            <div class="cnt-usr-set">
+                                <div class="cnt-span">
+                                    @if (Auth::user()->name)
+                                        <span>{{ Auth::user()->name }}</span>
+                                    @else
+                                        <span>{{ Auth::user()->email }}</span>
+                                    @endif
+                                    <a id="arrowUsr" href="#">
+                                        <div class="cnt-arrow">
+                                            <span class="arrow"></span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div id="subMenuUsr" class="contUlAccount">
+                                    <ul class="ulSet-usr">
+                                        <li>
+                                            <a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                                {{ __('Logout') }}
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                class="d-none">
+                                                @csrf
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
                         @endguest
                     </ul>
                 </div>
@@ -188,7 +183,8 @@
         </main>
         @stack('input-validation')
     </div>
-
+    @stack('input-validation')
+    @stack('client-validate-reg')
 </body>
 
 </html>

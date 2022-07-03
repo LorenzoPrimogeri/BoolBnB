@@ -6,7 +6,6 @@
     /* background: url("../img/home/3.jpg") no-repeat center; */
     background-size: cover;
     height: calc(100vh - 60px);
-    margin-top: 50px;
 }
 .form-container form {
     width: 450px;

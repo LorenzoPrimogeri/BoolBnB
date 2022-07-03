@@ -26,5 +26,6 @@ Route::middleware('auth')
 
 
 Route::get('{any?}', function () {
-    return view('guest.home');
+    //modifica root da guest.home a auth.login
+    return view('auth.login');
 })->where('any', '.*');

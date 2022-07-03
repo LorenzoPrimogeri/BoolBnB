@@ -4,9 +4,8 @@ $(document).ready(function () {
     };
     $(".toggle-password").click(function () {
 
-        $(this).toggleClass("fa-eye fa-eye-slash");
+        $(this).toggleClass("eye eye-slash");
         var input = $($(this).attr("toggle"));
-        console.log('prova');
         if (input.attr("type") == "password") {
             input.attr("type", "text");
         } else {
@@ -49,9 +48,29 @@ $(document).ready(function () {
         if (password != confirmPassword)
             $("#CheckPasswordMatch").html("Passwords non uguali!").css("color", "red");
         else
-            $("#CheckPasswordMatch").html("Passwords uguali.").css("color", "orange");
+            $("#CheckPasswordMatch").html("Passwords uguali.").css("color", "#2DAF7D");
     }
     $(document).ready(function () {
         $(".txtConfirmPassword").keyup(checkPasswordMatch);
     });
 });
+
+/* function setInputFilter(textbox, inputFilter) {
+    ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function (event) {
+        textbox.addEventListener(event, function () {
+            if (inputFilter(this.value)) {
+                this.oldValue = this.value;
+                this.oldSelectionStart = this.selectionStart;
+                this.oldSelectionEnd = this.selectionEnd;
+            } else if (this.hasOwnProperty("oldValue")) {
+                this.value = this.oldValue;
+                this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+            } else {
+                this.value = "";
+            }
+        });
+    });
+}
+setInputFilter(document.getElementById("uintTextBox"), function (value) {
+    return /^\d*$/.test(value);
+}); */
