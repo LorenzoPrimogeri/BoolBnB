@@ -1,27 +1,51 @@
 <template>
-  <div class="">
+  <div class="text-center">
     <p>Via Dispersi in Russia 143, 73056 Taurisano</p>
-    <input
-      type="text"
-      v-model="input"
-      @input="onInputChanged"
-      style="width: 500px !important"
-    />
+    <div class="input-group">
+        <input
+        type="text"
+        v-model="input"
+        @input="onInputChanged"
+        style="width: 500px !important"
+        class="form-control"
+        />
+        <span class="input-group-text" id="basic-addon1" @click="clearInput"><i class="bi bi-trash"></i></span>
+    </div>
+    <div v-if="isClicked" id="box-search">
+        <div
+        v-for="(indirizzo, i) in indirizzi"
+        :key="i + indirizzo.address"
+        >
+        <div
+            class="ads-label"
+            type="text"
+            @click="take(indirizzo.address.freeformAddress)"
+        >
+            {{ indirizzo.address["freeformAddress"] }}
+        </div>
+        </div>
+    </div>
+    <button @click="takeLatLng()" class="btn btn-primary mt-3">Cerca!</button>
     <!-- si potrebbe fare un range senza dover scrivere a mano i km -->
-    <p>km</p>
-    <input
-      type="number"
-      v-model="distanceKm"
-      min="20"
-      max="1000"
-      placeholder="km"
-    />
 
-    <p>stanze</p>
-    <input type="number" v-model="room" min="1" max="15" placeholder="stanze" />
-    <p>letti</p>
-    <input type="number" v-model="bed" min="1" max="30" placeholder="letti" />
-<!--  Almeno non disponibile    
+    <!-- filtri -->
+        <div class="row justify-content-center mt-5">
+            <p>km</p>
+            <input
+            type="number"
+            v-model="distanceKm"
+            min="20"
+            max="1000"
+            placeholder="km"
+            class="form-control w100"
+            />
+
+            <p>stanze</p>
+            <input type="number" v-model="room" min="1" max="15" placeholder="stanze" class="form-control w100" />
+            <p>letti</p>
+            <input type="number" v-model="bed" min="1" max="30" placeholder="letti" class="form-control w100 "/>
+        </div>
+    <!--  Almeno non disponibile
     <p>Servizi:</p>
     <div v-for="(service, index) in allServices" :key="index + service.id">
       <input
@@ -34,20 +58,6 @@
       <label for="vehicle1">{{ service.name }}</label
       ><br />
     </div> -->
-    <div
-      class="row flex-dr-col"
-      v-for="(indirizzo, i) in indirizzi"
-      :key="i + indirizzo.address"
-    >
-      <button
-        class="py-4"
-        type="text"
-        @click="take(indirizzo.address.freeformAddress)"
-      >
-        {{ indirizzo.address["freeformAddress"] }}
-      </button>
-    </div>
-    <button @click="takeLatLng()">Cerca!</button>
     <div v-if="correctApartments">
       <p>gli appartamenti Nel raggio di 20 km sono:</p>
       <div v-for="apartment in correctApartments" :key="apartment.id">
@@ -105,6 +115,7 @@ export default {
       room: 1,
       bed: 1,
       apartmentService: [],
+      isClicked: false,
     };
   },
   mounted() {
@@ -119,13 +130,22 @@ export default {
   methods: {
     axiosCall() {},
     onInputChanged() {
+        this.isClicked = true;
       // console.log(this.distanceKm);
       //Call axios che restituisce gli indirizzi autocomplete
       delete axios.defaults.headers.common["X-Requested-With"];
       this.indirizzi = [];
       Axios.get(
-        "https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=5&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
-        { params: { query: this.input } }
+        "https://api.tomtom.com/search/2/geocode/.json",
+        { params: {
+            query: this.input,
+            storeResult: false,
+            limit: 5,
+            view: "Unified",
+            key: "GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
+            language: "it-IT"
+            }
+        }
       ).then((risp) => {
         const risultati = risp.data.results;
         console.log(risultati);
@@ -135,6 +155,8 @@ export default {
     },
     take(indirizzo) {
       this.input = indirizzo;
+      this.isClicked = false;
+      this.indirizzi = [];
     },
     takeLatLng() {
       //prendo lat e long dal indirizzo
@@ -192,9 +214,44 @@ export default {
         return dist;
       }
     },
+    clearInput(){
+        this.input = "";
+        this.isClicked = false;
+    }
   },
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+#box-search{
+    width: 541px;
+    position: absolute;
+    background-color: white;
+    border: 1px solid grey;
+}
+
+
+.ads-label{
+    cursor: pointer;
+    width: 100%;
+    padding: 5px;
+    &:hover{
+        background-color: rgb(192, 192, 192);
+    }
+}
+
+#basic-addon1{
+    cursor: pointer;
+    &:hover{
+        color: red;
+        transition: 200ms;
+    }
+}
+.w100{
+    width: 100px;
+}
+p{
+    margin: 0;
+}
 </style>
+

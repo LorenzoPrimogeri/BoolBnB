@@ -1,7 +1,7 @@
 <template>
     <main>
-  <div class="cnt-item-details text center">
-
+  <div class="container">
+        <a href="/" class="btn btn-primary">Vai alla home</a>
         <div class="cnt-row col-12">
             <h3>Titolo:</h3>
             <p>{{ apartment.title }}</p>
