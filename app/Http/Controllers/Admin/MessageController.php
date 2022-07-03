@@ -15,10 +15,14 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($apartment_id)
+    public function index(Apartment $apartment)
     {
-        $messages = Message::where('apartment_id', $apartment_id)->get();
+        $user = Auth::user();
+        if($user->id == $apartment->user_id){
+        $messages = Message::where('apartment_id', $apartment->id)->get();
         return view('admin.apartments.messages.index', compact('messages'));
+        }
+        abort(404);
     }
 
     /**
