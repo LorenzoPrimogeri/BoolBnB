@@ -153,7 +153,6 @@
         flex-basis: calc((100% / 12) * 12);
     }
 }
-<<<<<<< HEAD
 .form-container {
     width: auto;
     display: flex;
@@ -489,7 +488,6 @@ a.aLog-reg {
 .cnt-register .row {
   /* display: flex;
   gap: 10px; */
-=======
 /* .cnt-register {
     position: absolute;
     top: 50%;
@@ -508,7 +506,6 @@ a.aLog-reg {
         /* display: flex;
         gap: 10px;
     }
->>>>>>> f4803afb4486e7e28b4dcf4e204b6bf992198c1e
 }
 .input-error {
     outline: 1px solid red;

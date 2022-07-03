@@ -33001,11 +33001,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-<<<<<<< HEAD
 throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nError: ENOENT: no such file or directory, open '/Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/log-sign.scss'\n    at /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/node_modules/webpack/lib/NormalModule.js:316:20\n    at /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/node_modules/loader-runner/lib/LoaderRunner.js:203:19\n    at /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/node_modules/enhanced-resolve/lib/CachedInputFileSystem.js:85:15\n    at processTicksAndRejections (node:internal/process/task_queues:78:11)");
-=======
-// removed by extract-text-webpack-plugin
->>>>>>> f4803afb4486e7e28b4dcf4e204b6bf992198c1e
 
 /***/ }),
 
@@ -33027,15 +33023,6 @@ throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-__webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/dashboard.scss */"./resources/sass/dashboard.scss");
-__webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/log-sign.scss */"./resources/sass/log-sign.scss");
-__webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/dropDwn-menu.scss */"./resources/sass/dropDwn-menu.scss");
-__webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/btn-burger.scss */"./resources/sass/btn-burger.scss");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/sass/menuSlide.scss */"./resources/sass/menuSlide.scss");
-=======
 __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\js\app.js */"./resources/js/app.js");
 __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\sass\dashboard.scss */"./resources/sass/dashboard.scss");
@@ -33043,7 +33030,6 @@ __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resour
 __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\sass\dropDwn-menu.scss */"./resources/sass/dropDwn-menu.scss");
 __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\sass\btn-burger.scss */"./resources/sass/btn-burger.scss");
 module.exports = __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\sass\menuSlide.scss */"./resources/sass/menuSlide.scss");
->>>>>>> f4803afb4486e7e28b4dcf4e204b6bf992198c1e
 
 
 /***/ })
