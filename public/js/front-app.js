@@ -2237,6 +2237,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 // import LoaderComponent from '../components/LoaderComponent.vue';
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ApartmentComponent",
@@ -2250,6 +2255,7 @@ __webpack_require__.r(__webpack_exports__);
       email: '',
       object: '',
       body: '',
+      apartment_id: null,
       sending: false,
       success: false
     };
@@ -2270,6 +2276,8 @@ __webpack_require__.r(__webpack_exports__);
       _this.title = _this.apartment.title; //prendo title
 
       _this.address = _this.apartment.address; //prendo address
+
+      _this.apartment_id = _this.apartment.id; //prendo id
 
       console.log(_this.lat);
       console.log(_this.lng);
@@ -2326,15 +2334,20 @@ __webpack_require__.r(__webpack_exports__);
 
       this.sending = true;
       this.success = false;
-      window.axios.post("/api/messages/".concat(id), {
+      var id = this.$route.params.id;
+      console.log(id);
+      window.axios.post("/api/messages/", {
         email: this.email,
         object: this.object,
         body: this.body,
-        apartment_id: this.id
+        apartment_id: this.apartment_id
       }).then(function (_ref) {
         var data = _ref.data,
             status = _ref.status;
         console.log(data);
+        _this2.email = "";
+        _this2.object = "";
+        _this2.body = "";
         _this2.sending = false;
 
         if (status === 200) {
@@ -34600,7 +34613,7 @@ var render = function () {
         _c(
           "form",
           {
-            attrs: { method: "post" },
+            attrs: { method: "POST" },
             on: {
               submit: function ($event) {
                 $event.preventDefault()
@@ -34613,7 +34626,7 @@ var render = function () {
               _c(
                 "label",
                 { staticClass: "form-label", attrs: { for: "email" } },
-                [_vm._v("Indirizzo Email")]
+                [_vm._v("Email")]
               ),
               _vm._v(" "),
               _c("input", {
@@ -34630,6 +34643,7 @@ var render = function () {
                   type: "email",
                   id: "email",
                   placeholder: "name@example.com",
+                  required: "",
                 },
                 domProps: { value: _vm.email },
                 on: {
@@ -34664,6 +34678,7 @@ var render = function () {
                   type: "text",
                   id: "object",
                   placeholder: "Oggetto dell'email",
+                  required: "",
                 },
                 domProps: { value: _vm.object },
                 on: {
@@ -34694,7 +34709,7 @@ var render = function () {
                   },
                 ],
                 staticClass: "form-control",
-                attrs: { id: "body", rows: "3" },
+                attrs: { id: "body", rows: "3", required: "" },
                 domProps: { value: _vm.body },
                 on: {
                   input: function ($event) {
@@ -50669,7 +50684,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Francesco\Documents\Boolean\PHP\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })

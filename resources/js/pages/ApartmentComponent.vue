@@ -58,25 +58,30 @@
           <p>{{ service->name }}</p>
           @endforeach
         </div> -->
+
+        <!-- form email -->
         <div class="cnt-row col-12">
-            <form method="post" @submit.prevent="sendForm()">
+            <form method="POST" @submit.prevent="sendForm()">
+                <!-- email -->
                 <div class="mb-3">
-                    <label for="email" class="form-label">Indirizzo Email</label>
+                    <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control" v-model="email"
-                    id="email" placeholder="name@example.com">
+                    id="email" placeholder="name@example.com" required>
                 </div>
+                <!-- object -->
                 <div class="mb-3">
                     <label for="object" class="form-label">Oggetto</label>
                     <input type="text" class="form-control" id="object" v-model="object"
-                     placeholder="Oggetto dell'email">
+                     placeholder="Oggetto dell'email" required>
                 </div>
+                <!-- body -->
                 <div class="mb-3">
                     <label for="body" class="form-label">Messaggio</label>
-                    <textarea class="form-control" id="body" rows="3" v-model="body"></textarea>
+                    <textarea class="form-control" id="body" rows="3" v-model="body" required></textarea>
                 </div>
 
-
                 <button type="submit" :disabled="sending">Invia mail</button>
+
             </form>
         </div>
 
@@ -105,6 +110,7 @@ export default {
       email: '',
       object: '',
       body: '',
+      apartment_id: null,
       sending: false,
       success: false,
     };
@@ -120,6 +126,7 @@ export default {
       this.lng = this.apartment.lng; //prendo lng
       this.title = this.apartment.title //prendo title
       this.address = this.apartment.address //prendo address
+      this.apartment_id = this.apartment.id;//prendo id
 
       console.log(this.lat);
       console.log(this.lng);
@@ -185,14 +192,20 @@ export default {
     sendForm(){
             this.sending = true;
             this.success = false;
+            const id = this.$route.params.id;
+            console.log(id)
 
-            window.axios.post(`/api/messages/${id}`, {
+            window.axios.post(`/api/messages/`, {
                 email: this.email,
                 object: this.object,
                 body: this.body,
-                apartment_id: this.id
+                apartment_id: this.apartment_id
+
             }).then(({data, status})=>{
                 console.log(data);
+                this.email = "";
+                this.object = "";
+                this.body = "";
                 this.sending = false;
 
                 if(status === 200){

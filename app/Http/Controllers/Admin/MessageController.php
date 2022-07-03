@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Message;
 use App\Apartment;
+use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
@@ -39,6 +40,9 @@ class MessageController extends Controller
     public function store(Request $request)
     {
         //
+
+
+
     }
 
     /**
