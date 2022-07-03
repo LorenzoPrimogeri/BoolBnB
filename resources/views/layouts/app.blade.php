@@ -4,13 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
-        integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Boolbnb</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+        integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('js/validation-check.js') }}" defer></script>
     <link rel='stylesheet' type='text/css'
         href='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css' />
@@ -48,13 +49,10 @@
         })();
     </script>
     <!-- Scripts -->
-    {{-- <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script> --}}
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-    --}}
-    {{-- <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script> --}}
-    <script src="{{ asset('js/client-validate-reg.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('js/validation-check.js') }}"></script>
+    <script src="{{ asset('js/validation-input.js') }}"></script>
+
     <script src="{{ asset('js/dropDwn-menu.js') }}"></script>
     <script src="{{ asset('js/check-password-equal.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -65,8 +63,9 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
-    <link href="{{ asset('css/dropDwn-menu.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dropDwn-menu.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/log-sign.css') }}" rel="stylesheet">
     <link href="{{ asset('css/btn-burger.css') }}" rel="stylesheet">
     <link href="{{ asset('css/menuSlide.css') }}" rel="stylesheet">
     <link href="{{ asset('css/searchstyle.css') }}" rel="stylesheet">
@@ -187,6 +186,7 @@
             @yield('content')
         </main>
         @stack('input-validation')
+        @stack('client-validate-reg')
     </div>
 
 </body>

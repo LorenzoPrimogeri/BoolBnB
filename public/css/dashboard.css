@@ -153,6 +153,7 @@
         flex-basis: calc((100% / 12) * 12);
     }
 }
+<<<<<<< HEAD
 .form-container {
     width: auto;
     display: flex;
@@ -488,7 +489,30 @@ a.aLog-reg {
 .cnt-register .row {
   /* display: flex;
   gap: 10px; */
+=======
+/* .cnt-register {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #8da1b3;
+    .form-group {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        input {
+            width: 100px;
+        }
+    }
+    .row {
+        /* display: flex;
+        gap: 10px;
+    }
+>>>>>>> f4803afb4486e7e28b4dcf4e204b6bf992198c1e
 }
+.input-error {
+    outline: 1px solid red;
+} */
 
 header {
   position: fixed;
@@ -611,7 +635,7 @@ main .main-slct-item .cnt-item-details .cnt-service {
   flex-direction: row;
   gap: 15px;
   align-items: center !important;
-  padding: 20px 0px;
+  padding: 20px;
 }
 
 main .main-slct-item .cnt-item-dash .cnt-service .cnt-items-services,
@@ -713,13 +737,6 @@ main .main-slct-item select {
   box-sizing: border-box;
 }
 
-main .invalid-feedback {
-  display: block;
-  color: red;
-  font-size: 0.8em;
-  margin: 5px 0;
-}
-
 .cnt-ul {
   /* background-color: coral; */
 }
@@ -766,7 +783,7 @@ main .invalid-feedback {
 
 .cnt-ul ul li a {
   text-decoration: none;
-  color: #b38d8d;
+  color: #9cb0c1;
   font-size: 1.2em;
 }
 
@@ -838,7 +855,7 @@ main .invalid-feedback {
     flex-direction: row;
     gap: 15px;
     align-items: center !important;
-    padding: 20px 0px;
+    padding: 20px;
   }
 
   .cnt-service .cnt-items-services {

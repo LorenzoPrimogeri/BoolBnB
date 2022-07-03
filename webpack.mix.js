@@ -12,9 +12,10 @@ const mix = require("laravel-mix");
  */
 
 mix.js("resources/js/app.js", "public/js")
-    .js("resources/js/front-app.js", "public/js")   
+    .js("resources/js/front-app.js", "public/js")
     .sass("resources/sass/app.scss", "public/css")
     .sass("resources/sass/dashboard.scss", "public/css")
+    .sass("resources/sass/log-sign.scss", "public/css")
     .sass("resources/sass/dropDwn-menu.scss", "public/css")
     .sass("resources/sass/btn-burger.scss", "public/css")
     .sass("resources/sass/menuSlide.scss", "public/css");
