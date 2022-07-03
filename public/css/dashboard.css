@@ -192,13 +192,13 @@
     display: inherit;
 }
 .usr {
-    background: url(/images/usr.svg?a07c3102f647d01ab947dc39a7e214c7) no-repeat center;
+    background: url(/images/usr.svg?d9f6ee27f8201d8973f74049142ca9b8) no-repeat center;
 }
 .mail {
-    background: url(/images/email.svg?9480c64125de8a5103a124aabb12bfa6) no-repeat center;
+    background: url(/images/email.svg?26815b5c81e167d8fd9f853d12c91398) no-repeat center;
 }
 .psw {
-    background: url(/images/lock.svg?423f2aee5486eb31e0e0d5108b089040) no-repeat center;
+    background: url(/images/lock.svg?0e897bfe2377b427b712d7f8b8e3a2bf) no-repeat center;
 }
 .row-log-reg {
     display: flex;
@@ -372,11 +372,11 @@ form .error {
     left: 82%;
 }
 .fa-eye {
-    background: url(/images/eye.svg?677eb74ff538707088d2ab41169e033b) no-repeat center;
+    background: url(/images/eye.svg?4a94ce0937a8d416fce6b646e46ee20b) no-repeat center;
     background-size: contain;
 }
 .fa-eye-slash {
-    background: url(/images/eye-slash.svg?89adf438d3050d4d44b59e596b244d7e) no-repeat center;
+    background: url(/images/eye-slash.svg?edcc64f18fdc3ab5aae73c624e728774) no-repeat center;
     background-size: contain;
 }
 .progress-bar_wrap {
@@ -744,19 +744,19 @@ main .invalid-feedback {
 }
 
 .cnt-ul ul li:hover .aprt {
-  background: url(/images/ico-dash.svg?e14612bd5035281794d07f3d300a3df5) no-repeat center/contain;
+  background: url(/images/ico-dash.svg?67dc1d8effbe5a32af9e52eab450cb53) no-repeat center/contain;
 }
 
 .cnt-ul ul li:hover .msg {
-  background: url(/images/ico-msg.svg?507cab0cc544c7fdfe3891df219e2c8b) no-repeat center/contain;
+  background: url(/images/ico-msg.svg?aba9e199fec7691210823e34968d4f81) no-repeat center/contain;
 }
 
 .cnt-ul ul li:hover .ads {
-  background: url(/images/ico-ads.svg?f55e5f15ccc81ef1f03adc9f04bdb267) no-repeat center/contain;
+  background: url(/images/ico-ads.svg?3e46fe5e95fec6985dc6e8c5d60c2f7d) no-repeat center/contain;
 }
 
 .cnt-ul ul li:hover .stcs {
-  background: url(/images/ico-stcs.svg?f6c866ac318bd17503e80a776c05a1a3) no-repeat center/contain;
+  background: url(/images/ico-stcs.svg?310cee7e5ef3b7385c9130cae57aff41) no-repeat center/contain;
 }
 
 .cnt-ul ul li:hover a {
@@ -777,19 +777,19 @@ main .invalid-feedback {
 }
 
 .cnt-ul ul li .aprt {
-  background: url(/images/ico-dash-lgt.svg?ab50abde4e770438b5ee75c3c8bd8a81) no-repeat center/contain;
+  background: url(/images/ico-dash-lgt.svg?d32ffe6a06df88f4a6aff4f1c3a006d7) no-repeat center/contain;
 }
 
 .cnt-ul ul li .msg {
-  background: url(/images/ico-msg-lgt.svg?2f27bcccd88acfc59f31d45313533b59) no-repeat center/contain;
+  background: url(/images/ico-msg-lgt.svg?fc39d0d3e57b354172bd67f0a4d46744) no-repeat center/contain;
 }
 
 .cnt-ul ul li .ads {
-  background: url(/images/ico-ads-lgt.svg?c413114ea8e47bc421a3f866863d2079) no-repeat center/contain;
+  background: url(/images/ico-ads-lgt.svg?f3008cd21ab414a207205a8021291075) no-repeat center/contain;
 }
 
 .cnt-ul ul li .stcs {
-  background: url(/images/ico-stcs-lgt.svg?2b9c4ae8d9df3c6be0f369e2c0d4ebee) no-repeat center/contain;
+  background: url(/images/ico-stcs-lgt.svg?3a85bf2b49b53953df65fca31ef172ce) no-repeat center/contain;
 }
 
 /* @import url("btn-burger.scss"); */
