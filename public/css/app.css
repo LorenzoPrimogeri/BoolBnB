@@ -51,11 +51,6 @@ header .cnt-hdr-items .cnt-btn-filter .btn-filter {
 }
 
 header ul.ul-log-reg {
-  /* position: absolute;
-  display: flex;
-  width: 70px;
-  gap: 20px;
-  list-style-type: none; */
   position: absolute;
   display: flex;
   width: -webkit-max-content;
@@ -63,6 +58,7 @@ header ul.ul-log-reg {
   width: max-content;
   gap: 20px;
   list-style-type: none;
+  margin: 0 !important;
 }
 
 header ul.ul-log-reg li {

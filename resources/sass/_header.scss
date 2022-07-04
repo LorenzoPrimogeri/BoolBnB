@@ -49,22 +49,17 @@ header {
             .btn-filter {
                 width: 20px;
                 height: 20px;
-                //background: url("../img/filter.svg") no-repeat center/contain;
             }
         }
     }
 
     ul.ul-log-reg {
-        /* position: absolute;
-        display: flex;
-        width: 70px;
-        gap: 20px;
-        list-style-type: none; */
         position: absolute;
         display: flex;
         width: max-content;
         gap: 20px;
         list-style-type: none;
+        margin: 0 !important;
 
         li {
             display: flex;
