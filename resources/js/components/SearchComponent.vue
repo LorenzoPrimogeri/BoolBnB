@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <p>Via Dispersi in Russia 143, 73056 Taurisano</p>
+    <p>Ricerca appartamenti:</p>
     <div class="input-group">
         <input
         type="text"
@@ -63,9 +63,10 @@
       <div v-for="apartment in correctApartments" :key="apartment.id">
         <div class="container">
           <div class="row py-2">
-            <div class="col-1 border-bottom">
+              <!-- 
+              <div class="col-1 border-bottom">
               <h4>{{ apartment.id }}</h4>
-            </div>
+            </div>*/ -->
             <div class="col-3 border-bottom">
               <h4>{{ apartment.title }}</h4>
             </div>
@@ -73,9 +74,9 @@
               <h4>{{ apartment.description }}</h4>
             </div>
             <div class="col-3 border-bottom">
-              <h2 v-for="service in apartment.services" :key="service.name">
+              <h6 v-for="service in apartment.services" :key="service.name">
                 {{ service.name }}
-              </h2>
+              </h6>
             </div>
             <div class="col-2 border-bottom">
               <router-link

@@ -110,7 +110,7 @@
                 </div>
 
                 <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
-                    <button class="btn-modify" type="submit" onclick="SelezTT()">Salva modifiche</button>
+                    <button class="btn-modify" type="submit"  id='btn-submit' onclick="SelezTT()">Salva modifiche</button>
                 </div>
             </div>
         </form>

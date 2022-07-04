@@ -52,7 +52,7 @@
                                         type="submit">Elimina</button>
                                 </form>
                                 <a href="{{ route('admin.apartments.messages.index', $apartment->id) }}">
-                                    <button>Mostra Messaggi</button>
+                                    <button>Messaggi</button>
                                 </a>
                             </div>
                         </div>
