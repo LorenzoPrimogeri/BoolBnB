@@ -9,6 +9,7 @@
 </template>
 
 <script>
+
 import HeaderComponent from "../components/HeaderComponent.vue";
 import MainComponent from "../components/MainComponent.vue";
 import FooterComponent from "../components/FooterComponent.vue";
@@ -24,6 +25,7 @@ export default {
 </script>
 
  <style>
+ @import url('../../../public/css/layout-preset.css');
 
   #web-body{
     width: 100vw;

@@ -1,0 +1,171 @@
+//@import 'layout-preset.css';
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 2;
+
+    .cnt-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cnt-hdr-items {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: space-between;
+
+        .cnt-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+
+            img,
+            a {
+                width: 90%;
+            }
+        }
+
+        .cnt-btn-filter {
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            border: 1px solid grey;
+            -webkit-box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);
+            -moz-box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);
+            box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);
+            cursor: pointer;
+
+            .btn-filter {
+                width: 20px;
+                height: 20px;
+                //background: url("../img/filter.svg") no-repeat center/contain;
+            }
+        }
+    }
+
+    ul.ul-log-reg {
+        /* position: absolute;
+        display: flex;
+        width: 70px;
+        gap: 20px;
+        list-style-type: none; */
+        position: absolute;
+        display: flex;
+        width: max-content;
+        gap: 20px;
+        list-style-type: none;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            &:hover .ico-login {
+                background: url("../img/ico/login/login.svg") no-repeat center/contain;
+            }
+
+            &:hover .ico-reg {
+                background: url("../img/ico/login/register.svg") no-repeat center/contain;
+            }
+
+            &:hover span {
+                color: #4b5663;
+                /* transition: 0.4s ease-in-out; */
+            }
+        }
+
+        .ico-log {
+            width: 30px;
+            height: 30px;
+        }
+
+        .ico-login {
+            background: url("../img/ico/login/login-lgt.svg") no-repeat center/contain;
+        }
+
+        .ico-reg {
+            background: url("../img/ico/login/register-lgt.svg") no-repeat center/contain;
+        }
+
+        a {
+            font-weight: 600;
+            text-decoration: none;
+            color: grey;
+            font-size: 0.9em;
+        }
+    }
+}
+
+.cnt-result-adress {
+    position: fixed;
+    top: 100px;
+    width: 100%;
+    background-color: black;
+    height: 100vh;
+
+    .cnt-items {
+        color: white;
+        padding: 10px;
+
+    }
+}
+
+
+
+.search {
+    display: flex;
+    position: relative;
+    width: max-content;
+    height: 50px;
+    border-radius: 30px;
+    align-items: center;
+    padding: 0 20px;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);
+    box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);
+    gap: 20px;
+
+    .cnt-lens,
+    .cnt-fine {
+        width: 30px;
+        height: 30px;
+    }
+
+    .cnt-lens {
+        background: url(../../../public/img/lente.svg) no-repeat center;
+    }
+
+    .contStringSrc {
+        width: 100%;
+        background-color: transparent;
+        color: black;
+        text-align: left;
+
+        & input {
+            border: 0;
+            -webkit-appearance: none;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            outline: none;
+            text-align: left;
+            border: 0;
+        }
+    }
+
+    .cnt-fine {
+        background-color: rgba(153, 51, 0, 1);
+        background: url(../../../public/img/fineIcon.svg) no-repeat center;
+    }
+}
