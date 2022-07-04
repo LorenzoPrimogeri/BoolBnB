@@ -1,23 +1,32 @@
 <template>
-<div>
-<a href="/login" class="btn btn-primary">Accedi</a>
-<a href="/register" class="btn btn-primary">Registrati</a>
+<div id="web-body">
+  <HeaderComponent />
+  <MainComponent />
+  <FooterComponent />
   <div class="container d-flex justify-content-center">
-        <SearchComponent />
   </div>
   </div>
 </template>
 
 <script>
-import SearchComponent from "../components/SearchComponent.vue";
+import HeaderComponent from "../components/HeaderComponent.vue";
+import MainComponent from "../components/MainComponent.vue";
+import FooterComponent from "../components/FooterComponent.vue";
 
 export default {
   name: "HomeComponent",
   components: {
-    SearchComponent
+    HeaderComponent,
+    MainComponent,
+    FooterComponent ,
   },
 };
 </script>
 
  <style>
+
+  #web-body{
+    width: 100vw;
+    height: 100vh;
+  }
 </style>
