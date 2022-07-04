@@ -1,23 +1,23 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
+<div>
+<a href="/login" class="btn btn-primary">Accedi</a>
+<a href="/register" class="btn btn-primary">Registrati</a>
+  <div class="container d-flex justify-content-center">
         <SearchComponent />
-      </div>
-    </div>
+  </div>
   </div>
 </template>
- 
+
 <script>
 import SearchComponent from "../components/SearchComponent.vue";
 
 export default {
   name: "HomeComponent",
   components: {
-    SearchComponent,
+    SearchComponent
   },
 };
 </script>
- 
+
  <style>
 </style>

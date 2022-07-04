@@ -51,6 +51,9 @@
                                     <button class="btn btn-danger wmax-100 " onclick="return confirm('Are your sure?')"
                                         type="submit">Elimina</button>
                                 </form>
+                                <a href="{{ route('admin.apartments.messages.index', $apartment->id) }}">
+                                    <button>Mostra Messaggi</button>
+                                </a>
                             </div>
                         </div>
                     </div>
