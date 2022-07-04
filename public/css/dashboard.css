@@ -297,7 +297,7 @@ main .main-slct-item .cnt-item-details .cnt-service {
   flex-direction: row;
   gap: 15px;
   align-items: center !important;
-  padding: 20px;
+  padding: 20px 0px;
 }
 
 main .main-slct-item .cnt-item-dash .cnt-service .cnt-items-services,
