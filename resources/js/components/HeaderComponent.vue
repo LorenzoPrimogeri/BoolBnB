@@ -31,17 +31,16 @@
             <div class="main-usr-set">
               <ul class="ul-log-reg">
                 <!-- Authentication Links -->
-
                 <!-- <a href="{{ route('login') }}"> -->
                 <li>
                   <div class="ico-log ico-login"></div>
-                  <span>Login</span>
+                  <a href=" /login">Login</a>
                 </li>
                 <!-- </a> -->
                 <!-- <a href="{{ route('register') }}"> -->
                 <li>
                   <div class="ico-log ico-reg"></div>
-                  <span>Register</span>
+                  <a href="/register">Register</a>
                 </li>
                 <!-- </a> -->
                 <!-- <div class="cnt-usr-set">
