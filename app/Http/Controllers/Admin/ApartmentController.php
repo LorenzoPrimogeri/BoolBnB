@@ -6,6 +6,7 @@ use App\Apartment;
 use App\Service;
 use App\Http\Controllers\Controller;
 use App\Message;
+use App\Sponsorship;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,6 +27,13 @@ class ApartmentController extends Controller
         //  dd($apartments);
         return view('admin.apartments.index', compact('apartments'));
     }
+    public function sponsor($id)
+    {
+        $apartment = Apartment::find($id);
+        $sponsor = Sponsorship::all();
+        return view('admin.apartments.sponsor', compact('sponsor', 'apartment'));
+    }
+
 
     /**
      * Show the form for creating a new resource.

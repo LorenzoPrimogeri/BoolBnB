@@ -24,10 +24,11 @@ Route::middleware('auth')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
         Route::resource('/apartments', 'ApartmentController');
+        Route::get('apartments/sponsor/{id}', "ApartmentController@sponsor");
         Route::resource('apartments.messages', "MessageController");
-        Route::get('/messages','MessageController@index')->name('messages');
-
+        Route::get('/messages', 'MessageController@index')->name('messages');
     });
+
 
 
 Route::get('{any?}', function () {
