@@ -2649,8 +2649,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -2828,7 +2826,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader??ref--11-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../public/css/layout-preset.css */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./public/css/layout-preset.css"), "");
 
 // module
-exports.push([module.i, "\n#web-body{\n   width: 100vw;\n   height: 100vh;\n}\n", ""]);
+exports.push([module.i, "\n", ""]);
 
 // exports
 
@@ -35469,15 +35467,12 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { attrs: { id: "web-body" } },
     [
       _c("HeaderComponent"),
       _vm._v(" "),
       _c("MainComponent"),
       _vm._v(" "),
       _c("FooterComponent"),
-      _vm._v(" "),
-      _c("div", { staticClass: "container d-flex justify-content-center" }),
     ],
     1
   )

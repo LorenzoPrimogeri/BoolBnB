@@ -5,7 +5,7 @@ header {
   top: 0;
   left: 0;
   background-color: #fff;
-  z-index: 2;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.26);
 }
 
 header .cnt-nav {
@@ -104,12 +104,9 @@ header ul.ul-log-reg a {
   position: fixed;
   top: 100px;
   width: 100%;
-  background-color: black;
-  height: 100vh;
 }
 
 .cnt-result-adress .cnt-items {
-  color: white;
   padding: 10px;
 }
 

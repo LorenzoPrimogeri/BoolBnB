@@ -1,10 +1,8 @@
 <template>
-<div id="web-body">
-  <HeaderComponent />
-  <MainComponent />
-  <FooterComponent />
-  <div class="container d-flex justify-content-center">
-  </div>
+  <div>
+    <HeaderComponent />
+    <MainComponent />
+    <FooterComponent />
   </div>
 </template>
 
@@ -19,16 +17,11 @@ export default {
   components: {
     HeaderComponent,
     MainComponent,
-    FooterComponent ,
+    FooterComponent,
   },
 };
 </script>
 
  <style>
  @import url('../../../public/css/layout-preset.css');
-
-  #web-body{
-    width: 100vw;
-    height: 100vh;
-  }
-</style>
+ </style>
