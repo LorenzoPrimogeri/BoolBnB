@@ -246,7 +246,10 @@ main {
     padding: 180px 0;
   } */
 }
-
+.button-disabled{
+    cursor: not-allowed;
+    pointer-events:none;
+}
 .cnt-ul {
 
     /* background-color: coral; */

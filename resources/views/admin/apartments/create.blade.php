@@ -98,7 +98,7 @@
                 </div>
             </div>
             <div class="cnt-th cnt-btn h-100">
-                <button class="btn-modify" type="submit">Inserisci</button>
+                <button class="btn-modify" type="submit" id='btn-submit' onclick="SelezTT()">Inserisci</button>
             </div>
         </form>
     </div>

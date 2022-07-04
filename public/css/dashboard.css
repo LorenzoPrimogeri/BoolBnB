@@ -399,6 +399,11 @@ main .main-slct-item select {
   box-sizing: border-box;
 }
 
+.button-disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .cnt-ul {
   /* background-color: coral; */
 }

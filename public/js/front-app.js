@@ -2029,6 +2029,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -34388,7 +34389,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "text-center" }, [
-    _c("p", [_vm._v("Via Dispersi in Russia 143, 73056 Taurisano")]),
+    _c("p", [_vm._v("Ricerca appartamenti:")]),
     _vm._v(" "),
     _c("div", { staticClass: "input-group" }, [
       _c("input", {
@@ -34556,10 +34557,6 @@ var render = function () {
               return _c("div", { key: apartment.id }, [
                 _c("div", { staticClass: "container" }, [
                   _c("div", { staticClass: "row py-2" }, [
-                    _c("div", { staticClass: "col-1 border-bottom" }, [
-                      _c("h4", [_vm._v(_vm._s(apartment.id))]),
-                    ]),
-                    _vm._v(" "),
                     _c("div", { staticClass: "col-3 border-bottom" }, [
                       _c("h4", [_vm._v(_vm._s(apartment.title))]),
                     ]),
@@ -34572,7 +34569,7 @@ var render = function () {
                       "div",
                       { staticClass: "col-3 border-bottom" },
                       _vm._l(apartment.services, function (service) {
-                        return _c("h2", { key: service.name }, [
+                        return _c("h6", { key: service.name }, [
                           _vm._v(
                             "\n              " +
                               _vm._s(service.name) +
