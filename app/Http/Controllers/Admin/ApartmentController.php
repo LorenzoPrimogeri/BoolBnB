@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Apartment;
 use App\Service;
 use App\Http\Controllers\Controller;
+use App\Message;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -130,8 +131,8 @@ class ApartmentController extends Controller
     public function show(Apartment $apartment)
     {
         $user = Auth::user();
-        if($user->id == $apartment->user_id){
-        return view('admin.apartments.show', compact('apartment'));
+        if ($user->id == $apartment->user_id) {
+            return view('admin.apartments.show', compact('apartment'));
         }
         abort(404);
     }
@@ -248,7 +249,8 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
         //riguardare il delete di Ruggiero con cover
-        $apartment->services()->sync([]);
+        // dd($apartment);
+        // $apartment->services()->sync([]);
         $apartment->delete();
         return redirect()->route("admin.apartments.index");
     }

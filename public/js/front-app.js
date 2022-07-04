@@ -2528,6 +2528,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/SearchPage.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/SearchPage.vue?vue&type=script&lang=js& ***!
@@ -6979,6 +6980,8 @@ exports.push([module.i, "#Main[data-v-3ee370e9] {\n  width: 100vw;\n  height: 85
 
 /***/ }),
 
+=======
+>>>>>>> 12e44d6cf429da2a2c298f11369b3d583b33aaa7
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SearchComponent.vue?vue&type=style&index=0&id=89b0c3cc&lang=scss&scoped=true&":
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--12-2!./node_modules/sass-loader/dist/cjs.js??ref--12-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SearchComponent.vue?vue&type=style&index=0&id=89b0c3cc&lang=scss&scoped=true& ***!
@@ -55181,7 +55184,7 @@ try {
   window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
-  __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
+  __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module 'bootstrap'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 } catch (e) {}
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -55960,7 +55963,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Michele\Documents\Boolean\Esercizi\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\Amministratore\Desktop\BooleanProject\php\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })

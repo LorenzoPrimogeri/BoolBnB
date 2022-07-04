@@ -1,4 +1,5 @@
 @import url("layout-preset.css");
+
 /* .cnt-register {
     position: absolute;
     top: 50%;
@@ -32,11 +33,13 @@ header {
     -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.26);
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.26);
     z-index: 2;
+
     .cnt-hdr-items {
         display: flex;
         width: 100%;
         height: 100%;
         justify-content: space-between;
+
         .cnt-ttl {
             display: flex;
             justify-content: center;
@@ -47,18 +50,21 @@ header {
             /* background-color: aquamarine; */
         }
     }
+
     .cnt-logo {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 150px;
         height: 100%;
+
         img,
         a {
             width: 100%;
         }
     }
 }
+
 /* .main-usr-set {
     position: fixed;
     top: 0;
@@ -73,6 +79,7 @@ header {
     }
 } */
 main {
+
     /* height: 100vw; */
     /* background-color: antiquewhite; */
     .sidebar {
@@ -86,6 +93,7 @@ main {
         background-color: #fff;
         border-right: 1px solid #dbdbdb;
     }
+
     .main-slct-item {
         display: flex;
         position: absolute;
@@ -94,6 +102,7 @@ main {
         align-items: center;
         left: 220px;
         padding: 180px 0;
+
         /* background-color: palegreen; */
         .cnt-slct-btn {
             position: fixed;
@@ -104,6 +113,7 @@ main {
             padding: 10px;
             z-index: 1;
         }
+
         .cnt-item-dash,
         .cnt-item-details {
             display: flex;
@@ -113,6 +123,7 @@ main {
             -webkit-box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.1);
             -moz-box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.1);
             box-shadow: 0px 0px 10px 5px rgba(150, 150, 150, 0.2);
+
             /* background-color: palevioletred; */
             .cnt-row {
                 display: flex;
@@ -121,51 +132,61 @@ main {
                 padding: 20px;
                 border-bottom: 1px solid #dbdbdb;
             }
+
             .cnt-service {
                 display: flex;
                 flex-direction: row;
                 gap: 15px;
                 align-items: center !important;
-                padding: 20px;
+                padding: 20px 0px;
+
                 .cnt-items-services {
                     display: flex;
                     gap: 15px;
                     flex-wrap: wrap;
-                    .cnt-item-service {
-                    }
+
+                    .cnt-item-service {}
                 }
             }
         }
+
         .cnt-item-details {
+
             h3,
             p {
                 color: #707070;
             }
         }
+
         .cnt-img {
             display: flex;
             width: 200px;
             flex-direction: column;
             gap: 10px;
+
             img {
                 width: 100%;
             }
         }
+
         .cnt-table {
             display: flex;
             flex-direction: column;
             width: 100%;
             /* border: 1px solid #dddddd; */
         }
+
         .main-columns,
         .main-body-th {
             display: flex;
             border-bottom: 1px solid #dbdbdb;
         }
+
         .cnt-column {
             display: flex;
             flex-direction: column;
         }
+
         .cnt-th {
             display: flex;
             align-items: center;
@@ -175,26 +196,31 @@ main {
         background-color: #dddddd;
       } */
         }
+
         .cnt-btn {
             justify-content: center;
             gap: 10px;
+
             button {
                 border: 0;
                 padding: 10px;
                 cursor: pointer;
             }
         }
+
         button {
             background-color: #8da1b3;
             color: #4b5663;
             font-weight: 600;
             color: #fff;
             transition: 0.3s ease-in-out;
+
             &:hover {
                 background-color: #4b5663;
                 transition: 0.3s ease-in-out;
             }
         }
+
         .btn-modify {
             border: none;
             width: max-content;
@@ -202,6 +228,7 @@ main {
             margin: 0 auto;
             cursor: pointer;
         }
+
         input[type="text"],
         input[type="number"],
         select {
@@ -214,6 +241,7 @@ main {
             box-sizing: border-box;
         }
     }
+
     /* .main-details {
     padding: 180px 0;
   } */
@@ -223,6 +251,7 @@ main {
     pointer-events:none;
 }
 .cnt-ul {
+
     /* background-color: coral; */
     ul {
         width: 100%;
@@ -231,6 +260,7 @@ main {
         gap: 25px;
         margin: 0 auto;
         padding: 0 0 0 20px;
+
         li {
             display: flex;
             align-items: center;
@@ -239,97 +269,111 @@ main {
             /* transition: 2s ease-in-out;
   transition: all 4s ease-in-out; */
             transition: 4s ease-in-out;
+
             &:hover .aprt {
-                background: url("../img/ico/dashboard/ico-dash.svg") no-repeat
-                    center/contain;
+                background: url("../img/ico/dashboard/ico-dash.svg") no-repeat center/contain;
             }
+
             &:hover .msg {
-                background: url("../img/ico/dashboard/ico-msg.svg") no-repeat
-                    center/contain;
+                background: url("../img/ico/dashboard/ico-msg.svg") no-repeat center/contain;
             }
+
             &:hover .ads {
-                background: url("../img/ico/dashboard/ico-ads.svg") no-repeat
-                    center/contain;
+                background: url("../img/ico/dashboard/ico-ads.svg") no-repeat center/contain;
             }
+
             &:hover .stcs {
-                background: url("../img/ico/dashboard/ico-stcs.svg") no-repeat
-                    center/contain;
+                background: url("../img/ico/dashboard/ico-stcs.svg") no-repeat center/contain;
             }
+
             &:hover a {
                 color: #4b5663;
                 transition: 0.4s ease-in-out;
             }
+
             a {
                 text-decoration: none;
                 color: #9cb0c1;
                 font-size: 1.2em;
             }
+
             .ico {
                 width: 30px;
                 height: 30px;
                 background-color: violet;
             }
+
             .aprt {
-                background: url("../img/ico/dashboard/ico-dash-lgt.svg")
-                    no-repeat center/contain;
+                background: url("../img/ico/dashboard/ico-dash-lgt.svg") no-repeat center/contain;
             }
+
             .msg {
-                background: url("../img/ico/dashboard/ico-msg-lgt.svg")
-                    no-repeat center/contain;
+                background: url("../img/ico/dashboard/ico-msg-lgt.svg") no-repeat center/contain;
             }
+
             .ads {
-                background: url("../img/ico/dashboard/ico-ads-lgt.svg")
-                    no-repeat center/contain;
+                background: url("../img/ico/dashboard/ico-ads-lgt.svg") no-repeat center/contain;
             }
+
             .stcs {
-                background: url("../img/ico/dashboard/ico-stcs-lgt.svg")
-                    no-repeat center/contain;
+                background: url("../img/ico/dashboard/ico-stcs-lgt.svg") no-repeat center/contain;
             }
         }
     }
 }
+
 /* @import url("btn-burger.scss"); */
 
 @media screen and (min-width: 0px) and (max-width: 1000px) {
     .sidebar {
         display: none;
     }
+
     main {
         .main-slct-item {
             width: 100%;
             left: auto;
+
             .cnt-item-dash {
                 padding: 30px 20px;
             }
+
             .cnt-btn {
                 padding: 30px 0;
             }
+
             .cnt-slct-btn {
                 width: 100%;
+
                 .cnt-btn {
                     padding: 10px;
                 }
             }
+
             .cnt-row {
                 align-items: flex-start !important;
                 flex-direction: column;
             }
         }
+
         .main-body-th {
             .cnt-th:nth-child(4) {
                 display: none;
             }
         }
+
         .main-columns {
             flex-wrap: wrap;
         }
     }
+
     .cnt-service {
         display: inherit;
         flex-direction: row;
         gap: 15px;
         align-items: center !important;
         padding: 20px;
+
         .cnt-items-services {
             display: flex;
             gap: 15px;
@@ -337,13 +381,16 @@ main {
         }
     }
 }
+
 @media only screen and (max-width: 600px) {
     .form-container {
         height: calc(100vh + 80px);
     }
+
     .form-container form {
         padding: 0;
     }
+
     span.icon {
         left: 20px;
     }
@@ -351,11 +398,13 @@ main {
 
 @media only screen and (max-width: 480px) {
     header {
+
         .cnt-logo img,
         .cnt-logo a {
             width: 80%;
         }
     }
+
     main {
         .main-slct-item {
             .cnt-item-details {
