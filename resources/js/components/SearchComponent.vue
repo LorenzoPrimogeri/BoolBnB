@@ -1,52 +1,22 @@
 <template>
   <div class="text-center">
-    <p>Ricerca appartamenti:</p>
-    <div class="input-group">
-        <input
-        type="text"
-        v-model="input"
-        @input="onInputChanged"
-        style="width: 500px !important"
-        class="form-control"
-        />
-        <span class="input-group-text" id="basic-addon1" @click="clearInput"><i class="bi bi-trash"></i></span>
-    </div>
-    <div v-if="isClicked" id="box-search">
-        <div
-        v-for="(indirizzo, i) in indirizzi"
-        :key="i + indirizzo.address"
-        >
-        <div
-            class="ads-label"
-            type="text"
-            @click="take(indirizzo.address.freeformAddress)"
-        >
-            {{ indirizzo.address["freeformAddress"] }}
-        </div>
-        </div>
-    </div>
-    <button @click="takeLatLng()" class="btn btn-primary mt-3">Cerca!</button>
+    <p>Via dispersi in russia 143</p>
+    <input type="text" v-model="input" @input="onInputChanged" />
     <!-- si potrebbe fare un range senza dover scrivere a mano i km -->
+    <p>km</p>
+    <input
+      type="number"
+      v-model="distanceKm"
+      min="20"
+      max="1000"
+      placeholder="km"
+    />
 
-    <!-- filtri -->
-        <div class="row justify-content-center mt-5">
-            <p>km</p>
-            <input
-            type="number"
-            v-model="distanceKm"
-            min="20"
-            max="1000"
-            placeholder="km"
-            class="form-control w100"
-            />
-
-            <p>stanze</p>
-            <input type="number" v-model="room" min="1" max="15" placeholder="stanze" class="form-control w100" />
-            <p>letti</p>
-            <input type="number" v-model="bed" min="1" max="30" placeholder="letti" class="form-control w100 "/>
-        </div>
-    <!--  Almeno non disponibile
-    <p>Servizi:</p>
+    <p>stanze</p>
+    <input type="number" v-model="room" min="1" max="15" placeholder="stanze" />
+    <p>letti</p>
+    <input type="number" v-model="bed" min="1" max="30" placeholder="letti" />
+    <!-- <p>Servizi:</p>
     <div v-for="(service, index) in allServices" :key="index + service.id">
       <input
         type="checkbox"
@@ -58,15 +28,28 @@
       <label for="vehicle1">{{ service.name }}</label
       ><br />
     </div> -->
+    <div
+      class="row flex-dr-col"
+      v-for="(indirizzo, i) in indirizzi"
+      :key="i + indirizzo.address"
+    >
+      <button
+        class="py-4"
+        type="text"
+        @click="take(indirizzo.address.freeformAddress)"
+      >
+        {{ indirizzo.address["freeformAddress"] }}
+      </button>
+    </div>
+    <button @click="takeLatLng()">Cerca!</button>
     <div v-if="correctApartments">
       <p>gli appartamenti Nel raggio di 20 km sono:</p>
       <div v-for="apartment in correctApartments" :key="apartment.id">
         <div class="container">
           <div class="row py-2">
-              <!-- 
-              <div class="col-1 border-bottom">
+            <div class="col-3 border-bottom">
               <h4>{{ apartment.id }}</h4>
-            </div>*/ -->
+            </div>
             <div class="col-3 border-bottom">
               <h4>{{ apartment.title }}</h4>
             </div>
@@ -74,11 +57,6 @@
               <h4>{{ apartment.description }}</h4>
             </div>
             <div class="col-3 border-bottom">
-              <h6 v-for="service in apartment.services" :key="service.name">
-                {{ service.name }}
-              </h6>
-            </div>
-            <div class="col-2 border-bottom">
               <router-link
                 :to="{
                   name: 'single-apartment',
@@ -115,8 +93,6 @@ export default {
       distanceKm: 20,
       room: 1,
       bed: 1,
-      apartmentService: [],
-      isClicked: false,
     };
   },
   mounted() {
@@ -125,28 +101,18 @@ export default {
       this.allApartaments = results.data.apartments;
       console.log(this.allApartaments);
       this.allServices = results.data.services;
-      // console.log(this.allServices);
+      console.log(this.allServices);
     });
   },
   methods: {
-    axiosCall() {},
     onInputChanged() {
-        this.isClicked = true;
       // console.log(this.distanceKm);
       //Call axios che restituisce gli indirizzi autocomplete
       delete axios.defaults.headers.common["X-Requested-With"];
       this.indirizzi = [];
       Axios.get(
-        "https://api.tomtom.com/search/2/geocode/.json",
-        { params: {
-            query: this.input,
-            storeResult: false,
-            limit: 5,
-            view: "Unified",
-            key: "GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
-            language: "it-IT"
-            }
-        }
+        "https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=5&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
+        { params: { query: this.input } }
       ).then((risp) => {
         const risultati = risp.data.results;
         console.log(risultati);
@@ -156,12 +122,9 @@ export default {
     },
     take(indirizzo) {
       this.input = indirizzo;
-      this.isClicked = false;
-      this.indirizzi = [];
     },
     takeLatLng() {
       //prendo lat e long dal indirizzo
-      console.log(this.services);
       console.log(this.input);
       Axios.get(
         "https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
@@ -175,8 +138,11 @@ export default {
       });
     },
     searchApartments() {
+      console.log(this.services);
       //reset degli appartamenti corretti
       this.correctApartments = [];
+      console.log(this.correctApartments);
+      //console.log(this.apartaments);
       for (let i = 0; i < this.allApartaments.length; i++) {
         const apartment = this.allApartaments[i];
         const distance = this.distance(
@@ -190,19 +156,25 @@ export default {
           apartment.room >= this.room &&
           apartment.bed >= this.bed
         ) {
+          console.log("la distanza è: " + distance.toFixed(3) + " km :)");
+          console.log(apartment.room);
+          console.log(apartment.bed);
+          console.log("Fatto");
           this.correctApartments.push(apartment);
+        } else {
         }
+        console.log(this.correctApartments);
       }
     },
     distance(lat1, lon1, lat2, lon2) {
       if (lat1 == lat2 && lon1 == lon2) {
         return 0;
       } else {
-        let radlat1 = (Math.PI * lat1) / 180;
-        let radlat2 = (Math.PI * lat2) / 180;
-        let theta = lon1 - lon2;
-        let radtheta = (Math.PI * theta) / 180;
-        let dist =
+        var radlat1 = (Math.PI * lat1) / 180;
+        var radlat2 = (Math.PI * lat2) / 180;
+        var theta = lon1 - lon2;
+        var radtheta = (Math.PI * theta) / 180;
+        var dist =
           Math.sin(radlat1) * Math.sin(radlat2) +
           Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
         if (dist > 1) {
@@ -215,44 +187,9 @@ export default {
         return dist;
       }
     },
-    clearInput(){
-        this.input = "";
-        this.isClicked = false;
-    }
   },
 };
 </script>
 
-<style lang="scss" scoped>
-#box-search{
-    width: 541px;
-    position: absolute;
-    background-color: white;
-    border: 1px solid grey;
-}
-
-
-.ads-label{
-    cursor: pointer;
-    width: 100%;
-    padding: 5px;
-    &:hover{
-        background-color: rgb(192, 192, 192);
-    }
-}
-
-#basic-addon1{
-    cursor: pointer;
-    &:hover{
-        color: red;
-        transition: 200ms;
-    }
-}
-.w100{
-    width: 100px;
-}
-p{
-    margin: 0;
-}
+<style>
 </style>
-
