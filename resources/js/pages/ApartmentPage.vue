@@ -1,56 +1,67 @@
 <template>
-  <main>
-    <div class="container">
-      <a href="/" class="btn btn-primary">Vai alla home</a>
+  <main id="Main">
+    <div class="container flex">
 
-      <div class="cnt-row col-12">
-        <h3>Titolo:</h3>
-        <p>{{ apartment.title }}</p>
-        <h3>Indirizzo:</h3>
-        <p>{{ apartment.address }}</p>
+
+      <div class="cnt-row col-12 text-box">
+        <h2>{{ apartment.title }}</h2>
+        <h5>{{ apartment.address }}</h5>
       </div>
 
-      <div class="cnt-row col-12">
-        <div class="cnt-img">
+      <div class="cnt-row col-12 img-box">
+        <div class="cont-img">
           <img class="img-fluid" :src="`/storage/${apartment.img}`"
             :alt="apartment.title" />
         </div>
       </div>
 
+      <div class="description-text col-12">
+        <div class="">
+          <h5>Descrizione:</h5>
+          <p>{{ apartment.description }}</p>
+        </div>
+      </div>
       <!-- map -->
+      <div class="services-box">
+        <div class="col-4">
+          <div id="map"></div>
+        </div>
+        <div class="services col-3">
+          <div class="">
+            <h5>Stanze:</h5>
+            <p>{{ apartment.room }}</p>
+          </div>
 
-      <div id="map"></div>
+          <div class="">
+            <h5>Bagni:</h5>
+            <p>{{ apartment.bathroom }}</p>
+          </div>
+
+          <div class="">
+            <h5>Letti:</h5>
+            <p>{{ apartment.bed }}</p>
+          </div>
+
+          <div class="">
+            <h5>Metri Quadri:</h5>
+            <p>{{ apartment.mq }}mq</p>
+          </div>
+
+          <div class="">
+            <h5>Prezzo:</h5>
+            <p>{{ apartment.price }}€ /notte</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 contacts">
+        <a href="/" class="btn btn-primary">Vai alla home</a>
+        <a href="/" class="btn btn-primary m-2">Contatta</a>
+      </div>
+
+
       <!-- /map -->
 
-      <div class="">
-        <h3>Descrizione:</h3>
-        <p>{{ apartment.description }}</p>
-      </div>
-
-      <div class="">
-        <h3>Stanze:</h3>
-        <p>{{ apartment.room }}</p>
-      </div>
-
-      <div class="">
-        <h3>Bagni:</h3>
-        <p>{{ apartment.bathroom }}</p>
-      </div>
-
-      <div class="">
-        <h3>Letti:</h3>
-        <p>{{ apartment.bed }}</p>
-      </div>
-
-      <div class="">
-        <h3>Metri Quadri:</h3>
-        <p>{{ apartment.mq }}</p>
-      </div>
-
-      <div class="">
-        <h3>Prezzo:</h3>
-        <p>{{ apartment.price }}</p>
-      </div>
       <!-- <div class="cnt-row col-12">
           <h3>Servizi:</h3>
           @foreach (apartment.services as service)
@@ -227,6 +238,51 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+main {
+  .flex {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .text-box {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .img-box {
+    img {
+      width: 100%;
+      height: 600px;
+      border-radius: 1%;
+    }
+  }
+
+  .description-text {
+    margin-top: 4%;
+
+  }
+
+  .services-box {
+    display: flex;
+
+    .services {
+      margin-top: 4%;
+    }
+  }
+
+  .contacts {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+}
+
+
+
 #map {
   width: 300px;
   height: 300px;

@@ -2434,6 +2434,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // import LoaderComponent from '../components/LoaderComponent.vue';
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ApartmentComponent",
@@ -2781,7 +2792,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#map[data-v-ca80d4b0] {\n  width: 300px;\n  height: 300px;\n  margin-top: 50px;\n}\n@media only screen and (max-width: 360px) {\n#map[data-v-ca80d4b0] {\n    width: 225px;\n    height: 225px;\n}\n}", ""]);
+exports.push([module.i, "main .flex[data-v-ca80d4b0] {\n  display: flex;\n  flex-direction: column;\n}\nmain .text-box[data-v-ca80d4b0] {\n  margin-top: 20px;\n  margin-bottom: 20px;\n}\nmain .img-box img[data-v-ca80d4b0] {\n  width: 100%;\n  height: 600px;\n  border-radius: 1%;\n}\nmain .description-text[data-v-ca80d4b0] {\n  margin-top: 4%;\n}\nmain .services-box[data-v-ca80d4b0] {\n  display: flex;\n}\nmain .services-box .services[data-v-ca80d4b0] {\n  margin-top: 4%;\n}\nmain .contacts[data-v-ca80d4b0] {\n  margin-top: 5%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n#map[data-v-ca80d4b0] {\n  width: 300px;\n  height: 300px;\n  margin-top: 50px;\n}\n@media only screen and (max-width: 360px) {\n#map[data-v-ca80d4b0] {\n    width: 225px;\n    height: 225px;\n}\n}", ""]);
 
 // exports
 
@@ -35330,24 +35341,16 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("main", [
-    _c("div", { staticClass: "container" }, [
-      _c("a", { staticClass: "btn btn-primary", attrs: { href: "/" } }, [
-        _vm._v("Vai alla home"),
+  return _c("main", { attrs: { id: "Main" } }, [
+    _c("div", { staticClass: "container flex" }, [
+      _c("div", { staticClass: "cnt-row col-12 text-box" }, [
+        _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
+        _vm._v(" "),
+        _c("h5", [_vm._v(_vm._s(_vm.apartment.address))]),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "cnt-row col-12" }, [
-        _c("h3", [_vm._v("Titolo:")]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.apartment.title))]),
-        _vm._v(" "),
-        _c("h3", [_vm._v("Indirizzo:")]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.apartment.address))]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "cnt-row col-12" }, [
-        _c("div", { staticClass: "cnt-img" }, [
+      _c("div", { staticClass: "cnt-row col-12 img-box" }, [
+        _c("div", { staticClass: "cont-img" }, [
           _c("img", {
             staticClass: "img-fluid",
             attrs: {
@@ -35358,43 +35361,51 @@ var render = function () {
         ]),
       ]),
       _vm._v(" "),
-      _c("div", { attrs: { id: "map" } }),
-      _vm._v(" "),
-      _c("div", {}, [
-        _c("h3", [_vm._v("Descrizione:")]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.apartment.description))]),
+      _c("div", { staticClass: "description-text col-12" }, [
+        _c("div", {}, [
+          _c("h5", [_vm._v("Descrizione:")]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.apartment.description))]),
+        ]),
       ]),
       _vm._v(" "),
-      _c("div", {}, [
-        _c("h3", [_vm._v("Stanze:")]),
+      _c("div", { staticClass: "services-box" }, [
+        _vm._m(0),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.apartment.room))]),
+        _c("div", { staticClass: "services col-3" }, [
+          _c("div", {}, [
+            _c("h5", [_vm._v("Stanze:")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.apartment.room))]),
+          ]),
+          _vm._v(" "),
+          _c("div", {}, [
+            _c("h5", [_vm._v("Bagni:")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.apartment.bathroom))]),
+          ]),
+          _vm._v(" "),
+          _c("div", {}, [
+            _c("h5", [_vm._v("Letti:")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.apartment.bed))]),
+          ]),
+          _vm._v(" "),
+          _c("div", {}, [
+            _c("h5", [_vm._v("Metri Quadri:")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.apartment.mq) + "mq")]),
+          ]),
+          _vm._v(" "),
+          _c("div", {}, [
+            _c("h5", [_vm._v("Prezzo:")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.apartment.price) + "€ /notte")]),
+          ]),
+        ]),
       ]),
       _vm._v(" "),
-      _c("div", {}, [
-        _c("h3", [_vm._v("Bagni:")]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.apartment.bathroom))]),
-      ]),
-      _vm._v(" "),
-      _c("div", {}, [
-        _c("h3", [_vm._v("Letti:")]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.apartment.bed))]),
-      ]),
-      _vm._v(" "),
-      _c("div", {}, [
-        _c("h3", [_vm._v("Metri Quadri:")]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.apartment.mq))]),
-      ]),
-      _vm._v(" "),
-      _c("div", {}, [
-        _c("h3", [_vm._v("Prezzo:")]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.apartment.price))]),
-      ]),
+      _vm._m(1),
       _vm._v(" "),
       _c("div", {}, [
         _c(
@@ -35518,7 +35529,30 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-4" }, [
+      _c("div", { attrs: { id: "map" } }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 contacts" }, [
+      _c("a", { staticClass: "btn btn-primary", attrs: { href: "/" } }, [
+        _vm._v("Vai alla home"),
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "btn btn-primary m-2", attrs: { href: "/" } }, [
+        _vm._v("Contatta"),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
