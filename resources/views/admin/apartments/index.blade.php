@@ -37,7 +37,7 @@
                 </div>
                 <div class="cnt-column col-3 col-md-12">
                     <div class="cnt-th cnt-btn h-100">
-                        <a href="{{ route('admin.apartments.sponsor', $apartment->id) }}">
+                        <a href="{{ route('admin.apartments.sponsors.index', $apartment->id) }}">
                             <button>Sponsor</button>
                         </a>
                         <a href="{{ route('admin.apartments.show', $apartment->id) }}">

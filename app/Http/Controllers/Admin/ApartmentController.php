@@ -27,13 +27,6 @@ class ApartmentController extends Controller
         //  dd($apartments);
         return view('admin.apartments.index', compact('apartments'));
     }
-    public function sponsor($id)
-    {
-        $apartment = Apartment::find($id);
-        $sponsor = Sponsorship::all();
-        return view('admin.apartments.sponsor', compact('sponsor', 'apartment'));
-    }
-
 
     /**
      * Show the form for creating a new resource.
