@@ -10,7 +10,7 @@
                         <h2>Filtri</h2>
                     </div>
                     <div class="cnt-btn-close">
-                        <div class="btn-close"></div>
+                        <div class="btn-closed"></div>
                     </div>
                 </div>
                 <div class="cnt-row">
@@ -178,7 +178,7 @@ body.enlargeFilter {
     background-color: #010b26;
     background-color: transparent;
 
-    .btn-close {
+    .btn-closed {
         &::after {
             content: "";
             display: block;
@@ -247,6 +247,7 @@ body.enlargeFilter {
 
         .row-filter-ttl {
             display: flex;
+            justify-content: flex-end;
             position: sticky;
             width: 100%;
             top: 0;

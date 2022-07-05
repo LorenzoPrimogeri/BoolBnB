@@ -22,7 +22,7 @@ export default {
     FooterComponent,
     FilterComponent,
   },
-  created() {
+  mounted() {
 
     $("#filter").click(function () {
       $("#bgExpand").toggleClass("enlargeFilter");
