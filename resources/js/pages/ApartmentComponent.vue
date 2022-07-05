@@ -8,6 +8,7 @@
         <h5>{{ apartment.address }}</h5>
       </div>
 
+
       <div class="cnt-row col-12 img-box">
         <div class="cont-img">
           <img class="img-fluid" :src="`/storage/${apartment.img}`"
@@ -27,75 +28,118 @@
         </div>
         <div class="services col-3">
           <div class="d-flex">
-            <h5>Stanze:</h5>
+            <h6>Stanze:</h6>
             <p class="">{{ apartment.room }}</p>
           </div>
 
           <div class="d-flex">
-            <h5>Bagni:</h5>
+            <h6>Bagni:</h6>
             <p>{{ apartment.bathroom }}</p>
           </div>
 
           <div class="d-flex">
-            <h5>Letti:</h5>
+            <h6>Letti:</h6>
             <p>{{ apartment.bed }}</p>
           </div>
 
           <div class="d-flex">
-            <h5>Metri Quadri:</h5>
+            <h6>Metri Quadri:</h6>
             <p>{{ apartment.mq }}mq</p>
           </div>
 
           <div class="d-flex">
-            <h5>Prezzo:</h5>
+            <h6>Prezzo:</h6>
             <p>{{ apartment.price }}€ /notte</p>
           </div>
         </div>
       </div>
+    </div>
 
       <div class="col-12 contacts">
-        <a href="/" class="btn btn-primary">Vai alla home</a>
-        <a href="/" class="btn btn-primary m-2">Contatta</a>
+        <a href="/" class="btn btn-primary">Torna alla home</a>
+        <a id="contacts" class="btn btn-primary m-2">Contatta</a>
+      </div>
+
+      <div id="bgExpand" class="bgExpandFilter">
+      </div>
+      <div id="cntExpand" class="cntExpandFilter">
+        <div class="main-filter">
+
+          <div class="row-filter-ttl jc-e">
+            <div class="cnt-ttl">
+              <h2>Messaggio</h2>
+            </div>
+            <div class="cnt-btn-close">
+              <div class="btn-closed"></div>
+            </div>
+          </div>
+          <div class="cnt-row">
+          <form method="POST" @submit.prevent="sendForm()">
+           <div class="row-filter">
+              <div class="cnt-filter">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" v-model="email"
+                  id="email" placeholder="name@example.com" required>
+              </div>
+            </div>
+            <div class="row-filter">
+              <div class="cnt-filter">
+                  <label for="object" class="form-label">Oggetto</label>
+                  <input type="text" class="form-control" id="object" v-model="object"
+                  placeholder="Oggetto dell'email" required>
+              </div>
+            </div>
+             <div class="row-filter">
+              <div class="cnt-filter">
+                    <label for="body" class="form-label">Messaggio</label>
+                    <textarea class="form-control" id="body" rows="3" v-model="body"
+                    required></textarea>
+              </div>
+            </div>
+            <button type="submit" :disabled="sending">Invia mail</button>
+          </form>
+        </div>
+        </div>
       </div>
 
 
-      <!-- /map -->
 
-      <!-- <div class="cnt-row col-12">
+    <!-- /map -->
+
+    <!-- <div class="cnt-row col-12">
           <h3>Servizi:</h3>
           @foreach (apartment.services as service)
           <p>{{ service->name }}</p>
           @endforeach
         </div> -->
 
-      <!-- form email -->
-      <div class="">
-        <form method="POST" @submit.prevent="sendForm()">
-          <!-- email -->
-          <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" v-model="email" id="email"
-              placeholder="name@example.com" required>
-          </div>
-          <!-- object -->
-          <div class="mb-3">
-            <label for="object" class="form-label">Oggetto</label>
-            <input type="text" class="form-control" id="object" v-model="object"
-              placeholder="Oggetto dell'email" required>
-          </div>
-          <!-- body -->
-          <div class="mb-3">
-            <label for="body" class="form-label">Messaggio</label>
-            <textarea class="form-control" id="body" rows="3" v-model="body"
-              required></textarea>
-          </div>
+    <!-- form email -->
+    <div class="">
+      <form method="POST" @submit.prevent="sendForm()">
+        <!-- email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" v-model="email" id="email"
+            placeholder="name@example.com" required>
+        </div>
+        <!-- object -->
+        <div class="mb-3">
+          <label for="object" class="form-label">Oggetto</label>
+          <input type="text" class="form-control" id="object" v-model="object"
+            placeholder="Oggetto dell'email" required>
+        </div>
+        <!-- body -->
+        <div class="mb-3">
+          <label for="body" class="form-label">Messaggio</label>
+          <textarea class="form-control" id="body" rows="3" v-model="body"
+            required></textarea>
+        </div>
 
-          <button type="submit" :disabled="sending">Invia mail</button>
+        <button type="submit" :disabled="sending">Invia mail</button>
 
-        </form>
-      </div>
-
+      </form>
     </div>
+
 
     <!-- <div v-else>
         <LoaderComponent />
@@ -141,6 +185,18 @@ export default {
       console.log(this.lat);
       console.log(this.lng);
       this.createMap(); //funzione per generare la mappa
+    });
+
+    $("#contacts").click(function () {
+      $("#bgExpand").toggleClass("enlargeFilter");
+      $("#cntExpand").toggleClass("enlargeFilter");
+      $("body").toggleClass("enlargeFilter");
+    });
+
+    $(".cnt-btn-close").click(function () {
+      $("#cntExpand").toggleClass("enlargeFilter");
+      $("#bgExpand").toggleClass("enlargeFilter");
+      $("body").toggleClass("enlargeFilter");
     });
   },
   methods: {
@@ -279,11 +335,38 @@ main {
     justify-content: center;
     align-items: center;
   }
-
-
-
 }
 
+body.enlargeFilter {
+  position: fixed;
+}
+
+.bgExpandFilter {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #010b2600;
+  z-index: 3;
+  transition: all 0.5s ease-in-out;
+  visibility: hidden;
+}
+
+#bgExpand.enlargeFilter {
+  visibility: visible;
+}
+
+#cntExpand.enlargeFilter {
+  top: 0;
+  opacity: 1;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(23, 23, 23, 0.9);
+  margin-top: auto;
+  left: 0;
+  margin-left: auto;
+}
 
 
 #map {

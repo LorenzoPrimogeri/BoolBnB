@@ -2456,6 +2456,60 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // import LoaderComponent from '../components/LoaderComponent.vue';
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ApartmentComponent",
@@ -2498,6 +2552,16 @@ __webpack_require__.r(__webpack_exports__);
 
       _this.createMap(); //funzione per generare la mappa
 
+    });
+    $("#contacts").click(function () {
+      $("#bgExpand").toggleClass("enlargeFilter");
+      $("#cntExpand").toggleClass("enlargeFilter");
+      $("body").toggleClass("enlargeFilter");
+    });
+    $(".cnt-btn-close").click(function () {
+      $("#cntExpand").toggleClass("enlargeFilter");
+      $("#bgExpand").toggleClass("enlargeFilter");
+      $("body").toggleClass("enlargeFilter");
     });
   },
   methods: {
@@ -2803,7 +2867,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#map[data-v-1ebf81b4] {\n  width: 300px;\n  height: 300px;\n  margin-top: 50px;\n}\n@media only screen and (max-width: 360px) {\n#map[data-v-1ebf81b4] {\n    width: 225px;\n    height: 225px;\n}\n}", ""]);
+exports.push([module.i, "main .flex[data-v-1ebf81b4] {\n  display: flex;\n  flex-direction: column;\n}\nmain .text-box[data-v-1ebf81b4] {\n  margin-top: 20px;\n  margin-bottom: 20px;\n}\nmain .img-box img[data-v-1ebf81b4] {\n  width: 100%;\n  height: 600px;\n  border-radius: 1%;\n}\nmain .description-text[data-v-1ebf81b4] {\n  margin-top: 4%;\n}\nmain .services-box[data-v-1ebf81b4] {\n  display: flex;\n}\nmain .services-box p[data-v-1ebf81b4] {\n  margin-left: 3%;\n}\nmain .services-box .services[data-v-1ebf81b4] {\n  margin-top: 4%;\n}\nmain .contacts[data-v-1ebf81b4] {\n  margin-top: 5%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\nbody.enlargeFilter[data-v-1ebf81b4] {\n  position: fixed;\n}\n.bgExpandFilter[data-v-1ebf81b4] {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(1, 11, 38, 0);\n  z-index: 3;\n  transition: all 0.5s ease-in-out;\n  visibility: hidden;\n}\n#bgExpand.enlargeFilter[data-v-1ebf81b4] {\n  visibility: visible;\n}\n#cntExpand.enlargeFilter[data-v-1ebf81b4] {\n  top: 0;\n  opacity: 1;\n  height: 100%;\n  width: 100%;\n  background-color: rgba(23, 23, 23, 0.9);\n  margin-top: auto;\n  left: 0;\n  margin-left: auto;\n}\n#map[data-v-1ebf81b4] {\n  width: 300px;\n  height: 300px;\n  margin-top: 50px;\n}\n@media only screen and (max-width: 360px) {\n#map[data-v-1ebf81b4] {\n    width: 225px;\n    height: 225px;\n}\n}", ""]);
 
 // exports
 
@@ -2842,7 +2906,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Montserrat&display=swap);", ""]);
 
 // module
-exports.push([module.i, "* {\n    font-family: \"Montserrat\", sans-serif;\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n.container {\n    display: flex;\n    width: 100%;\n    height: 100%;\n    max-width: 1170px;\n    margin: 0 auto;\n}\n\n[class*=\"col-\"] {\n    /* flex-direction: grow basis width; */\n    /* flex-direction: 0 0 auto; */\n}\n\n[class*=\"col-\"] {\n    position: relative;\n}\n\n.row {\n    display: flex;\n}\n\n.col-1 {\n    flex-basis: calc((100% / 12) * 1);\n}\n\n.col-2 {\n    flex-basis: calc((100% / 12) * 2);\n}\n\n.col-3 {\n    flex-basis: calc((100% / 12) * 3);\n}\n\n.col-4 {\n    flex-basis: calc((100% / 12) * 4);\n}\n\n.col-5 {\n    flex-basis: calc((100% / 12) * 5);\n}\n\n.col-6 {\n    flex-basis: calc((100% / 12) * 6);\n}\n\n.col-7 {\n    flex-basis: calc((100% / 12) * 7);\n}\n\n.col-8 {\n    flex-basis: calc((100% / 12) * 8);\n}\n\n.col-9 {\n    flex-basis: calc((100% / 12) * 9);\n}\n\n.col-10 {\n    flex-basis: calc((100% / 12) * 10);\n}\n\n.col-11 {\n    flex-basis: calc((100% / 12) * 11);\n}\n\n.col-12 {\n    flex-basis: calc((100% / 12) * 12);\n}\n\n.d-flex {\n    display: flex;\n}\n\n.flex-dr-col {\n    flex-direction: column;\n}\n\n.w-auto {\n    width: auto;\n}\n\n.h-vh {\n    height: 100vh;\n}\n\n.gp-5 {\n    gap: 5px;\n}\n\n.gp-10 {\n    gap: 10px;\n}\n\n.gp-15 {\n    gap: 15px;\n}\n\n.gp-20 {\n    gap: 20px;\n}\n\n.gp-25 {\n    gap: 25px;\n}\n\n.gp-30 {\n    gap: 30px;\n}\n\n.jc-c {\n    justify-content: center;\n}\n\n.ai-c {\n    align-items: center;\n}\n\n\n.w-100 {\n    width: 100%;\n}\n\n.wmax-100 {\n    max-width: 100%;\n}\n\n.w-max {\n    width: max-content;\n}\n\n.h-100 {\n    height: 100%;\n}\n\n.txt-c {\n    font-weight: 600;\n    margin: 0 15px;\n    text-align: center;\n}\n\n.m-tb {\n    margin: 10px 0;\n}\n\n.pd-20 {\n    padding: 20px !important;\n}\n\n.pd-20-lr {\n    padding: 0 20px !important;\n}\n\n.algn-itm-init {\n    align-items: initial !important;\n}\n\n.b-0 {\n    border: 0 !important;\n}\n\n.red {\n    color: red !important;\n}\n\n@media screen and (max-width: 480px) {\n    .col-xs-12 {\n        flex-basis: calc((100% / 12) * 12);\n    }\n}\n\n@media screen and (max-width: 820px) {\n    .col-md-1 {\n        flex-basis: calc((100% / 12) * 1);\n    }\n\n    .col-md-2 {\n        flex-basis: calc((100% / 12) * 2);\n    }\n\n    .col-md-3 {\n        flex-basis: calc((100% / 12) * 3);\n    }\n\n    .col-md-4 {\n        flex-basis: calc((100% / 12) * 4);\n    }\n\n    .col-md-5 {\n        flex-basis: calc((100% / 12) * 5);\n    }\n\n    .col-md-12 {\n        flex-basis: calc((100% / 12) * 12);\n    }\n}", ""]);
+exports.push([module.i, "* {\r\n    font-family: \"Montserrat\", sans-serif;\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n}\r\n\r\n.container {\r\n    display: flex;\r\n    width: 100%;\r\n    height: 100%;\r\n    max-width: 1170px;\r\n    margin: 0 auto;\r\n}\r\n\r\n[class*=\"col-\"] {\r\n    /* flex-direction: grow basis width; */\r\n    /* flex-direction: 0 0 auto; */\r\n}\r\n\r\n[class*=\"col-\"] {\r\n    position: relative;\r\n}\r\n\r\n.row {\r\n    display: flex;\r\n}\r\n\r\n.col-1 {\r\n    flex-basis: calc((100% / 12) * 1);\r\n}\r\n\r\n.col-2 {\r\n    flex-basis: calc((100% / 12) * 2);\r\n}\r\n\r\n.col-3 {\r\n    flex-basis: calc((100% / 12) * 3);\r\n}\r\n\r\n.col-4 {\r\n    flex-basis: calc((100% / 12) * 4);\r\n}\r\n\r\n.col-5 {\r\n    flex-basis: calc((100% / 12) * 5);\r\n}\r\n\r\n.col-6 {\r\n    flex-basis: calc((100% / 12) * 6);\r\n}\r\n\r\n.col-7 {\r\n    flex-basis: calc((100% / 12) * 7);\r\n}\r\n\r\n.col-8 {\r\n    flex-basis: calc((100% / 12) * 8);\r\n}\r\n\r\n.col-9 {\r\n    flex-basis: calc((100% / 12) * 9);\r\n}\r\n\r\n.col-10 {\r\n    flex-basis: calc((100% / 12) * 10);\r\n}\r\n\r\n.col-11 {\r\n    flex-basis: calc((100% / 12) * 11);\r\n}\r\n\r\n.col-12 {\r\n    flex-basis: calc((100% / 12) * 12);\r\n}\r\n\r\n.d-flex {\r\n    display: flex;\r\n}\r\n\r\n.flex-dr-col {\r\n    flex-direction: column;\r\n}\r\n\r\n.w-auto {\r\n    width: auto;\r\n}\r\n\r\n.h-vh {\r\n    height: 100vh;\r\n}\r\n\r\n.gp-5 {\r\n    gap: 5px;\r\n}\r\n\r\n.gp-10 {\r\n    gap: 10px;\r\n}\r\n\r\n.gp-15 {\r\n    gap: 15px;\r\n}\r\n\r\n.gp-20 {\r\n    gap: 20px;\r\n}\r\n\r\n.gp-25 {\r\n    gap: 25px;\r\n}\r\n\r\n.gp-30 {\r\n    gap: 30px;\r\n}\r\n\r\n.jc-c {\r\n    justify-content: center;\r\n}\r\n\r\n.ai-c {\r\n    align-items: center;\r\n}\r\n\r\n\r\n.w-100 {\r\n    width: 100%;\r\n}\r\n\r\n.wmax-100 {\r\n    max-width: 100%;\r\n}\r\n\r\n.w-max {\r\n    width: max-content;\r\n}\r\n\r\n.h-100 {\r\n    height: 100%;\r\n}\r\n\r\n.txt-c {\r\n    font-weight: 600;\r\n    margin: 0 15px;\r\n    text-align: center;\r\n}\r\n\r\n.m-tb {\r\n    margin: 10px 0;\r\n}\r\n\r\n.pd-20 {\r\n    padding: 20px !important;\r\n}\r\n\r\n.pd-20-lr {\r\n    padding: 0 20px !important;\r\n}\r\n\r\n.algn-itm-init {\r\n    align-items: initial !important;\r\n}\r\n\r\n.b-0 {\r\n    border: 0 !important;\r\n}\r\n\r\n.red {\r\n    color: red !important;\r\n}\r\n\r\n@media screen and (max-width: 480px) {\r\n    .col-xs-12 {\r\n        flex-basis: calc((100% / 12) * 12);\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 820px) {\r\n    .col-md-1 {\r\n        flex-basis: calc((100% / 12) * 1);\r\n    }\r\n\r\n    .col-md-2 {\r\n        flex-basis: calc((100% / 12) * 2);\r\n    }\r\n\r\n    .col-md-3 {\r\n        flex-basis: calc((100% / 12) * 3);\r\n    }\r\n\r\n    .col-md-4 {\r\n        flex-basis: calc((100% / 12) * 4);\r\n    }\r\n\r\n    .col-md-5 {\r\n        flex-basis: calc((100% / 12) * 5);\r\n    }\r\n\r\n    .col-md-12 {\r\n        flex-basis: calc((100% / 12) * 12);\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -2880,7 +2944,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Montserrat&display=swap);", ""]);
 
 // module
-exports.push([module.i, "* {\n    font-family: \"Montserrat\", sans-serif;\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n.container {\n    display: flex;\n    width: 100%;\n    height: 100%;\n    max-width: 1170px;\n    margin: 0 auto;\n}\n[class*=\"col-\"] {\n    /* flex-direction: grow basis width; */\n    /* flex-direction: 0 0 auto; */\n}\n[class*=\"col-\"] {\n    position: relative;\n}\n.row {\n    display: flex;\n}\n.col-1 {\n    flex-basis: calc((100% / 12) * 1);\n}\n.col-2 {\n    flex-basis: calc((100% / 12) * 2);\n}\n.col-3 {\n    flex-basis: calc((100% / 12) * 3);\n}\n.col-4 {\n    flex-basis: calc((100% / 12) * 4);\n}\n.col-5 {\n    flex-basis: calc((100% / 12) * 5);\n}\n.col-6 {\n    flex-basis: calc((100% / 12) * 6);\n}\n.col-7 {\n    flex-basis: calc((100% / 12) * 7);\n}\n.col-8 {\n    flex-basis: calc((100% / 12) * 8);\n}\n.col-9 {\n    flex-basis: calc((100% / 12) * 9);\n}\n.col-10 {\n    flex-basis: calc((100% / 12) * 10);\n}\n.col-11 {\n    flex-basis: calc((100% / 12) * 11);\n}\n.col-12 {\n    flex-basis: calc((100% / 12) * 12);\n}\n.d-flex {\n    display: flex;\n}\n.flex-dr-col {\n    flex-direction: column;\n}\n.w-auto {\n    width: auto;\n}\n.h-vh {\n    height: 100vh;\n}\n.gp-5 {\n    gap: 5px;\n}\n.gp-10 {\n    gap: 10px;\n}\n.gp-15 {\n    gap: 15px;\n}\n.gp-20 {\n    gap: 20px;\n}\n.gp-25 {\n    gap: 25px;\n}\n.gp-30 {\n    gap: 30px;\n}\n.jc-c {\n    justify-content: center;\n}\n.ai-c {\n    align-items: center;\n}\n.w-100 {\n    width: 100%;\n}\n.wmax-100 {\n    max-width: 100%;\n}\n.w-max {\n    width: max-content;\n}\n.h-100 {\n    height: 100%;\n}\n.txt-c {\n    font-weight: 600;\n    margin: 0 15px;\n    text-align: center;\n}\n.m-tb {\n    margin: 10px 0;\n}\n.pd-20 {\n    padding: 20px !important;\n}\n.pd-20-lr {\n    padding: 0 20px !important;\n}\n.algn-itm-init {\n    align-items: initial !important;\n}\n.b-0 {\n    border: 0 !important;\n}\n.red {\n    color: red !important;\n}\n@media screen and (max-width: 480px) {\n.col-xs-12 {\n        flex-basis: calc((100% / 12) * 12);\n}\n}\n@media screen and (max-width: 820px) {\n.col-md-1 {\n        flex-basis: calc((100% / 12) * 1);\n}\n.col-md-2 {\n        flex-basis: calc((100% / 12) * 2);\n}\n.col-md-3 {\n        flex-basis: calc((100% / 12) * 3);\n}\n.col-md-4 {\n        flex-basis: calc((100% / 12) * 4);\n}\n.col-md-5 {\n        flex-basis: calc((100% / 12) * 5);\n}\n.col-md-12 {\n        flex-basis: calc((100% / 12) * 12);\n}\n}", ""]);
+exports.push([module.i, "* {\r\n    font-family: \"Montserrat\", sans-serif;\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\n}\n.container {\r\n    display: flex;\r\n    width: 100%;\r\n    height: 100%;\r\n    max-width: 1170px;\r\n    margin: 0 auto;\n}\n[class*=\"col-\"] {\r\n    /* flex-direction: grow basis width; */\r\n    /* flex-direction: 0 0 auto; */\n}\n[class*=\"col-\"] {\r\n    position: relative;\n}\n.row {\r\n    display: flex;\n}\n.col-1 {\r\n    flex-basis: calc((100% / 12) * 1);\n}\n.col-2 {\r\n    flex-basis: calc((100% / 12) * 2);\n}\n.col-3 {\r\n    flex-basis: calc((100% / 12) * 3);\n}\n.col-4 {\r\n    flex-basis: calc((100% / 12) * 4);\n}\n.col-5 {\r\n    flex-basis: calc((100% / 12) * 5);\n}\n.col-6 {\r\n    flex-basis: calc((100% / 12) * 6);\n}\n.col-7 {\r\n    flex-basis: calc((100% / 12) * 7);\n}\n.col-8 {\r\n    flex-basis: calc((100% / 12) * 8);\n}\n.col-9 {\r\n    flex-basis: calc((100% / 12) * 9);\n}\n.col-10 {\r\n    flex-basis: calc((100% / 12) * 10);\n}\n.col-11 {\r\n    flex-basis: calc((100% / 12) * 11);\n}\n.col-12 {\r\n    flex-basis: calc((100% / 12) * 12);\n}\n.d-flex {\r\n    display: flex;\n}\n.flex-dr-col {\r\n    flex-direction: column;\n}\n.w-auto {\r\n    width: auto;\n}\n.h-vh {\r\n    height: 100vh;\n}\n.gp-5 {\r\n    gap: 5px;\n}\n.gp-10 {\r\n    gap: 10px;\n}\n.gp-15 {\r\n    gap: 15px;\n}\n.gp-20 {\r\n    gap: 20px;\n}\n.gp-25 {\r\n    gap: 25px;\n}\n.gp-30 {\r\n    gap: 30px;\n}\n.jc-c {\r\n    justify-content: center;\n}\n.ai-c {\r\n    align-items: center;\n}\n.w-100 {\r\n    width: 100%;\n}\n.wmax-100 {\r\n    max-width: 100%;\n}\n.w-max {\r\n    width: max-content;\n}\n.h-100 {\r\n    height: 100%;\n}\n.txt-c {\r\n    font-weight: 600;\r\n    margin: 0 15px;\r\n    text-align: center;\n}\n.m-tb {\r\n    margin: 10px 0;\n}\n.pd-20 {\r\n    padding: 20px !important;\n}\n.pd-20-lr {\r\n    padding: 0 20px !important;\n}\n.algn-itm-init {\r\n    align-items: initial !important;\n}\n.b-0 {\r\n    border: 0 !important;\n}\n.red {\r\n    color: red !important;\n}\n@media screen and (max-width: 480px) {\n.col-xs-12 {\r\n        flex-basis: calc((100% / 12) * 12);\n}\n}\n@media screen and (max-width: 820px) {\n.col-md-1 {\r\n        flex-basis: calc((100% / 12) * 1);\n}\n.col-md-2 {\r\n        flex-basis: calc((100% / 12) * 2);\n}\n.col-md-3 {\r\n        flex-basis: calc((100% / 12) * 3);\n}\n.col-md-4 {\r\n        flex-basis: calc((100% / 12) * 4);\n}\n.col-md-5 {\r\n        flex-basis: calc((100% / 12) * 5);\n}\n.col-md-12 {\r\n        flex-basis: calc((100% / 12) * 12);\n}\n}", ""]);
 
 // exports
 
@@ -35401,26 +35465,16 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("main", [
-    _c("div", { staticClass: "container" }, [
-      _c("a", { staticClass: "btn btn-primary", attrs: { href: "/" } }, [
-        _vm._v("Vai alla home"),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "cnt-row col-12" }, [
-        _c("h3", [_vm._v("Titolo:")]),
+  return _c("main", { attrs: { id: "Main" } }, [
+    _c("div", { staticClass: "container flex" }, [
+      _c("div", { staticClass: "cnt-row col-12 text-box" }, [
+        _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.apartment.title))]),
+        _c("h5", [_vm._v(_vm._s(_vm.apartment.address))]),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "cnt-row col-12" }, [
-        _c("h3", [_vm._v("Indirizzo:")]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.apartment.address))]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "cnt-row col-12" }, [
-        _c("div", { staticClass: "cnt-img" }, [
+      _c("div", { staticClass: "cnt-row col-12 img-box" }, [
+        _c("div", { staticClass: "cont-img" }, [
           _c("img", {
             staticClass: "img-fluid",
             attrs: {
@@ -35431,167 +35485,346 @@ var render = function () {
         ]),
       ]),
       _vm._v(" "),
-      _c("div", { attrs: { id: "map" } }),
-      _vm._v(" "),
-      _c("div", { staticClass: "cnt-row col-12" }, [
-        _c("h3", [_vm._v("Descrizione:")]),
+      _c("div", { staticClass: "description-text cnt-row col-12" }, [
+        _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
+        _vm._v(" "),
+        _c("h5", { staticClass: "mt-3" }, [_vm._v("Descrizione:")]),
         _vm._v(" "),
         _c("p", [_vm._v(_vm._s(_vm.apartment.description))]),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "cnt-row col-12" }, [
-        _c("h3", [_vm._v("Stanze:")]),
+      _c("div", { staticClass: "services-box cnt-row col-12" }, [
+        _vm._m(0),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.apartment.room))]),
+        _c("div", { staticClass: "services col-3" }, [
+          _c("div", { staticClass: "d-flex" }, [
+            _c("h6", [_vm._v("Stanze:")]),
+            _vm._v(" "),
+            _c("p", {}, [_vm._v(_vm._s(_vm.apartment.room))]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "d-flex" }, [
+            _c("h6", [_vm._v("Bagni:")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.apartment.bathroom))]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "d-flex" }, [
+            _c("h6", [_vm._v("Letti:")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.apartment.bed))]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "d-flex" }, [
+            _c("h6", [_vm._v("Metri Quadri:")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.apartment.mq) + "mq")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "d-flex" }, [
+            _c("h6", [_vm._v("Prezzo:")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.apartment.price) + "€ /notte")]),
+          ]),
+        ]),
       ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "cnt-row col-12" }, [
-        _c("h3", [_vm._v("Bagni:")]),
+    ]),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c("div", { staticClass: "bgExpandFilter", attrs: { id: "bgExpand" } }),
+    _vm._v(" "),
+    _c("div", { staticClass: "cntExpandFilter", attrs: { id: "cntExpand" } }, [
+      _c("div", { staticClass: "main-filter" }, [
+        _vm._m(2),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.apartment.bathroom))]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "cnt-row col-12" }, [
-        _c("h3", [_vm._v("Letti:")]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.apartment.bed))]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "cnt-row col-12" }, [
-        _c("h3", [_vm._v("Metri Quadri:")]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.apartment.mq))]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "cnt-row col-12" }, [
-        _c("h3", [_vm._v("Prezzo:")]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.apartment.price))]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "cnt-row col-12" }, [
-        _c(
-          "form",
-          {
-            attrs: { method: "POST" },
-            on: {
-              submit: function ($event) {
-                $event.preventDefault()
-                return _vm.sendForm()
+        _c("div", { staticClass: "cnt-row" }, [
+          _c(
+            "form",
+            {
+              attrs: { method: "POST" },
+              on: {
+                submit: function ($event) {
+                  $event.preventDefault()
+                  return _vm.sendForm()
+                },
               },
             },
-          },
-          [
-            _c("div", { staticClass: "mb-3" }, [
-              _c(
-                "label",
-                { staticClass: "form-label", attrs: { for: "email" } },
-                [_vm._v("Email")]
-              ),
+            [
+              _c("div", { staticClass: "row-filter" }, [
+                _c("div", { staticClass: "cnt-filter" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "email" } },
+                    [_vm._v("Email")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.email,
+                        expression: "email",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "email",
+                      id: "email",
+                      placeholder: "name@example.com",
+                      required: "",
+                    },
+                    domProps: { value: _vm.email },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.email = $event.target.value
+                      },
+                    },
+                  }),
+                ]),
+              ]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.email,
-                    expression: "email",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "email",
-                  id: "email",
-                  placeholder: "name@example.com",
-                  required: "",
-                },
-                domProps: { value: _vm.email },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.email = $event.target.value
-                  },
-                },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-3" }, [
-              _c(
-                "label",
-                { staticClass: "form-label", attrs: { for: "object" } },
-                [_vm._v("Oggetto")]
-              ),
+              _c("div", { staticClass: "row-filter" }, [
+                _c("div", { staticClass: "cnt-filter" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "object" } },
+                    [_vm._v("Oggetto")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.object,
+                        expression: "object",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "object",
+                      placeholder: "Oggetto dell'email",
+                      required: "",
+                    },
+                    domProps: { value: _vm.object },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.object = $event.target.value
+                      },
+                    },
+                  }),
+                ]),
+              ]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.object,
-                    expression: "object",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "object",
-                  placeholder: "Oggetto dell'email",
-                  required: "",
-                },
-                domProps: { value: _vm.object },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.object = $event.target.value
-                  },
-                },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-3" }, [
-              _c(
-                "label",
-                { staticClass: "form-label", attrs: { for: "body" } },
-                [_vm._v("Messaggio")]
-              ),
+              _c("div", { staticClass: "row-filter" }, [
+                _c("div", { staticClass: "cnt-filter" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "body" } },
+                    [_vm._v("Messaggio")]
+                  ),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.body,
+                        expression: "body",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: { id: "body", rows: "3", required: "" },
+                    domProps: { value: _vm.body },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.body = $event.target.value
+                      },
+                    },
+                  }),
+                ]),
+              ]),
               _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.body,
-                    expression: "body",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: { id: "body", rows: "3", required: "" },
-                domProps: { value: _vm.body },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.body = $event.target.value
-                  },
-                },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("button", { attrs: { type: "submit", disabled: _vm.sending } }, [
-              _vm._v("Invia mail"),
-            ]),
-          ]
-        ),
+              _c(
+                "button",
+                { attrs: { type: "submit", disabled: _vm.sending } },
+                [_vm._v("Invia mail")]
+              ),
+            ]
+          ),
+        ]),
       ]),
+    ]),
+    _vm._v(" "),
+    _c("div", {}, [
+      _c(
+        "form",
+        {
+          attrs: { method: "POST" },
+          on: {
+            submit: function ($event) {
+              $event.preventDefault()
+              return _vm.sendForm()
+            },
+          },
+        },
+        [
+          _c("div", { staticClass: "mb-3" }, [
+            _c(
+              "label",
+              { staticClass: "form-label", attrs: { for: "email" } },
+              [_vm._v("Email")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.email,
+                  expression: "email",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "email",
+                id: "email",
+                placeholder: "name@example.com",
+                required: "",
+              },
+              domProps: { value: _vm.email },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.email = $event.target.value
+                },
+              },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-3" }, [
+            _c(
+              "label",
+              { staticClass: "form-label", attrs: { for: "object" } },
+              [_vm._v("Oggetto")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.object,
+                  expression: "object",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "object",
+                placeholder: "Oggetto dell'email",
+                required: "",
+              },
+              domProps: { value: _vm.object },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.object = $event.target.value
+                },
+              },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-3" }, [
+            _c("label", { staticClass: "form-label", attrs: { for: "body" } }, [
+              _vm._v("Messaggio"),
+            ]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.body,
+                  expression: "body",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: { id: "body", rows: "3", required: "" },
+              domProps: { value: _vm.body },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.body = $event.target.value
+                },
+              },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("button", { attrs: { type: "submit", disabled: _vm.sending } }, [
+            _vm._v("Invia mail"),
+          ]),
+        ]
+      ),
     ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-4" }, [
+      _c("div", { attrs: { id: "map" } }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 contacts" }, [
+      _c("a", { staticClass: "btn btn-primary", attrs: { href: "/" } }, [
+        _vm._v("Torna alla home"),
+      ]),
+      _vm._v(" "),
+      _c(
+        "a",
+        { staticClass: "btn btn-primary m-2", attrs: { id: "contacts" } },
+        [_vm._v("Contatta")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row-filter-ttl jc-e" }, [
+      _c("div", { staticClass: "cnt-ttl" }, [_c("h2", [_vm._v("Messaggio")])]),
+      _vm._v(" "),
+      _c("div", { staticClass: "cnt-btn-close" }, [
+        _c("div", { staticClass: "btn-closed" }),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -51094,7 +51327,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/boolbnb-logo.svg?3d280ce93a87d5787e75541b133a5ee5";
+module.exports = "/images/boolbnb-logo.svg?f1aced8f583f3dbbaa6c6fd70901e200";
 
 /***/ }),
 
@@ -51105,7 +51338,7 @@ module.exports = "/images/boolbnb-logo.svg?3d280ce93a87d5787e75541b133a5ee5";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/filter.svg?1292f7e21681da2478caee5e12acd748";
+module.exports = "/images/filter.svg?2b53b7d29056335c4ec769058393830d";
 
 /***/ }),
 
@@ -52080,7 +52313,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/js/front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\Michele\Documents\Boolean\Esercizi\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })
