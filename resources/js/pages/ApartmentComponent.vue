@@ -1,96 +1,106 @@
 <template>
-    <main>
-  <div class="container">
-        <a href="/" class="btn btn-primary">Vai alla home</a>
-        <div class="cnt-row col-12">
-            <h3>Titolo:</h3>
-            <p>{{ apartment.title }}</p>
+  <main id="Main">
+    <div class="container flex">
+
+
+      <div class="cnt-row col-12 text-box">
+        <h2>{{ apartment.title }}</h2>
+        <h5>{{ apartment.address }}</h5>
+      </div>
+
+      <div class="cnt-row col-12 img-box">
+        <div class="cont-img">
+          <img class="img-fluid" :src="`/storage/${apartment.img}`"
+            :alt="apartment.title" />
         </div>
+      </div>
 
-        <div class="cnt-row col-12">
-            <h3>Indirizzo:</h3>
-            <p>{{ apartment.address }}</p>
+      <div class="description-text cnt-row col-12">
+        <h2>{{ apartment.title }}</h2>
+        <h5 class="mt-3">Descrizione:</h5>
+        <p>{{ apartment.description }}</p>
+      </div>
+      <!-- map -->
+      <div class="services-box cnt-row col-12">
+        <div class="col-4">
+          <div id="map"></div>
         </div>
+        <div class="services col-3">
+          <div class="d-flex">
+            <h5>Stanze:</h5>
+            <p class="">{{ apartment.room }}</p>
+          </div>
 
-        <div class="cnt-row col-12">
-            <div class="cnt-img">
-            <img class="img-fluid" :src="`/storage/${apartment.img}`" :alt="apartment.title" />
-            </div>
-        </div>
-
-        <!-- map -->
-
-        <div id="map"></div>
-        <!-- /map -->
-
-        <div class="cnt-row col-12">
-            <h3>Descrizione:</h3>
-            <p>{{ apartment.description }}</p>
-        </div>
-
-        <div class="cnt-row col-12">
-            <h3>Stanze:</h3>
-            <p>{{ apartment.room }}</p>
-        </div>
-
-        <div class="cnt-row col-12">
-            <h3>Bagni:</h3>
+          <div class="d-flex">
+            <h5>Bagni:</h5>
             <p>{{ apartment.bathroom }}</p>
-        </div>
+          </div>
 
-        <div class="cnt-row col-12">
-            <h3>Letti:</h3>
+          <div class="d-flex">
+            <h5>Letti:</h5>
             <p>{{ apartment.bed }}</p>
-        </div>
+          </div>
 
-        <div class="cnt-row col-12">
-            <h3>Metri Quadri:</h3>
-            <p>{{ apartment.mq }}</p>
-        </div>
+          <div class="d-flex">
+            <h5>Metri Quadri:</h5>
+            <p>{{ apartment.mq }}mq</p>
+          </div>
 
-        <div class="cnt-row col-12">
-            <h3>Prezzo:</h3>
-            <p>{{ apartment.price }}</p>
+          <div class="d-flex">
+            <h5>Prezzo:</h5>
+            <p>{{ apartment.price }}€ /notte</p>
+          </div>
         </div>
-        <!-- <div class="cnt-row col-12">
+      </div>
+
+      <div class="col-12 contacts">
+        <a href="/" class="btn btn-primary">Vai alla home</a>
+        <a href="/" class="btn btn-primary m-2">Contatta</a>
+      </div>
+
+
+      <!-- /map -->
+
+      <!-- <div class="cnt-row col-12">
           <h3>Servizi:</h3>
           @foreach (apartment.services as service)
           <p>{{ service->name }}</p>
           @endforeach
         </div> -->
 
-        <!-- form email -->
-        <div class="cnt-row col-12">
-            <form method="POST" @submit.prevent="sendForm()">
-                <!-- email -->
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" v-model="email"
-                    id="email" placeholder="name@example.com" required>
-                </div>
-                <!-- object -->
-                <div class="mb-3">
-                    <label for="object" class="form-label">Oggetto</label>
-                    <input type="text" class="form-control" id="object" v-model="object"
-                     placeholder="Oggetto dell'email" required>
-                </div>
-                <!-- body -->
-                <div class="mb-3">
-                    <label for="body" class="form-label">Messaggio</label>
-                    <textarea class="form-control" id="body" rows="3" v-model="body" required></textarea>
-                </div>
+      <!-- form email -->
+      <div class="">
+        <form method="POST" @submit.prevent="sendForm()">
+          <!-- email -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" v-model="email" id="email"
+              placeholder="name@example.com" required>
+          </div>
+          <!-- object -->
+          <div class="mb-3">
+            <label for="object" class="form-label">Oggetto</label>
+            <input type="text" class="form-control" id="object" v-model="object"
+              placeholder="Oggetto dell'email" required>
+          </div>
+          <!-- body -->
+          <div class="mb-3">
+            <label for="body" class="form-label">Messaggio</label>
+            <textarea class="form-control" id="body" rows="3" v-model="body"
+              required></textarea>
+          </div>
 
-                <button type="submit" :disabled="sending">Invia mail</button>
+          <button type="submit" :disabled="sending">Invia mail</button>
 
-            </form>
-        </div>
+        </form>
+      </div>
 
     </div>
 
     <!-- <div v-else>
         <LoaderComponent />
     </div> -->
-</main>
+  </main>
 </template>
 
 <script>
@@ -99,9 +109,9 @@
 
 export default {
   name: "ApartmentComponent",
-   components:{
-        // LoaderComponent,
-    },
+  components: {
+    // LoaderComponent,
+  },
   data() {
     return {
       apartment: [],
@@ -189,44 +199,93 @@ export default {
         .setHTML(`<span><strong>${title}</strong></span><br><span>${address}</span>`)
         .addTo(map);
     },
-    sendForm(){
-            this.sending = true;
-            this.success = false;
-            const id = this.$route.params.id;
-            console.log(id)
+    sendForm() {
+      this.sending = true;
+      this.success = false;
+      const id = this.$route.params.id;
+      console.log(id)
 
-            window.axios.post(`/api/messages/`, {
-                email: this.email,
-                object: this.object,
-                body: this.body,
-                apartment_id: this.apartment_id
+      window.axios.post(`/api/messages/`, {
+        email: this.email,
+        object: this.object,
+        body: this.body,
+        apartment_id: this.apartment_id
 
-            }).then(({data, status})=>{
-                console.log(data);
-                this.email = "";
-                this.object = "";
-                this.body = "";
-                this.sending = false;
+      }).then(({ data, status }) => {
+        console.log(data);
+        this.email = "";
+        this.object = "";
+        this.body = "";
+        this.sending = false;
 
-                if(status === 200){
-                    this.success = data.success;
+        if (status === 200) {
+          this.success = data.success;
 
-                    if(!data.success){
-                        this.errors = data.errors;
-                        console.log(this.errors)
-                    }
-                }
-                // this.message = '';
-            }).catch(error =>{
-                console.log(error);
-            })
+          if (!data.success) {
+            this.errors = data.errors;
+            console.log(this.errors)
+          }
         }
+        // this.message = '';
+      }).catch(error => {
+        console.log(error);
+      })
+    }
 
   },
 };
 </script>
 
 <style lang="scss" scoped>
+main {
+  .flex {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .text-box {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .img-box {
+    img {
+      width: 100%;
+      height: 600px;
+      border-radius: 1%;
+    }
+  }
+
+  .description-text {
+    margin-top: 4%;
+
+  }
+
+  .services-box {
+    display: flex;
+
+    p {
+      margin-left: 3%;
+    }
+
+    .services {
+      margin-top: 4%;
+    }
+  }
+
+  .contacts {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+}
+
+
+
 #map {
   width: 300px;
   height: 300px;
