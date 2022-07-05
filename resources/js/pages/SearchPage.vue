@@ -40,14 +40,14 @@ export default {
 
 </script>
 
-<style  lang="scss">
-.search,
+<style scoped lang="scss">
+.search-hdr,
 .cnt-result-adress {
   display: none !important;
 }
 
 .main-usr-set {
-  display: none;
+  display: none !important;
 }
 
 .cnt-btn-filter {

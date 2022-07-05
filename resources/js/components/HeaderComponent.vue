@@ -71,11 +71,6 @@
                 </div> -->
               </ul>
             </div>
-            <div id="filter" class="cnt-btn-filter">
-              <div class="btn-filter"></div>
-              <span>Filtri</span>
-            </div>
-
           </div>
         </div>
       </div>
@@ -90,11 +85,12 @@
 
 <script>
 import Axios from "axios";
-import ApartmentComponent from "../pages/ApartmentComponent.vue";
+import ApartmentComponent from "../pages/ApartmentPage.vue";
 export default {
   name: "SearchComponent",
   components: {
     ApartmentComponent,
+
   },
   data() {
     return {
@@ -112,8 +108,6 @@ export default {
     };
   },
   mounted() {
-
-
     //prendo tutti gli appartamenti dal database
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       this.allApartaments = results.data.apartments;
