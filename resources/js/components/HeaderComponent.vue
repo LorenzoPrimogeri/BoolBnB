@@ -6,19 +6,25 @@
           <div class="col-2 col-xs-12">
             <div class="cnt-logo">
               <a href="">
-                <img src="../../../public/img/boolbnb-logo.svg"
-                  alt="logo-BoolBnb" />
+                <img
+                  src="../../../public/img/boolbnb-logo.svg"
+                  alt="logo-BoolBnb"
+                />
               </a>
             </div>
           </div>
-          <div class="cnt-nav col-8 h-100">
+          <div class="cnt-nav col-6 h-100">
             <!--search-->
-            <div class="search">
+            <div class="search" v-show="$route.name === 'home' ? true : false">
               <div class="cnt-lens"></div>
               <div class="contStringSrc">
-                <input class="accountInput" type="text"
-                  placeholder="Cerca appartamento" v-model="input"
-                  @input="onInputChanged">
+                <input
+                  class="accountInput"
+                  type="text"
+                  placeholder="Cerca appartamento"
+                  v-model="input"
+                  @input="onInputChanged"
+                />
                 <!-- <div class="input">T-Shirt manica corta bianca i have a dream</div> -->
               </div>
               <a href="#">
@@ -27,8 +33,11 @@
             </div>
             <!--search-->
           </div>
-          <div class="col-2 d-flex jc-c ai-c">
-            <div class="main-usr-set">
+          <div class="col-3 d-flex jc-c ai-c">
+            <div
+              class="main-usr-set"
+              v-show="$route.name === 'home' ? true : false"
+            >
               <ul class="ul-log-reg">
                 <!-- Authentication Links -->
                 <!-- <a href="{{ route('login') }}"> -->
@@ -71,19 +80,26 @@
                 </div> -->
               </ul>
             </div>
-            <div id="filter" class="cnt-btn-filter">
-              <div class="btn-filter"></div>
-              <span>Filtri</span>
-            </div>
-
+          </div>
+        </div>
+        <div class="col-1 d-flex jc-c ai-c">
+          <div
+            id="filter"
+            class="cnt-btn-filter"
+            v-show="$route.name === 'search' ? true : false"
+          >
+            <div class="btn-filter"></div>
+            <span>Filtri</span>
           </div>
         </div>
       </div>
     </header>
     <div class="cnt-result-adress">
-      <div class="cnt-items" v-for="(indirizzo, i) in indirizzi"
-        :key="i + indirizzo.address">
-      </div>
+      <div
+        class="cnt-items"
+        v-for="(indirizzo, i) in indirizzi"
+        :key="i + indirizzo.address"
+      ></div>
     </div>
   </div>
 </template>
@@ -112,8 +128,6 @@ export default {
     };
   },
   mounted() {
-
-
     //prendo tutti gli appartamenti dal database
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       this.allApartaments = results.data.apartments;
@@ -210,8 +224,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import url('../../../public/css/layout-preset.css');
-
+@import url("../../../public/css/layout-preset.css");
 
 // #Header{
 //     width: 100vw;

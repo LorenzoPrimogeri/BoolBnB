@@ -23,7 +23,6 @@ export default {
     FilterComponent,
   },
   mounted() {
-
     $("#filter").click(function () {
       $("#bgExpand").toggleClass("enlargeFilter");
       $("#cntExpand").toggleClass("enlargeFilter");
@@ -37,19 +36,9 @@ export default {
     });
   },
 };
-
 </script>
 
 <style  lang="scss">
-.search,
-.cnt-result-adress {
-  display: none !important;
-}
-
-.main-usr-set {
-  display: none;
-}
-
 .cnt-btn-filter {
   height: 40px;
   border-radius: 30px;

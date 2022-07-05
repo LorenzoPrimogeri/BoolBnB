@@ -2186,6 +2186,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2807,7 +2823,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".search,\n.cnt-result-adress {\n  display: none !important;\n}\n.main-usr-set {\n  display: none;\n}\n.cnt-btn-filter {\n  height: 40px;\n  border-radius: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n  padding: 10px;\n  border: 1px solid lightgray;\n  box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);\n  cursor: pointer;\n}\n.cnt-btn-filter .btn-filter {\n  width: 20px;\n  height: 20px;\n  background: url(" + escape(__webpack_require__(/*! ../../../public/img/filter.svg */ "./public/img/filter.svg")) + ") no-repeat center/contain;\n}", ""]);
+exports.push([module.i, ".cnt-btn-filter {\n  height: 40px;\n  border-radius: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n  padding: 10px;\n  border: 1px solid lightgray;\n  box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);\n  cursor: pointer;\n}\n.cnt-btn-filter .btn-filter {\n  width: 20px;\n  height: 20px;\n  background: url(" + escape(__webpack_require__(/*! ../../../public/img/filter.svg */ "./public/img/filter.svg")) + ") no-repeat center/contain;\n}", ""]);
 
 // exports
 
@@ -2826,7 +2842,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Montserrat&display=swap);", ""]);
 
 // module
-exports.push([module.i, "* {\r\n    font-family: \"Montserrat\", sans-serif;\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n}\r\n\r\n.container {\r\n    display: flex;\r\n    width: 100%;\r\n    height: 100%;\r\n    max-width: 1170px;\r\n    margin: 0 auto;\r\n}\r\n\r\n[class*=\"col-\"] {\r\n    /* flex-direction: grow basis width; */\r\n    /* flex-direction: 0 0 auto; */\r\n}\r\n\r\n[class*=\"col-\"] {\r\n    position: relative;\r\n}\r\n\r\n.row {\r\n    display: flex;\r\n}\r\n\r\n.col-1 {\r\n    flex-basis: calc((100% / 12) * 1);\r\n}\r\n\r\n.col-2 {\r\n    flex-basis: calc((100% / 12) * 2);\r\n}\r\n\r\n.col-3 {\r\n    flex-basis: calc((100% / 12) * 3);\r\n}\r\n\r\n.col-4 {\r\n    flex-basis: calc((100% / 12) * 4);\r\n}\r\n\r\n.col-5 {\r\n    flex-basis: calc((100% / 12) * 5);\r\n}\r\n\r\n.col-6 {\r\n    flex-basis: calc((100% / 12) * 6);\r\n}\r\n\r\n.col-7 {\r\n    flex-basis: calc((100% / 12) * 7);\r\n}\r\n\r\n.col-8 {\r\n    flex-basis: calc((100% / 12) * 8);\r\n}\r\n\r\n.col-9 {\r\n    flex-basis: calc((100% / 12) * 9);\r\n}\r\n\r\n.col-10 {\r\n    flex-basis: calc((100% / 12) * 10);\r\n}\r\n\r\n.col-11 {\r\n    flex-basis: calc((100% / 12) * 11);\r\n}\r\n\r\n.col-12 {\r\n    flex-basis: calc((100% / 12) * 12);\r\n}\r\n\r\n.d-flex {\r\n    display: flex;\r\n}\r\n\r\n.flex-dr-col {\r\n    flex-direction: column;\r\n}\r\n\r\n.w-auto {\r\n    width: auto;\r\n}\r\n\r\n.h-vh {\r\n    height: 100vh;\r\n}\r\n\r\n.gp-5 {\r\n    gap: 5px;\r\n}\r\n\r\n.gp-10 {\r\n    gap: 10px;\r\n}\r\n\r\n.gp-15 {\r\n    gap: 15px;\r\n}\r\n\r\n.gp-20 {\r\n    gap: 20px;\r\n}\r\n\r\n.gp-25 {\r\n    gap: 25px;\r\n}\r\n\r\n.gp-30 {\r\n    gap: 30px;\r\n}\r\n\r\n.jc-c {\r\n    justify-content: center;\r\n}\r\n\r\n.ai-c {\r\n    align-items: center;\r\n}\r\n\r\n\r\n.w-100 {\r\n    width: 100%;\r\n}\r\n\r\n.wmax-100 {\r\n    max-width: 100%;\r\n}\r\n\r\n.w-max {\r\n    width: max-content;\r\n}\r\n\r\n.h-100 {\r\n    height: 100%;\r\n}\r\n\r\n.txt-c {\r\n    font-weight: 600;\r\n    margin: 0 15px;\r\n    text-align: center;\r\n}\r\n\r\n.m-tb {\r\n    margin: 10px 0;\r\n}\r\n\r\n.pd-20 {\r\n    padding: 20px !important;\r\n}\r\n\r\n.pd-20-lr {\r\n    padding: 0 20px !important;\r\n}\r\n\r\n.algn-itm-init {\r\n    align-items: initial !important;\r\n}\r\n\r\n.b-0 {\r\n    border: 0 !important;\r\n}\r\n\r\n.red {\r\n    color: red !important;\r\n}\r\n\r\n@media screen and (max-width: 480px) {\r\n    .col-xs-12 {\r\n        flex-basis: calc((100% / 12) * 12);\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 820px) {\r\n    .col-md-1 {\r\n        flex-basis: calc((100% / 12) * 1);\r\n    }\r\n\r\n    .col-md-2 {\r\n        flex-basis: calc((100% / 12) * 2);\r\n    }\r\n\r\n    .col-md-3 {\r\n        flex-basis: calc((100% / 12) * 3);\r\n    }\r\n\r\n    .col-md-4 {\r\n        flex-basis: calc((100% / 12) * 4);\r\n    }\r\n\r\n    .col-md-5 {\r\n        flex-basis: calc((100% / 12) * 5);\r\n    }\r\n\r\n    .col-md-12 {\r\n        flex-basis: calc((100% / 12) * 12);\r\n    }\r\n}", ""]);
+exports.push([module.i, "* {\n    font-family: \"Montserrat\", sans-serif;\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n.container {\n    display: flex;\n    width: 100%;\n    height: 100%;\n    max-width: 1170px;\n    margin: 0 auto;\n}\n\n[class*=\"col-\"] {\n    /* flex-direction: grow basis width; */\n    /* flex-direction: 0 0 auto; */\n}\n\n[class*=\"col-\"] {\n    position: relative;\n}\n\n.row {\n    display: flex;\n}\n\n.col-1 {\n    flex-basis: calc((100% / 12) * 1);\n}\n\n.col-2 {\n    flex-basis: calc((100% / 12) * 2);\n}\n\n.col-3 {\n    flex-basis: calc((100% / 12) * 3);\n}\n\n.col-4 {\n    flex-basis: calc((100% / 12) * 4);\n}\n\n.col-5 {\n    flex-basis: calc((100% / 12) * 5);\n}\n\n.col-6 {\n    flex-basis: calc((100% / 12) * 6);\n}\n\n.col-7 {\n    flex-basis: calc((100% / 12) * 7);\n}\n\n.col-8 {\n    flex-basis: calc((100% / 12) * 8);\n}\n\n.col-9 {\n    flex-basis: calc((100% / 12) * 9);\n}\n\n.col-10 {\n    flex-basis: calc((100% / 12) * 10);\n}\n\n.col-11 {\n    flex-basis: calc((100% / 12) * 11);\n}\n\n.col-12 {\n    flex-basis: calc((100% / 12) * 12);\n}\n\n.d-flex {\n    display: flex;\n}\n\n.flex-dr-col {\n    flex-direction: column;\n}\n\n.w-auto {\n    width: auto;\n}\n\n.h-vh {\n    height: 100vh;\n}\n\n.gp-5 {\n    gap: 5px;\n}\n\n.gp-10 {\n    gap: 10px;\n}\n\n.gp-15 {\n    gap: 15px;\n}\n\n.gp-20 {\n    gap: 20px;\n}\n\n.gp-25 {\n    gap: 25px;\n}\n\n.gp-30 {\n    gap: 30px;\n}\n\n.jc-c {\n    justify-content: center;\n}\n\n.ai-c {\n    align-items: center;\n}\n\n\n.w-100 {\n    width: 100%;\n}\n\n.wmax-100 {\n    max-width: 100%;\n}\n\n.w-max {\n    width: max-content;\n}\n\n.h-100 {\n    height: 100%;\n}\n\n.txt-c {\n    font-weight: 600;\n    margin: 0 15px;\n    text-align: center;\n}\n\n.m-tb {\n    margin: 10px 0;\n}\n\n.pd-20 {\n    padding: 20px !important;\n}\n\n.pd-20-lr {\n    padding: 0 20px !important;\n}\n\n.algn-itm-init {\n    align-items: initial !important;\n}\n\n.b-0 {\n    border: 0 !important;\n}\n\n.red {\n    color: red !important;\n}\n\n@media screen and (max-width: 480px) {\n    .col-xs-12 {\n        flex-basis: calc((100% / 12) * 12);\n    }\n}\n\n@media screen and (max-width: 820px) {\n    .col-md-1 {\n        flex-basis: calc((100% / 12) * 1);\n    }\n\n    .col-md-2 {\n        flex-basis: calc((100% / 12) * 2);\n    }\n\n    .col-md-3 {\n        flex-basis: calc((100% / 12) * 3);\n    }\n\n    .col-md-4 {\n        flex-basis: calc((100% / 12) * 4);\n    }\n\n    .col-md-5 {\n        flex-basis: calc((100% / 12) * 5);\n    }\n\n    .col-md-12 {\n        flex-basis: calc((100% / 12) * 12);\n    }\n}", ""]);
 
 // exports
 
@@ -2864,7 +2880,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Montserrat&display=swap);", ""]);
 
 // module
-exports.push([module.i, "* {\r\n    font-family: \"Montserrat\", sans-serif;\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\n}\n.container {\r\n    display: flex;\r\n    width: 100%;\r\n    height: 100%;\r\n    max-width: 1170px;\r\n    margin: 0 auto;\n}\n[class*=\"col-\"] {\r\n    /* flex-direction: grow basis width; */\r\n    /* flex-direction: 0 0 auto; */\n}\n[class*=\"col-\"] {\r\n    position: relative;\n}\n.row {\r\n    display: flex;\n}\n.col-1 {\r\n    flex-basis: calc((100% / 12) * 1);\n}\n.col-2 {\r\n    flex-basis: calc((100% / 12) * 2);\n}\n.col-3 {\r\n    flex-basis: calc((100% / 12) * 3);\n}\n.col-4 {\r\n    flex-basis: calc((100% / 12) * 4);\n}\n.col-5 {\r\n    flex-basis: calc((100% / 12) * 5);\n}\n.col-6 {\r\n    flex-basis: calc((100% / 12) * 6);\n}\n.col-7 {\r\n    flex-basis: calc((100% / 12) * 7);\n}\n.col-8 {\r\n    flex-basis: calc((100% / 12) * 8);\n}\n.col-9 {\r\n    flex-basis: calc((100% / 12) * 9);\n}\n.col-10 {\r\n    flex-basis: calc((100% / 12) * 10);\n}\n.col-11 {\r\n    flex-basis: calc((100% / 12) * 11);\n}\n.col-12 {\r\n    flex-basis: calc((100% / 12) * 12);\n}\n.d-flex {\r\n    display: flex;\n}\n.flex-dr-col {\r\n    flex-direction: column;\n}\n.w-auto {\r\n    width: auto;\n}\n.h-vh {\r\n    height: 100vh;\n}\n.gp-5 {\r\n    gap: 5px;\n}\n.gp-10 {\r\n    gap: 10px;\n}\n.gp-15 {\r\n    gap: 15px;\n}\n.gp-20 {\r\n    gap: 20px;\n}\n.gp-25 {\r\n    gap: 25px;\n}\n.gp-30 {\r\n    gap: 30px;\n}\n.jc-c {\r\n    justify-content: center;\n}\n.ai-c {\r\n    align-items: center;\n}\n.w-100 {\r\n    width: 100%;\n}\n.wmax-100 {\r\n    max-width: 100%;\n}\n.w-max {\r\n    width: max-content;\n}\n.h-100 {\r\n    height: 100%;\n}\n.txt-c {\r\n    font-weight: 600;\r\n    margin: 0 15px;\r\n    text-align: center;\n}\n.m-tb {\r\n    margin: 10px 0;\n}\n.pd-20 {\r\n    padding: 20px !important;\n}\n.pd-20-lr {\r\n    padding: 0 20px !important;\n}\n.algn-itm-init {\r\n    align-items: initial !important;\n}\n.b-0 {\r\n    border: 0 !important;\n}\n.red {\r\n    color: red !important;\n}\n@media screen and (max-width: 480px) {\n.col-xs-12 {\r\n        flex-basis: calc((100% / 12) * 12);\n}\n}\n@media screen and (max-width: 820px) {\n.col-md-1 {\r\n        flex-basis: calc((100% / 12) * 1);\n}\n.col-md-2 {\r\n        flex-basis: calc((100% / 12) * 2);\n}\n.col-md-3 {\r\n        flex-basis: calc((100% / 12) * 3);\n}\n.col-md-4 {\r\n        flex-basis: calc((100% / 12) * 4);\n}\n.col-md-5 {\r\n        flex-basis: calc((100% / 12) * 5);\n}\n.col-md-12 {\r\n        flex-basis: calc((100% / 12) * 12);\n}\n}", ""]);
+exports.push([module.i, "* {\n    font-family: \"Montserrat\", sans-serif;\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n.container {\n    display: flex;\n    width: 100%;\n    height: 100%;\n    max-width: 1170px;\n    margin: 0 auto;\n}\n[class*=\"col-\"] {\n    /* flex-direction: grow basis width; */\n    /* flex-direction: 0 0 auto; */\n}\n[class*=\"col-\"] {\n    position: relative;\n}\n.row {\n    display: flex;\n}\n.col-1 {\n    flex-basis: calc((100% / 12) * 1);\n}\n.col-2 {\n    flex-basis: calc((100% / 12) * 2);\n}\n.col-3 {\n    flex-basis: calc((100% / 12) * 3);\n}\n.col-4 {\n    flex-basis: calc((100% / 12) * 4);\n}\n.col-5 {\n    flex-basis: calc((100% / 12) * 5);\n}\n.col-6 {\n    flex-basis: calc((100% / 12) * 6);\n}\n.col-7 {\n    flex-basis: calc((100% / 12) * 7);\n}\n.col-8 {\n    flex-basis: calc((100% / 12) * 8);\n}\n.col-9 {\n    flex-basis: calc((100% / 12) * 9);\n}\n.col-10 {\n    flex-basis: calc((100% / 12) * 10);\n}\n.col-11 {\n    flex-basis: calc((100% / 12) * 11);\n}\n.col-12 {\n    flex-basis: calc((100% / 12) * 12);\n}\n.d-flex {\n    display: flex;\n}\n.flex-dr-col {\n    flex-direction: column;\n}\n.w-auto {\n    width: auto;\n}\n.h-vh {\n    height: 100vh;\n}\n.gp-5 {\n    gap: 5px;\n}\n.gp-10 {\n    gap: 10px;\n}\n.gp-15 {\n    gap: 15px;\n}\n.gp-20 {\n    gap: 20px;\n}\n.gp-25 {\n    gap: 25px;\n}\n.gp-30 {\n    gap: 30px;\n}\n.jc-c {\n    justify-content: center;\n}\n.ai-c {\n    align-items: center;\n}\n.w-100 {\n    width: 100%;\n}\n.wmax-100 {\n    max-width: 100%;\n}\n.w-max {\n    width: max-content;\n}\n.h-100 {\n    height: 100%;\n}\n.txt-c {\n    font-weight: 600;\n    margin: 0 15px;\n    text-align: center;\n}\n.m-tb {\n    margin: 10px 0;\n}\n.pd-20 {\n    padding: 20px !important;\n}\n.pd-20-lr {\n    padding: 0 20px !important;\n}\n.algn-itm-init {\n    align-items: initial !important;\n}\n.b-0 {\n    border: 0 !important;\n}\n.red {\n    color: red !important;\n}\n@media screen and (max-width: 480px) {\n.col-xs-12 {\n        flex-basis: calc((100% / 12) * 12);\n}\n}\n@media screen and (max-width: 820px) {\n.col-md-1 {\n        flex-basis: calc((100% / 12) * 1);\n}\n.col-md-2 {\n        flex-basis: calc((100% / 12) * 2);\n}\n.col-md-3 {\n        flex-basis: calc((100% / 12) * 3);\n}\n.col-md-4 {\n        flex-basis: calc((100% / 12) * 4);\n}\n.col-md-5 {\n        flex-basis: calc((100% / 12) * 5);\n}\n.col-md-12 {\n        flex-basis: calc((100% / 12) * 12);\n}\n}", ""]);
 
 // exports
 
@@ -35187,42 +35203,95 @@ var render = function () {
         _c("div", { staticClass: "cnt-hdr-items" }, [
           _vm._m(0),
           _vm._v(" "),
-          _c("div", { staticClass: "cnt-nav col-8 h-100" }, [
-            _c("div", { staticClass: "search" }, [
-              _c("div", { staticClass: "cnt-lens" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "contStringSrc" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.input,
-                      expression: "input",
-                    },
-                  ],
-                  staticClass: "accountInput",
-                  attrs: { type: "text", placeholder: "Cerca appartamento" },
-                  domProps: { value: _vm.input },
-                  on: {
-                    input: [
-                      function ($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.input = $event.target.value
-                      },
-                      _vm.onInputChanged,
-                    ],
+          _c("div", { staticClass: "cnt-nav col-6 h-100" }, [
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.$route.name === "home" ? true : false,
+                    expression: "$route.name === 'home' ? true : false",
                   },
-                }),
-              ]),
-              _vm._v(" "),
-              _vm._m(1),
-            ]),
+                ],
+                staticClass: "search",
+              },
+              [
+                _c("div", { staticClass: "cnt-lens" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "contStringSrc" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.input,
+                        expression: "input",
+                      },
+                    ],
+                    staticClass: "accountInput",
+                    attrs: { type: "text", placeholder: "Cerca appartamento" },
+                    domProps: { value: _vm.input },
+                    on: {
+                      input: [
+                        function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.input = $event.target.value
+                        },
+                        _vm.onInputChanged,
+                      ],
+                    },
+                  }),
+                ]),
+                _vm._v(" "),
+                _vm._m(1),
+              ]
+            ),
           ]),
           _vm._v(" "),
-          _vm._m(2),
+          _c("div", { staticClass: "col-3 d-flex jc-c ai-c" }, [
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.$route.name === "home" ? true : false,
+                    expression: "$route.name === 'home' ? true : false",
+                  },
+                ],
+                staticClass: "main-usr-set",
+              },
+              [_vm._m(2)]
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-1 d-flex jc-c ai-c" }, [
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.$route.name === "search" ? true : false,
+                  expression: "$route.name === 'search' ? true : false",
+                },
+              ],
+              staticClass: "cnt-btn-filter",
+              attrs: { id: "filter" },
+            },
+            [
+              _c("div", { staticClass: "btn-filter" }),
+              _vm._v(" "),
+              _c("span", [_vm._v("Filtri")]),
+            ]
+          ),
         ]),
       ]),
     ]),
@@ -35270,27 +35339,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-2 d-flex jc-c ai-c" }, [
-      _c("div", { staticClass: "main-usr-set" }, [
-        _c("ul", { staticClass: "ul-log-reg" }, [
-          _c("li", [
-            _c("div", { staticClass: "ico-log ico-login" }),
-            _vm._v(" "),
-            _c("a", { attrs: { href: " /login" } }, [_vm._v("Login")]),
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("div", { staticClass: "ico-log ico-reg" }),
-            _vm._v(" "),
-            _c("a", { attrs: { href: "/register" } }, [_vm._v("Register")]),
-          ]),
-        ]),
+    return _c("ul", { staticClass: "ul-log-reg" }, [
+      _c("li", [
+        _c("div", { staticClass: "ico-log ico-login" }),
+        _vm._v(" "),
+        _c("a", { attrs: { href: " /login" } }, [_vm._v("Login")]),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "cnt-btn-filter", attrs: { id: "filter" } }, [
-        _c("div", { staticClass: "btn-filter" }),
+      _c("li", [
+        _c("div", { staticClass: "ico-log ico-reg" }),
         _vm._v(" "),
-        _c("span", [_vm._v("Filtri")]),
+        _c("a", { attrs: { href: "/register" } }, [_vm._v("Register")]),
       ]),
     ])
   },
@@ -51035,7 +51094,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/boolbnb-logo.svg?f1aced8f583f3dbbaa6c6fd70901e200";
+module.exports = "/images/boolbnb-logo.svg?3d280ce93a87d5787e75541b133a5ee5";
 
 /***/ }),
 
@@ -52021,7 +52080,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Michele\Documents\Boolean\Esercizi\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/js/front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })
