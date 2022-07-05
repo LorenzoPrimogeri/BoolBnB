@@ -2842,7 +2842,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#Main[data-v-3ee370e9] {\n  display: flex;\n  width: 100%;\n  margin: 180px auto;\n  flex-direction: column;\n}", ""]);
+exports.push([module.i, "main[data-v-3ee370e9] {\n  display: flex;\n  width: 100%;\n  margin: 180px auto;\n  flex-direction: column;\n}", ""]);
 
 // exports
 
@@ -35443,7 +35443,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("main", { attrs: { id: "Main" } }, [
+  return _c("main", [
     _c("div", { staticClass: "container w-100" }, [_c("CardComponent")], 1),
   ])
 }
