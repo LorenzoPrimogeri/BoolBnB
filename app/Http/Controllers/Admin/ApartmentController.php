@@ -6,6 +6,8 @@ use App\Apartment;
 use App\Service;
 use App\Http\Controllers\Controller;
 use App\Message;
+use App\Sponsorship;
+use Braintree\Gateway;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -246,6 +248,23 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function sponsors()
+    {
+
+        $sponsors = Sponsorship::all();
+        return view('admin.checkin', compact('sponsors'));
+    }
+    public function checkOut(Gateway $gateway, $id /*Apartment $apartment*/)
+    {
+
+        // $apartment->sponsorships()->sync($id);
+        return view('admin.checkout', [
+            "id" => $id,
+            "token" => $gateway->clientToken()->generate(),
+            // "apartment" => $apartment,
+            "sponsor" => Sponsorship::find($id)
+        ]);
+    }
     public function destroy(Apartment $apartment)
     {
         //riguardare il delete di Ruggiero con cover
