@@ -15,39 +15,38 @@
         </div>
       </div>
 
-      <div class="description-text col-12">
-        <div class="">
-          <h5>Descrizione:</h5>
-          <p>{{ apartment.description }}</p>
-        </div>
+      <div class="description-text cnt-row col-12">
+        <h2>{{ apartment.title }}</h2>
+        <h5 class="mt-3">Descrizione:</h5>
+        <p>{{ apartment.description }}</p>
       </div>
       <!-- map -->
-      <div class="services-box">
+      <div class="services-box cnt-row col-12">
         <div class="col-4">
           <div id="map"></div>
         </div>
         <div class="services col-3">
-          <div class="">
+          <div class="d-flex">
             <h5>Stanze:</h5>
-            <p>{{ apartment.room }}</p>
+            <p class="">{{ apartment.room }}</p>
           </div>
 
-          <div class="">
+          <div class="d-flex">
             <h5>Bagni:</h5>
             <p>{{ apartment.bathroom }}</p>
           </div>
 
-          <div class="">
+          <div class="d-flex">
             <h5>Letti:</h5>
             <p>{{ apartment.bed }}</p>
           </div>
 
-          <div class="">
+          <div class="d-flex">
             <h5>Metri Quadri:</h5>
             <p>{{ apartment.mq }}mq</p>
           </div>
 
-          <div class="">
+          <div class="d-flex">
             <h5>Prezzo:</h5>
             <p>{{ apartment.price }}€ /notte</p>
           </div>
@@ -264,6 +263,10 @@ main {
 
   .services-box {
     display: flex;
+
+    p {
+      margin-left: 3%;
+    }
 
     .services {
       margin-top: 4%;
