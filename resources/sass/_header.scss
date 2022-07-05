@@ -7,11 +7,10 @@ header {
     top: 0;
     left: 0;
     background-color: #fff;
-    -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.26);
-    -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.26);
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.26);
-
-
+    -webkit-box-shadow: 0 4px 10px -5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 4px 10px -5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px -5px rgba(0, 0, 0, 0.2);
+    z-index: 2;
     .cnt-nav {
         display: flex;
         align-items: center;
@@ -43,10 +42,10 @@ header {
             justify-content: center;
             gap: 10px;
             padding: 10px;
-            border: 1px solid grey;
-            -webkit-box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);
-            -moz-box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);
-            box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);
+            border: 1px solid #ececec;
+            -webkit-box-shadow: 0px 0px 8px 5px rgba(121, 121, 121, 0.1);
+            -moz-box-shadow: 0px 0px 8px 5px rgba(121, 121, 121, 0.1);
+            box-shadow: 0px 0px 8px 5px rgba(121, 121, 121, 0.1);
             cursor: pointer;
 
             .btn-filter {
@@ -54,7 +53,6 @@ header {
                 height: 20px;
             }
         }
-
     }
 
     ul.ul-log-reg {
@@ -71,11 +69,13 @@ header {
             gap: 5px;
 
             &:hover .ico-login {
-                background: url("../img/ico/login/login.svg") no-repeat center/contain;
+                background: url("../img/ico/login/login.svg") no-repeat
+                    center/contain;
             }
 
             &:hover .ico-reg {
-                background: url("../img/ico/login/register.svg") no-repeat center/contain;
+                background: url("../img/ico/login/register.svg") no-repeat
+                    center/contain;
             }
 
             &:hover span {
@@ -90,11 +90,13 @@ header {
         }
 
         .ico-login {
-            background: url("../img/ico/login/login-lgt.svg") no-repeat center/contain;
+            background: url("../img/ico/login/login-lgt.svg") no-repeat
+                center/contain;
         }
 
         .ico-reg {
-            background: url("../img/ico/login/register-lgt.svg") no-repeat center/contain;
+            background: url("../img/ico/login/register-lgt.svg") no-repeat
+                center/contain;
         }
 
         a {
@@ -108,20 +110,39 @@ header {
 
 .cnt-result-adress {
     position: fixed;
-    top: 100px;
     width: 100%;
-    background: aqua;
-    padding: 20px;
+    top: 0;
+    background: #fff;
+    padding: 100px 0 0;
+    -webkit-box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    .cnt-items {
+        width: 50%;
+        margin: 0 auto;
+        border-bottom: 1px solid #e6e6e6;
+        &:hover {
+            transition: 0.5s ease-in-out;
+            background-image: linear-gradient(
+                to bottom,
+                transparent 93%,
+                #7174b6 0%
+            );
+        }
+        &:hover a {
+            color: #7174b6;
+            transition: 0.5s ease-in-out;
+        }
+        a {
+            width: 100%;
+            display: block;
+            color: grey;
+            text-decoration: none;
+            padding: 20px;
+        }
+    }
 }
-
-.cnt-result-adress .cnt-items {
-    padding: 15px;
-    color: wheat;
-    z-index: 13;
-    position: relative;
-    background: aquamarine;
-}
-
 
 .search {
     display: flex;
@@ -131,9 +152,10 @@ header {
     border-radius: 30px;
     align-items: center;
     padding: 0 20px;
-    -webkit-box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);
-    -moz-box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);
-    box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);
+    border: 1px solid #ececec;
+    -webkit-box-shadow: 0px 0px 8px 5px rgba(121, 121, 121, 0.1);
+    -moz-box-shadow: 0px 0px 8px 5px rgba(121, 121, 121, 0.1);
+    box-shadow: 0px 0px 8px 5px rgba(121, 121, 121, 0.1);
     gap: 20px;
 
     .cnt-lens,

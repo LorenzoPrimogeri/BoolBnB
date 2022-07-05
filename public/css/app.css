@@ -5,7 +5,8 @@ header {
   top: 0;
   left: 0;
   background-color: #fff;
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.26);
+  box-shadow: 0 4px 10px -5px rgba(0, 0, 0, 0.2);
+  z-index: 2;
 }
 
 header .cnt-nav {
@@ -40,8 +41,8 @@ header .cnt-hdr-items .cnt-btn-filter {
   justify-content: center;
   gap: 10px;
   padding: 10px;
-  border: 1px solid grey;
-  box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);
+  border: 1px solid #ececec;
+  box-shadow: 0px 0px 8px 5px rgba(121, 121, 121, 0.1);
   cursor: pointer;
 }
 
@@ -102,18 +103,36 @@ header ul.ul-log-reg a {
 
 .cnt-result-adress {
   position: fixed;
-  top: 100px;
   width: 100%;
-  background: aqua;
-  padding: 20px;
+  top: 0;
+  background: #fff;
+  padding: 100px 0 0;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 .cnt-result-adress .cnt-items {
-  padding: 15px;
-  color: wheat;
-  z-index: 13;
-  position: relative;
-  background: aquamarine;
+  width: 50%;
+  margin: 0 auto;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.cnt-result-adress .cnt-items:hover {
+  transition: 0.5s ease-in-out;
+  background-image: linear-gradient(to bottom, transparent 93%, #7174b6 0%);
+}
+
+.cnt-result-adress .cnt-items:hover a {
+  color: #7174b6;
+  transition: 0.5s ease-in-out;
+}
+
+.cnt-result-adress .cnt-items a {
+  width: 100%;
+  display: block;
+  color: grey;
+  text-decoration: none;
+  padding: 20px;
 }
 
 .search {
@@ -126,7 +145,8 @@ header ul.ul-log-reg a {
   border-radius: 30px;
   align-items: center;
   padding: 0 20px;
-  box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);
+  border: 1px solid #ececec;
+  box-shadow: 0px 0px 8px 5px rgba(121, 121, 121, 0.1);
   gap: 20px;
 }
 

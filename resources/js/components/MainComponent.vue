@@ -1,5 +1,5 @@
 <template>
-  <main id="Main">
+  <main>
     <div class="container w-100">
       <CardComponent />
     </div>
@@ -12,12 +12,12 @@ export default {
   name: "MainComponent",
   components: {
     CardComponent,
-  }
-}
+  },
+};
 </script>
 
 <style scoped lang="scss">
-#Main {
+main {
   display: flex;
   width: 100%;
   margin: 180px auto;
@@ -25,9 +25,5 @@ export default {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-
-  //   padding: 130px 0 0;
-  //   width: 100vw;
-  //   height: 85vh;
 }
 </style>

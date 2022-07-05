@@ -2029,8 +2029,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'FilterComponent'
+  name: "FilterComponent"
 });
 
 /***/ }),
@@ -2202,6 +2203,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2252,72 +2257,14 @@ __webpack_require__.r(__webpack_exports__);
           query: this.input
         }
       }).then(function (risp) {
-        var risultati = risp.data.results; // console.log(risultati);
-
+        var risultati = risp.data.results;
+        console.log(risultati);
         _this2.indirizzi = risultati;
       });
       return this.indirizzi;
     },
     take: function take(indirizzo) {
       this.input = indirizzo;
-    },
-    takeLatLng: function takeLatLng() {
-      var _this3 = this;
-
-      //prendo lat e long dal indirizzo
-      console.log(this.input);
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK", {
-        params: {
-          query: this.input
-        }
-      }).then(function (risp) {
-        var position = risp.data.results[0].position;
-        _this3.lat = position.lat;
-        _this3.lng = position.lon; // console.log("lat:" + this.lat + " lng:" + this.lng);
-
-        _this3.searchApartments();
-      });
-    },
-    searchApartments: function searchApartments() {
-      // console.log(this.services);
-      //reset degli appartamenti corretti
-      this.correctApartments = [];
-      console.log(this.correctApartments); //console.log(this.apartaments);
-
-      for (var i = 0; i < this.allApartaments.length; i++) {
-        var apartment = this.allApartaments[i];
-        var distance = this.distance(this.lat, this.lng, apartment.lat, apartment.lng);
-
-        if (distance <= this.distanceKm && apartment.room >= this.room && apartment.bed >= this.bed) {
-          // console.log("la distanza è: " + distance.toFixed(3) + " km :)");
-          // console.log(apartment.room);
-          // console.log(apartment.bed);
-          // console.log("Fatto");
-          this.correctApartments.push(apartment);
-        } else {} // console.log(this.correctApartments);
-
-      }
-    },
-    distance: function distance(lat1, lon1, lat2, lon2) {
-      if (lat1 == lat2 && lon1 == lon2) {
-        return 0;
-      } else {
-        var radlat1 = Math.PI * lat1 / 180;
-        var radlat2 = Math.PI * lat2 / 180;
-        var theta = lon1 - lon2;
-        var radtheta = Math.PI * theta / 180;
-        var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-
-        if (dist > 1) {
-          dist = 1;
-        }
-
-        dist = Math.acos(dist);
-        dist = dist * 180 / Math.PI;
-        dist = dist * 60 * 1.1515;
-        dist = dist * 1.609344;
-        return dist;
-      }
     }
   }
 });
@@ -2744,7 +2691,29 @@ __webpack_require__.r(__webpack_exports__);
     FooterComponent: _components_FooterComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     FilterComponent: _components_FilterComponent_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
+  data: function data() {
+    return {
+      input: "",
+      lat: 0,
+      //Riferito all'indirizzo inserito dal utente
+      lng: 0,
+      //Riferito all'indirizzo inserito dal utente
+      indirizzi: [],
+      //indirizzi che stampo per l'auto complete
+      allApartaments: [],
+      //tutti gli appartamenti visible
+      correctApartments: [],
+      //appartamenti che soddisfano la ricerca
+      allServices: [],
+      services: [],
+      distanceKm: 20,
+      room: 1,
+      bed: 1
+    };
+  },
   mounted: function mounted() {
+    var _this = this;
+
     $("#filter").click(function () {
       $("#bgExpand").toggleClass("enlargeFilter");
       $("#cntExpand").toggleClass("enlargeFilter");
@@ -2754,7 +2723,86 @@ __webpack_require__.r(__webpack_exports__);
       $("#cntExpand").toggleClass("enlargeFilter");
       $("#bgExpand").toggleClass("enlargeFilter");
       $("body").toggleClass("enlargeFilter");
+    }); //prendo tutti gli appartamenti dal database
+
+    axios.get("http://127.0.0.1:8000/api/apartments").then(function (results) {
+      _this.allApartaments = results.data.apartments; // console.log(this.allApartaments);
+
+      _this.allServices = results.data.services; // console.log(this.allServices);
+    }); //prendo lat e long dal indirizzo
+
+    console.log(this.input);
+    Axios.get("https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK", {
+      params: {
+        query: this.input
+      }
+    }).then(function (risp) {
+      var position = risp.data.results[0].position;
+      _this.lat = position.lat;
+      _this.lng = position.lon; // console.log("lat:" + this.lat + " lng:" + this.lng);
+
+      _this.searchApartments();
     });
+  },
+  methods: {
+    takeLatLng: function takeLatLng() {
+      var _this2 = this;
+
+      //prendo lat e long dal indirizzo
+      console.log(this.input);
+      Axios.get("https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK", {
+        params: {
+          query: this.input
+        }
+      }).then(function (risp) {
+        var position = risp.data.results[0].position;
+        _this2.lat = position.lat;
+        _this2.lng = position.lon; // console.log("lat:" + this.lat + " lng:" + this.lng);
+
+        _this2.searchApartments();
+      });
+    },
+    searchApartments: function searchApartments() {
+      // console.log(this.services);
+      //reset degli appartamenti corretti
+      this.correctApartments = []; //console.log(this.apartaments);
+
+      for (var i = 0; i < this.allApartaments.length; i++) {
+        var apartment = this.allApartaments[i];
+        var distance = this.distance(this.lat, this.lng, apartment.lat, apartment.lng);
+
+        if (distance <= this.distanceKm && apartment.room >= this.room && apartment.bed >= this.bed) {
+          // console.log("la distanza è: " + distance.toFixed(3) + " km :)");
+          // console.log(apartment.room);
+          // console.log(apartment.bed);
+          // console.log("Fatto");
+          this.correctApartments.push(apartment);
+        } else {}
+
+        console.log(this.correctApartments);
+      }
+    },
+    distance: function distance(lat1, lon1, lat2, lon2) {
+      if (lat1 == lat2 && lon1 == lon2) {
+        return 0;
+      } else {
+        var radlat1 = Math.PI * lat1 / 180;
+        var radlat2 = Math.PI * lat2 / 180;
+        var theta = lon1 - lon2;
+        var radtheta = Math.PI * theta / 180;
+        var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+
+        if (dist > 1) {
+          dist = 1;
+        }
+
+        dist = Math.acos(dist);
+        dist = dist * 180 / Math.PI;
+        dist = dist * 60 * 1.1515;
+        dist = dist * 1.609344;
+        return dist;
+      }
+    }
   }
 });
 
@@ -2791,7 +2839,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "body.enlargeFilter {\n  position: fixed;\n}\n.bgExpandFilter {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(1, 11, 38, 0);\n  z-index: 3;\n  transition: all 0.5s ease-in-out;\n  visibility: hidden;\n}\n#bgExpand.enlargeFilter {\n  visibility: visible;\n}\n#cntExpand.enlargeFilter {\n  top: 0;\n  opacity: 1;\n  height: 100%;\n  width: 100%;\n  background-color: rgba(23, 23, 23, 0.9);\n  margin-top: auto;\n  left: 0;\n  margin-left: auto;\n}\n.main-check {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.main-check .cnt-checkbox {\n  position: relative;\n  height: 25px;\n  width: 25px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.main-check .cnt-checkbox .cnt-checkbox:hover input ~ .checkmark {\n  background-color: #ccc;\n}\n.main-check .cnt-checkbox .cnt-checkbox input:checked ~ .checkmark {\n  background-color: #2196f3;\n}\n.main-check .cnt-checkbox .cnt-checkbox input:checked ~ .checkmark:after {\n  display: block;\n}\n.main-check .cnt-checkbox input[type=checkbox].input-check {\n  position: absolute;\n  width: 25px;\n  height: 25px;\n  left: 0;\n  z-index: 2;\n  accent-color: #7174b6;\n}\n.main-check .cnt-checkbox .checkmark {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 25px;\n  width: 25px;\n  background-color: #eee;\n}\n.main-check .cnt-checkbox .checkmark:after {\n  content: \"\";\n  position: absolute;\n  display: none;\n}\n.main-check .cnt-checkbox .checkmark:after {\n  left: 9px;\n  top: 5px;\n  width: 5px;\n  height: 10px;\n  border: solid white;\n  border-width: 0 3px 3px 0;\n  transform: rotate(45deg);\n}\n.cnt-btn-close {\n  position: relative;\n  width: 40px;\n  height: 40px;\n  box-sizing: border-box;\n  color: black;\n  text-decoration: none;\n  transition: 0.5s ease-in-out;\n  border-radius: 50%;\n  background-color: #010b26;\n  background-color: transparent;\n}\n.cnt-btn-close .btn-closed::after {\n  content: \"\";\n  display: block;\n  height: 30px;\n  width: 3px;\n  background: #90a9e8;\n  position: absolute;\n  left: 20px;\n  top: 5px;\n  transform: rotate(-45deg);\n  border-radius: 5px;\n}\n.cnt-btn-close .btn-closed::before {\n  content: \"\";\n  display: block;\n  height: 30px;\n  width: 3px;\n  background: #90a9e8;\n  position: absolute;\n  left: 20px;\n  top: 5px;\n  transform: rotate(45deg);\n  border-radius: 5px;\n}\n.cntExpandFilter {\n  position: fixed;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  top: -1000px;\n  margin-top: -350px;\n  z-index: 200;\n  opacity: 0;\n  transition: all 0.5s ease-in-out;\n}\n.cntExpandFilter .main-filter {\n  width: 80%;\n  height: calc(100% - 100px);\n  border-radius: 5px;\n  background: #fff;\n  border-radius: 5px;\n  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);\n  transform-style: preserve-3d;\n  overflow: auto;\n}\n.cntExpandFilter .main-filter::-webkit-scrollbar {\n  display: none;\n}\n.cntExpandFilter .main-filter {\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n}\n.cntExpandFilter .main-filter .row-filter-ttl {\n  display: flex;\n  justify-content: flex-end;\n  position: -webkit-sticky;\n  position: sticky;\n  width: 100%;\n  top: 0;\n  padding: 10px 20px;\n  background-color: #fff;\n  border-bottom: 1px solid #d9d9d9;\n  z-index: 3;\n}\n.cntExpandFilter .main-filter .row-filter-ttl .cnt-ttl {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.cntExpandFilter .main-filter .row-filter-ttl .cnt-ttl h2 {\n  font-size: 1.5em;\n}\n.cntExpandFilter .main-filter .cnt-row {\n  padding: 50px;\n}\n.cntExpandFilter .main-filter .cnt-row .row-filter {\n  position: relative;\n  display: flex;\n  padding: 10px;\n  border-bottom: 1px solid #d9d9d9;\n}\n.cntExpandFilter .main-filter .cnt-row .row-filter .cnt-filter-select {\n  display: flex;\n  flex-wrap: wrap;\n  margin: 20px 0;\n}\n.cntExpandFilter .main-filter .cnt-row .row-filter .cnt-filter-select input[type=number] {\n  display: inline-block;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  padding: 12px 20px;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n}\n@media screen and (max-width: 1050px) {\n.contExpandLogMob,\n.contExpandLogRegMob {\n    width: 90%;\n    background-color: white;\n    background-size: cover;\n    left: 50%;\n    margin-left: -45%;\n    border-radius: 5px;\n    z-index: 200;\n    opacity: 0;\n    transition: all 0.5s ease-in-out;\n}\n#contExpandLogInMob.enlargeLogIn,\n#contExpandRegMob.enlargeLogIn {\n    opacity: 1;\n    width: 100%;\n    height: 100%;\n}\n}", ""]);
+exports.push([module.i, "body.enlargeFilter {\n  overflow: hidden;\n}\n.bgExpandFilter {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(1, 11, 38, 0);\n  z-index: 3;\n  transition: all 0.5s ease-in-out;\n  visibility: hidden;\n}\n#bgExpand.enlargeFilter {\n  visibility: visible;\n}\n#cntExpand.enlargeFilter {\n  top: 0;\n  opacity: 1;\n  height: 100%;\n  width: 100%;\n  background-color: rgba(23, 23, 23, 0.9);\n  margin-top: auto;\n  left: 0;\n  margin-left: auto;\n}\n.main-check {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.main-check .cnt-checkbox {\n  position: relative;\n  height: 25px;\n  width: 25px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.main-check .cnt-checkbox .cnt-checkbox:hover input ~ .checkmark {\n  background-color: #ccc;\n}\n.main-check .cnt-checkbox .cnt-checkbox input:checked ~ .checkmark {\n  background-color: #2196f3;\n}\n.main-check .cnt-checkbox .cnt-checkbox input:checked ~ .checkmark:after {\n  display: block;\n}\n.main-check .cnt-checkbox input[type=checkbox].input-check {\n  position: absolute;\n  width: 25px;\n  height: 25px;\n  left: 0;\n  z-index: 2;\n  accent-color: #7174b6;\n}\n.main-check .cnt-checkbox .checkmark {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 25px;\n  width: 25px;\n  background-color: #eee;\n}\n.main-check .cnt-checkbox .checkmark:after {\n  content: \"\";\n  position: absolute;\n  display: none;\n}\n.main-check .cnt-checkbox .checkmark:after {\n  left: 9px;\n  top: 5px;\n  width: 5px;\n  height: 10px;\n  border: solid white;\n  border-width: 0 3px 3px 0;\n  transform: rotate(45deg);\n}\n.cnt-btn-close {\n  position: relative;\n  width: 40px;\n  height: 40px;\n  box-sizing: border-box;\n  color: black;\n  text-decoration: none;\n  transition: 0.5s ease-in-out;\n  border-radius: 50%;\n  background-color: #010b26;\n  background-color: transparent;\n  cursor: pointer;\n}\n.cnt-btn-close .btn-closed::after {\n  content: \"\";\n  display: block;\n  height: 30px;\n  width: 3px;\n  background: #90a9e8;\n  position: absolute;\n  left: 20px;\n  top: 5px;\n  transform: rotate(-45deg);\n  border-radius: 5px;\n}\n.cnt-btn-close .btn-closed::before {\n  content: \"\";\n  display: block;\n  height: 30px;\n  width: 3px;\n  background: #90a9e8;\n  position: absolute;\n  left: 20px;\n  top: 5px;\n  transform: rotate(45deg);\n  border-radius: 5px;\n}\n.cntExpandFilter {\n  position: fixed;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  top: -1000px;\n  margin-top: -350px;\n  z-index: 200;\n  opacity: 0;\n  transition: all 0.5s ease-in-out;\n}\n.cntExpandFilter .main-filter {\n  width: 80%;\n  height: calc(100% - 100px);\n  border-radius: 5px;\n  background: #fff;\n  border-radius: 5px;\n  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);\n  transform-style: preserve-3d;\n  overflow: auto;\n}\n.cntExpandFilter .main-filter::-webkit-scrollbar {\n  display: none;\n}\n.cntExpandFilter .main-filter {\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n}\n.cntExpandFilter .main-filter .row-filter-ttl {\n  display: flex;\n  justify-content: flex-end;\n  position: -webkit-sticky;\n  position: sticky;\n  width: 100%;\n  top: 0;\n  padding: 10px 20px;\n  background-color: #fff;\n  border-bottom: 1px solid #d9d9d9;\n  z-index: 3;\n}\n.cntExpandFilter .main-filter .row-filter-ttl .cnt-ttl {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.cntExpandFilter .main-filter .row-filter-ttl .cnt-ttl h2 {\n  font-size: 1.5em;\n}\n.cntExpandFilter .main-filter .cnt-row {\n  padding: 50px;\n}\n.cntExpandFilter .main-filter .cnt-row .row-filter {\n  position: relative;\n  display: flex;\n  padding: 10px;\n  border-bottom: 1px solid #d9d9d9;\n}\n.cntExpandFilter .main-filter .cnt-row .row-filter .cnt-filter-select {\n  display: flex;\n  flex-wrap: wrap;\n  margin: 20px 0;\n}\n.cntExpandFilter .main-filter .cnt-row .row-filter .cnt-filter-select input[type=number] {\n  display: inline-block;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  padding: 12px 20px;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n}\n@media screen and (max-width: 1050px) {\n.contExpandLogMob,\n.contExpandLogRegMob {\n    width: 90%;\n    background-color: white;\n    background-size: cover;\n    left: 50%;\n    margin-left: -45%;\n    border-radius: 5px;\n    z-index: 200;\n    opacity: 0;\n    transition: all 0.5s ease-in-out;\n}\n#contExpandLogInMob.enlargeLogIn,\n#contExpandRegMob.enlargeLogIn {\n    opacity: 1;\n    width: 100%;\n    height: 100%;\n}\n}", ""]);
 
 // exports
 
@@ -2848,7 +2896,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#Main[data-v-3ee370e9] {\n  display: flex;\n  width: 100%;\n  margin: 180px auto;\n  flex-direction: column;\n}", ""]);
+exports.push([module.i, "main[data-v-3ee370e9] {\n  display: flex;\n  width: 100%;\n  margin: 180px auto;\n  flex-direction: column;\n}", ""]);
 
 // exports
 
@@ -35133,7 +35181,9 @@ var staticRenderFns = [
                   _c("h3", [_vm._v("Numero Stanze")]),
                   _vm._v(" "),
                   _c("div", { staticClass: "cnt-filter-select" }, [
-                    _c("input", { attrs: { type: "number" } }),
+                    _c("input", {
+                      attrs: { type: "number", min: "1", max: "30" },
+                    }),
                   ]),
                 ]),
               ]),
@@ -35143,7 +35193,9 @@ var staticRenderFns = [
                   _c("h3", [_vm._v("Numero posti Letto")]),
                   _vm._v(" "),
                   _c("div", { staticClass: "cnt-filter-select" }, [
-                    _c("input", { attrs: { type: "number" } }),
+                    _c("input", {
+                      attrs: { type: "number", min: "1", max: "30" },
+                    }),
                   ]),
                 ]),
               ]),
@@ -35268,52 +35320,38 @@ var render = function () {
           _vm._m(0),
           _vm._v(" "),
           _c("div", { staticClass: "cnt-nav col-8 h-100" }, [
-            _c(
-              "div",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.$route.name === "home" ? true : false,
-                    expression: "$route.name === 'home' ? true : false",
-                  },
-                ],
-                staticClass: "search",
-              },
-              [
-                _c("div", { staticClass: "cnt-lens" }),
-                _vm._v(" "),
-                _c("div", { staticClass: "contStringSrc" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.input,
-                        expression: "input",
-                      },
-                    ],
-                    staticClass: "accountInput",
-                    attrs: { type: "text", placeholder: "Cerca appartamento" },
-                    domProps: { value: _vm.input },
-                    on: {
-                      input: [
-                        function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.input = $event.target.value
-                        },
-                        _vm.onInputChanged,
-                      ],
+            _c("div", { staticClass: "search" }, [
+              _c("div", { staticClass: "cnt-lens" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "contStringSrc" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.input,
+                      expression: "input",
                     },
-                  }),
-                ]),
-                _vm._v(" "),
-                _vm._m(1),
-              ]
-            ),
+                  ],
+                  staticClass: "accountInput",
+                  attrs: { type: "text", placeholder: "Cerca appartamento" },
+                  domProps: { value: _vm.input },
+                  on: {
+                    input: [
+                      function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.input = $event.target.value
+                      },
+                      _vm.onInputChanged,
+                    ],
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _vm._m(1),
+            ]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-2 d-flex jc-c ai-c" }, [
@@ -35364,10 +35402,30 @@ var render = function () {
       "div",
       { staticClass: "cnt-result-adress" },
       _vm._l(_vm.indirizzi, function (indirizzo, i) {
-        return _c("div", {
-          key: i + indirizzo.address,
-          staticClass: "cnt-items",
-        })
+        return _c(
+          "div",
+          { key: i + indirizzo.address, staticClass: "cnt-items" },
+          [
+            _c(
+              "a",
+              {
+                attrs: { href: "#" },
+                on: {
+                  click: function ($event) {
+                    return _vm.take(indirizzo.address.freeformAddress)
+                  },
+                },
+              },
+              [
+                _vm._v(
+                  "\n        " +
+                    _vm._s(indirizzo.address["freeformAddress"]) +
+                    "\n      "
+                ),
+              ]
+            ),
+          ]
+        )
       }),
       0
     ),
@@ -35439,7 +35497,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("main", { attrs: { id: "Main" } }, [
+  return _c("main", [
     _c("div", { staticClass: "container w-100" }, [_c("CardComponent")], 1),
   ])
 }
