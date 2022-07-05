@@ -475,19 +475,19 @@ main .main-slct-item select {
 }
 
 .cnt-ul ul li:hover .aprt {
-  background: url(/images/ico-dash.svg?e14612bd5035281794d07f3d300a3df5) no-repeat center/contain;
+  background: url(/images/ico-dash.svg?67dc1d8effbe5a32af9e52eab450cb53) no-repeat center/contain;
 }
 
 .cnt-ul ul li:hover .msg {
-  background: url(/images/ico-msg.svg?507cab0cc544c7fdfe3891df219e2c8b) no-repeat center/contain;
+  background: url(/images/ico-msg.svg?aba9e199fec7691210823e34968d4f81) no-repeat center/contain;
 }
 
 .cnt-ul ul li:hover .ads {
-  background: url(/images/ico-ads.svg?f55e5f15ccc81ef1f03adc9f04bdb267) no-repeat center/contain;
+  background: url(/images/ico-ads.svg?3e46fe5e95fec6985dc6e8c5d60c2f7d) no-repeat center/contain;
 }
 
 .cnt-ul ul li:hover .stcs {
-  background: url(/images/ico-stcs.svg?f6c866ac318bd17503e80a776c05a1a3) no-repeat center/contain;
+  background: url(/images/ico-stcs.svg?310cee7e5ef3b7385c9130cae57aff41) no-repeat center/contain;
 }
 
 .cnt-ul ul li:hover a {
@@ -508,19 +508,19 @@ main .main-slct-item select {
 }
 
 .cnt-ul ul li .aprt {
-  background: url(/images/ico-dash-lgt.svg?ab50abde4e770438b5ee75c3c8bd8a81) no-repeat center/contain;
+  background: url(/images/ico-dash-lgt.svg?d32ffe6a06df88f4a6aff4f1c3a006d7) no-repeat center/contain;
 }
 
 .cnt-ul ul li .msg {
-  background: url(/images/ico-msg-lgt.svg?2f27bcccd88acfc59f31d45313533b59) no-repeat center/contain;
+  background: url(/images/ico-msg-lgt.svg?fc39d0d3e57b354172bd67f0a4d46744) no-repeat center/contain;
 }
 
 .cnt-ul ul li .ads {
-  background: url(/images/ico-ads-lgt.svg?c413114ea8e47bc421a3f866863d2079) no-repeat center/contain;
+  background: url(/images/ico-ads-lgt.svg?f3008cd21ab414a207205a8021291075) no-repeat center/contain;
 }
 
 .cnt-ul ul li .stcs {
-  background: url(/images/ico-stcs-lgt.svg?2b9c4ae8d9df3c6be0f369e2c0d4ebee) no-repeat center/contain;
+  background: url(/images/ico-stcs-lgt.svg?3a85bf2b49b53953df65fca31ef172ce) no-repeat center/contain;
 }
 
 /* @import url("btn-burger.scss"); */
