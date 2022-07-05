@@ -46,20 +46,23 @@ export default {
     }
 
     .cnt-cards {
-        display: flex;
+        // display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 25px;
     }
 
     .box-card {
-        display: flex;
-        width: calc(100% / 4 - 25px);
+        // display: flex;
+        // width: calc(100% / 4 - 25px);
+        background-color: violet;
+        width: 300px;
+        height: 200px;
         flex-direction: column;
 
         .cnt-img {
-            height: 200px !important;
-            width: 200px;
+            height: 200px;
+            width: 100%;
             background-color: blue;
         }
 

@@ -104,10 +104,16 @@ header ul.ul-log-reg a {
   position: fixed;
   top: 100px;
   width: 100%;
+  background: aqua;
+  padding: 20px;
 }
 
 .cnt-result-adress .cnt-items {
-  padding: 10px;
+  padding: 15px;
+  color: wheat;
+  z-index: 13;
+  position: relative;
+  background: aquamarine;
 }
 
 .search {

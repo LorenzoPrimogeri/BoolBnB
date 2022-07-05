@@ -54,6 +54,7 @@ header {
                 height: 20px;
             }
         }
+
     }
 
     ul.ul-log-reg {
@@ -109,13 +110,17 @@ header {
     position: fixed;
     top: 100px;
     width: 100%;
-
-    .cnt-items {
-        padding: 10px;
-
-    }
+    background: aqua;
+    padding: 20px;
 }
 
+.cnt-result-adress .cnt-items {
+    padding: 15px;
+    color: wheat;
+    z-index: 13;
+    position: relative;
+    background: aquamarine;
+}
 
 
 .search {

@@ -32,6 +32,7 @@
               <ul class="ul-log-reg">
                 <!-- Authentication Links -->
                 <!-- <a href="{{ route('login') }}"> -->
+
                 <li>
                   <div class="ico-log ico-login"></div>
                   <a href=" /login">Login</a>
@@ -70,6 +71,11 @@
                 </div> -->
               </ul>
             </div>
+            <div id="filter" class="cnt-btn-filter">
+              <div class="btn-filter"></div>
+              <span>Filtri</span>
+            </div>
+
           </div>
         </div>
       </div>
@@ -106,12 +112,14 @@ export default {
     };
   },
   mounted() {
+
+
     //prendo tutti gli appartamenti dal database
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       this.allApartaments = results.data.apartments;
-      console.log(this.allApartaments);
+      // console.log(this.allApartaments);
       this.allServices = results.data.services;
-      console.log(this.allServices);
+      // console.log(this.allServices);
     });
   },
   methods: {
@@ -125,7 +133,7 @@ export default {
         { params: { query: this.input } }
       ).then((risp) => {
         const risultati = risp.data.results;
-        console.log(risultati);
+        // console.log(risultati);
         this.indirizzi = risultati;
       });
       return this.indirizzi;
@@ -143,12 +151,12 @@ export default {
         const position = risp.data.results[0].position;
         this.lat = position.lat;
         this.lng = position.lon;
-        console.log("lat:" + this.lat + " lng:" + this.lng);
+        // console.log("lat:" + this.lat + " lng:" + this.lng);
         this.searchApartments();
       });
     },
     searchApartments() {
-      console.log(this.services);
+      // console.log(this.services);
       //reset degli appartamenti corretti
       this.correctApartments = [];
       console.log(this.correctApartments);
@@ -166,14 +174,14 @@ export default {
           apartment.room >= this.room &&
           apartment.bed >= this.bed
         ) {
-          console.log("la distanza è: " + distance.toFixed(3) + " km :)");
-          console.log(apartment.room);
-          console.log(apartment.bed);
-          console.log("Fatto");
+          // console.log("la distanza è: " + distance.toFixed(3) + " km :)");
+          // console.log(apartment.room);
+          // console.log(apartment.bed);
+          // console.log("Fatto");
           this.correctApartments.push(apartment);
         } else {
         }
-        console.log(this.correctApartments);
+        // console.log(this.correctApartments);
       }
     },
     distance(lat1, lon1, lat2, lon2) {

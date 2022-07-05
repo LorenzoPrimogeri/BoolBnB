@@ -120,6 +120,11 @@
     justify-content: center;
 }
 
+.ai-c {
+    align-items: center;
+}
+
+
 .w-100 {
     width: 100%;
 }
