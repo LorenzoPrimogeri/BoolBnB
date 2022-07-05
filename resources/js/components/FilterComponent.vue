@@ -4,7 +4,6 @@
         </div>
         <div id="cntExpand" class="cntExpandFilter">
             <div class="main-filter">
-
                 <div class="row-filter-ttl jc-e">
                     <div class="cnt-ttl">
                         <h2>Filtri</h2>

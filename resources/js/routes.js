@@ -1,9 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import HomeComponent from "./pages/HomeComponent";
+import HomePage from "./pages/HomePage";
 import NotFoundComponent from "./pages/NotFoundComponent";
-import ApartmentComponent from "./pages/ApartmentComponent";
+import ApartmentPage from "./pages/ApartmentPage";
 import SearchPage from "./pages/SearchPage";
 
 Vue.use(VueRouter);
@@ -14,12 +14,12 @@ const router = new VueRouter({
         {
             path: "/",
             name: "home",
-            component: HomeComponent,
+            component: HomePage,
         },
         {
             path: "/home/:id",
             name: "single-apartment",
-            component: ApartmentComponent,
+            component: ApartmentPage,
         },
         {
             path: "/search",
@@ -31,7 +31,7 @@ const router = new VueRouter({
             name: "notFound",
             component: NotFoundComponent,
         },
-        
+
     ],
 });
 

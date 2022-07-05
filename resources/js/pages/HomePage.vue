@@ -25,4 +25,18 @@ export default {
 
  <style>
  @import url('../../../public/css/layout-preset.css');
+ 
+ #search,
+ .cnt-result-adress {
+   display: flex;
+ }
+ 
+ .main-usr-set {
+   display: flex;
+ }
+ 
+ .cnt-btn-filter {
+   display: none !important;
+ }
  </style>
+

@@ -106,7 +106,7 @@
 
 <script>
 import Axios from "axios";
-import ApartmentComponent from "../pages/ApartmentComponent.vue";
+import ApartmentComponent from "../pages/ApartmentPage.vue";
 export default {
   name: "SearchComponent",
   components: {
