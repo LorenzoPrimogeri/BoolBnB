@@ -2093,6 +2093,14 @@ __webpack_require__.r(__webpack_exports__);
 
       _this.createMap(); //funzione per generare la mappa
 
+    }); //axios post per salvare le visualizzazioni
+
+    window.axios.post("/api/views/", {
+      apartment_id: id
+    }).then(function (resp) {
+      return console.log(resp);
+    })["catch"](function (err) {
+      return console.log(err);
     });
     $("#contacts").click(function () {
       $("#bgExpand").toggleClass("enlargeFilter");
