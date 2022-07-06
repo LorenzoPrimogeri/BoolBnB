@@ -22,7 +22,7 @@ const router = new VueRouter({
             component: ApartmentPage,
         },
         {
-            path: "/search",
+            path: "/search/:input",
             name: "search",
             component: SearchPage,
         },

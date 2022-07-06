@@ -1,14 +1,12 @@
 <template>
   <div>
-
     <!--Header-->
 
     <header>
       <div class="container wmax-100 h-100 pd-20-lr">
         <div class="cnt-hdr-items">
           <div class="col-2 col-xs-12">
-
-          <!--logo-->
+            <!--logo-->
 
             <div class="cnt-logo">
               <a href="">
@@ -19,13 +17,11 @@
               </a>
             </div>
 
-          <!--logo-->
-
+            <!--logo-->
           </div>
           <div class="cnt-nav col-8 h-100">
-
             <!--search-->
-            
+
             <div class="search">
               <div class="cnt-lens"></div>
               <div class="contStringSrc">
@@ -35,23 +31,22 @@
                   type="text"
                   placeholder="Cerca appartamento"
                   v-model="input"
-                  @input="onInputChanged"/>         
+                  @input="onInputChanged"
+                />
               </div>
-                <router-link to="search">
-                <div class="cnt-fine"></div>
-                </router-link>
+
+              <button class="cnt-fine" @click="takeLatLng()"></button>
             </div>
 
             <!--search-->
-
           </div>
           <div class="col-2 d-flex jc-c ai-c">
-
             <!--login/register button-->
 
             <div
               class="main-usr-set"
-              v-show="$route.name === 'home' ? true : false">
+              v-show="$route.name === 'home' ? true : false"
+            >
               <ul class="ul-log-reg">
                 <!-- Authentication Links -->
                 <!-- <a href="{{ route('login') }}"> -->
@@ -103,14 +98,14 @@
               <div
                 id="filter"
                 class="cnt-btn-filter"
-                v-show="$route.name === 'search' ? true : false">
+                v-show="$route.name === 'search' ? true : false"
+              >
                 <div class="btn-filter"></div>
                 <span>Filtri</span>
               </div>
             </div>
 
             <!--filter button-->
-
           </div>
         </div>
       </div>
@@ -146,7 +141,7 @@
             <div class="cnt-filter">
               <h3>Numero Stanze</h3>
               <div class="cnt-filter-select">
-                <input type="number" min="1" max="30" />
+                <input type="number" min="1" max="30" v-model="room" />
               </div>
             </div>
           </div>
@@ -154,11 +149,11 @@
             <div class="cnt-filter">
               <h3>Numero posti Letto</h3>
               <div class="cnt-filter-select">
-                <input type="number" min="1" max="30" />
+                <input type="number" min="1" max="30" v-model="bed" />
               </div>
             </div>
           </div>
-          <div class="row-filter">
+          <!-- <div class="row-filter">
             <div class="cnt-filter">
               <h3>Servizi</h3>
               <div class="cnt-filter-select d-flex gp-20">
@@ -176,14 +171,17 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="row-filter">
             <div class="cnt-filter">
               <h3>Distanza</h3>
               <div class="cnt-filter-select">
-                <input type="number" />
+                <input type="number" v-model="distanceKm" />
               </div>
             </div>
+          </div>
+          <div class="cnt-filter">
+            <button class="cnt-fine" @click="takeLatLng()"></button>
           </div>
         </div>
       </div>
@@ -194,19 +192,20 @@
 
     <main>
       <div class="container w-100">
-       <div class="cnt-cards pd-20">
-        <div class="box-card">
-            <div class="cnt-img">
-            </div>
+        <div class="cnt-cards pd-20">
+          <div
+            v-for="apartment in correctApartments"
+            :key="apartment.id"
+            class="box-card"
+          >
+            <!-- <div class="cnt-img"></div> -->
             <div class="cnt-txt cnt-h col-12">
-                <h2>Trentino, Italy</h2>
-                <h3>Appartamento</h3>
+              <h2>{{ apartment.title }}</h2>
+              <h3>{{ apartment.room }}</h3>
+              <h3>{{ apartment.bed }}</h3>
             </div>
-            <div class="price col-12">
-                <span>129,00€/notte</span>
-            </div>
+          </div>
         </div>
-      </div>
       </div>
     </main>
 
@@ -214,25 +213,22 @@
     <!--Footer-->
 
     <footer id="Footer">
-    <div class="container wmax-100 h-100 pd-20-lr">
-      <div class="col-2 h-100">
-      </div>
-      <div class="cnt-footer-items col-8 h-100">
-        <div class="cnt-items-ftr">
-          <ul>
-            <li><a href="#">link1</a></li>
-            <li><a href="#">link2</a></li>
-            <li><a href="#">link3</a></li>
-          </ul>
+      <div class="container wmax-100 h-100 pd-20-lr">
+        <div class="col-2 h-100"></div>
+        <div class="cnt-footer-items col-8 h-100">
+          <div class="cnt-items-ftr">
+            <ul>
+              <li><a href="#">link1</a></li>
+              <li><a href="#">link2</a></li>
+              <li><a href="#">link3</a></li>
+            </ul>
+          </div>
         </div>
+        <div class="col-2 h-100"></div>
       </div>
-      <div class="col-2 h-100">
-      </div>
-    </div>
     </footer>
 
     <!--Footer-->
-
   </div>
 </template>
 
@@ -241,7 +237,6 @@
 import axios from "axios";
 
 export default {
-  
   name: "SearchPage",
   data() {
     return {
@@ -260,7 +255,9 @@ export default {
     };
   },
   mounted() {
-
+    delete axios.defaults.headers.common["X-Requested-With"];
+    // console.log(this.$route.params.input);
+    this.input = this.$route.params.input;
     $("#filter").click(function () {
       $("#bgExpand").toggleClass("enlargeFilter");
       $("#cntExpand").toggleClass("enlargeFilter");
@@ -272,54 +269,70 @@ export default {
       $("#bgExpand").toggleClass("enlargeFilter");
       $("body").toggleClass("enlargeFilter");
     });
-
-    console.log('correct apartments', this.correctApartments)
-    //prendo tutti gli appartamenti dal database
-    axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
-      this.allApartaments = results.data.apartments;
-      // console.log(this.allApartaments);
-      this.allServices = results.data.services;
-      // console.log(this.allServices);
-    });
-
     //prendo lat e long dal indirizzo
-    console.log(this.input);
-    axios.get(
-      "https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
-      { params: { query: this.input } }
-    ).then((risp) => {
-      console.log(risp);
-      const position = risp.data.results[0].position;
-      this.lat = position.lat;
-      this.lng = position.lon;
-      // console.log("lat:" + this.lat + " lng:" + this.lng);
-      this.searchApartments();
-    });
-  },
-  methods: {
-    userSearched(userInput) {
-      console.log('$emit',userInput);
-      return userInput
-    },
-    takeLatLng() {
-      //prendo lat e long dal indirizzo
-      console.log(this.input);
-      axios.get(
+    axios
+      .get(
         "https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
         { params: { query: this.input } }
-      ).then((risp) => {
+      )
+      .then((risp) => {
         const position = risp.data.results[0].position;
         this.lat = position.lat;
         this.lng = position.lon;
         // console.log("lat:" + this.lat + " lng:" + this.lng);
-        this.searchApartments();
       });
+    //prendo tutti gli appartamenti dal database
+    axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
+      this.allApartaments = results.data.apartments;
+      console.log(this.allApartaments);
+      this.searchApartments();
+    });
+  },
+  methods: {
+    take(indirizzo) {
+      // const searchedAdress = indirizzo;
+      this.input = indirizzo;
+      //   return searchedAdress;
+      // console.log('risultato nuovo input', this.input);
+    },
+    onInputChanged() {
+      // console.log(this.distanceKm);
+      //Call axios che restituisce gli indirizzi autocomplete
+      delete axios.defaults.headers.common["X-Requested-With"];
+      this.indirizzi = [];
+      axios
+        .get(
+          "https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=5&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
+          { params: { query: this.input } }
+        )
+        .then((risp) => {
+          const risultati = risp.data.results;
+          // console.log('risultato', this.input);
+          this.indirizzi = risultati;
+        });
+      //return this.indirizzi;
+    },
+    takeLatLng() {
+      //prendo lat e long dal indirizzo
+      console.log(this.input);
+      axios
+        .get(
+          "https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
+          { params: { query: this.input } }
+        )
+        .then((risp) => {
+          const position = risp.data.results[0].position;
+          this.lat = position.lat;
+          this.lng = position.lon;
+          // console.log("lat:" + this.lat + " lng:" + this.lng);
+          this.searchApartments();
+        });
     },
     searchApartments() {
+      console.log("ciao sono qui");
       // console.log(this.services);
       //reset degli appartamenti corretti
       this.correctApartments = [];
-
       //console.log(this.apartaments);
       for (let i = 0; i < this.allApartaments.length; i++) {
         const apartment = this.allApartaments[i];
@@ -339,10 +352,9 @@ export default {
           // console.log(apartment.bed);
           // console.log("Fatto");
           this.correctApartments.push(apartment);
-        } else {
         }
-        console.log(this.correctApartments);
       }
+      console.log(this.correctApartments);
     },
     distance(lat1, lon1, lat2, lon2) {
       if (lat1 == lat2 && lon1 == lon2) {
@@ -370,7 +382,6 @@ export default {
 </script>
 
 <style  lang="scss">
-
 // style main
 
 main {
@@ -386,59 +397,59 @@ main {
 // style main card
 
 .container {
-    position: relative;
-    .cnt-label {
-        position: sticky;
-        display: flex;
-        padding: 20px;
-        color: #fff;
-        height: auto;
-        background-color: violet;
-        left: 50px;
-        justify-content: center;
-        align-items: center;
+  position: relative;
+  .cnt-label {
+    position: sticky;
+    display: flex;
+    padding: 20px;
+    color: #fff;
+    height: auto;
+    background-color: violet;
+    left: 50px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 2em;
+  }
+  .cnt-cards {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+  }
+  .box-card {
+    background-color: violet;
+    width: 300px;
+    height: 200px;
+    flex-direction: column;
+    .cnt-img {
+      height: 200px;
+      width: 100%;
+      background-color: blue;
+    }
+    // img {
+    //     width: 100%;
+    //     border-radius: 20px;
+    // }
+    .cnt-h {
+      height: 50px;
+      padding: 10px 0;
+      h2 {
+        font-size: 1em;
+      }
+      h3 {
+        color: grey;
+        font-size: 0.8em;
+      }
+    }
+    .price {
+      display: contents;
+      span {
+        width: 100%;
+        text-align: left;
         font-weight: 600;
-        font-size: 2em;
+      }
     }
-    .cnt-cards {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 25px;
-    }
-    .box-card {
-        background-color: violet;
-        width: 300px;
-        height: 200px;
-        flex-direction: column;
-        .cnt-img {
-            height: 200px;
-            width: 100%;
-            background-color: blue;
-        }
-        // img {
-        //     width: 100%;
-        //     border-radius: 20px;
-        // }
-        .cnt-h {
-            height: 50px;
-            padding: 10px 0;
-            h2 {
-                font-size: 1em;
-            }
-            h3 {
-                color: grey;
-                font-size: 0.8em;
-            }
-        }
-        .price {
-            display: contents;
-            span {
-                width: 100%;
-                text-align: left;
-                font-weight: 600;
-            }
-        }
-    }
+  }
 }
 
 // style footer
@@ -456,7 +467,6 @@ footer {
     width: 100%;
 
     .cnt-items-ftr {
-
       ul {
         display: flex;
         align-items: center;
@@ -752,7 +762,4 @@ body.enlargeFilter {
     height: 100%;
   }
 }
-
-
-
 </style>

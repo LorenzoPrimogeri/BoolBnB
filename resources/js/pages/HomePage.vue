@@ -1,14 +1,12 @@
 <template>
   <div>
-
     <!--Header-->
 
     <header>
       <div class="container wmax-100 h-100 pd-20-lr">
         <div class="cnt-hdr-items">
           <div class="col-2 col-xs-12">
-
-          <!--logo-->
+            <!--logo-->
 
             <div class="cnt-logo">
               <router-link to="/">
@@ -19,11 +17,9 @@
               </router-link>
             </div>
 
-          <!--logo-->
-
+            <!--logo-->
           </div>
           <div class="cnt-nav col-8 h-100">
-
             <!--search-->
 
             <div class="search">
@@ -35,23 +31,28 @@
                   type="text"
                   placeholder="Cerca appartamento"
                   v-model="input"
-                  @input="onInputChanged"/>         
+                  @input="onInputChanged"
+                />
               </div>
-                <router-link to="search">
+              <router-link
+                :to="{
+                  name: 'search',
+                  params: { input: input },
+                }"
+              >
                 <div class="cnt-fine"></div>
-                </router-link>
+              </router-link>
             </div>
 
             <!--search-->
-
           </div>
           <div class="col-2 d-flex jc-c ai-c">
-
             <!--login/register button-->
 
             <div
               class="main-usr-set"
-              v-show="$route.name === 'home' ? true : false">
+              v-show="$route.name === 'home' ? true : false"
+            >
               <ul class="ul-log-reg">
                 <!-- Authentication Links -->
                 <!-- <a href="{{ route('login') }}"> -->
@@ -103,14 +104,14 @@
               <div
                 id="filter"
                 class="cnt-btn-filter"
-                v-show="$route.name === 'search' ? true : false">
+                v-show="$route.name === 'search' ? true : false"
+              >
                 <div class="btn-filter"></div>
                 <span>Filtri</span>
               </div>
             </div>
 
             <!--filter button-->
-
           </div>
         </div>
       </div>
@@ -132,19 +133,18 @@
 
     <main>
       <div class="container w-100">
-       <div class="cnt-cards pd-20">
-        <div class="box-card">
-            <div class="cnt-img">
-            </div>
+        <div class="cnt-cards pd-20">
+          <div class="box-card">
+            <div class="cnt-img"></div>
             <div class="cnt-txt cnt-h col-12">
-                <h2>Trentino, Italy</h2>
-                <h3>Appartamento</h3>
+              <h2>Trentino, Italy</h2>
+              <h3>Appartamento</h3>
             </div>
             <div class="price col-12">
-                <span>129,00€/notte</span>
+              <span>129,00€/notte</span>
             </div>
+          </div>
         </div>
-      </div>
       </div>
     </main>
 
@@ -152,25 +152,22 @@
     <!--Footer-->
 
     <footer id="Footer">
-    <div class="container wmax-100 h-100 pd-20-lr">
-      <div class="col-2 h-100">
-      </div>
-      <div class="cnt-footer-items col-8 h-100">
-        <div class="cnt-items-ftr">
-          <ul>
-            <li><a href="#">link1</a></li>
-            <li><a href="#">link2</a></li>
-            <li><a href="#">link3</a></li>
-          </ul>
+      <div class="container wmax-100 h-100 pd-20-lr">
+        <div class="col-2 h-100"></div>
+        <div class="cnt-footer-items col-8 h-100">
+          <div class="cnt-items-ftr">
+            <ul>
+              <li><a href="#">link1</a></li>
+              <li><a href="#">link2</a></li>
+              <li><a href="#">link3</a></li>
+            </ul>
+          </div>
         </div>
+        <div class="col-2 h-100"></div>
       </div>
-      <div class="col-2 h-100">
-      </div>
-    </div>
     </footer>
 
     <!--Footer-->
-
   </div>
 </template>
 
@@ -182,18 +179,18 @@ export default {
   data() {
     return {
       input: "",
-      searchedAdress: '',
-      lat: 0, //Riferito all'indirizzo inserito dal utente
-      lng: 0, //Riferito all'indirizzo inserito dal utente
+      searchedAdress: "",
+      //  lat: 0, //Riferito all'indirizzo inserito dal utente
+      //  lng: 0, //Riferito all'indirizzo inserito dal utente
       indirizzi: [], //indirizzi che stampo per l'auto complete
       allApartaments: [], //tutti gli appartamenti visible
       correctApartments: [], //appartamenti che soddisfano la ricerca
-      allServices: [],
-      services: [],
-      distanceKm: 20,
-      room: 1,
-      inputUser: ' ',
-      bed: 1,
+      //  allServices: [],
+      //  services: [],
+      //  distanceKm: 20,
+      //  room: 1,
+      //  inputUser: ' ',
+      //bed: 1,
     };
   },
   mounted() {
@@ -201,7 +198,7 @@ export default {
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       this.allApartaments = results.data.apartments;
       // console.log(this.allApartaments);
-      this.allServices = results.data.services;
+      // this.allServices = results.data.services;
       // console.log(this.allServices);
     });
     // if (localStorage.input) {
@@ -218,20 +215,22 @@ export default {
       //Call axios che restituisce gli indirizzi autocomplete
       delete axios.defaults.headers.common["X-Requested-With"];
       this.indirizzi = [];
-      axios.get(
-        "https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=5&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
-        { params: { query: this.input } }
-      ).then((risp) => {
-        const risultati = risp.data.results;
-        // console.log('risultato', this.input);
-        this.indirizzi = risultati;
-      });
-      return this.indirizzi;
+      axios
+        .get(
+          "https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=5&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
+          { params: { query: this.input } }
+        )
+        .then((risp) => {
+          const risultati = risp.data.results;
+          // console.log('risultato', this.input);
+          this.indirizzi = risultati;
+        });
+      //return this.indirizzi;
     },
     take(indirizzo) {
-      const searchedAdress = indirizzo
+      // const searchedAdress = indirizzo;
       this.input = indirizzo;
-      return searchedAdress
+      //   return searchedAdress;
       // console.log('risultato nuovo input', this.input);
     },
   },
@@ -257,59 +256,59 @@ main {
 // style main card
 
 .container {
-    position: relative;
-    .cnt-label {
-        position: sticky;
-        display: flex;
-        padding: 20px;
-        color: #fff;
-        height: auto;
-        background-color: violet;
-        left: 50px;
-        justify-content: center;
-        align-items: center;
+  position: relative;
+  .cnt-label {
+    position: sticky;
+    display: flex;
+    padding: 20px;
+    color: #fff;
+    height: auto;
+    background-color: violet;
+    left: 50px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 2em;
+  }
+  .cnt-cards {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+  }
+  .box-card {
+    background-color: violet;
+    width: 300px;
+    height: 200px;
+    flex-direction: column;
+    .cnt-img {
+      height: 200px;
+      width: 100%;
+      background-color: blue;
+    }
+    // img {
+    //     width: 100%;
+    //     border-radius: 20px;
+    // }
+    .cnt-h {
+      height: 50px;
+      padding: 10px 0;
+      h2 {
+        font-size: 1em;
+      }
+      h3 {
+        color: grey;
+        font-size: 0.8em;
+      }
+    }
+    .price {
+      display: contents;
+      span {
+        width: 100%;
+        text-align: left;
         font-weight: 600;
-        font-size: 2em;
+      }
     }
-    .cnt-cards {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 25px;
-    }
-    .box-card {
-        background-color: violet;
-        width: 300px;
-        height: 200px;
-        flex-direction: column;
-        .cnt-img {
-            height: 200px;
-            width: 100%;
-            background-color: blue;
-        }
-        // img {
-        //     width: 100%;
-        //     border-radius: 20px;
-        // }
-        .cnt-h {
-            height: 50px;
-            padding: 10px 0;
-            h2 {
-                font-size: 1em;
-            }
-            h3 {
-                color: grey;
-                font-size: 0.8em;
-            }
-        }
-        .price {
-            display: contents;
-            span {
-                width: 100%;
-                text-align: left;
-                font-weight: 600;
-            }
-        }
-    }
+  }
 }
 
 // style footer
@@ -327,7 +326,6 @@ footer {
     width: 100%;
 
     .cnt-items-ftr {
-
       ul {
         display: flex;
         align-items: center;
@@ -350,5 +348,4 @@ footer {
     }
   }
 }
-
 </style>
