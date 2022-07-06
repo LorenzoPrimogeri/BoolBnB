@@ -272,6 +272,25 @@ header .cnt-logo a {
   flex-grow: 1;
 }
 
+.main-slct-item-stat {
+  display: flex;
+  position: absolute;
+  width: calc(100% - 220px);
+  align-items: center;
+  left: 300px;
+  padding: 180px 0;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+}
+
+.main-slct-item-stat .cnt-item-dash-stat {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  padding: 30px 50px;
+  box-shadow: 0px 0px 10px 5px rgba(150, 150, 150, 0.2);
+}
+
 /* .main-usr-set {
     position: fixed;
     top: 0;

@@ -18,11 +18,12 @@ class ViewController extends Controller
      */
     public function index(Apartment $apartment)
     {
+
         $user = Auth::user();
         if($user->id == $apartment->user_id){
         $views = View::where('apartment_id', $apartment->id)->count();
         $messages = Message::where('apartment_id', $apartment->id)->count();
-        return view('admin.apartments.views.index', compact('views','messages'));
+        return view('admin.apartments.views.index', compact('views','messages','apartment'));
         }
         abort(404);
     }

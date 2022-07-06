@@ -5,42 +5,69 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use App\User;
 use App\View;
+use App\Apartment;
+use App\Message;
 
 class ChartController extends Controller
 {
-    public function index()
+    public function index($id)
     {
-        $data = View::select('created_at')->get()->groupBy(function($data){
+
+        $views = View::select('created_at')->where('apartment_id',$id)->get()->groupBy(function($data){
             return Carbon::parse($data->created_at)->format("M");
         });
 
-        $months=[];
-        $monthsCount=[];
+        $messages = Message::select('created_at')->where('apartment_id',$id)->get()->groupBy(function($data){
+            return Carbon::parse($data->created_at)->format("M");
+        });
 
-        foreach($data as $month => $values){
-            $months[]=$month;
-            $monthsCount[]=count($values);
+
+        $monthsV=[];
+        $monthsCountV=[];
+
+        foreach($views as $month => $values){
+            $monthsV[]=$month;
+            $monthsCountV[]=count($values);
         }
 
-
-
-
-        $chartjs = app()->chartjs
-         ->name('barChartTest')
+        $chartjsV = app()->chartjs
+         ->name('visual')
          ->type('bar')
          ->size(['width' => 400, 'height' => 200])
-         ->labels(array_reverse($months))
+         ->labels(array_reverse($monthsV))
          ->datasets([
              [
                  "label" => "visualizzazioni",
                  'backgroundColor' => ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
-                 'data' => array_reverse($monthsCount)
+                 'data' => array_reverse($monthsCountV)
              ]
          ])
          ->options([]);
 
-        return view('admin.apartments.views.index', compact('chartjs'));
+        $monthsM=[];
+        $monthsCountM=[];
+
+        foreach($messages as $month => $values){
+            $monthsM[]=$month;
+            $monthsCountM[]=count($values);
+        }
+
+
+         $chartjsM = app()->chartjs
+         ->name('message')
+         ->type('bar')
+         ->size(['width' => 400, 'height' => 200])
+         ->labels(array_reverse($monthsM))
+         ->datasets([
+             [
+                 "label" => "messaggi",
+                 'backgroundColor' => ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+                 'data' => array_reverse($monthsCountM)
+             ]
+         ])
+         ->options([]);
+
+        return view('admin.apartments.views.index', compact('chartjsV','chartjsM'));
     }
 }
