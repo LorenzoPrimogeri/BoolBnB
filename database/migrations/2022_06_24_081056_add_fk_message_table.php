@@ -17,7 +17,7 @@ class AddFkMessageTable extends Migration
             $table->unsignedBigInteger('apartment_id');
             $table->foreign('apartment_id')
                 ->references('id')
-                ->on('apartments')->setDelete('set null');
+                ->on('apartments')->onDelete('cascade');
         });
     }
 
