@@ -18,7 +18,8 @@ class ApartmentController extends Controller
     {
         //$apartments = Apartment::all();
         //mandiamo alla home solo gli apartamenti che gli utenti hanno impostato "visibile"
-        $apartments = Apartment::where('visible', 1)->with(['services'])->get();
+        $apartments = Apartment::where('visible', 1)->with(['services'])->with(['sponsorships'])->get();
+        // $sApartments = Apartment::where('visible', 1)->with(['sponsorships'])->get();
         $services = Service::all();
         $result = ['apartments' => $apartments, 'services' => $services, 'success' => true];
         return response()->json($result);
