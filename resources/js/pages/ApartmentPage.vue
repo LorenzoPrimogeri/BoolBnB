@@ -1,5 +1,5 @@
 <template>
-  <main id="Main">
+  <div class="main">
     <div class="container flex">
 
 
@@ -115,7 +115,7 @@
     <!-- <div v-else>
         <LoaderComponent />
     </div> -->
-  </main>
+  </div>
 </template>
 
 <script>
@@ -264,7 +264,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-main {
+.main {
   .flex {
     display: flex;
     flex-direction: column;

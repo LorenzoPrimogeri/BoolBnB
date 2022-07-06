@@ -190,7 +190,7 @@
     <!--Filter-->
     <!--Main-->
 
-    <main>
+    <main id="main">
       <div class="container w-100">
         <div class="cnt-cards pd-20">
           <div
@@ -384,7 +384,7 @@ export default {
 <style  lang="scss">
 // style main
 
-main {
+#main {
   display: flex;
   width: 100%;
   margin: 180px auto;
