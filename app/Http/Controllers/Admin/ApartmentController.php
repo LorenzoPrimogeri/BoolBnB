@@ -252,24 +252,24 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function sponsors($id)
+    public function checkIn($id)
     {
         $apartment = Apartment::find($id);
         $sponsors = Sponsorship::all();
         return view('admin.checkin', compact('sponsors', 'apartment'));
     }
-    public function checkOut(Gateway $gateway, $sponsor_id)
+    public function checkOut(Gateway $gateway, $sponsor_id, $apartment_id)
     {
+       // dd($apartment_id);
+        $apartment = Apartment::find($apartment_id);
 
-        // $apartment = Apartment::find($id);
-
-        // $apartment->sponsorships()->sync($id);
+        $apartment->sponsorships()->sync($sponsor_id);
         // $apartment->services()->sync([]);
 
         return view('admin.checkout', [
             "id" => $sponsor_id,
             "token" => $gateway->clientToken()->generate(),
-            // "apartment" => $apartment,
+            "apartment" => $apartment,
             "sponsor" => Sponsorship::find($sponsor_id)
         ]);
     }

@@ -1,16 +1,16 @@
 @extends('layouts.app')
-{{-- @dd($user); --}}
 @section('content')
 
 <div style="margin: 500px;">
     <div>
         <div>
-            {{-- title --}}
+
             <h5>...</h5>
             @foreach ($sponsors as $sponsor)
             <ul>
                 <li>
-                    <a href="{{ route('admin.checkout', $sponsor->id) }}">
+                    <a
+                        href="{{ route('admin.checkout', ['sponsor_id'=>$sponsor->id,'apartment_id'=> $apartment->id]) }}">
                         <h5>Type: {{ $sponsor->type }}</h5>
 
                         <span>Duration: {{ $sponsor->duration }}</span>

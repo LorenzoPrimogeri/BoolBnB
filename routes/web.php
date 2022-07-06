@@ -32,8 +32,8 @@ Route::middleware('auth')
         Route::resource('/apartments', 'ApartmentController');
         Route::resource('apartments.messages', "MessageController");
         Route::get('/messages', 'MessageController@index')->name('messages');
-        Route::get("/checkin", "ApartmentController@sponsors")->name("checkin");
-        Route::get("/checkout/{id}", "ApartmentController@checkOut")->name("checkout");
+        Route::get("/checkin/{id}", "ApartmentController@checkIn")->name("checkin");
+        Route::get("/checkout/{sponsor_id}/{apartment_id}", "ApartmentController@checkOut")->name("checkout");
         Route::get('/confirmed', function () {
             return view('admin.confirmed');
         })->name('confirmed');
@@ -52,6 +52,9 @@ Route::middleware('auth')
                     'submitForSettlement' => true
                 ]
             ]);
+            if($result->success){
+                
+            }
             return view('admin.confirmed', ['sponsor' => $sponsor]);
         })->name('payment');
     });

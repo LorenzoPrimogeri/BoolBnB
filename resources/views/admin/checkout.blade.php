@@ -1,60 +1,39 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
-    <div class="col-sm-10 col-md-10 col-lg-9 offset-lg-1">
-        <div class="row">
-            <div class="order-sm-2 order-md-1 col-sm-10 col-md-6 col-lg-8">
-                <div class="row" style="margin: 100px;">
-                    <div style="height: 500px; "
-                        class="col-md-12 col-lg-6 grid-margin stretch-card my-3 overflow-auto h-100">
-                        <div class="card p-3">
-                            <div class="card-body  overflow-auto">
-                                <h5 class="card-title">You choose Type:{{$sponsor->type}}</h5>
-                                <li class="list-group-item w-75">
-                                    <p>Duration: {{ $sponsor->duration }} Hr</p>
-                                    Price: {{ $sponsor->price }}$
-                                </li>
-                            </div>
-                            <div>
-                                Are you sure?
-                                <p>Continue here for the payment or
-                                <div><a href="{{route ('admin.checkin')}}">Go Back</a></div>
-                                </p>
-                                <form id="payment-form" action="{{ route('admin.payment')}}" method="POST"
-                                    enctype="multipart/form-data">
-                                    @csrf
-                                    @method('PUT')
-                                    <section>
-                                        <label for="amount">
-                                            <div class="input-wrapper amount-wrapper">
-                                                <input type="hidden" id="amount" name="amount" min="1"
-                                                    placeholder="amount" value="{{ $sponsor->price }}" readonly>
-                                            </div>
-                                        </label>
+<div style="margin:100px 250px;">
+    <p> Type: {{ $sponsor->type }}</p>
+    <p>Duration: {{ $sponsor->duration }} Hr</p>
+    <p> Price: {{ $sponsor->price }}$</p>
+    <p>apartment id: {{$apartment->id}}</p>
 
-                                        <input type="hidden" name="id" value="{{ $id }}">
-                                        <input type="hidden" name="token" value="{{ $token }}">
-                                        <div class="bt-drop-in-wrapper">
-                                            <div id="bt-dropin"></div>
-                                        </div>
-                                        <input type="hidden" name="payment_method_nonce" value="fake-valid-visa-nonce"
-                                            id="nonce">
-                                    </section>
-                                    <div class="d-flex w-100 justify-content-between align-item-baseline">
-                                        <button class="button btn btn-success" type="submit">
-                                            <span>BUY</span>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+    <div>
+        <form id="payment-form" action="{{ route('admin.payment', $apartment->id)}}" method="POST"
+            enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <section>
+                <label for="amount">
+                    <div class="input-wrapper amount-wrapper">
+                        <input type="hidden" id="amount" name="amount" min="1" placeholder="amount"
+                            value="{{ $sponsor->price }}" readonly>
                     </div>
+                </label>
+
+                <input type="hidden" name="id" value="{{ $id }}">
+                <input type="hidden" name="token" value="{{ $token }}">
+                <div class="bt-drop-in-wrapper">
+                    <div id="bt-dropin"></div>
                 </div>
+                <input type="hidden" name="payment_method_nonce" value="fake-valid-visa-nonce" id="nonce">
+            </section>
+            <div class="d-flex w-100 justify-content-between align-item-baseline">
+                <button class="button btn btn-success" type="submit">
+                    <span>BUY</span>
+                </button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
-
 
 <script src="https://js.braintreegateway.com/web/dropin/1.31.0/js/dropin.min.js"></script>
 
