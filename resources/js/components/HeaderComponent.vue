@@ -18,16 +18,22 @@
             <div class="search">
               <div class="cnt-lens"></div>
               <div class="contStringSrc">
+                <keep-alive>
                 <input
+                  @keyup.enter="saveValue(this)"
+                  id="userInput"
                   class="accountInput"
                   type="text"
                   placeholder="Cerca appartamento"
                   v-model="input"
                   @input="onInputChanged"
-                />
+                  @keypress="persist"
+                />         
+                  </keep-alive>
+
                 <!-- <div class="input">T-Shirt manica corta bianca i have a dream</div> -->
               </div>
-              <a href="#">
+              <a href="/search" @click="persist" @change="$emit('search', input , searchedAdress)" >
                 <div class="cnt-fine"></div>
               </a>
             </div>
@@ -36,8 +42,7 @@
           <div class="col-2 d-flex jc-c ai-c">
             <div
               class="main-usr-set"
-              v-show="$route.name === 'home' ? true : false"
-            >
+              v-show="$route.name === 'home' ? true : false">
               <ul class="ul-log-reg">
                 <!-- Authentication Links -->
                 <!-- <a href="{{ route('login') }}"> -->
@@ -109,16 +114,17 @@
 </template>
 
 <script>
-import Axios from "axios";
+import axios from "axios";
 import ApartmentComponent from "../pages/ApartmentComponent.vue";
 export default {
-  name: "SearchComponent",
+  name: "HeaderComponent",
   components: {
     ApartmentComponent,
   },
   data() {
     return {
       input: "",
+      searchedAdress: '',
       lat: 0, //Riferito all'indirizzo inserito dal utente
       lng: 0, //Riferito all'indirizzo inserito dal utente
       indirizzi: [], //indirizzi che stampo per l'auto complete
@@ -128,10 +134,12 @@ export default {
       services: [],
       distanceKm: 20,
       room: 1,
+      inputUser: ' ',
       bed: 1,
     };
   },
   mounted() {
+    
     //prendo tutti gli appartamenti dal database
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       this.allApartaments = results.data.apartments;
@@ -139,25 +147,35 @@ export default {
       this.allServices = results.data.services;
       // console.log(this.allServices);
     });
+    if (localStorage.input) {
+      this.input = localStorage.input;
+    }
   },
   methods: {
+    persist() {
+      localStorage.input = this.input;
+      console.log("Storage Input " + localStorage.input);
+    },
     onInputChanged() {
       // console.log(this.distanceKm);
       //Call axios che restituisce gli indirizzi autocomplete
       delete axios.defaults.headers.common["X-Requested-With"];
       this.indirizzi = [];
-      Axios.get(
+      axios.get(
         "https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=5&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
         { params: { query: this.input } }
       ).then((risp) => {
         const risultati = risp.data.results;
-        console.log(risultati);
+        // console.log('risultato', this.input);
         this.indirizzi = risultati;
       });
       return this.indirizzi;
     },
     take(indirizzo) {
+      const searchedAdress = indirizzo
       this.input = indirizzo;
+      return searchedAdress
+      // console.log('risultato nuovo input', this.input);
     },
   },
 };

@@ -2207,16 +2207,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "SearchComponent",
+  name: "HeaderComponent",
   components: {
     ApartmentComponent: _pages_ApartmentComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
       input: "",
+      searchedAdress: '',
       lat: 0,
       //Riferito all'indirizzo inserito dal utente
       lng: 0,
@@ -2231,6 +2237,7 @@ __webpack_require__.r(__webpack_exports__);
       services: [],
       distanceKm: 20,
       room: 1,
+      inputUser: ' ',
       bed: 1
     };
   },
@@ -2238,33 +2245,43 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     //prendo tutti gli appartamenti dal database
-    axios.get("http://127.0.0.1:8000/api/apartments").then(function (results) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments").then(function (results) {
       _this.allApartaments = results.data.apartments; // console.log(this.allApartaments);
 
       _this.allServices = results.data.services; // console.log(this.allServices);
     });
+
+    if (localStorage.input) {
+      this.input = localStorage.input;
+    }
   },
   methods: {
+    persist: function persist() {
+      localStorage.input = this.input;
+      console.log("Storage Input " + localStorage.input);
+    },
     onInputChanged: function onInputChanged() {
       var _this2 = this;
 
       // console.log(this.distanceKm);
       //Call axios che restituisce gli indirizzi autocomplete
-      delete axios.defaults.headers.common["X-Requested-With"];
+      delete axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common["X-Requested-With"];
       this.indirizzi = [];
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=5&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK", {
         params: {
           query: this.input
         }
       }).then(function (risp) {
-        var risultati = risp.data.results;
-        console.log(risultati);
+        var risultati = risp.data.results; // console.log('risultato', this.input);
+
         _this2.indirizzi = risultati;
       });
       return this.indirizzi;
     },
     take: function take(indirizzo) {
+      var searchedAdress = indirizzo;
       this.input = indirizzo;
+      return searchedAdress; // console.log('risultato nuovo input', this.input);
     }
   }
 });
@@ -2289,11 +2306,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MainComponent",
   components: {
     CardComponent: _components_CardComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: {
+    apartments: Array
   }
 });
 
@@ -2308,35 +2331,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2669,6 +2663,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_MainComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/MainComponent.vue */ "./resources/js/components/MainComponent.vue");
 /* harmony import */ var _components_FooterComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/FooterComponent.vue */ "./resources/js/components/FooterComponent.vue");
 /* harmony import */ var _components_FilterComponent_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/FilterComponent.vue */ "./resources/js/components/FilterComponent.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
 //
 //
 //
@@ -2679,6 +2675,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -2694,6 +2691,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       input: "",
+      userInput: "",
       lat: 0,
       //Riferito all'indirizzo inserito dal utente
       lng: 0,
@@ -2723,20 +2721,22 @@ __webpack_require__.r(__webpack_exports__);
       $("#cntExpand").toggleClass("enlargeFilter");
       $("#bgExpand").toggleClass("enlargeFilter");
       $("body").toggleClass("enlargeFilter");
-    }); //prendo tutti gli appartamenti dal database
+    });
+    console.log('correct apartments', this.correctApartments); //prendo tutti gli appartamenti dal database
 
-    axios.get("http://127.0.0.1:8000/api/apartments").then(function (results) {
+    axios__WEBPACK_IMPORTED_MODULE_4___default.a.get("http://127.0.0.1:8000/api/apartments").then(function (results) {
       _this.allApartaments = results.data.apartments; // console.log(this.allApartaments);
 
       _this.allServices = results.data.services; // console.log(this.allServices);
     }); //prendo lat e long dal indirizzo
 
     console.log(this.input);
-    Axios.get("https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK", {
+    axios__WEBPACK_IMPORTED_MODULE_4___default.a.get("https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK", {
       params: {
         query: this.input
       }
     }).then(function (risp) {
+      console.log(risp);
       var position = risp.data.results[0].position;
       _this.lat = position.lat;
       _this.lng = position.lon; // console.log("lat:" + this.lat + " lng:" + this.lng);
@@ -2745,12 +2745,16 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
+    userSearched: function userSearched(userInput) {
+      console.log('$emit', userInput);
+      return userInput;
+    },
     takeLatLng: function takeLatLng() {
       var _this2 = this;
 
       //prendo lat e long dal indirizzo
       console.log(this.input);
-      Axios.get("https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK", {
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get("https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK", {
         params: {
           query: this.input
         }
@@ -35323,34 +35327,73 @@ var render = function () {
             _c("div", { staticClass: "search" }, [
               _c("div", { staticClass: "cnt-lens" }),
               _vm._v(" "),
-              _c("div", { staticClass: "contStringSrc" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.input,
-                      expression: "input",
-                    },
-                  ],
-                  staticClass: "accountInput",
-                  attrs: { type: "text", placeholder: "Cerca appartamento" },
-                  domProps: { value: _vm.input },
-                  on: {
-                    input: [
-                      function ($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.input = $event.target.value
+              _c(
+                "div",
+                { staticClass: "contStringSrc" },
+                [
+                  _c("keep-alive", [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.input,
+                          expression: "input",
+                        },
+                      ],
+                      staticClass: "accountInput",
+                      attrs: {
+                        id: "userInput",
+                        type: "text",
+                        placeholder: "Cerca appartamento",
                       },
-                      _vm.onInputChanged,
-                    ],
-                  },
-                }),
-              ]),
+                      domProps: { value: _vm.input },
+                      on: {
+                        keyup: function ($event) {
+                          if (
+                            !$event.type.indexOf("key") &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.saveValue(this)
+                        },
+                        input: [
+                          function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.input = $event.target.value
+                          },
+                          _vm.onInputChanged,
+                        ],
+                        keypress: _vm.persist,
+                      },
+                    }),
+                  ]),
+                ],
+                1
+              ),
               _vm._v(" "),
-              _vm._m(1),
+              _c(
+                "a",
+                {
+                  attrs: { href: "/search" },
+                  on: {
+                    click: _vm.persist,
+                    change: function ($event) {
+                      return _vm.$emit("search", _vm.input, _vm.searchedAdress)
+                    },
+                  },
+                },
+                [_c("div", { staticClass: "cnt-fine" })]
+              ),
             ]),
           ]),
           _vm._v(" "),
@@ -35368,7 +35411,7 @@ var render = function () {
                 ],
                 staticClass: "main-usr-set",
               },
-              [_vm._m(2)]
+              [_vm._m(1)]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "col-2 d-flex jc-c ai-c" }, [
@@ -35453,14 +35496,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "#" } }, [
-      _c("div", { staticClass: "cnt-fine" }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("ul", { staticClass: "ul-log-reg" }, [
       _c("li", [
         _c("div", { staticClass: "ico-log ico-login" }),
@@ -35498,7 +35533,20 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("main", [
-    _c("div", { staticClass: "container w-100" }, [_c("CardComponent")], 1),
+    _c(
+      "div",
+      { staticClass: "container w-100" },
+      [
+        _c("CardComponent"),
+        _vm._v(" "),
+        _vm._l(_vm.apartments, function (apartment, index) {
+          return _c("div", { key: index }, [
+            _c("h2", [_vm._v(_vm._s(apartment.title))]),
+          ])
+        }),
+      ],
+      2
+    ),
   ])
 }
 var staticRenderFns = []
@@ -35725,124 +35773,6 @@ var render = function () {
         ]),
       ]),
     ]),
-    _vm._v(" "),
-    _c("div", {}, [
-      _c(
-        "form",
-        {
-          attrs: { method: "POST" },
-          on: {
-            submit: function ($event) {
-              $event.preventDefault()
-              return _vm.sendForm()
-            },
-          },
-        },
-        [
-          _c("div", { staticClass: "mb-3" }, [
-            _c(
-              "label",
-              { staticClass: "form-label", attrs: { for: "email" } },
-              [_vm._v("Email")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.email,
-                  expression: "email",
-                },
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "email",
-                id: "email",
-                placeholder: "name@example.com",
-                required: "",
-              },
-              domProps: { value: _vm.email },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.email = $event.target.value
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mb-3" }, [
-            _c(
-              "label",
-              { staticClass: "form-label", attrs: { for: "object" } },
-              [_vm._v("Oggetto")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.object,
-                  expression: "object",
-                },
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                id: "object",
-                placeholder: "Oggetto dell'email",
-                required: "",
-              },
-              domProps: { value: _vm.object },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.object = $event.target.value
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mb-3" }, [
-            _c("label", { staticClass: "form-label", attrs: { for: "body" } }, [
-              _vm._v("Messaggio"),
-            ]),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.body,
-                  expression: "body",
-                },
-              ],
-              staticClass: "form-control",
-              attrs: { id: "body", rows: "3", required: "" },
-              domProps: { value: _vm.body },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.body = $event.target.value
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("button", { attrs: { type: "submit", disabled: _vm.sending } }, [
-            _vm._v("Invia mail"),
-          ]),
-        ]
-      ),
-    ]),
   ])
 }
 var staticRenderFns = [
@@ -35984,11 +35914,11 @@ var render = function () {
   return _c(
     "div",
     [
-      _c("HeaderComponent"),
+      _c("HeaderComponent", { on: { search: _vm.userSearched } }),
       _vm._v(" "),
       _c("FilterComponent"),
       _vm._v(" "),
-      _c("MainComponent"),
+      _c("MainComponent", { attrs: { apartments: _vm.correctApartments } }),
       _vm._v(" "),
       _c("FooterComponent"),
     ],

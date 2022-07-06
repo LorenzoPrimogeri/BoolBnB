@@ -1,8 +1,8 @@
 <template>
   <div>
-    <HeaderComponent />
+    <HeaderComponent @search="userSearched" />
     <FilterComponent />
-    <MainComponent />
+    <MainComponent :apartments="correctApartments" />
     <FooterComponent />
   </div>
 </template>
@@ -13,8 +13,10 @@ import HeaderComponent from "../components/HeaderComponent.vue";
 import MainComponent from "../components/MainComponent.vue";
 import FooterComponent from "../components/FooterComponent.vue";
 import FilterComponent from "../components/FilterComponent.vue";
+import axios from "axios";
 
 export default {
+  
   name: "SearchPage",
   components: {
     HeaderComponent,
@@ -25,6 +27,7 @@ export default {
   data() {
     return {
       input: "",
+      userInput: "",
       lat: 0, //Riferito all'indirizzo inserito dal utente
       lng: 0, //Riferito all'indirizzo inserito dal utente
       indirizzi: [], //indirizzi che stampo per l'auto complete
@@ -38,6 +41,7 @@ export default {
     };
   },
   mounted() {
+
     $("#filter").click(function () {
       $("#bgExpand").toggleClass("enlargeFilter");
       $("#cntExpand").toggleClass("enlargeFilter");
@@ -49,6 +53,8 @@ export default {
       $("#bgExpand").toggleClass("enlargeFilter");
       $("body").toggleClass("enlargeFilter");
     });
+
+    console.log('correct apartments', this.correctApartments)
     //prendo tutti gli appartamenti dal database
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       this.allApartaments = results.data.apartments;
@@ -59,10 +65,11 @@ export default {
 
     //prendo lat e long dal indirizzo
     console.log(this.input);
-    Axios.get(
+    axios.get(
       "https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
       { params: { query: this.input } }
     ).then((risp) => {
+      console.log(risp);
       const position = risp.data.results[0].position;
       this.lat = position.lat;
       this.lng = position.lon;
@@ -71,10 +78,16 @@ export default {
     });
   },
   methods: {
+
+    userSearched(userInput) {
+      console.log('$emit',userInput);
+      return userInput
+    },
+
     takeLatLng() {
       //prendo lat e long dal indirizzo
       console.log(this.input);
-      Axios.get(
+      axios.get(
         "https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=1&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
         { params: { query: this.input } }
       ).then((risp) => {

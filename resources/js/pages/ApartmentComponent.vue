@@ -112,35 +112,6 @@
           <p>{{ service->name }}</p>
           @endforeach
         </div> -->
-
-    <!-- form email -->
-    <div class="">
-      <form method="POST" @submit.prevent="sendForm()">
-        <!-- email -->
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" v-model="email" id="email"
-            placeholder="name@example.com" required>
-        </div>
-        <!-- object -->
-        <div class="mb-3">
-          <label for="object" class="form-label">Oggetto</label>
-          <input type="text" class="form-control" id="object" v-model="object"
-            placeholder="Oggetto dell'email" required>
-        </div>
-        <!-- body -->
-        <div class="mb-3">
-          <label for="body" class="form-label">Messaggio</label>
-          <textarea class="form-control" id="body" rows="3" v-model="body"
-            required></textarea>
-        </div>
-
-        <button type="submit" :disabled="sending">Invia mail</button>
-
-      </form>
-    </div>
-
-
     <!-- <div v-else>
         <LoaderComponent />
     </div> -->

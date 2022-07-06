@@ -2,6 +2,9 @@
   <main>
     <div class="container w-100">
       <CardComponent />
+      <div v-for="(apartment,index) in apartments" :key="index">
+      <h2>{{apartment.title}}</h2>
+      </div>
     </div>
   </main>
 </template>
@@ -13,6 +16,9 @@ export default {
   components: {
     CardComponent,
   },
+  props: {
+    apartments:Array,
+  }
 };
 </script>
 
