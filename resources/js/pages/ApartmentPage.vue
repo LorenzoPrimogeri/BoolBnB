@@ -56,8 +56,7 @@
     </div>
 
       <div class="col-12 contacts">
-        <a href="/" class="btn btn-primary">Torna alla home</a>
-        <a id="contacts" class="btn btn-primary m-2">Contatta</a>
+        <a id="contacts" class="btn-cta">Contatta</a>
       </div>
 
       <div id="bgExpand" class="bgExpandFilter">
@@ -75,28 +74,30 @@
           </div>
           <div class="cnt-row">
           <form method="POST" @submit.prevent="sendForm()">
-           <div class="row-filter">
+           <div class="row-filter d-flex jc-c">
               <div class="cnt-filter">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" v-model="email"
                   id="email" placeholder="name@example.com" required>
               </div>
             </div>
-            <div class="row-filter">
-              <div class="cnt-filter">
+            <div class="row-filter d-flex jc-c">
+              <div class="cnt-filter ">
                   <label for="object" class="form-label">Oggetto</label>
                   <input type="text" class="form-control" id="object" v-model="object"
                   placeholder="Oggetto dell'email" required>
               </div>
             </div>
-             <div class="row-filter">
+             <div class="row-filter d-flex jc-c">
               <div class="cnt-filter">
                     <label for="body" class="form-label">Messaggio</label>
                     <textarea class="form-control" id="body" rows="3" v-model="body"
                     required></textarea>
               </div>
             </div>
-            <button type="submit" :disabled="sending">Invia mail</button>
+            <div class="d-flex jc-c ">
+              <button class="btn-cta " type="submit" :disabled="sending">Invia mail</button>
+            </div>
           </form>
         </div>
         </div>
@@ -301,12 +302,54 @@ export default {
   }
 
   .contacts {
-    margin-top: 5%;
+    margin-top: 2%;
+    margin-bottom: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 }
+
+
+.btn-cta{
+  text-align: center;
+  position: relative;
+  display: block;
+  width: 150px;
+  border: none;
+  background-color: #7174b6;
+  padding: 15px;
+  margin-top: 50px;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+&:hover {
+  box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);
+  transform: scale(1.1);
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    from(#8b9cf2),
+    to(#5870f0)
+  );
+  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+  background-image: linear-gradient(180deg, #2137a6, #6e83f4);
+  /* filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$secondgradientcolor, endColorstr=$firstgradientcolor); */
+  box-shadow: 5px 6px 15px 0 rgba(179, 179, 179, 0.5);
+  box-shadow: 0px 0px 15px 0 rgba(179, 179, 179, 0.5);
+  box-shadow: 0 11px 16px -3px rgba(45, 35, 66, 0.3),
+    0 4px 5px 0 rgba(45, 35, 66, 0.4), inset 0 -2px 0 0 #4b58ba;
+  transform: translateY(-2px);
+}
+}
+
 
 body.enlargeFilter {
   position: fixed;

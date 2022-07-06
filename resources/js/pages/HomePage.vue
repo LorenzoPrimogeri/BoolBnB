@@ -133,15 +133,24 @@
 
     <main>
       <div class="container w-100">
-        <div class="cnt-cards pd-20">
-          <div class="box-card">
-            <div class="cnt-img"></div>
-            <div class="cnt-txt cnt-h col-12">
-              <h2>Trentino, Italy</h2>
-              <h3>Appartamento</h3>
-            </div>
-            <div class="price col-12">
-              <span>129,00€/notte</span>
+        <div class="cnt-carousel">
+          <div class="owl-carousel owl-theme">
+            <div class="box-card"  v-for="apartment in correctApartments"
+                :key="apartment.id">
+              <!-- <div class="row"> -->
+              <div class="cnt-img">
+                <a href="#">
+                  <img :src="'/storage/' + apartment.img"  />
+                </a>
+              </div>
+              <!-- </div> -->
+              <div class="cnt-txt cnt-h col-12">
+                <h2>{{ apartment.title }}</h2>
+                <h3>{{ apartment.address }}</h3>
+              </div>
+              <div class="price col-12">
+                <span>{{ apartment.price }}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -201,6 +210,28 @@ export default {
       // this.allServices = results.data.services;
       // console.log(this.allServices);
     });
+
+       $(document).ready(function() {
+      $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: true,
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 3
+          },
+          1000: {
+            items: 5
+          },
+        }
+      })
+    });
+
     // if (localStorage.input) {
     //   this.input = localStorage.input;
     // }

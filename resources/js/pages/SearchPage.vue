@@ -181,7 +181,7 @@
               </div>
             </div>
           </div>
-          <div class="cnt-filter">
+          <div class="cnt-filter d-flex jc-c">
             <button class="btn-cta" @click="takeLatLng()">Invio</button>
           </div>
         </div>
@@ -205,6 +205,9 @@
                 <div class="cnt-txt cnt-h col-12">
                   <h2>{{ apartment.title }}</h2>
                   <h3>{{ apartment.address }}</h3>
+                </div>
+                <div class="price col-12">
+                <span>{{ apartment.price }}</span>
                 </div>
               </div>
           </router-link>
@@ -628,7 +631,7 @@ body.enlargeFilter {
   display: block;
   width: 150px;
   border: none;
-  background-color: #5870f0;
+  background-color: #7174b6;
   padding: 15px;
   margin-top: 50px;
   border-radius: 30px;
@@ -853,7 +856,7 @@ body.enlargeFilter {
       img,
       a {
         width: 150px;
-        height: 100%;
+        height: 60%;
       }
     }
   }
