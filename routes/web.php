@@ -31,7 +31,6 @@ Route::middleware('auth')
         Route::get('/', 'HomeController@index')->name('home');
         Route::resource('/apartments', 'ApartmentController');
         Route::resource('apartments.messages', "MessageController");
-        Route::get('/messages', 'MessageController@index')->name('messages');
         Route::get("/checkin/{id}", "ApartmentController@checkIn")->name("checkin");
         Route::get("/checkout/{sponsor_id}/{apartment_id}", "ApartmentController@checkOut")->name("checkout");
         Route::get('/confirmed', function () {

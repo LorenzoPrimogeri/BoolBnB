@@ -20,7 +20,7 @@ class MessageController extends Controller
         $user = Auth::user();
         if($user->id == $apartment->user_id){
         $messages = Message::where('apartment_id', $apartment->id)->get();
-        return view('admin.apartments.messages.index', compact('messages'));
+        return view('admin.apartments.messages.index', compact('messages','apartment'));
         }
         abort(404);
     }
@@ -55,10 +55,10 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Apartment $apartment)
+    public function show(Apartment $apartment,Message $message)
     {
         //
-        Message::all()->where("apartment_id",$apartment->id);
+        return view("admin.apartments.messages.show", compact("message","apartment"));
     }
 
     /**
@@ -70,6 +70,7 @@ class MessageController extends Controller
     public function edit($id)
     {
         //
+
     }
 
     /**

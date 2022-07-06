@@ -264,6 +264,14 @@ header .cnt-logo a {
   width: 100%;
 }
 
+.tbl-title {
+  font-weight: 900;
+}
+
+.f-grow {
+  flex-grow: 1;
+}
+
 /* .main-usr-set {
     position: fixed;
     top: 0;
