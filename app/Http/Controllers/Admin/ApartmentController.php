@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\View;
 
 class ApartmentController extends Controller
 {
@@ -277,7 +278,12 @@ class ApartmentController extends Controller
     {
         //riguardare il delete di Ruggiero con cover
         // dd($apartment);
-        // $apartment->services()->sync([]);
+        $apartment->services()->sync([]);
+        $apartment->sponsorships()->sync([]);
+        $message = Message::where("apartment_id",$apartment->id);
+        $view = View::where("apartment_id",$apartment->id);
+        $message->delete();
+        $view->delete();
         $apartment->delete();
         return redirect()->route("admin.apartments.index");
     }
