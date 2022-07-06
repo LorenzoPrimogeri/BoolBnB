@@ -280,7 +280,10 @@ main {
     width: calc(100% / 4 - 25px);
     flex-direction: column;
     .cnt-img {
+      width: 100%;
+      height: 200px;
        img {
+        height: 100%;
          width: 100%;
          border-radius: 20px;
      }
@@ -345,4 +348,46 @@ footer {
     }
   }
 }
+@media screen and (max-width: 1200px) {
+  .container {
+    .box-card {
+      display: flex;
+      width: calc(100% / 3 - 25px);
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .container {
+    .box-card {
+      display: flex;
+      width: calc(100% / 2 - 25px);
+    }
+  }
+}
+@media screen and (max-width: 650px) {
+  .container {
+    .box-card {
+      display: flex;
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  header {
+    .cnt-hdr-items {
+      .cnt-nav {
+        display: none;
+      }
+    }
+    .cnt-logo {
+      width: 100%;
+      height: 100%;
+      img,
+      a {
+        width: 150px;
+        height: 100%;
+      }
+    }
+  }
+}
+
 </style>

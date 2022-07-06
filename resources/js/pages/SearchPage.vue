@@ -182,7 +182,7 @@
             </div>
           </div>
           <div class="cnt-filter">
-            <button class="cnt-fine" @click="takeLatLng()"></button>
+            <button class="btn-cta" @click="takeLatLng()">Invio</button>
           </div>
         </div>
       </div>
@@ -194,10 +194,10 @@
     <main id="main">
       <div class="container w-100">
         <div class="cnt-cards pd-20">
-          <router-link   v-for="apartment in correctApartments"
+          <router-link class="box-card"   v-for="apartment in correctApartments"
                 :key="apartment.id" :to="'/home/'+ apartment.id ">
               <div
-                class="box-card"
+                
               >
                 <div class="cnt-img">
                   <img :src="'/storage/' + apartment.img" alt="">
@@ -433,10 +433,13 @@ export default {
     display: flex;
     width: calc(100% / 4 - 25px);
     flex-direction: column;
-    .cnt-img {
-        img {
-       width: 100%;
-       border-radius: 20px;
+   .cnt-img {
+      width: 100%;
+      height: 200px;
+       img {
+        height: 100%;
+         width: 100%;
+         border-radius: 20px;
      }
     }
     .cnt-h {
@@ -522,6 +525,7 @@ footer {
     background: url("../../../public/img/filter.svg") no-repeat center/contain;
   }
 }
+
 
 body.enlargeFilter {
   overflow: hidden;
@@ -617,6 +621,46 @@ body.enlargeFilter {
     }
   }
 }
+
+.btn-cta{
+
+  position: relative;
+  display: block;
+  width: 150px;
+  border: none;
+  background-color: #5870f0;
+  padding: 15px;
+  margin-top: 50px;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+&:hover {
+  box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);
+  transform: scale(1.1);
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    from(#8b9cf2),
+    to(#5870f0)
+  );
+  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+  background-image: linear-gradient(180deg, #2137a6, #6e83f4);
+  /* filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$secondgradientcolor, endColorstr=$firstgradientcolor); */
+  box-shadow: 5px 6px 15px 0 rgba(179, 179, 179, 0.5);
+  box-shadow: 0px 0px 15px 0 rgba(179, 179, 179, 0.5);
+  box-shadow: 0 11px 16px -3px rgba(45, 35, 66, 0.3),
+    0 4px 5px 0 rgba(45, 35, 66, 0.4), inset 0 -2px 0 0 #4b58ba;
+  transform: translateY(-2px);
+}
+}
+
 
 .cnt-btn-close {
   position: relative;
@@ -772,4 +816,47 @@ body.enlargeFilter {
     height: 100%;
   }
 }
+
+@media screen and (max-width: 1200px) {
+  .container {
+    .box-card {
+      display: flex;
+      width: calc(100% / 3 - 25px);
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .container {
+    .box-card {
+      display: flex;
+      width: calc(100% / 2 - 25px);
+    }
+  }
+}
+@media screen and (max-width: 650px) {
+  .container {
+    .box-card {
+      display: flex;
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  header {
+    .cnt-hdr-items {
+      .cnt-nav {
+        display: none;
+      }
+    }
+    .cnt-logo {
+      width: 100%;
+      height: 100%;
+      img,
+      a {
+        width: 150px;
+        height: 100%;
+      }
+    }
+  }
+}
+
 </style>
