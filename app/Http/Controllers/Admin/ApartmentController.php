@@ -238,6 +238,10 @@ class ApartmentController extends Controller
         } else {
             $apartment->services()->sync([]);
         }
+
+
+
+
         $apartment->update();
         return redirect()->route('admin.apartments.index');
     }
@@ -248,21 +252,25 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function sponsors()
+    public function sponsors($id)
+    {
+        $apartment = Apartment::find($id);
+        $sponsors = Sponsorship::all();
+        return view('admin.checkin', compact('sponsors', 'apartment'));
+    }
+    public function checkOut(Gateway $gateway, $sponsor_id)
     {
 
-        $sponsors = Sponsorship::all();
-        return view('admin.checkin', compact('sponsors'));
-    }
-    public function checkOut(Gateway $gateway, $id /*Apartment $apartment*/)
-    {
+        // $apartment = Apartment::find($id);
 
         // $apartment->sponsorships()->sync($id);
+        // $apartment->services()->sync([]);
+
         return view('admin.checkout', [
-            "id" => $id,
+            "id" => $sponsor_id,
             "token" => $gateway->clientToken()->generate(),
             // "apartment" => $apartment,
-            "sponsor" => Sponsorship::find($id)
+            "sponsor" => Sponsorship::find($sponsor_id)
         ]);
     }
     public function destroy(Apartment $apartment)
