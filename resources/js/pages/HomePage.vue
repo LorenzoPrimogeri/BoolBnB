@@ -205,8 +205,17 @@ export default {
   mounted() {
     //prendo tutti gli appartamenti dal database
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
-      this.allApartaments = results.data.apartments;
-      // console.log(this.allApartaments);
+      let result = [];
+      result = results.data.apartments;
+      console.log(result);
+      for (let i = 0; i < result.length; i++) {
+        let apartment = result[i];
+        if (apartment.sponsorships.length >= 1) {
+          console.log("ciao sono apparso");
+          this.allApartaments.push(apartment);
+        }
+      }
+      console.log(this.allApartaments);
       // this.allServices = results.data.services;
       // console.log(this.allServices);
     });

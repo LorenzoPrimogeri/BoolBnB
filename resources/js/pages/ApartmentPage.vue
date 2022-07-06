@@ -159,6 +159,14 @@ export default {
       this.createMap(); //funzione per generare la mappa
     });
 
+
+    //axios post per salvare le visualizzazioni
+    window.axios.post(`/api/views/`, {
+        apartment_id: id,
+    }).then(resp => console.log(resp)).catch(err => console.log(err));
+
+
+
     $("#contacts").click(function () {
       $("#bgExpand").toggleClass("enlargeFilter");
       $("#cntExpand").toggleClass("enlargeFilter");

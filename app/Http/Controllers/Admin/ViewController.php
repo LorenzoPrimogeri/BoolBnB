@@ -1,28 +1,31 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Admin;
 
-use App\Apartment;
 use App\Http\Controllers\Controller;
-use App\Service;
 use Illuminate\Http\Request;
+use App\View;
+use App\Message;
+use App\Apartment;
+use Illuminate\Support\Facades\Auth;
 
-class ApartmentController extends Controller
+class ViewController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Apartment $apartment)
     {
-        //$apartments = Apartment::all();
-        //mandiamo alla home solo gli apartamenti che gli utenti hanno impostato "visibile"
-        $apartments = Apartment::where('visible', 1)->with(['services'])->with(['sponsorships'])->get();
-        // $sApartments = Apartment::where('visible', 1)->with(['sponsorships'])->get();
-        $services = Service::all();
-        $result = ['apartments' => $apartments, 'services' => $services, 'success' => true];
-        return response()->json($result);
+
+        $user = Auth::user();
+        if($user->id == $apartment->user_id){
+        $views = View::where('apartment_id', $apartment->id)->count();
+        $messages = Message::where('apartment_id', $apartment->id)->count();
+        return view('admin.apartments.views.index', compact('views','messages','apartment'));
+        }
+        abort(404);
     }
 
     /**
@@ -54,9 +57,7 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
-        $apartments = Apartment::where('id', $id)->with(['services'])->first();
-        $result = ['results' => $apartments, 'success' => true];
-        return response()->json($result);
+        //
     }
 
     /**
