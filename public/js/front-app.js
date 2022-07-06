@@ -2400,8 +2400,21 @@ __webpack_require__.r(__webpack_exports__);
 
     //prendo tutti gli appartamenti dal database
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments").then(function (results) {
-      _this.allApartaments = results.data.apartments; // console.log(this.allApartaments);
-      // this.allServices = results.data.services;
+      var result = [];
+      result = results.data.apartments;
+      console.log(result);
+
+      for (var i = 0; i < result.length; i++) {
+        var apartment = result[i];
+
+        if (apartment.sponsorships.length >= 1) {
+          console.log("ciao sono apparso");
+
+          _this.allApartaments.push(apartment);
+        }
+      }
+
+      console.log(_this.allApartaments); // this.allServices = results.data.services;
       // console.log(this.allServices);
     }); // if (localStorage.input) {
     //   this.input = localStorage.input;
@@ -51718,7 +51731,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Michele\Documents\Boolean\Esercizi\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\Amministratore\Desktop\BooleanProject\php\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })
