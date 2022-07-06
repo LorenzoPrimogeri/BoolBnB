@@ -132,11 +132,10 @@
     <!--Main-->
 
     <main>
-      <div class="container w-100">
-        <div class="cnt-carousel">
-          <div class="owl-carousel owl-theme">
-            <div class="box-card"  v-for="apartment in allApartaments"
-                :key="apartment.id">
+      <div class="container w-100 h-100 d-flex jc-c ai-c">
+        <carousel class="w-100">
+          <slide v-for="apartment in allApartaments" :key="apartment.id">
+              <div class="box-card " @click="gotoDetails(apartment.id)" >
               <!-- <div class="row"> -->
               <div class="cnt-img">
                 <a href="#">
@@ -149,11 +148,12 @@
                 <h3>{{ apartment.address }}</h3>
               </div>
               <div class="price col-12">
-                <span>{{ apartment.price }}</span>
+                <span>{{ apartment.price }} €/notte</span>
               </div>
             </div>
-          </div>
-        </div>
+          </slide>
+        </carousel>
+
       </div>
     </main>
 
@@ -183,6 +183,7 @@
 
 <script>
 import axios from "axios";
+import { Carousel, Slide } from 'vue-carousel';
 export default {
   name: "HomeComponent",
   data() {
@@ -201,6 +202,11 @@ export default {
       //  inputUser: ' ',
       //bed: 1,
     };
+    
+  },
+   components: {
+    Carousel,
+    Slide
   },
   mounted() {
     //prendo tutti gli appartamenti dal database
@@ -246,6 +252,10 @@ export default {
     // }
   },
   methods: {
+    gotoDetails(id) {
+      const url = ' '/home/' + id '
+      return url
+    },
     // persist() {
     //   localStorage.input = this.input;
     //   console.log("Storage Input " + localStorage.input);
@@ -317,7 +327,7 @@ main {
   }
   .box-card {
    display: flex;
-    width: calc(100% / 4 - 25px);
+    width: 500px;
     flex-direction: column;
     .cnt-img {
       width: 100%;

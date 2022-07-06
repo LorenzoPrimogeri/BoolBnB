@@ -207,7 +207,7 @@
                   <h3>{{ apartment.address }}</h3>
                 </div>
                 <div class="price col-12">
-                <span>{{ apartment.price }}</span>
+                <span>{{ apartment.price }} €/notte</span>
                 </div>
               </div>
           </router-link>
