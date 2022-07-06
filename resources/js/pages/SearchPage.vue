@@ -194,19 +194,20 @@
     <main id="main">
       <div class="container w-100">
         <div class="cnt-cards pd-20">
-          <div
-            v-for="apartment in correctApartments"
-            :key="apartment.id"
-            class="box-card"
-          >
-            <div class="cnt-img">
-              <img :src="apartment.img" alt="">
-            </div>
-            <div class="cnt-txt cnt-h col-12">
-              <h2>{{ apartment.title }}</h2>
-              <h3>{{ apartment.address }}</h3>
-            </div>
-          </div>
+          <router-link   v-for="apartment in correctApartments"
+                :key="apartment.id" :to="'/home/'+ apartment.id ">
+              <div
+                class="box-card"
+              >
+                <div class="cnt-img">
+                  <img :src="'/storage/' + apartment.img" alt="">
+                </div>
+                <div class="cnt-txt cnt-h col-12">
+                  <h2>{{ apartment.title }}</h2>
+                  <h3>{{ apartment.address }}</h3>
+                </div>
+              </div>
+          </router-link>
         </div>
       </div>
     </main>
@@ -384,6 +385,16 @@ export default {
 </script>
 
 <style  lang="scss">
+
+*a{
+  text-decoration:none;
+  color: black;
+  &:hover{
+    color: black;
+  }
+}
+
+
 // style main
 
 #main {
@@ -406,7 +417,6 @@ export default {
     padding: 20px;
     color: #fff;
     height: auto;
-    background-color: violet;
     left: 50px;
     justify-content: center;
     align-items: center;
@@ -414,24 +424,21 @@ export default {
     font-size: 2em;
   }
   .cnt-cards {
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
   }
   .box-card {
-    background-color: violet;
-    width: 300px;
-    height: 200px;
+    display: flex;
+    width: calc(100% / 4 - 25px);
     flex-direction: column;
     .cnt-img {
-      height: 200px;
-      width: 100%;
-      background-color: blue;
+        img {
+       width: 100%;
+       border-radius: 20px;
+     }
     }
-    // img {
-    //     width: 100%;
-    //     border-radius: 20px;
-    // }
     .cnt-h {
       height: 50px;
       padding: 10px 0;
@@ -457,6 +464,7 @@ export default {
 // style footer
 
 footer {
+  background-color:white;
   border-top: 1px solid lightgray;
   position: fixed;
   bottom: 0;
