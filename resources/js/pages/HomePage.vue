@@ -1,45 +1,54 @@
 <template>
   <div>
+
+    <!--Header-->
+
     <header>
       <div class="container wmax-100 h-100 pd-20-lr">
         <div class="cnt-hdr-items">
           <div class="col-2 col-xs-12">
+
+          <!--logo-->
+
             <div class="cnt-logo">
-              <a href="">
+              <router-link to="/">
                 <img
                   src="../../../public/img/boolbnb-logo.svg"
                   alt="logo-BoolBnb"
                 />
-              </a>
+              </router-link>
             </div>
+
+          <!--logo-->
+
           </div>
           <div class="cnt-nav col-8 h-100">
+
             <!--search-->
+
             <div class="search">
               <div class="cnt-lens"></div>
               <div class="contStringSrc">
-                <keep-alive>
                 <input
-                  @keyup.enter="saveValue(this)"
                   id="userInput"
                   class="accountInput"
                   type="text"
                   placeholder="Cerca appartamento"
                   v-model="input"
-                  @input="onInputChanged"
-                  @keypress="persist"
-                />         
-                  </keep-alive>
-
-                <!-- <div class="input">T-Shirt manica corta bianca i have a dream</div> -->
+                  @input="onInputChanged"/>         
               </div>
-              <a href="/search" @click="persist" @change="$emit('search', input , searchedAdress)" >
+                <router-link to="search">
                 <div class="cnt-fine"></div>
-              </a>
+                </router-link>
             </div>
+
             <!--search-->
+
           </div>
           <div class="col-2 d-flex jc-c ai-c">
+
+            <!--login/register button-->
+
             <div
               class="main-usr-set"
               v-show="$route.name === 'home' ? true : false">
@@ -85,16 +94,23 @@
                 </div> -->
               </ul>
             </div>
+
+            <!--login/register button-->
+
+            <!--filter button-->
+
             <div class="col-2 d-flex jc-c ai-c">
               <div
                 id="filter"
                 class="cnt-btn-filter"
-                v-show="$route.name === 'search' ? true : false"
-              >
+                v-show="$route.name === 'search' ? true : false">
                 <div class="btn-filter"></div>
                 <span>Filtri</span>
               </div>
             </div>
+
+            <!--filter button-->
+
           </div>
         </div>
       </div>
@@ -110,17 +126,59 @@
         </a>
       </div>
     </div>
+
+    <!--Header-->
+    <!--Main-->
+
+    <main>
+      <div class="container w-100">
+       <div class="cnt-cards pd-20">
+        <div class="box-card">
+            <div class="cnt-img">
+            </div>
+            <div class="cnt-txt cnt-h col-12">
+                <h2>Trentino, Italy</h2>
+                <h3>Appartamento</h3>
+            </div>
+            <div class="price col-12">
+                <span>129,00€/notte</span>
+            </div>
+        </div>
+      </div>
+      </div>
+    </main>
+
+    <!--Main-->
+    <!--Footer-->
+
+    <footer id="Footer">
+    <div class="container wmax-100 h-100 pd-20-lr">
+      <div class="col-2 h-100">
+      </div>
+      <div class="cnt-footer-items col-8 h-100">
+        <div class="cnt-items-ftr">
+          <ul>
+            <li><a href="#">link1</a></li>
+            <li><a href="#">link2</a></li>
+            <li><a href="#">link3</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-2 h-100">
+      </div>
+    </div>
+    </footer>
+
+    <!--Footer-->
+
   </div>
 </template>
 
+
 <script>
 import axios from "axios";
-import ApartmentComponent from "../pages/ApartmentComponent.vue";
 export default {
-  name: "HeaderComponent",
-  components: {
-    ApartmentComponent,
-  },
+  name: "HomeComponent",
   data() {
     return {
       input: "",
@@ -139,7 +197,6 @@ export default {
     };
   },
   mounted() {
-    
     //prendo tutti gli appartamenti dal database
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       this.allApartaments = results.data.apartments;
@@ -147,15 +204,15 @@ export default {
       this.allServices = results.data.services;
       // console.log(this.allServices);
     });
-    if (localStorage.input) {
-      this.input = localStorage.input;
-    }
+    // if (localStorage.input) {
+    //   this.input = localStorage.input;
+    // }
   },
   methods: {
-    persist() {
-      localStorage.input = this.input;
-      console.log("Storage Input " + localStorage.input);
-    },
+    // persist() {
+    //   localStorage.input = this.input;
+    //   console.log("Storage Input " + localStorage.input);
+    // },
     onInputChanged() {
       // console.log(this.distanceKm);
       //Call axios che restituisce gli indirizzi autocomplete
@@ -181,6 +238,117 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style  lang="scss">
+// style header
 @import url("../../../public/css/layout-preset.css");
+
+// style main
+
+main {
+  display: flex;
+  width: 100%;
+  margin: 180px auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+// style main card
+
+.container {
+    position: relative;
+    .cnt-label {
+        position: sticky;
+        display: flex;
+        padding: 20px;
+        color: #fff;
+        height: auto;
+        background-color: violet;
+        left: 50px;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        font-size: 2em;
+    }
+    .cnt-cards {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+    }
+    .box-card {
+        background-color: violet;
+        width: 300px;
+        height: 200px;
+        flex-direction: column;
+        .cnt-img {
+            height: 200px;
+            width: 100%;
+            background-color: blue;
+        }
+        // img {
+        //     width: 100%;
+        //     border-radius: 20px;
+        // }
+        .cnt-h {
+            height: 50px;
+            padding: 10px 0;
+            h2 {
+                font-size: 1em;
+            }
+            h3 {
+                color: grey;
+                font-size: 0.8em;
+            }
+        }
+        .price {
+            display: contents;
+            span {
+                width: 100%;
+                text-align: left;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+// style footer
+
+footer {
+  border-top: 1px solid lightgray;
+  position: fixed;
+  bottom: 0;
+  height: auto;
+  width: 100%;
+
+  .cnt-footer-items {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .cnt-items-ftr {
+
+      ul {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        list-style-type: none;
+        margin: 0 !important;
+        padding: 15px;
+
+        li {
+          a {
+            text-decoration: none;
+            color: darkslategray;
+
+            &:hover {
+              color: #7174b6;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 </style>
