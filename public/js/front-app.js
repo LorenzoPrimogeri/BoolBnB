@@ -2078,7 +2078,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2103,7 +2102,9 @@ __webpack_require__.r(__webpack_exports__);
       services: [],
       distanceKm: 20,
       room: 1,
-      bed: 1
+      bed: 1,
+      sending: false,
+      success: false
     };
   },
   mounted: function mounted() {
@@ -2350,6 +2351,14 @@ __webpack_require__.r(__webpack_exports__);
 
       _this.createMap(); //funzione per generare la mappa
 
+    });
+    window.axios.post("/api/views/", {
+      date: new Date(),
+      apartment_id: id
+    }).then(function (resp) {
+      return console.log(resp);
+    })["catch"](function (err) {
+      return console.log(err);
     });
   },
   methods: {
@@ -51468,7 +51477,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Amministratore\Desktop\BooleanProject\php\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\Francesco\Documents\Boolean\PHP\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })

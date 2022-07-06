@@ -162,6 +162,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        Fx3costa\LaravelChartJs\Providers\ChartjsServiceProvider::class,
+
+
         /*
          * Package Service Providers...
          */
@@ -228,5 +231,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+
 
 ];

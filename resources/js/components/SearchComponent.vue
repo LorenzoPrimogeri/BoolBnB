@@ -56,15 +56,14 @@
             <div class="col-3 border-bottom">
               <h4>{{ apartment.description }}</h4>
             </div>
-            <div class="col-3 border-bottom">
-              <router-link
-                :to="{
-                  name: 'single-apartment',
-                  params: { id: apartment.id },
-                }"
-                >Visualizza</router-link
-              >
-            </div>
+                <div class="col-3 border-bottom">
+                <router-link
+                    :to="{
+                    name: 'single-apartment',
+                    params: { id: apartment.id },
+                    }"
+                    >Visualizza</router-link>
+                </div>
           </div>
         </div>
       </div>
@@ -93,6 +92,8 @@ export default {
       distanceKm: 20,
       room: 1,
       bed: 1,
+      sending: false,
+      success: false
     };
   },
   mounted() {
@@ -186,7 +187,7 @@ export default {
         dist = dist * 1.609344;
         return dist;
       }
-    },
+    }
   },
 };
 </script>

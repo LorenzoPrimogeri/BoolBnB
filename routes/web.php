@@ -25,11 +25,15 @@ Route::middleware('auth')
         Route::get('/', 'HomeController@index')->name('home');
         Route::resource('/apartments', 'ApartmentController');
         Route::resource('apartments.messages', "MessageController");
+        Route::resource('apartments.views', "ViewController");
         Route::get('/messages','MessageController@index')->name('messages');
+        Route::get('/chart-js', 'ChartController@index')->name("apartments.views.index");
 
     });
-
 
 Route::get('{any?}', function () {
     return view('guest.home');
 })->where('any', '.*');
+
+
+

@@ -132,6 +132,12 @@ export default {
       console.log(this.lng);
       this.createMap(); //funzione per generare la mappa
     });
+
+
+     window.axios.post(`/api/views/`, {
+        date: new Date(),
+        apartment_id: id,
+    }).then(resp => console.log(resp)).catch(err => console.log(err));
   },
   methods: {
     createMap() {

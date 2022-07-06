@@ -54,6 +54,9 @@
                                 <a href="{{ route('admin.apartments.messages.index', $apartment->id) }}">
                                     <button>Messaggi</button>
                                 </a>
+                                <a href="{{ route('admin.apartments.views.index', $apartment->id) }}">
+                                    <button>Views</button>
+                                </a>
                             </div>
                         </div>
                     </div>
