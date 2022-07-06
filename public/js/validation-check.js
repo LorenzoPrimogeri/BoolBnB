@@ -20,4 +20,5 @@
         document.getElementById("btn-submit").classList.remove("button-disabled")
         document.getElementById('checkdiv').innerHTML = " "
      }
- }
+}
+ 
