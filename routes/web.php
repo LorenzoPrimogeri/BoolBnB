@@ -37,26 +37,7 @@ Route::middleware('auth')
         Route::get('/confirmed', function () {
             return view('admin.confirmed');
         })->name('confirmed');
-        Route::put('/payment', function (Request $request, Gateway $gateway) {
-            $idSponsor = $request->id;
-            $sponsor = Sponsorship::find($idSponsor);
-            //   $apartment = Apartment::find(Apartment::id());
-            //  $activeSponsor = $apartment->sponsorShips;
-            $amount = $sponsor->price;
-            $nonce = $request->payment_method_nonce;
-            // $sponsorshipName = $sponsor->type;
-            $result = $gateway->transaction()->sale([
-                'amount' => $amount,
-                'paymentMethodNonce' => $nonce,
-                'options' => [
-                    'submitForSettlement' => true
-                ]
-            ]);
-            if($result->success){
-                
-            }
-            return view('admin.confirmed', ['sponsor' => $sponsor]);
-        })->name('payment');
+        Route::put('/payment', "ApartmentController@confirmed")->name('payment');
     });
 
 

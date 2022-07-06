@@ -260,11 +260,11 @@ class ApartmentController extends Controller
     }
     public function checkOut(Gateway $gateway, $sponsor_id, $apartment_id)
     {
-       // dd($apartment_id);
+        // dd($apartment_id);
         $apartment = Apartment::find($apartment_id);
 
         $apartment->sponsorships()->sync($sponsor_id);
-        // $apartment->services()->sync([]);
+
 
         return view('admin.checkout', [
             "id" => $sponsor_id,
@@ -280,5 +280,25 @@ class ApartmentController extends Controller
         // $apartment->services()->sync([]);
         $apartment->delete();
         return redirect()->route("admin.apartments.index");
+    }
+    public function confirmed(Request $request, Gateway $gateway)
+    {
+        $apartment = Apartment::id();
+        dd($apartment);
+        $idSponsor = $request->id;
+        $sponsor = Sponsorship::find($idSponsor);
+        //   $apartment = Apartment::find(Apartment::id());
+        //  $activeSponsor = $apartment->sponsorShips;
+        $amount = $sponsor->price;
+        $nonce = $request->payment_method_nonce;
+        // $sponsorshipName = $sponsor->type;
+        $result = $gateway->transaction()->sale([
+            'amount' => $amount,
+            'paymentMethodNonce' => $nonce,
+            'options' => [
+                'submitForSettlement' => true
+            ]
+        ]);
+        return view('admin.confirmed', ['sponsor' => $sponsor]);
     }
 }

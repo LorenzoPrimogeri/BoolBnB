@@ -5,10 +5,9 @@
     <p>Duration: {{ $sponsor->duration }} Hr</p>
     <p> Price: {{ $sponsor->price }}$</p>
     <p>apartment id: {{$apartment->id}}</p>
-
+    <p>Use this fake Card: 4009348888881881</p>
     <div>
-        <form id="payment-form" action="{{ route('admin.payment', $apartment->id)}}" method="POST"
-            enctype="multipart/form-data">
+        <form id="payment-form" action="{{ route('admin.payment')}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <section>
