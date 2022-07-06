@@ -135,7 +135,7 @@
       <div class="container w-100">
         <div class="cnt-carousel">
           <div class="owl-carousel owl-theme">
-            <div class="box-card"  v-for="apartment in correctApartments"
+            <div class="box-card"  v-for="apartment in allApartaments"
                 :key="apartment.id">
               <!-- <div class="row"> -->
               <div class="cnt-img">

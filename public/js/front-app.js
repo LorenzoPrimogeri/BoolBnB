@@ -35370,7 +35370,7 @@ var render = function () {
           _c(
             "div",
             { staticClass: "owl-carousel owl-theme" },
-            _vm._l(_vm.correctApartments, function (apartment) {
+            _vm._l(_vm.allApartaments, function (apartment) {
               return _c("div", { key: apartment.id, staticClass: "box-card" }, [
                 _c("div", { staticClass: "cnt-img" }, [
                   _c("a", { attrs: { href: "#" } }, [
@@ -51804,7 +51804,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Francesco\Documents\Boolean\PHP\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\Michele\Documents\Boolean\Esercizi\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })
