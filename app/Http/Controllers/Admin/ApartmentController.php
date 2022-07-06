@@ -283,8 +283,8 @@ class ApartmentController extends Controller
     }
     public function confirmed(Request $request, Gateway $gateway)
     {
-        $apartment = Apartment::id();
-        dd($apartment);
+        // $apartment = Apartment::id();
+        // dd($apartment);
         $idSponsor = $request->id;
         $sponsor = Sponsorship::find($idSponsor);
         //   $apartment = Apartment::find(Apartment::id());
