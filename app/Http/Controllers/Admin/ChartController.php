@@ -39,7 +39,7 @@ class ChartController extends Controller
          ->datasets([
              [
                  "label" => "visualizzazioni",
-                 'backgroundColor' => ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+                 'backgroundColor' => ['rgb(128,255,234,0.5)', 'rgba(54, 162, 235, 0.2)'],
                  'data' => array_reverse($monthsCountV)
              ]
          ])
@@ -62,7 +62,7 @@ class ChartController extends Controller
          ->datasets([
              [
                  "label" => "messaggi",
-                 'backgroundColor' => ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+                 'backgroundColor' => ['rgba(54, 162, 235, 0.2), rgb(128,255,234,0.5)'],
                  'data' => array_reverse($monthsCountM)
              ]
          ])

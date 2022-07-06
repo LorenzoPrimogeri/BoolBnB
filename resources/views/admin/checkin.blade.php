@@ -1,26 +1,18 @@
 @extends('layouts.app')
 @section('content')
+    <div class="main-slct-item-card">
+        @foreach ($sponsors as $sponsor)
+            <div class="card">
+                <h2>{{ $sponsor->type }}</h2>
 
-<div style="margin: 500px;">
-    <div>
-        <div>
-
-            <h5>...</h5>
-            @foreach ($sponsors as $sponsor)
-            <ul>
-                <li>
+                <span>Durata: {{ $sponsor->duration }} ore</span>
+                <div class="cnt-btn">
                     <a
-                        href="{{ route('admin.checkout', ['sponsor_id'=>$sponsor->id,'apartment_id'=> $apartment->id]) }}">
-                        <h5>Type: {{ $sponsor->type }}</h5>
-
-                        <span>Duration: {{ $sponsor->duration }}</span>
+                        href="{{ route('admin.checkout', ['sponsor_id' => $sponsor->id, 'apartment_id' => $apartment->id]) }}">
+                        <button>€ {{ $sponsor->price }}</button>
                     </a>
-                </li>
-                <li>Price: {{ $sponsor->price }}</li>
-                <li>ID APARTMENT: {{ $apartment->id }}</li>
-            </ul>
-            @endforeach
-        </div>
+                </div>
+            </div>
+        @endforeach
     </div>
-</div>
 @endsection

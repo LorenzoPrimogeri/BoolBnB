@@ -1,13 +1,20 @@
 @extends('layouts.app')
 @section('content')
     <div class="main-slct-item">
+        <div class="cnt-slct-btn">
+            <div class="cnt-th cnt-btn h-100">
+                <a href="{{ route('admin.apartments.index', $apartment->id) }}">
+                    <button>Dashboard</button>
+                </a>
+            </div>
+        </div>
         <div class="cnt-item-dash">
             <div class="cnt-table">
                 <div class="main-body-th">
                     <div class="cnt-th col-3 col-md-5 tbl-title f-grow">Inviato da</div>
                     <div class="cnt-th col-3 col-md-5 tbl-title f-grow">Oggetto</div>
                     <div class="cnt-th col-3 col-md-2 tbl-title f-grow">Inviato il</div>
-                    <div class="cnt-th col-3 col-md-2 tbl-title f-grow">Action</div>
+                    <div class="cnt-th col-3 col-md-2 tbl-title f-grow"></div>
                 </div>
                 @foreach ($messages as $message)
                     <div class="main-columns">
@@ -27,9 +34,9 @@
                             </div>
                         </div>
                         <div class="cnt-column col-3 col-md-2 f-grow">
-                            <div class="cnt-th h-100">
+                            <div class="cnt-th cnt-btn h-100">
                                 <a
-                                    href="{{ route('admin.apartments.messages.show', ['apartment' => $apartment->id, 'message' => $message->id]) }}">Visualizza</a>
+                                    href="{{ route('admin.apartments.messages.show', ['apartment' => $apartment->id, 'message' => $message->id]) }}"><button>Visualizza</button></a>
                             </div>
                         </div>
                     </div>
