@@ -34,8 +34,9 @@
                   @input="onInputChanged"
                 />
               </div>
-
-              <button class="cnt-fine" @click="takeLatLng()"></button>
+              <a  @click="takeLatLng()">
+                <div class="cnt-fine"></div>
+              </a>
             </div>
 
             <!--search-->
@@ -198,11 +199,12 @@
             :key="apartment.id"
             class="box-card"
           >
-            <!-- <div class="cnt-img"></div> -->
+            <div class="cnt-img">
+              <img :src="apartment.img" alt="">
+            </div>
             <div class="cnt-txt cnt-h col-12">
               <h2>{{ apartment.title }}</h2>
-              <h3>{{ apartment.room }}</h3>
-              <h3>{{ apartment.bed }}</h3>
+              <h3>{{ apartment.address }}</h3>
             </div>
           </div>
         </div>

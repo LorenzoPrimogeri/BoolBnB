@@ -2714,6 +2714,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SearchPage",
@@ -35486,14 +35488,17 @@ var render = function () {
                 }),
               ]),
               _vm._v(" "),
-              _c("button", {
-                staticClass: "cnt-fine",
-                on: {
-                  click: function ($event) {
-                    return _vm.takeLatLng()
+              _c(
+                "a",
+                {
+                  on: {
+                    click: function ($event) {
+                      return _vm.takeLatLng()
+                    },
                   },
                 },
-              }),
+                [_c("div", { staticClass: "cnt-fine" })]
+              ),
             ]),
           ]),
           _vm._v(" "),
@@ -35688,12 +35693,14 @@ var render = function () {
           { staticClass: "cnt-cards pd-20" },
           _vm._l(_vm.correctApartments, function (apartment) {
             return _c("div", { key: apartment.id, staticClass: "box-card" }, [
+              _c("div", { staticClass: "cnt-img" }, [
+                _c("img", { attrs: { src: apartment.img, alt: "" } }),
+              ]),
+              _vm._v(" "),
               _c("div", { staticClass: "cnt-txt cnt-h col-12" }, [
                 _c("h2", [_vm._v(_vm._s(apartment.title))]),
                 _vm._v(" "),
-                _c("h3", [_vm._v(_vm._s(apartment.room))]),
-                _vm._v(" "),
-                _c("h3", [_vm._v(_vm._s(apartment.bed))]),
+                _c("h3", [_vm._v(_vm._s(apartment.address))]),
               ]),
             ])
           }),
