@@ -275,6 +275,12 @@ export default {
       $("#bgExpand").toggleClass("enlargeFilter");
       $("body").toggleClass("enlargeFilter");
     });
+
+     $(".btn-cta").click(function () {
+      $("#cntExpand").toggleClass("enlargeFilter");
+      $("#bgExpand").toggleClass("enlargeFilter");
+      $("body").toggleClass("enlargeFilter");
+    });
     //prendo lat e long dal indirizzo
     axios
       .get(
