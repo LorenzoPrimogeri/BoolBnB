@@ -186,21 +186,19 @@
     <!--Main-->
     <!--Footer-->
 
-    <!-- <footer id="Footer">
+    <footer id="Footer">
       <div class="container wmax-100 h-100 pd-20-lr">
         <div class="col-2 h-100"></div>
         <div class="cnt-footer-items col-8 h-100">
           <div class="cnt-items-ftr">
             <ul>
-              <li><a href="#">link1</a></li>
-              <li><a href="#">link2</a></li>
-              <li><a href="#">link3</a></li>
+              <li><a href="/weare"><h2>Chi siamo</h2></a></li>
             </ul>
           </div>
         </div>
         <div class="col-2 h-100"></div>
       </div>
-    </footer> -->
+    </footer> 
 
     <!--Footer-->
   </div>
@@ -254,31 +252,7 @@ export default {
 <<<<<<< HEAD
 =======
 
-<<<<<<< HEAD
 >>>>>>> parent of 4fe235b (update)
-=======
-       $(document).ready(function() {
-      $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 2000,
-        autoplayHoverPause: true,
-        responsive: {
-          0: {
-            items: 1
-          },
-          600: {
-            items: 3
-          },
-          1000: {
-            items: 5
-          },
-        }
-      })
-    });
-
->>>>>>> parent of 0eb58d9 (update site)
     // if (localStorage.input) {
     //   this.input = localStorage.input;
     // }
@@ -384,10 +358,6 @@ main {
   }
 
 
-
-
-
-
     .cnt-h {
       height: 50px;
       padding: 10px 0;
@@ -455,9 +425,17 @@ footer {
   height: auto;
   width: 100%;
 
+  h2{
+    font-family: 'Lobster', cursive;
+    font-weight: bold;
+    font-size:1.3rem;
+    color: #797cba;
+  }
+
   .cnt-footer-items {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
 
     .cnt-items-ftr {

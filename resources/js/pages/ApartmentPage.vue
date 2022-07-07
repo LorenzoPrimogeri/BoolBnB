@@ -50,6 +50,12 @@
             <a id="contacts" class="btn-cta">Contatta</a>
           </div>
         </div>
+        <div class="col-4">
+          <div class="cnt-row col-12">
+          <h3>Servizi:</h3>
+              <!-- <p :v-for="service in apartment.services" :key="apartment.id">{{ service}}</p> -->
+        </div>
+        </div>
       </div>
     </div>
 
@@ -100,18 +106,6 @@
       </div>
 
 
-
-    <!-- /map -->
-
-    <!-- <div class="cnt-row col-12">
-          <h3>Servizi:</h3>
-          @foreach (apartment.services as service)
-          <p>{{ service->name }}</p>
-          @endforeach
-        </div> -->
-    <!-- <div v-else>
-        <LoaderComponent />
-    </div> -->
   </div>
 </template>
 
