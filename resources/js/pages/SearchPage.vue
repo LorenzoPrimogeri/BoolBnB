@@ -414,6 +414,11 @@ export default {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  h2{
+    font-family: 'Lobster', cursive;
+    font-weight: bold;
+    color: #797cba;
+  }
 }
 
 // style main card
