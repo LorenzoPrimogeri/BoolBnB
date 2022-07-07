@@ -210,6 +210,7 @@ export default {
   },
   mounted() {
     //prendo tutti gli appartamenti dal database
+    delete axios.defaults.headers.common["X-Requested-With"];
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       let result = [];
       result = results.data.apartments;
@@ -231,7 +232,6 @@ export default {
     // }
   },
   methods: {
-   
     // persist() {
     //   localStorage.input = this.input;
     //   console.log("Storage Input " + localStorage.input);

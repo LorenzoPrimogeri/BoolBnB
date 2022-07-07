@@ -2116,6 +2116,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     //prendo tutti gli appartamenti dal database
+    delete axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common["X-Requested-With"];
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments").then(function (results) {
       var result = [];
       result = results.data.apartments;
