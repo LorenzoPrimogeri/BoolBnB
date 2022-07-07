@@ -35142,20 +35142,7 @@ var render = function () {
           _vm._m(2),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-4" }, [
-          _c("div", { staticClass: "cnt-row col-12" }, [
-            _c("h3", [_vm._v("Servizi:")]),
-            _vm._v(" "),
-            _c(
-              "p",
-              {
-                key: _vm.apartment.id,
-                attrs: { "v-for": _vm.service in _vm.apartment.services },
-              },
-              [_vm._v(_vm._s(_vm.service))]
-            ),
-          ]),
-        ]),
+        _vm._m(3),
       ]),
     ]),
     _vm._v(" "),
@@ -35163,7 +35150,7 @@ var render = function () {
     _vm._v(" "),
     _c("div", { staticClass: "cntExpandFilter", attrs: { id: "cntExpand" } }, [
       _c("div", { staticClass: "main-filter" }, [
-        _vm._m(3),
+        _vm._m(4),
         _vm._v(" "),
         _c("div", { staticClass: "cnt-row" }, [
           _c(
@@ -35330,6 +35317,16 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-12 contacts " }, [
       _c("a", { staticClass: "btn-cta", attrs: { id: "contacts" } }, [
         _vm._v("Contatta"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-4" }, [
+      _c("div", { staticClass: "cnt-row col-12" }, [
+        _c("h3", [_vm._v("Servizi:")]),
       ]),
     ])
   },
