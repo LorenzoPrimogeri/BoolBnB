@@ -15,16 +15,15 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //$apartments = Apartment::all();
-        //mandiamo alla home solo gli apartamenti che gli utenti hanno impostato "visibile"
-        //  $user = Auth::user();
-        // @dd($user);
+
+        $request->user('api');
+        $user = Auth::check();
+        //@dd($user);
         $apartments = Apartment::where('visible', 1)->with(['services'])->with(['sponsorships'])->get();
-        // $sApartments = Apartment::where('visible', 1)->with(['sponsorships'])->get();
         $services = Service::all();
-        $result = ['apartments' => $apartments, 'services' => $services, 'success' => true];
+        $result = ['apartments' => $apartments, 'request' => $request->user('api'), 'user' => $user, 'services' => $services, 'success' => true];
         return response()->json($result);
     }
 
