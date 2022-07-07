@@ -132,6 +132,9 @@
     <!--Main-->
 
     <main>
+      <div class="title">
+        <h2>Appartamenti Sponsorizzati</h2>
+      </div>
       <div class="container w-100 h-100 d-flex jc-c ai-c">
         <carousel class="w-100">
           <slide v-for="apartment in allApartaments" :key="apartment.id">
@@ -155,7 +158,28 @@
             </div>
           </slide>
         </carousel>
-
+      </div>
+      <div class="title mt-5">
+        <h2>Ti potrebbero interessare</h2>
+      </div>
+      <div class="container w-100">
+        <div class="cnt-cards pd-20">
+          <router-link class="box-card-csm"   v-for="apartment in allApartaments"
+                :key="apartment.id" :to="'/home/'+ apartment.id ">
+              <div>
+                <div class="cnt-img">
+                  <img :src="'/storage/' + apartment.img" alt="">
+                </div>
+                <div class="cnt-txt cnt-h col-12">
+                  <h2>{{ apartment.title }}</h2>
+                  <h3>{{ apartment.address }}</h3>
+                </div>
+                <div class="price col-12">
+                <span>{{ apartment.price }} €/notte</span>
+                </div>
+              </div>
+          </router-link>
+        </div>
       </div>
     </main>
 
@@ -292,10 +316,22 @@ export default {
 <style scoped  lang="scss">
 // style header
 @import url("../../../public/css/layout-preset.css");
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 // style main
 
 main {
+  .title{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 3%;
+  }
+  h2{
+    font-family: 'Lobster', cursive;
+    font-weight: bold;
+    font-size: 2.8rem;
+    color: #797cba;
+  }
   display: flex;
   width: 100%;
   margin: 180px auto;
@@ -339,7 +375,48 @@ main {
          width: 100%;
          border-radius: 20px;
      }
+  }
+
+
+
+
+
+
+    .cnt-h {
+      height: 50px;
+      padding: 10px 0;
+      h2 {
+        font-size: 1em;
+      }
+      h3 {
+        color: grey;
+        font-size: 0.8em;
+      }
     }
+    .price {
+      display: contents;
+      span {
+        width: 100%;
+        text-align: left;
+        font-weight: 600;
+      }
+    }
+  }
+
+   .box-card-csm {
+   display: flex;
+    width: 250px;
+    flex-direction: column;
+    .cnt-img {
+      width: 100%;
+      height: 200px;
+       img {
+        height: 100%;
+         width: 100%;
+         border-radius: 20px;
+     }
+  }
+
     .cnt-h {
       height: 50px;
       padding: 10px 0;

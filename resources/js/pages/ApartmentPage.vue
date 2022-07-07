@@ -17,7 +17,6 @@
       </div>
 
       <div class="description-text cnt-row col-12">
-        <h5 class="mt-3">Descrizione:</h5>
         <p>{{ apartment.description }}</p>
       </div>
       <!-- map -->
@@ -117,9 +116,8 @@
 </template>
 
 <script>
+
 // import LoaderComponent from '../components/LoaderComponent.vue';
-
-
 export default {
   name: "ApartmentComponent",
   components: {
@@ -274,6 +272,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 .main {
   .flex {
     display: flex;
@@ -282,6 +281,12 @@ export default {
 
 
   .text-box {
+    h2{
+      font-family: 'Lobster', cursive;
+      font-weight: bold;
+      font-size: 2.8rem;
+      color: #797cba;
+    }
     h5{
       display: flex;
       margin-top: 1%;
