@@ -135,14 +135,14 @@
       <div class="container w-100 h-100 d-flex jc-c ai-c">
         <carousel class="w-100">
           <slide v-for="apartment in allApartaments" :key="apartment.id">
-              <div class="box-card " @click="gotoDetails(apartment.id)" >
+            <div class="box-card" @click="gotoDetails(apartment.id)">
               <!-- <div class="row"> -->
-              <router-link  :to="'/home/'+ apartment.id ">
-              <div class="cnt-img">
-                <a href="#">
-                  <img :src="'/storage/' + apartment.img"  />
-                </a>
-              </div>
+              <router-link :to="'/home/' + apartment.id">
+                <div class="cnt-img">
+                  <a href="#">
+                    <img :src="'/storage/' + apartment.img" />
+                  </a>
+                </div>
               </router-link>
               <!-- </div> -->
               <div class="cnt-txt cnt-h col-12">
@@ -155,7 +155,6 @@
             </div>
           </slide>
         </carousel>
-
       </div>
     </main>
 
@@ -185,7 +184,7 @@
 
 <script>
 import axios from "axios";
-import { Carousel, Slide } from 'vue-carousel';
+import { Carousel, Slide } from "vue-carousel";
 export default {
   name: "HomeComponent",
   data() {
@@ -204,11 +203,10 @@ export default {
       //  inputUser: ' ',
       //bed: 1,
     };
-
   },
-   components: {
+  components: {
     Carousel,
-    Slide
+    Slide,
   },
   mounted() {
     //prendo tutti gli appartamenti dal database
@@ -228,35 +226,14 @@ export default {
       // console.log(this.allServices);
     });
 
-       $(document).ready(function() {
-      $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 2000,
-        autoplayHoverPause: true,
-        responsive: {
-          0: {
-            items: 1
-          },
-          600: {
-            items: 3
-          },
-          1000: {
-            items: 5
-          },
-        }
-      })
-    });
-
     // if (localStorage.input) {
     //   this.input = localStorage.input;
     // }
   },
   methods: {
     gotoDetails(id) {
-      const url = ' '/home/' + id '
-      return url
+      const url = " " / home / " + id ";
+      return url;
     },
     // persist() {
     //   localStorage.input = this.input;
@@ -322,23 +299,23 @@ main {
     font-size: 2em;
   }
   .cnt-cards {
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
   }
   .box-card {
-   display: flex;
+    display: flex;
     width: 500px;
     flex-direction: column;
     .cnt-img {
       width: 100%;
       height: 200px;
-       img {
+      img {
         height: 100%;
-         width: 100%;
-         border-radius: 20px;
-     }
+        width: 100%;
+        border-radius: 20px;
+      }
     }
     .cnt-h {
       height: 50px;
@@ -441,5 +418,4 @@ footer {
     }
   }
 }
-
 </style>

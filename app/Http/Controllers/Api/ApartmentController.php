@@ -6,6 +6,7 @@ use App\Apartment;
 use App\Http\Controllers\Controller;
 use App\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ApartmentController extends Controller
 {
@@ -18,8 +19,8 @@ class ApartmentController extends Controller
     {
         //$apartments = Apartment::all();
         //mandiamo alla home solo gli apartamenti che gli utenti hanno impostato "visibile"
-        // $user = Auth::user();
-        // @dd($user);
+        $user = Auth::user();
+        @dd($user);
         $apartments = Apartment::where('visible', 1)->with(['services'])->with(['sponsorships'])->get();
         // $sApartments = Apartment::where('visible', 1)->with(['sponsorships'])->get();
         $services = Service::all();

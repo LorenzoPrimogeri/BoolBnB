@@ -2133,33 +2133,13 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log(_this.allApartaments); // this.allServices = results.data.services;
       // console.log(this.allServices);
-    });
-    $(document).ready(function () {
-      $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 2000,
-        autoplayHoverPause: true,
-        responsive: {
-          0: {
-            items: 1
-          },
-          600: {
-            items: 3
-          },
-          1000: {
-            items: 5
-          }
-        }
-      });
     }); // if (localStorage.input) {
     //   this.input = localStorage.input;
     // }
   },
   methods: {
     gotoDetails: function gotoDetails(id) {
-      var url = ' ' / home / ' + id ';
+      var url = " " / home / " + id ";
       return url;
     },
     // persist() {
@@ -50731,7 +50711,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\Amministratore\Desktop\BooleanProject\php\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })
