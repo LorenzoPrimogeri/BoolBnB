@@ -2048,10 +2048,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 // import LoaderComponent from '../components/LoaderComponent.vue';
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ApartmentComponent",
@@ -2941,7 +2937,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".main .flex[data-v-ca80d4b0] {\n  display: flex;\n  flex-direction: column;\n}\n.main .text-box[data-v-ca80d4b0] {\n  margin-top: 20px;\n  margin-bottom: 20px;\n}\n.main .img-box img[data-v-ca80d4b0] {\n  width: 100%;\n  height: 600px;\n  border-radius: 1%;\n}\n.main .description-text[data-v-ca80d4b0] {\n  margin-top: 4%;\n}\n.main .services-box[data-v-ca80d4b0] {\n  display: flex;\n}\n.main .services-box p[data-v-ca80d4b0] {\n  margin-left: 3%;\n}\n.main .services-box .services[data-v-ca80d4b0] {\n  margin-top: 4%;\n}\n.main .contacts[data-v-ca80d4b0] {\n  margin-top: 2%;\n  margin-bottom: 5%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.btn-cta[data-v-ca80d4b0] {\n  text-align: center;\n  position: relative;\n  display: block;\n  width: 150px;\n  border: none;\n  background-color: #7174b6;\n  padding: 15px;\n  margin-top: 50px;\n  border-radius: 30px;\n  color: white;\n  cursor: pointer;\n  font-size: 1.1em;\n  font-weight: 600;\n  transition: 0.3s ease-in-out;\n}\n.btn-cta[data-v-ca80d4b0]:hover {\n  box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);\n  transform: scale(1.1);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #2137a6, #6e83f4);\n  /* filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$secondgradientcolor, endColorstr=$firstgradientcolor); */\n  box-shadow: 5px 6px 15px 0 rgba(179, 179, 179, 0.5);\n  box-shadow: 0px 0px 15px 0 rgba(179, 179, 179, 0.5);\n  box-shadow: 0 11px 16px -3px rgba(45, 35, 66, 0.3), 0 4px 5px 0 rgba(45, 35, 66, 0.4), inset 0 -2px 0 0 #4b58ba;\n  transform: translateY(-2px);\n}\nbody.enlargeFilter[data-v-ca80d4b0] {\n  position: fixed;\n}\n.bgExpandFilter[data-v-ca80d4b0] {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(1, 11, 38, 0);\n  z-index: 3;\n  transition: all 0.5s ease-in-out;\n  visibility: hidden;\n}\n#bgExpand.enlargeFilter[data-v-ca80d4b0] {\n  visibility: visible;\n}\n#cntExpand.enlargeFilter[data-v-ca80d4b0] {\n  top: 0;\n  opacity: 1;\n  height: 100%;\n  width: 100%;\n  background-color: rgba(23, 23, 23, 0.9);\n  margin-top: auto;\n  left: 0;\n  margin-left: auto;\n}\n#map[data-v-ca80d4b0] {\n  width: 300px;\n  height: 300px;\n  margin-top: 50px;\n}\n@media only screen and (max-width: 360px) {\n#map[data-v-ca80d4b0] {\n    width: 225px;\n    height: 225px;\n}\n}", ""]);
+exports.push([module.i, ".main .flex[data-v-ca80d4b0] {\n  display: flex;\n  flex-direction: column;\n}\n.text-box[data-v-ca80d4b0] {\n  margin-top: 20px;\n  margin-bottom: 20px;\n}\n.text-box h5[data-v-ca80d4b0] {\n  display: flex;\n  margin-top: 1%;\n  gap: 15px;\n  align-items: center;\n}\n.text-box h5 img[data-v-ca80d4b0] {\n  width: 30px;\n}\n.img-box img[data-v-ca80d4b0] {\n  width: 100%;\n  height: 600px;\n  border-radius: 1%;\n}\n.description-text[data-v-ca80d4b0] {\n  margin-top: 4%;\n}\n.services-box[data-v-ca80d4b0] {\n  display: flex;\n}\n.services-box p[data-v-ca80d4b0] {\n  margin-left: 3%;\n}\n.services-box .services[data-v-ca80d4b0] {\n  margin-top: 4%;\n  gap: 20px;\n}\n.services-box .services img[data-v-ca80d4b0] {\n  width: 30px;\n}\n.services-box .contacts[data-v-ca80d4b0] {\n  margin-top: 2%;\n  margin-bottom: 5%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.btn-cta[data-v-ca80d4b0] {\n  text-align: center;\n  position: relative;\n  display: block;\n  width: 150px;\n  border: none;\n  background-color: #7174b6;\n  padding: 15px;\n  margin-top: 50px;\n  border-radius: 30px;\n  color: white;\n  cursor: pointer;\n  font-size: 1.1em;\n  font-weight: 600;\n  transition: 0.3s ease-in-out;\n}\n.btn-cta[data-v-ca80d4b0]:hover {\n  box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);\n  transform: scale(1.1);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #2137a6, #6e83f4);\n  /* filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$secondgradientcolor, endColorstr=$firstgradientcolor); */\n  box-shadow: 5px 6px 15px 0 rgba(179, 179, 179, 0.5);\n  box-shadow: 0px 0px 15px 0 rgba(179, 179, 179, 0.5);\n  box-shadow: 0 11px 16px -3px rgba(45, 35, 66, 0.3), 0 4px 5px 0 rgba(45, 35, 66, 0.4), inset 0 -2px 0 0 #4b58ba;\n  transform: translateY(-2px);\n}\nbody.enlargeFilter[data-v-ca80d4b0] {\n  position: fixed;\n}\n.bgExpandFilter[data-v-ca80d4b0] {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(1, 11, 38, 0);\n  z-index: 3;\n  transition: all 0.5s ease-in-out;\n  visibility: hidden;\n}\n#bgExpand.enlargeFilter[data-v-ca80d4b0] {\n  visibility: visible;\n}\n#cntExpand.enlargeFilter[data-v-ca80d4b0] {\n  top: 0;\n  opacity: 1;\n  height: 100%;\n  width: 100%;\n  background-color: rgba(23, 23, 23, 0.9);\n  margin-top: auto;\n  left: 0;\n  margin-left: auto;\n}\n#map[data-v-ca80d4b0] {\n  width: 300px;\n  height: 300px;\n  margin-top: 50px;\n}\n@media only screen and (max-width: 360px) {\n#map[data-v-ca80d4b0] {\n    width: 225px;\n    height: 225px;\n}\n}", ""]);
 
 // exports
 
@@ -34983,7 +34979,7 @@ var render = function () {
       _c("div", { staticClass: "cnt-row col-12 text-box" }, [
         _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
         _vm._v(" "),
-        _c("h5", [_vm._v(_vm._s(_vm.apartment.address))]),
+        _c("h5", [_vm._m(0), _vm._v(_vm._s(_vm.apartment.address))]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "cnt-row col-12 img-box" }, [
@@ -35007,49 +35003,79 @@ var render = function () {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "services-box cnt-row col-12" }, [
-        _vm._m(0),
+        _vm._m(1),
         _vm._v(" "),
         _c("div", { staticClass: "services col-3" }, [
-          _c("div", { staticClass: "d-flex" }, [
-            _c("h6", [_vm._v("Stanze:")]),
-            _vm._v(" "),
-            _c("p", {}, [_vm._v(_vm._s(_vm.apartment.room))]),
+          _c("div", { staticClass: "d-flex service-box" }, [
+            _c("p", [
+              _c("img", {
+                attrs: {
+                  src: __webpack_require__(/*! ../../../public/img/room-svgrepo-com.svg */ "./public/img/room-svgrepo-com.svg"),
+                  alt: "room",
+                },
+              }),
+              _vm._v(_vm._s(_vm.apartment.room)),
+            ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "d-flex" }, [
-            _c("h6", [_vm._v("Bagni:")]),
-            _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(_vm.apartment.bathroom))]),
+          _c("div", { staticClass: "d-flex  service-icon" }, [
+            _c("p", [
+              _c("img", {
+                attrs: {
+                  src: __webpack_require__(/*! ../../../public/img/bathroom-svgrepo-com.svg */ "./public/img/bathroom-svgrepo-com.svg"),
+                  alt: "bath",
+                },
+              }),
+              _vm._v(_vm._s(_vm.apartment.bathroom)),
+            ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "d-flex" }, [
-            _c("h6", [_vm._v("Letti:")]),
-            _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(_vm.apartment.bed))]),
+          _c("div", { staticClass: "d-flex   service-icon" }, [
+            _c("p", [
+              _c("img", {
+                attrs: {
+                  src: __webpack_require__(/*! ../../../public/img/bed-svgrepo-com.svg */ "./public/img/bed-svgrepo-com.svg"),
+                  alt: "bed",
+                },
+              }),
+              _vm._v(_vm._s(_vm.apartment.bed)),
+            ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "d-flex" }, [
-            _c("h6", [_vm._v("Metri Quadri:")]),
-            _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(_vm.apartment.mq) + "mq")]),
+          _c("div", { staticClass: "d-flex   service-icon" }, [
+            _c("p", [
+              _c("img", {
+                attrs: {
+                  src: __webpack_require__(/*! ../../../public/img/square-layout-with-boxes-svgrepo-com.svg */ "./public/img/square-layout-with-boxes-svgrepo-com.svg"),
+                  alt: "square-meter",
+                },
+              }),
+              _vm._v(_vm._s(_vm.apartment.mq) + "mq"),
+            ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "d-flex" }, [
-            _c("h6", [_vm._v("Prezzo:")]),
-            _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(_vm.apartment.price) + "€ /notte")]),
+          _c("div", { staticClass: "d-flex  service-icon" }, [
+            _c("p", [
+              _c("img", {
+                attrs: {
+                  src: __webpack_require__(/*! ../../../public/img/euro-svgrepo-com.svg */ "./public/img/euro-svgrepo-com.svg"),
+                  alt: "euro",
+                },
+              }),
+              _vm._v(_vm._s(_vm.apartment.price) + "€ /notte"),
+            ]),
           ]),
         ]),
       ]),
     ]),
     _vm._v(" "),
-    _vm._m(1),
+    _vm._m(2),
     _vm._v(" "),
     _c("div", { staticClass: "bgExpandFilter", attrs: { id: "bgExpand" } }),
     _vm._v(" "),
     _c("div", { staticClass: "cntExpandFilter", attrs: { id: "cntExpand" } }, [
       _c("div", { staticClass: "main-filter" }, [
-        _vm._m(2),
+        _vm._m(3),
         _vm._v(" "),
         _c("div", { staticClass: "cnt-row" }, [
           _c(
@@ -35188,6 +35214,19 @@ var render = function () {
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c("img", {
+        attrs: {
+          src: __webpack_require__(/*! ../../../public/img/position-svgrepo-com.svg */ "./public/img/position-svgrepo-com.svg"),
+          alt: "position",
+        },
+      }),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -51301,6 +51340,28 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./public/img/bathroom-svgrepo-com.svg":
+/*!*********************************************!*\
+  !*** ./public/img/bathroom-svgrepo-com.svg ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/bathroom-svgrepo-com.svg?b2d6572b9df7417b463c45dc47b35b71";
+
+/***/ }),
+
+/***/ "./public/img/bed-svgrepo-com.svg":
+/*!****************************************!*\
+  !*** ./public/img/bed-svgrepo-com.svg ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/bed-svgrepo-com.svg?362611fbc513962611e9857175cd2e3e";
+
+/***/ }),
+
 /***/ "./public/img/boolbnb-logo.svg":
 /*!*************************************!*\
   !*** ./public/img/boolbnb-logo.svg ***!
@@ -51312,6 +51373,17 @@ module.exports = "/images/boolbnb-logo.svg?f1aced8f583f3dbbaa6c6fd70901e200";
 
 /***/ }),
 
+/***/ "./public/img/euro-svgrepo-com.svg":
+/*!*****************************************!*\
+  !*** ./public/img/euro-svgrepo-com.svg ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/euro-svgrepo-com.svg?6be28595eeb9e114a9c4f6a0e578ed3c";
+
+/***/ }),
+
 /***/ "./public/img/filter.svg":
 /*!*******************************!*\
   !*** ./public/img/filter.svg ***!
@@ -51320,6 +51392,39 @@ module.exports = "/images/boolbnb-logo.svg?f1aced8f583f3dbbaa6c6fd70901e200";
 /***/ (function(module, exports) {
 
 module.exports = "/images/filter.svg?2b53b7d29056335c4ec769058393830d";
+
+/***/ }),
+
+/***/ "./public/img/position-svgrepo-com.svg":
+/*!*********************************************!*\
+  !*** ./public/img/position-svgrepo-com.svg ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/position-svgrepo-com.svg?1f238e05684b622a1332e92c81028a7f";
+
+/***/ }),
+
+/***/ "./public/img/room-svgrepo-com.svg":
+/*!*****************************************!*\
+  !*** ./public/img/room-svgrepo-com.svg ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/room-svgrepo-com.svg?ef873c2538fab9dc90045907763b1f15";
+
+/***/ }),
+
+/***/ "./public/img/square-layout-with-boxes-svgrepo-com.svg":
+/*!*************************************************************!*\
+  !*** ./public/img/square-layout-with-boxes-svgrepo-com.svg ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/square-layout-with-boxes-svgrepo-com.svg?58452092e36d4f3c329132273b0c35dd";
 
 /***/ }),
 

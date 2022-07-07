@@ -5,7 +5,7 @@
 
       <div class="cnt-row col-12 text-box">
         <h2>{{ apartment.title }}</h2>
-        <h5>{{ apartment.address }}</h5>
+        <h5 ><span><img src="../../../public/img/position-svgrepo-com.svg" alt="position"></span>{{ apartment.address }}</h5>
       </div>
 
 
@@ -27,29 +27,25 @@
           <div id="map"></div>
         </div>
         <div class="services col-3">
-          <div class="d-flex">
-            <h6>Stanze:</h6>
-            <p class="">{{ apartment.room }}</p>
+
+          <div class="d-flex service-box">
+            <p ><img src="../../../public/img/room-svgrepo-com.svg" alt="room">{{ apartment.room }}</p>
           </div>
 
-          <div class="d-flex">
-            <h6>Bagni:</h6>
-            <p>{{ apartment.bathroom }}</p>
+          <div class="d-flex  service-icon">
+            <p><img src="../../../public/img/bathroom-svgrepo-com.svg" alt="bath">{{ apartment.bathroom }}</p>
           </div>
 
-          <div class="d-flex">
-            <h6>Letti:</h6>
-            <p>{{ apartment.bed }}</p>
+          <div class="d-flex   service-icon">
+            <p><img src="../../../public/img/bed-svgrepo-com.svg" alt="bed">{{ apartment.bed }}</p>
           </div>
 
-          <div class="d-flex">
-            <h6>Metri Quadri:</h6>
-            <p>{{ apartment.mq }}mq</p>
+          <div class="d-flex   service-icon">
+            <p><img src="../../../public/img/square-layout-with-boxes-svgrepo-com.svg" alt="square-meter">{{ apartment.mq }}mq</p>
           </div>
 
-          <div class="d-flex">
-            <h6>Prezzo:</h6>
-            <p>{{ apartment.price }}€ /notte</p>
+          <div class="d-flex  service-icon">
+            <p><img src="../../../public/img/euro-svgrepo-com.svg" alt="euro">{{ apartment.price }}€ /notte</p>
           </div>
         </div>
       </div>
@@ -279,8 +275,18 @@ export default {
     display: flex;
     flex-direction: column;
   }
+}
 
   .text-box {
+    h5{
+      display: flex;
+      margin-top: 1%;
+      gap: 15px;
+      align-items: center;
+      img{
+        width:30px;
+      }
+    }
     margin-top: 20px;
     margin-bottom: 20px;
   }
@@ -307,7 +313,10 @@ export default {
 
     .services {
       margin-top: 4%;
-    }
+      gap: 20px;
+      img{
+        width:30px;
+      }
   }
 
   .contacts {
@@ -404,5 +413,6 @@ body.enlargeFilter {
     height: 225px;
   }
 }
+
 </style>
 
