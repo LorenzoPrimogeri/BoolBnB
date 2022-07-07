@@ -2111,6 +2111,11 @@ __webpack_require__.r(__webpack_exports__);
       $("#bgExpand").toggleClass("enlargeFilter");
       $("body").toggleClass("enlargeFilter");
     });
+    $(".btn-cta").click(function () {
+      $("#cntExpand").toggleClass("enlargeFilter");
+      $("#bgExpand").toggleClass("enlargeFilter");
+      $("body").toggleClass("enlargeFilter");
+    });
   },
   methods: {
     createMap: function createMap() {
@@ -2818,6 +2823,11 @@ __webpack_require__.r(__webpack_exports__);
       $("body").toggleClass("enlargeFilter");
     });
     $(".cnt-btn-close").click(function () {
+      $("#cntExpand").toggleClass("enlargeFilter");
+      $("#bgExpand").toggleClass("enlargeFilter");
+      $("body").toggleClass("enlargeFilter");
+    });
+    $(".btn-cta").click(function () {
       $("#cntExpand").toggleClass("enlargeFilter");
       $("#bgExpand").toggleClass("enlargeFilter");
       $("body").toggleClass("enlargeFilter");

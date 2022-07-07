@@ -176,6 +176,12 @@ export default {
       $("#bgExpand").toggleClass("enlargeFilter");
       $("body").toggleClass("enlargeFilter");
     });
+
+     $(".btn-cta").click(function () {
+      $("#cntExpand").toggleClass("enlargeFilter");
+      $("#bgExpand").toggleClass("enlargeFilter");
+      $("body").toggleClass("enlargeFilter");
+    });
   },
   methods: {
     createMap() {
@@ -266,7 +272,6 @@ export default {
         console.log(error);
       })
     }
-
   },
 };
 </script>
