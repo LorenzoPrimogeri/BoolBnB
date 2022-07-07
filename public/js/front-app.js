@@ -2119,7 +2119,7 @@ __webpack_require__.r(__webpack_exports__);
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments").then(function (results) {
       var result = [];
       result = results.data.apartments;
-      console.log(result);
+      console.log(results);
 
       for (var i = 0; i < result.length; i++) {
         var apartment = result[i];
@@ -2133,26 +2133,6 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log(_this.allApartaments); // this.allServices = results.data.services;
       // console.log(this.allServices);
-    });
-    $(document).ready(function () {
-      $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 2000,
-        autoplayHoverPause: true,
-        responsive: {
-          0: {
-            items: 1
-          },
-          600: {
-            items: 3
-          },
-          1000: {
-            items: 5
-          }
-        }
-      });
     }); // if (localStorage.input) {
     //   this.input = localStorage.input;
     // }
