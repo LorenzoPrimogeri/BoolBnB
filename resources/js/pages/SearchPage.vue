@@ -197,7 +197,7 @@
           <router-link class="box-card"   v-for="apartment in correctApartments"
                 :key="apartment.id" :to="'/home/'+ apartment.id ">
               <div
-                
+
               >
                 <div class="cnt-img">
                   <img :src="'/storage/' + apartment.img" alt="">
@@ -218,7 +218,7 @@
     <!--Main-->
     <!--Footer-->
 
-    <footer id="Footer">
+    <!-- <footer id="Footer">
       <div class="container wmax-100 h-100 pd-20-lr">
         <div class="col-2 h-100"></div>
         <div class="cnt-footer-items col-8 h-100">
@@ -232,7 +232,7 @@
         </div>
         <div class="col-2 h-100"></div>
       </div>
-    </footer>
+    </footer> -->
 
     <!--Footer-->
   </div>
@@ -271,6 +271,12 @@ export default {
     });
 
     $(".cnt-btn-close").click(function () {
+      $("#cntExpand").toggleClass("enlargeFilter");
+      $("#bgExpand").toggleClass("enlargeFilter");
+      $("body").toggleClass("enlargeFilter");
+    });
+
+     $(".btn-cta").click(function () {
       $("#cntExpand").toggleClass("enlargeFilter");
       $("#bgExpand").toggleClass("enlargeFilter");
       $("body").toggleClass("enlargeFilter");
@@ -432,11 +438,11 @@ export default {
     justify-content: center;
     gap: 25px;
   }
-  .box-card {
-    display: flex;
-    width: calc(100% / 4 - 25px);
+    .box-card {
+   display: flex;
+    width: 300px;
     flex-direction: column;
-   .cnt-img {
+    .cnt-img {
       width: 100%;
       height: 200px;
        img {

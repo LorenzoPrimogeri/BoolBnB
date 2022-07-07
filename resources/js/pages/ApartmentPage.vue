@@ -17,7 +17,6 @@
       </div>
 
       <div class="description-text cnt-row col-12">
-        <h2>{{ apartment.title }}</h2>
         <h5 class="mt-3">Descrizione:</h5>
         <p>{{ apartment.description }}</p>
       </div>
@@ -47,13 +46,15 @@
           <div class="d-flex  service-icon">
             <p><img src="../../../public/img/euro-svgrepo-com.svg" alt="euro">{{ apartment.price }}€ /notte</p>
           </div>
+
+          <div class="col-12 contacts ">
+            <a id="contacts" class="btn-cta">Contatta</a>
+          </div>
         </div>
       </div>
     </div>
 
-      <div class="col-12 contacts">
-        <a id="contacts" class="btn-cta">Contatta</a>
-      </div>
+
 
       <div id="bgExpand" class="bgExpandFilter">
       </div>
@@ -235,7 +236,8 @@ export default {
       this.sending = true;
       this.success = false;
       const id = this.$route.params.id;
-      console.log(id)
+      console.log(id);
+      alert('messaggio mandato!')
 
       window.axios.post(`/api/messages/`, {
         email: this.email,
@@ -251,6 +253,8 @@ export default {
         this.sending = false;
 
         if (status === 200) {
+
+            alert("Messaggio Inviato");
 
           this.success = data.success;
 
@@ -275,7 +279,7 @@ export default {
     display: flex;
     flex-direction: column;
   }
-}
+
 
   .text-box {
     h5{
@@ -320,17 +324,18 @@ export default {
         vertical-align: none;
       }
        .service-icon{
-          
+
        }
   }
 
   .contacts {
-    margin-top: 2%;
-    margin-bottom: 5%;
+    margin-top: 30%;
+    margin-bottom: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+}
 }
 
 

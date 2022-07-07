@@ -33023,6 +33023,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\js\app.js */"./resources/js/app.js");
 __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\sass\dashboard.scss */"./resources/sass/dashboard.scss");
@@ -33030,6 +33031,15 @@ __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resour
 __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\sass\dropDwn-menu.scss */"./resources/sass/dropDwn-menu.scss");
 __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\sass\btn-burger.scss */"./resources/sass/btn-burger.scss");
 module.exports = __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\sass\menuSlide.scss */"./resources/sass/menuSlide.scss");
+=======
+__webpack_require__(/*! C:\Users\Francesco\Documents\Boolean\PHP\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Users\Francesco\Documents\Boolean\PHP\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Francesco\Documents\Boolean\PHP\BoolBnB\resources\sass\dashboard.scss */"./resources/sass/dashboard.scss");
+__webpack_require__(/*! C:\Users\Francesco\Documents\Boolean\PHP\BoolBnB\resources\sass\log-sign.scss */"./resources/sass/log-sign.scss");
+__webpack_require__(/*! C:\Users\Francesco\Documents\Boolean\PHP\BoolBnB\resources\sass\dropDwn-menu.scss */"./resources/sass/dropDwn-menu.scss");
+__webpack_require__(/*! C:\Users\Francesco\Documents\Boolean\PHP\BoolBnB\resources\sass\btn-burger.scss */"./resources/sass/btn-burger.scss");
+module.exports = __webpack_require__(/*! C:\Users\Francesco\Documents\Boolean\PHP\BoolBnB\resources\sass\menuSlide.scss */"./resources/sass/menuSlide.scss");
+>>>>>>> ad68c1270d1736680f80928842793d83630fd2b3
 
 
 /***/ })

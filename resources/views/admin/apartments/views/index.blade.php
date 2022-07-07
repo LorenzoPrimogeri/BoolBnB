@@ -6,9 +6,11 @@
 
     <div class="main-slct-item">
         <div class="cnt-slct-btn">
-            <div class="cnt-th cnt-btn h-100">
+            <div class="cnt-th cnt-btns h-100">
                 <a href="{{ route('admin.apartments.index') }}">
-                    <button>Torna indietro</button>
+                    <div class="cnt-btn" title="Dashboaard">
+                        <button class="btn btn-home"></button>
+                    </div>
                 </a>
             </div>
         </div>
