@@ -1925,120 +1925,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-<<<<<<< HEAD
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-=======
->>>>>>> 55d33005333621d860233e4a1f33b3fa88f4eeb9
 // import LoaderComponent from '../components/LoaderComponent.vue';
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ApartmentComponent",
@@ -2202,228 +2088,12 @@ __webpack_require__.r(__webpack_exports__);
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\resources\\js\\pages\\HomePage.vue: Unexpected token (254:0)\n\n\u001b[0m \u001b[90m 252 |\u001b[39m       \u001b[90m// console.log(this.allServices);\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 253 |\u001b[39m     })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 254 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 255 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 256 |\u001b[39m        $(document)\u001b[33m.\u001b[39mready(\u001b[36mfunction\u001b[39m() {\u001b[0m\n\u001b[0m \u001b[90m 257 |\u001b[39m       $(\u001b[32m'.owl-carousel'\u001b[39m)\u001b[33m.\u001b[39mowlCarousel({\u001b[0m\n    at instantiate (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:72:32)\n    at constructor (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:358:12)\n    at Parser.raise (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:3341:19)\n    at Parser.unexpected (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:3379:16)\n    at Parser.parseExprAtom (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:13118:22)\n    at Parser.parseExprSubscripts (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12643:23)\n    at Parser.parseUpdate (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12622:21)\n    at Parser.parseMaybeUnary (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12593:23)\n    at Parser.parseMaybeUnaryOrPrivate (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12387:61)\n    at Parser.parseExprOps (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12394:23)\n    at Parser.parseMaybeConditional (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12364:23)\n    at Parser.parseMaybeAssign (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12316:21)\n    at Parser.parseExpressionBase (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12252:23)\n    at C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12246:39\n    at Parser.allowInAnd (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:14341:16)\n    at Parser.parseExpression (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12246:17)\n    at Parser.parseStatementContent (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:14781:23)\n    at Parser.parseStatement (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:14638:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:15281:25)\n    at Parser.parseBlockBody (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:15272:10)\n    at Parser.parseBlock (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:15256:10)\n    at Parser.parseFunctionBody (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:13946:24)\n    at Parser.parseFunctionBodyAndFinish (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:13930:10)\n    at Parser.parseMethod (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:13879:10)\n    at Parser.parseObjectMethod (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:13755:19)\n    at Parser.parseObjPropValue (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:13796:23)\n    at Parser.parsePropertyDefinition (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:13713:10)\n    at Parser.parseObjectLike (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:13603:21)\n    at Parser.parseExprAtom (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12993:23)\n    at Parser.parseExprSubscripts (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12643:23)\n    at Parser.parseUpdate (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12622:21)\n    at Parser.parseMaybeUnary (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12593:23)\n    at Parser.parseMaybeUnaryOrPrivate (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12387:61)\n    at Parser.parseExprOps (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12394:23)\n    at Parser.parseMaybeConditional (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12364:23)\n    at Parser.parseMaybeAssign (C:\\Users\\Michele\\Documents\\Boolean\\Esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12316:21)");
-=======
-=======
->>>>>>> 55d33005333621d860233e4a1f33b3fa88f4eeb9
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-carousel */ "./node_modules/vue-carousel/dist/vue-carousel.min.js");
 /* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_1__);
-<<<<<<< HEAD
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-=======
->>>>>>> 55d33005333621d860233e4a1f33b3fa88f4eeb9
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2459,11 +2129,7 @@ __webpack_require__.r(__webpack_exports__);
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments").then(function (results) {
       var result = [];
       result = results.data.apartments;
-<<<<<<< HEAD
-      console.log(result);
-=======
       console.log(results);
->>>>>>> 55d33005333621d860233e4a1f33b3fa88f4eeb9
 
       for (var i = 0; i < result.length; i++) {
         var apartment = result[i];
@@ -2514,10 +2180,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
-<<<<<<< HEAD
->>>>>>> parent of 4fe235b (update)
-=======
->>>>>>> 55d33005333621d860233e4a1f33b3fa88f4eeb9
 
 /***/ }),
 
@@ -2547,248 +2209,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-<<<<<<< HEAD
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-=======
->>>>>>> 55d33005333621d860233e4a1f33b3fa88f4eeb9
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SearchPage",
@@ -2939,39 +2359,30 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/WearePage.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/WearePage.vue?vue&type=script&lang=js& ***!
   \***************************************************************************************************************************************************************/
 /*! exports provided: default */
-=======
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'wearePage'
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/AppComponent.vue?vue&type=template&id=278c9eb0&scoped=true&":
 /*!**************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/app/AppComponent.vue?vue&type=template&id=278c9eb0&scoped=true& ***!
   \**************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
->>>>>>> 55d33005333621d860233e4a1f33b3fa88f4eeb9
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-<<<<<<< HEAD
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'wearePage'
-});
-=======
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 var render = function render() {
@@ -3419,7 +2830,7 @@ var render = function render() {
     }, [_c("h2", [_vm._v(_vm._s(apartment.title))]), _vm._v(" "), _c("h3", [_vm._v(_vm._s(apartment.address))])]), _vm._v(" "), _c("div", {
       staticClass: "price col-12"
     }, [_c("span", [_vm._v(_vm._s(apartment.price) + " €/notte")])])])]);
-  }), 1)])])]);
+  }), 1)])]), _vm._v(" "), _vm._m(3)]);
 };
 
 var staticRenderFns = [function () {
@@ -3455,6 +2866,29 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "title mt-5"
   }, [_c("h2", [_vm._v("Ti potrebbero interessare")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("footer", {
+    attrs: {
+      id: "Footer"
+    }
+  }, [_c("div", {
+    staticClass: "container wmax-100 h-100 pd-20-lr"
+  }, [_c("div", {
+    staticClass: "col-2 h-100"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "cnt-footer-items col-8 h-100"
+  }, [_c("div", {
+    staticClass: "cnt-items-ftr"
+  }, [_c("ul", [_c("li", [_c("a", {
+    attrs: {
+      href: "/weare"
+    }
+  }, [_c("h2", [_vm._v("Chi siamo")])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-2 h-100"
+  })])]);
 }];
 render._withStripped = true;
 
@@ -3739,7 +3173,7 @@ var render = function render() {
     }, [_c("h2", [_vm._v(_vm._s(apartment.title))]), _vm._v(" "), _c("h3", [_vm._v(_vm._s(apartment.address))])]), _vm._v(" "), _c("div", {
       staticClass: "price col-12"
     }, [_c("span", [_vm._v(_vm._s(apartment.price) + " €/notte")])])])]);
-  }), 1)])])]);
+  }), 1)])]), _vm._v(" "), _vm._m(2)]);
 };
 
 var staticRenderFns = [function () {
@@ -3774,10 +3208,63 @@ var staticRenderFns = [function () {
   }, [_c("div", {
     staticClass: "btn-closed"
   })])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("footer", {
+    attrs: {
+      id: "Footer"
+    }
+  }, [_c("div", {
+    staticClass: "container wmax-100 h-100 pd-20-lr"
+  }, [_c("div", {
+    staticClass: "col-2 h-100"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "cnt-footer-items col-8 h-100"
+  }, [_c("div", {
+    staticClass: "cnt-items-ftr"
+  }, [_c("ul", [_c("li", [_c("a", {
+    attrs: {
+      href: "/weare"
+    }
+  }, [_c("h2", [_vm._v("Chi siamo")])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-2 h-100"
+  })])]);
 }];
 render._withStripped = true;
 
->>>>>>> 55d33005333621d860233e4a1f33b3fa88f4eeb9
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/WearePage.vue?vue&type=template&id=8c392a88&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/WearePage.vue?vue&type=template&id=8c392a88&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _vm._m(0);
+};
+
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_c("div", [_c("div", {
+    staticClass: "box-title"
+  }, [_c("h2", [_vm._v("Chi siamo:")])])]), _vm._v(" "), _c("div")]);
+}];
+render._withStripped = true;
+
 
 /***/ }),
 
@@ -3833,8 +3320,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-<<<<<<< HEAD
-exports.push([module.i, "* a {\n  text-decoration: none;\n  color: black;\n}\n* a:hover {\n  color: black;\n}\n#main {\n  display: flex;\n  width: 100%;\n  margin: 180px auto;\n  flex-direction: column;\n}\n#main h2 {\n  font-family: \"Lobster\", cursive;\n  font-weight: bold;\n  color: #797cba;\n}\n.container {\n  position: relative;\n}\n.container .cnt-label {\n  position: -webkit-sticky;\n  position: sticky;\n  display: flex;\n  padding: 20px;\n  color: #fff;\n  height: auto;\n  left: 50px;\n  justify-content: center;\n  align-items: center;\n  font-weight: 600;\n  font-size: 2em;\n}\n.container .cnt-cards {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 25px;\n}\n.container .box-card {\n  display: flex;\n  width: 300px;\n  flex-direction: column;\n}\n.container .box-card .cnt-img {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card .cnt-img img {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card .cnt-h {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card .cnt-h h2 {\n  font-size: 1em;\n}\n.container .box-card .cnt-h h3 {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card .price {\n  display: contents;\n}\n.container .box-card .price span {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\nfooter {\n  background-color: white;\n  border-top: 1px solid lightgray;\n  position: fixed;\n  bottom: 0;\n  height: 50px;\n  width: 100%;\n}\nfooter h2 {\n  font-family: \"Lobster\", cursive;\n  font-weight: bold;\n  font-size: 1.3rem;\n  color: #797cba;\n}\nfooter .cnt-footer-items {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n}\nfooter .cnt-footer-items .cnt-items-ftr ul {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  list-style-type: none;\n  margin: 0 !important;\n  padding: 15px;\n}\nfooter .cnt-footer-items .cnt-items-ftr ul li a {\n  text-decoration: none;\n  color: darkslategray;\n}\nfooter .cnt-footer-items .cnt-items-ftr ul li a:hover {\n  color: #7174b6;\n}\n.cnt-btn-filter {\n  height: 40px;\n  border-radius: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n  padding: 10px;\n  border: 1px solid lightgray;\n  box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);\n  cursor: pointer;\n}\n.cnt-btn-filter .btn-filter {\n  width: 20px;\n  height: 20px;\n  background: url(" + escape(__webpack_require__(/*! ../../../public/img/filter.svg */ "./public/img/filter.svg")) + ") no-repeat center/contain;\n}\nbody.enlargeFilter {\n  overflow: hidden;\n}\n.bgExpandFilter {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(1, 11, 38, 0);\n  z-index: 3;\n  transition: all 0.5s ease-in-out;\n  visibility: hidden;\n}\n#bgExpand.enlargeFilter {\n  visibility: visible;\n}\n#cntExpand.enlargeFilter {\n  top: 0;\n  opacity: 1;\n  height: 100%;\n  width: 100%;\n  background-color: rgba(23, 23, 23, 0.9);\n  margin-top: auto;\n  left: 0;\n  margin-left: auto;\n}\n.main-check {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.main-check .cnt-checkbox {\n  position: relative;\n  height: 25px;\n  width: 25px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.main-check .cnt-checkbox .cnt-checkbox:hover input ~ .checkmark {\n  background-color: #ccc;\n}\n.main-check .cnt-checkbox .cnt-checkbox input:checked ~ .checkmark {\n  background-color: #2196f3;\n}\n.main-check .cnt-checkbox .cnt-checkbox input:checked ~ .checkmark:after {\n  display: block;\n}\n.main-check .cnt-checkbox input[type=checkbox].input-check {\n  position: absolute;\n  width: 25px;\n  height: 25px;\n  left: 0;\n  z-index: 2;\n  accent-color: #7174b6;\n}\n.main-check .cnt-checkbox .checkmark {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 25px;\n  width: 25px;\n  background-color: #eee;\n}\n.main-check .cnt-checkbox .checkmark:after {\n  content: \"\";\n  position: absolute;\n  display: none;\n}\n.main-check .cnt-checkbox .checkmark:after {\n  left: 9px;\n  top: 5px;\n  width: 5px;\n  height: 10px;\n  border: solid white;\n  border-width: 0 3px 3px 0;\n  transform: rotate(45deg);\n}\n.btn-cta {\n  position: relative;\n  display: block;\n  width: 150px;\n  border: none;\n  background-color: #7174b6;\n  padding: 15px;\n  margin-top: 50px;\n  border-radius: 30px;\n  color: white;\n  cursor: pointer;\n  font-size: 1.1em;\n  font-weight: 600;\n  transition: 0.3s ease-in-out;\n}\n.btn-cta:hover {\n  box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);\n  transform: scale(1.1);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #2137a6, #6e83f4);\n  /* filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$secondgradientcolor, endColorstr=$firstgradientcolor); */\n  box-shadow: 5px 6px 15px 0 rgba(179, 179, 179, 0.5);\n  box-shadow: 0px 0px 15px 0 rgba(179, 179, 179, 0.5);\n  box-shadow: 0 11px 16px -3px rgba(45, 35, 66, 0.3), 0 4px 5px 0 rgba(45, 35, 66, 0.4), inset 0 -2px 0 0 #4b58ba;\n  transform: translateY(-2px);\n}\n.cnt-btn-close {\n  position: relative;\n  width: 40px;\n  height: 40px;\n  box-sizing: border-box;\n  color: black;\n  text-decoration: none;\n  transition: 0.5s ease-in-out;\n  border-radius: 50%;\n  background-color: #010b26;\n  background-color: transparent;\n  cursor: pointer;\n}\n.cnt-btn-close .btn-closed::after {\n  content: \"\";\n  display: block;\n  height: 30px;\n  width: 3px;\n  background: #90a9e8;\n  position: absolute;\n  left: 20px;\n  top: 5px;\n  transform: rotate(-45deg);\n  border-radius: 5px;\n}\n.cnt-btn-close .btn-closed::before {\n  content: \"\";\n  display: block;\n  height: 30px;\n  width: 3px;\n  background: #90a9e8;\n  position: absolute;\n  left: 20px;\n  top: 5px;\n  transform: rotate(45deg);\n  border-radius: 5px;\n}\n.cntExpandFilter {\n  position: fixed;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  top: -1000px;\n  margin-top: -350px;\n  z-index: 200;\n  opacity: 0;\n  transition: all 0.5s ease-in-out;\n}\n.cntExpandFilter .main-filter {\n  width: 80%;\n  height: calc(100% - 100px);\n  border-radius: 5px;\n  background: #fff;\n  border-radius: 5px;\n  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);\n  transform-style: preserve-3d;\n  overflow: auto;\n}\n.cntExpandFilter .main-filter::-webkit-scrollbar {\n  display: none;\n}\n.cntExpandFilter .main-filter {\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n}\n.cntExpandFilter .main-filter .row-filter-ttl {\n  display: flex;\n  justify-content: flex-end;\n  position: -webkit-sticky;\n  position: sticky;\n  width: 100%;\n  top: 0;\n  padding: 10px 20px;\n  background-color: #fff;\n  border-bottom: 1px solid #d9d9d9;\n  z-index: 3;\n}\n.cntExpandFilter .main-filter .row-filter-ttl .cnt-ttl {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.cntExpandFilter .main-filter .row-filter-ttl .cnt-ttl h2 {\n  font-size: 1.5em;\n}\n.cntExpandFilter .main-filter .cnt-row {\n  padding: 50px;\n}\n.cntExpandFilter .main-filter .cnt-row .row-filter {\n  position: relative;\n  display: flex;\n  padding: 10px;\n  border-bottom: 1px solid #d9d9d9;\n}\n.cntExpandFilter .main-filter .cnt-row .row-filter .cnt-filter-select {\n  display: flex;\n  flex-wrap: wrap;\n  margin: 20px 0;\n}\n.cntExpandFilter .main-filter .cnt-row .row-filter .cnt-filter-select input[type=number] {\n  display: inline-block;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  padding: 12px 20px;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n}\n@media screen and (max-width: 1050px) {\n.contExpandLogMob,\n.contExpandLogRegMob {\n    width: 90%;\n    background-color: white;\n    background-size: cover;\n    left: 50%;\n    margin-left: -45%;\n    border-radius: 5px;\n    z-index: 200;\n    opacity: 0;\n    transition: all 0.5s ease-in-out;\n}\n#contExpandLogInMob.enlargeLogIn,\n#contExpandRegMob.enlargeLogIn {\n    opacity: 1;\n    width: 100%;\n    height: 100%;\n}\n}\n@media screen and (max-width: 1200px) {\n.container .box-card {\n    display: flex;\n    width: calc(33.3333333333% - 25px);\n}\n}\n@media screen and (max-width: 800px) {\n.container .box-card {\n    display: flex;\n    width: calc(50% - 25px);\n}\n}\n@media screen and (max-width: 650px) {\n.container .box-card {\n    display: flex;\n    width: 100%;\n    max-width: 300px;\n}\nheader .cnt-hdr-items .cnt-nav {\n    display: none;\n}\nheader .cnt-logo {\n    width: 100%;\n    height: 100%;\n}\nheader .cnt-logo img,\nheader .cnt-logo a {\n    width: 150px;\n    height: 60%;\n}\n}", ""]);
+exports.push([module.i, "* a {\n  text-decoration: none;\n  color: black;\n}\n* a:hover {\n  color: black;\n}\n#main {\n  display: flex;\n  width: 100%;\n  margin: 180px auto;\n  flex-direction: column;\n}\n#main h2 {\n  font-family: \"Lobster\", cursive;\n  font-weight: bold;\n  color: #797cba;\n}\n.container {\n  position: relative;\n}\n.container .cnt-label {\n  position: -webkit-sticky;\n  position: sticky;\n  display: flex;\n  padding: 20px;\n  color: #fff;\n  height: auto;\n  left: 50px;\n  justify-content: center;\n  align-items: center;\n  font-weight: 600;\n  font-size: 2em;\n}\n.container .cnt-cards {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 25px;\n}\n.container .box-card {\n  display: flex;\n  width: 300px;\n  flex-direction: column;\n}\n.container .box-card .cnt-img {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card .cnt-img img {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card .cnt-h {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card .cnt-h h2 {\n  font-size: 1em;\n}\n.container .box-card .cnt-h h3 {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card .price {\n  display: contents;\n}\n.container .box-card .price span {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\nfooter {\n  background-color: white;\n  border-top: 1px solid lightgray;\n  position: fixed;\n  bottom: 0;\n  height: 50px;\n  width: 100%;\n}\nfooter h2 {\n  font-family: \"Lobster\", cursive;\n  font-weight: bold;\n  font-size: 1.3rem;\n  color: #797cba;\n}\nfooter .cnt-footer-items {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n}\nfooter .cnt-footer-items .cnt-items-ftr ul {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  list-style-type: none;\n  margin: 0 !important;\n  padding: 15px;\n}\nfooter .cnt-footer-items .cnt-items-ftr ul li a {\n  text-decoration: none;\n  color: darkslategray;\n}\nfooter .cnt-footer-items .cnt-items-ftr ul li a:hover {\n  color: #7174b6;\n}\n.cnt-btn-filter {\n  height: 40px;\n  border-radius: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n  padding: 10px;\n  border: 1px solid lightgray;\n  box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);\n  cursor: pointer;\n}\n.cnt-btn-filter .btn-filter {\n  width: 20px;\n  height: 20px;\n  background: url(" + escape(__webpack_require__(/*! ../../../public/img/filter.svg */ "./public/img/filter.svg")) + ") no-repeat center/contain;\n}\nbody.enlargeFilter {\n  overflow: hidden;\n}\n.bgExpandFilter {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(1, 11, 38, 0);\n  z-index: 3;\n  transition: all 0.5s ease-in-out;\n  visibility: hidden;\n}\n#bgExpand.enlargeFilter {\n  visibility: visible;\n}\n#cntExpand.enlargeFilter {\n  top: 0;\n  opacity: 1;\n  height: 100%;\n  width: 100%;\n  background-color: rgba(23, 23, 23, 0.9);\n  margin-top: auto;\n  left: 0;\n  margin-left: auto;\n}\n.main-check {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.main-check .cnt-checkbox {\n  position: relative;\n  height: 25px;\n  width: 25px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  user-select: none;\n}\n.main-check .cnt-checkbox .cnt-checkbox:hover input ~ .checkmark {\n  background-color: #ccc;\n}\n.main-check .cnt-checkbox .cnt-checkbox input:checked ~ .checkmark {\n  background-color: #2196f3;\n}\n.main-check .cnt-checkbox .cnt-checkbox input:checked ~ .checkmark:after {\n  display: block;\n}\n.main-check .cnt-checkbox input[type=checkbox].input-check {\n  position: absolute;\n  width: 25px;\n  height: 25px;\n  left: 0;\n  z-index: 2;\n  accent-color: #7174b6;\n}\n.main-check .cnt-checkbox .checkmark {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 25px;\n  width: 25px;\n  background-color: #eee;\n}\n.main-check .cnt-checkbox .checkmark:after {\n  content: \"\";\n  position: absolute;\n  display: none;\n}\n.main-check .cnt-checkbox .checkmark:after {\n  left: 9px;\n  top: 5px;\n  width: 5px;\n  height: 10px;\n  border: solid white;\n  border-width: 0 3px 3px 0;\n  transform: rotate(45deg);\n}\n.btn-cta {\n  position: relative;\n  display: block;\n  width: 150px;\n  border: none;\n  background-color: #7174b6;\n  padding: 15px;\n  margin-top: 50px;\n  border-radius: 30px;\n  color: white;\n  cursor: pointer;\n  font-size: 1.1em;\n  font-weight: 600;\n  transition: 0.3s ease-in-out;\n}\n.btn-cta:hover {\n  box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);\n  transform: scale(1.1);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #2137a6, #6e83f4);\n  /* filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$secondgradientcolor, endColorstr=$firstgradientcolor); */\n  box-shadow: 5px 6px 15px 0 rgba(179, 179, 179, 0.5);\n  box-shadow: 0px 0px 15px 0 rgba(179, 179, 179, 0.5);\n  box-shadow: 0 11px 16px -3px rgba(45, 35, 66, 0.3), 0 4px 5px 0 rgba(45, 35, 66, 0.4), inset 0 -2px 0 0 #4b58ba;\n  transform: translateY(-2px);\n}\n.cnt-btn-close {\n  position: relative;\n  width: 40px;\n  height: 40px;\n  box-sizing: border-box;\n  color: black;\n  text-decoration: none;\n  transition: 0.5s ease-in-out;\n  border-radius: 50%;\n  background-color: #010b26;\n  background-color: transparent;\n  cursor: pointer;\n}\n.cnt-btn-close .btn-closed::after {\n  content: \"\";\n  display: block;\n  height: 30px;\n  width: 3px;\n  background: #90a9e8;\n  position: absolute;\n  left: 20px;\n  top: 5px;\n  transform: rotate(-45deg);\n  border-radius: 5px;\n}\n.cnt-btn-close .btn-closed::before {\n  content: \"\";\n  display: block;\n  height: 30px;\n  width: 3px;\n  background: #90a9e8;\n  position: absolute;\n  left: 20px;\n  top: 5px;\n  transform: rotate(45deg);\n  border-radius: 5px;\n}\n.cntExpandFilter {\n  position: fixed;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  top: -1000px;\n  margin-top: -350px;\n  z-index: 200;\n  opacity: 0;\n  transition: all 0.5s ease-in-out;\n}\n.cntExpandFilter .main-filter {\n  width: 80%;\n  height: calc(100% - 100px);\n  border-radius: 5px;\n  background: #fff;\n  border-radius: 5px;\n  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);\n  transform-style: preserve-3d;\n  overflow: auto;\n}\n.cntExpandFilter .main-filter::-webkit-scrollbar {\n  display: none;\n}\n.cntExpandFilter .main-filter {\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n}\n.cntExpandFilter .main-filter .row-filter-ttl {\n  display: flex;\n  justify-content: flex-end;\n  position: -webkit-sticky;\n  position: sticky;\n  width: 100%;\n  top: 0;\n  padding: 10px 20px;\n  background-color: #fff;\n  border-bottom: 1px solid #d9d9d9;\n  z-index: 3;\n}\n.cntExpandFilter .main-filter .row-filter-ttl .cnt-ttl {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.cntExpandFilter .main-filter .row-filter-ttl .cnt-ttl h2 {\n  font-size: 1.5em;\n}\n.cntExpandFilter .main-filter .cnt-row {\n  padding: 50px;\n}\n.cntExpandFilter .main-filter .cnt-row .row-filter {\n  position: relative;\n  display: flex;\n  padding: 10px;\n  border-bottom: 1px solid #d9d9d9;\n}\n.cntExpandFilter .main-filter .cnt-row .row-filter .cnt-filter-select {\n  display: flex;\n  flex-wrap: wrap;\n  margin: 20px 0;\n}\n.cntExpandFilter .main-filter .cnt-row .row-filter .cnt-filter-select input[type=number] {\n  display: inline-block;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  padding: 12px 20px;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n}\n@media screen and (max-width: 1050px) {\n.contExpandLogMob,\n.contExpandLogRegMob {\n    width: 90%;\n    background-color: white;\n    background-size: cover;\n    left: 50%;\n    margin-left: -45%;\n    border-radius: 5px;\n    z-index: 200;\n    opacity: 0;\n    transition: all 0.5s ease-in-out;\n}\n#contExpandLogInMob.enlargeLogIn,\n#contExpandRegMob.enlargeLogIn {\n    opacity: 1;\n    width: 100%;\n    height: 100%;\n}\n}\n@media screen and (max-width: 1200px) {\n.container .box-card {\n    display: flex;\n    width: calc(33.3333333333% - 25px);\n}\n}\n@media screen and (max-width: 800px) {\n.container .box-card {\n    display: flex;\n    width: calc(50% - 25px);\n}\n}\n@media screen and (max-width: 650px) {\n.container .box-card {\n    display: flex;\n    width: 100%;\n    max-width: 300px;\n}\nheader .cnt-hdr-items .cnt-nav {\n    display: none;\n}\nheader .cnt-logo {\n    width: 100%;\n    height: 100%;\n}\nheader .cnt-logo img,\nheader .cnt-logo a {\n    width: 150px;\n    height: 60%;\n}\n}", ""]);
 
 // exports
 
@@ -3854,9 +3340,6 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Lo
 
 // module
 exports.push([module.i, ".box-title[data-v-8c392a88] {\n  display: flex;\n  justify-content: center;\n  margin-top: 5%;\n}\n.box-title h2[data-v-8c392a88] {\n  font-family: \"Lobster\", cursive;\n  font-weight: bold;\n  font-size: 2.8rem;\n  color: #797cba;\n}", ""]);
-=======
-exports.push([module.i, "* a {\n  text-decoration: none;\n  color: black;\n}\n* a:hover {\n  color: black;\n}\n#main {\n  display: flex;\n  width: 100%;\n  margin: 180px auto;\n  flex-direction: column;\n}\n#main h2 {\n  font-family: \"Lobster\", cursive;\n  font-weight: bold;\n  color: #797cba;\n}\n.container {\n  position: relative;\n}\n.container .cnt-label {\n  position: -webkit-sticky;\n  position: sticky;\n  display: flex;\n  padding: 20px;\n  color: #fff;\n  height: auto;\n  left: 50px;\n  justify-content: center;\n  align-items: center;\n  font-weight: 600;\n  font-size: 2em;\n}\n.container .cnt-cards {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 25px;\n}\n.container .box-card {\n  display: flex;\n  width: 300px;\n  flex-direction: column;\n}\n.container .box-card .cnt-img {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card .cnt-img img {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card .cnt-h {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card .cnt-h h2 {\n  font-size: 1em;\n}\n.container .box-card .cnt-h h3 {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card .price {\n  display: contents;\n}\n.container .box-card .price span {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\nfooter {\n  background-color: white;\n  border-top: 1px solid lightgray;\n  position: fixed;\n  bottom: 0;\n  height: auto;\n  width: 100%;\n}\nfooter .cnt-footer-items {\n  display: flex;\n  justify-content: center;\n  width: 100%;\n}\nfooter .cnt-footer-items .cnt-items-ftr ul {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  list-style-type: none;\n  margin: 0 !important;\n  padding: 15px;\n}\nfooter .cnt-footer-items .cnt-items-ftr ul li a {\n  text-decoration: none;\n  color: darkslategray;\n}\nfooter .cnt-footer-items .cnt-items-ftr ul li a:hover {\n  color: #7174b6;\n}\n.cnt-btn-filter {\n  height: 40px;\n  border-radius: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n  padding: 10px;\n  border: 1px solid lightgray;\n  box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);\n  cursor: pointer;\n}\n.cnt-btn-filter .btn-filter {\n  width: 20px;\n  height: 20px;\n  background: url(" + escape(__webpack_require__(/*! ../../../public/img/filter.svg */ "./public/img/filter.svg")) + ") no-repeat center/contain;\n}\nbody.enlargeFilter {\n  overflow: hidden;\n}\n.bgExpandFilter {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(1, 11, 38, 0);\n  z-index: 3;\n  transition: all 0.5s ease-in-out;\n  visibility: hidden;\n}\n#bgExpand.enlargeFilter {\n  visibility: visible;\n}\n#cntExpand.enlargeFilter {\n  top: 0;\n  opacity: 1;\n  height: 100%;\n  width: 100%;\n  background-color: rgba(23, 23, 23, 0.9);\n  margin-top: auto;\n  left: 0;\n  margin-left: auto;\n}\n.main-check {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.main-check .cnt-checkbox {\n  position: relative;\n  height: 25px;\n  width: 25px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  user-select: none;\n}\n.main-check .cnt-checkbox .cnt-checkbox:hover input ~ .checkmark {\n  background-color: #ccc;\n}\n.main-check .cnt-checkbox .cnt-checkbox input:checked ~ .checkmark {\n  background-color: #2196f3;\n}\n.main-check .cnt-checkbox .cnt-checkbox input:checked ~ .checkmark:after {\n  display: block;\n}\n.main-check .cnt-checkbox input[type=checkbox].input-check {\n  position: absolute;\n  width: 25px;\n  height: 25px;\n  left: 0;\n  z-index: 2;\n  accent-color: #7174b6;\n}\n.main-check .cnt-checkbox .checkmark {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 25px;\n  width: 25px;\n  background-color: #eee;\n}\n.main-check .cnt-checkbox .checkmark:after {\n  content: \"\";\n  position: absolute;\n  display: none;\n}\n.main-check .cnt-checkbox .checkmark:after {\n  left: 9px;\n  top: 5px;\n  width: 5px;\n  height: 10px;\n  border: solid white;\n  border-width: 0 3px 3px 0;\n  transform: rotate(45deg);\n}\n.btn-cta {\n  position: relative;\n  display: block;\n  width: 150px;\n  border: none;\n  background-color: #7174b6;\n  padding: 15px;\n  margin-top: 50px;\n  border-radius: 30px;\n  color: white;\n  cursor: pointer;\n  font-size: 1.1em;\n  font-weight: 600;\n  transition: 0.3s ease-in-out;\n}\n.btn-cta:hover {\n  box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);\n  transform: scale(1.1);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #2137a6, #6e83f4);\n  /* filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$secondgradientcolor, endColorstr=$firstgradientcolor); */\n  box-shadow: 5px 6px 15px 0 rgba(179, 179, 179, 0.5);\n  box-shadow: 0px 0px 15px 0 rgba(179, 179, 179, 0.5);\n  box-shadow: 0 11px 16px -3px rgba(45, 35, 66, 0.3), 0 4px 5px 0 rgba(45, 35, 66, 0.4), inset 0 -2px 0 0 #4b58ba;\n  transform: translateY(-2px);\n}\n.cnt-btn-close {\n  position: relative;\n  width: 40px;\n  height: 40px;\n  box-sizing: border-box;\n  color: black;\n  text-decoration: none;\n  transition: 0.5s ease-in-out;\n  border-radius: 50%;\n  background-color: #010b26;\n  background-color: transparent;\n  cursor: pointer;\n}\n.cnt-btn-close .btn-closed::after {\n  content: \"\";\n  display: block;\n  height: 30px;\n  width: 3px;\n  background: #90a9e8;\n  position: absolute;\n  left: 20px;\n  top: 5px;\n  transform: rotate(-45deg);\n  border-radius: 5px;\n}\n.cnt-btn-close .btn-closed::before {\n  content: \"\";\n  display: block;\n  height: 30px;\n  width: 3px;\n  background: #90a9e8;\n  position: absolute;\n  left: 20px;\n  top: 5px;\n  transform: rotate(45deg);\n  border-radius: 5px;\n}\n.cntExpandFilter {\n  position: fixed;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  top: -1000px;\n  margin-top: -350px;\n  z-index: 200;\n  opacity: 0;\n  transition: all 0.5s ease-in-out;\n}\n.cntExpandFilter .main-filter {\n  width: 80%;\n  height: calc(100% - 100px);\n  border-radius: 5px;\n  background: #fff;\n  border-radius: 5px;\n  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);\n  transform-style: preserve-3d;\n  overflow: auto;\n}\n.cntExpandFilter .main-filter::-webkit-scrollbar {\n  display: none;\n}\n.cntExpandFilter .main-filter {\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n}\n.cntExpandFilter .main-filter .row-filter-ttl {\n  display: flex;\n  justify-content: flex-end;\n  position: -webkit-sticky;\n  position: sticky;\n  width: 100%;\n  top: 0;\n  padding: 10px 20px;\n  background-color: #fff;\n  border-bottom: 1px solid #d9d9d9;\n  z-index: 3;\n}\n.cntExpandFilter .main-filter .row-filter-ttl .cnt-ttl {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.cntExpandFilter .main-filter .row-filter-ttl .cnt-ttl h2 {\n  font-size: 1.5em;\n}\n.cntExpandFilter .main-filter .cnt-row {\n  padding: 50px;\n}\n.cntExpandFilter .main-filter .cnt-row .row-filter {\n  position: relative;\n  display: flex;\n  padding: 10px;\n  border-bottom: 1px solid #d9d9d9;\n}\n.cntExpandFilter .main-filter .cnt-row .row-filter .cnt-filter-select {\n  display: flex;\n  flex-wrap: wrap;\n  margin: 20px 0;\n}\n.cntExpandFilter .main-filter .cnt-row .row-filter .cnt-filter-select input[type=number] {\n  display: inline-block;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  padding: 12px 20px;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n}\n@media screen and (max-width: 1050px) {\n.contExpandLogMob,\n.contExpandLogRegMob {\n    width: 90%;\n    background-color: white;\n    background-size: cover;\n    left: 50%;\n    margin-left: -45%;\n    border-radius: 5px;\n    z-index: 200;\n    opacity: 0;\n    transition: all 0.5s ease-in-out;\n}\n#contExpandLogInMob.enlargeLogIn,\n#contExpandRegMob.enlargeLogIn {\n    opacity: 1;\n    width: 100%;\n    height: 100%;\n}\n}\n@media screen and (max-width: 1200px) {\n.container .box-card {\n    display: flex;\n    width: calc(33.3333333333% - 25px);\n}\n}\n@media screen and (max-width: 800px) {\n.container .box-card {\n    display: flex;\n    width: calc(50% - 25px);\n}\n}\n@media screen and (max-width: 650px) {\n.container .box-card {\n    display: flex;\n    width: 100%;\n    max-width: 300px;\n}\nheader .cnt-hdr-items .cnt-nav {\n    display: none;\n}\nheader .cnt-logo {\n    width: 100%;\n    height: 100%;\n}\nheader .cnt-logo img,\nheader .cnt-logo a {\n    width: 150px;\n    height: 60%;\n}\n}", ""]);
->>>>>>> 55d33005333621d860233e4a1f33b3fa88f4eeb9
 
 // exports
 
@@ -35829,1147 +35312,12 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/AppComponent.vue?vue&type=template&id=278c9eb0&scoped=true&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/app/AppComponent.vue?vue&type=template&id=278c9eb0&scoped=true& ***!
-  \********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [_c("router-view")], 1)
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/ApartmentPage.vue?vue&type=template&id=ca80d4b0&scoped=true&":
-/*!***********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/ApartmentPage.vue?vue&type=template&id=ca80d4b0&scoped=true& ***!
-  \***********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "main" }, [
-    _c("div", { staticClass: "container flex" }, [
-      _c("div", { staticClass: "cnt-row col-12 text-box" }, [
-        _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
-        _vm._v(" "),
-        _c("h5", [_vm._m(0), _vm._v(_vm._s(_vm.apartment.address))]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "cnt-row col-12 img-box" }, [
-        _c("div", { staticClass: "cont-img" }, [
-          _c("img", {
-            staticClass: "img-fluid",
-            attrs: {
-              src: "/storage/" + _vm.apartment.img,
-              alt: _vm.apartment.title,
-            },
-          }),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "description-text cnt-row col-12" }, [
-        _c("p", [_vm._v(_vm._s(_vm.apartment.description))]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "services-box cnt-row col-12" }, [
-        _vm._m(1),
-        _vm._v(" "),
-        _c("div", { staticClass: "services col-3" }, [
-          _c("div", { staticClass: "d-flex service-box" }, [
-            _c("p", [
-              _c("img", {
-                attrs: {
-                  src: __webpack_require__(/*! ../../../public/img/room-svgrepo-com.svg */ "./public/img/room-svgrepo-com.svg"),
-                  alt: "room",
-                },
-              }),
-              _vm._v(_vm._s(_vm.apartment.room)),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "d-flex  service-icon" }, [
-            _c("p", [
-              _c("img", {
-                attrs: {
-                  src: __webpack_require__(/*! ../../../public/img/bathroom-svgrepo-com.svg */ "./public/img/bathroom-svgrepo-com.svg"),
-                  alt: "bath",
-                },
-              }),
-              _vm._v(_vm._s(_vm.apartment.bathroom)),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "d-flex   service-icon" }, [
-            _c("p", [
-              _c("img", {
-                attrs: {
-                  src: __webpack_require__(/*! ../../../public/img/bed-svgrepo-com.svg */ "./public/img/bed-svgrepo-com.svg"),
-                  alt: "bed",
-                },
-              }),
-              _vm._v(_vm._s(_vm.apartment.bed)),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "d-flex   service-icon" }, [
-            _c("p", [
-              _c("img", {
-                attrs: {
-                  src: __webpack_require__(/*! ../../../public/img/square-layout-with-boxes-svgrepo-com.svg */ "./public/img/square-layout-with-boxes-svgrepo-com.svg"),
-                  alt: "square-meter",
-                },
-              }),
-              _vm._v(_vm._s(_vm.apartment.mq) + "mq"),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "d-flex  service-icon" }, [
-            _c("p", [
-              _c("img", {
-                attrs: {
-                  src: __webpack_require__(/*! ../../../public/img/euro-svgrepo-com.svg */ "./public/img/euro-svgrepo-com.svg"),
-                  alt: "euro",
-                },
-              }),
-              _vm._v(_vm._s(_vm.apartment.price) + "€ /notte"),
-            ]),
-          ]),
-          _vm._v(" "),
-          _vm._m(2),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-4" }, [
-          _c("div", { staticClass: "cnt-row col-12" }, [
-            _c("h3", [_vm._v("Servizi:")]),
-            _vm._v(" "),
-            _c(
-              "p",
-              {
-                key: _vm.apartment.id,
-                attrs: { "v-for": _vm.service in _vm.apartment.services },
-              },
-              [_vm._v(_vm._s(_vm.service))]
-            ),
-          ]),
-        ]),
-      ]),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "bgExpandFilter", attrs: { id: "bgExpand" } }),
-    _vm._v(" "),
-    _c("div", { staticClass: "cntExpandFilter", attrs: { id: "cntExpand" } }, [
-      _c("div", { staticClass: "main-filter" }, [
-        _vm._m(3),
-        _vm._v(" "),
-        _c("div", { staticClass: "cnt-row" }, [
-          _c(
-            "form",
-            {
-              attrs: { method: "POST" },
-              on: {
-                submit: function ($event) {
-                  $event.preventDefault()
-                  return _vm.sendForm()
-                },
-              },
-            },
-            [
-              _c("div", { staticClass: "row-filter d-flex jc-c" }, [
-                _c("div", { staticClass: "cnt-filter" }, [
-                  _c(
-                    "label",
-                    { staticClass: "form-label", attrs: { for: "email" } },
-                    [_vm._v("Email")]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.email,
-                        expression: "email",
-                      },
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "email",
-                      id: "email",
-                      placeholder: "name@example.com",
-                      required: "",
-                    },
-                    domProps: { value: _vm.email },
-                    on: {
-                      input: function ($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.email = $event.target.value
-                      },
-                    },
-                  }),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row-filter d-flex jc-c" }, [
-                _c("div", { staticClass: "cnt-filter " }, [
-                  _c(
-                    "label",
-                    { staticClass: "form-label", attrs: { for: "object" } },
-                    [_vm._v("Oggetto")]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.object,
-                        expression: "object",
-                      },
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "object",
-                      placeholder: "Oggetto dell'email",
-                      required: "",
-                    },
-                    domProps: { value: _vm.object },
-                    on: {
-                      input: function ($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.object = $event.target.value
-                      },
-                    },
-                  }),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row-filter d-flex jc-c" }, [
-                _c("div", { staticClass: "cnt-filter" }, [
-                  _c(
-                    "label",
-                    { staticClass: "form-label", attrs: { for: "body" } },
-                    [_vm._v("Messaggio")]
-                  ),
-                  _vm._v(" "),
-                  _c("textarea", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.body,
-                        expression: "body",
-                      },
-                    ],
-                    staticClass: "form-control",
-                    attrs: { id: "body", rows: "3", required: "" },
-                    domProps: { value: _vm.body },
-                    on: {
-                      input: function ($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.body = $event.target.value
-                      },
-                    },
-                  }),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "d-flex jc-c " }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn-cta ",
-                    attrs: { type: "submit", disabled: _vm.sending },
-                  },
-                  [_vm._v("Invia mail")]
-                ),
-              ]),
-            ]
-          ),
-        ]),
-      ]),
-    ]),
-  ])
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", [
-      _c("img", {
-        attrs: {
-          src: __webpack_require__(/*! ../../../public/img/position-svgrepo-com.svg */ "./public/img/position-svgrepo-com.svg"),
-          alt: "position",
-        },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-4" }, [
-      _c("div", { attrs: { id: "map" } }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 contacts " }, [
-      _c("a", { staticClass: "btn-cta", attrs: { id: "contacts" } }, [
-        _vm._v("Contatta"),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row-filter-ttl jc-e" }, [
-      _c("div", { staticClass: "cnt-ttl" }, [_c("h2", [_vm._v("Messaggio")])]),
-      _vm._v(" "),
-      _c("div", { staticClass: "cnt-btn-close" }, [
-        _c("div", { staticClass: "btn-closed" }),
-      ]),
-    ])
-  },
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/HomePage.vue?vue&type=template&id=04c29797&scoped=true&":
-/*!******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/HomePage.vue?vue&type=template&id=04c29797&scoped=true& ***!
-  \******************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("header", [
-      _c("div", { staticClass: "container wmax-100 h-100 pd-20-lr" }, [
-        _c("div", { staticClass: "cnt-hdr-items" }, [
-          _c("div", { staticClass: "col-2 col-xs-12" }, [
-            _c(
-              "div",
-              { staticClass: "cnt-logo" },
-              [
-                _c("router-link", { attrs: { to: "/" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../../public/img/boolbnb-logo.svg */ "./public/img/boolbnb-logo.svg"),
-                      alt: "logo-BoolBnb",
-                    },
-                  }),
-                ]),
-              ],
-              1
-            ),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "cnt-nav col-8 h-100" }, [
-            _c(
-              "div",
-              { staticClass: "search" },
-              [
-                _c("div", { staticClass: "cnt-lens" }),
-                _vm._v(" "),
-                _c("div", { staticClass: "contStringSrc" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.input,
-                        expression: "input",
-                      },
-                    ],
-                    staticClass: "accountInput",
-                    attrs: {
-                      id: "userInput",
-                      type: "text",
-                      placeholder: "Cerca appartamento",
-                    },
-                    domProps: { value: _vm.input },
-                    on: {
-                      input: [
-                        function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.input = $event.target.value
-                        },
-                        _vm.onInputChanged,
-                      ],
-                    },
-                  }),
-                ]),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  {
-                    attrs: {
-                      to: {
-                        name: "search",
-                        params: { input: _vm.input },
-                      },
-                    },
-                  },
-                  [_c("div", { staticClass: "cnt-fine" })]
-                ),
-              ],
-              1
-            ),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-2 d-flex jc-c ai-c" }, [
-            _c(
-              "div",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.$route.name === "home" ? true : false,
-                    expression: "$route.name === 'home' ? true : false",
-                  },
-                ],
-                staticClass: "main-usr-set",
-              },
-              [_vm._m(0)]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-2 d-flex jc-c ai-c" }, [
-              _c(
-                "div",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.$route.name === "search" ? true : false,
-                      expression: "$route.name === 'search' ? true : false",
-                    },
-                  ],
-                  staticClass: "cnt-btn-filter",
-                  attrs: { id: "filter" },
-                },
-                [
-                  _c("div", { staticClass: "btn-filter" }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Filtri")]),
-                ]
-              ),
-            ]),
-          ]),
-        ]),
-      ]),
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "cnt-result-adress" },
-      _vm._l(_vm.indirizzi, function (indirizzo, i) {
-        return _c(
-          "div",
-          { key: i + indirizzo.address, staticClass: "cnt-items" },
-          [
-            _c(
-              "a",
-              {
-                attrs: { href: "#" },
-                on: {
-                  click: function ($event) {
-                    return _vm.take(indirizzo.address.freeformAddress)
-                  },
-                },
-              },
-              [
-                _vm._v(
-                  "\n        " +
-                    _vm._s(indirizzo.address["freeformAddress"]) +
-                    "\n      "
-                ),
-              ]
-            ),
-          ]
-        )
-      }),
-      0
-    ),
-    _vm._v(" "),
-    _c("main", [
-      _vm._m(1),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "container w-100 h-100 d-flex jc-c ai-c" },
-        [
-          _c(
-            "carousel",
-            { staticClass: "w-100" },
-            _vm._l(_vm.allApartaments, function (apartment) {
-              return _c("slide", { key: apartment.id }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "box-card ",
-                    on: {
-                      click: function ($event) {
-                        return _vm.gotoDetails(apartment.id)
-                      },
-                    },
-                  },
-                  [
-                    _c(
-                      "router-link",
-                      { attrs: { to: "/home/" + apartment.id } },
-                      [
-                        _c("div", { staticClass: "cnt-img" }, [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _c("img", {
-                              attrs: { src: "/storage/" + apartment.img },
-                            }),
-                          ]),
-                        ]),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "cnt-txt cnt-h col-12" }, [
-                      _c("h2", [_vm._v(_vm._s(apartment.title))]),
-                      _vm._v(" "),
-                      _c("h3", [_vm._v(_vm._s(apartment.address))]),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "price col-12" }, [
-                      _c("span", [
-                        _vm._v(_vm._s(apartment.price) + " €/notte"),
-                      ]),
-                    ]),
-                  ],
-                  1
-                ),
-              ])
-            }),
-            1
-          ),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _vm._m(2),
-      _vm._v(" "),
-      _c("div", { staticClass: "container w-100" }, [
-        _c(
-          "div",
-          { staticClass: "cnt-cards pd-20" },
-          _vm._l(_vm.allApartaments, function (apartment) {
-            return _c(
-              "router-link",
-              {
-                key: apartment.id,
-                staticClass: "box-card-csm",
-                attrs: { to: "/home/" + apartment.id },
-              },
-              [
-                _c("div", [
-                  _c("div", { staticClass: "cnt-img" }, [
-                    _c("img", {
-                      attrs: { src: "/storage/" + apartment.img, alt: "" },
-                    }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "cnt-txt cnt-h col-12" }, [
-                    _c("h2", [_vm._v(_vm._s(apartment.title))]),
-                    _vm._v(" "),
-                    _c("h3", [_vm._v(_vm._s(apartment.address))]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "price col-12" }, [
-                    _c("span", [_vm._v(_vm._s(apartment.price) + " €/notte")]),
-                  ]),
-                ]),
-              ]
-            )
-          }),
-          1
-        ),
-      ]),
-    ]),
-    _vm._v(" "),
-    _vm._m(3),
-  ])
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "ul-log-reg" }, [
-      _c("li", [
-        _c("div", { staticClass: "ico-log ico-login" }),
-        _vm._v(" "),
-        _c("a", { attrs: { href: " /login" } }, [_vm._v("Login")]),
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("div", { staticClass: "ico-log ico-reg" }),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "/register" } }, [_vm._v("Register")]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "title" }, [
-      _c("h2", [_vm._v("Appartamenti Sponsorizzati")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "title mt-5" }, [
-      _c("h2", [_vm._v("Ti potrebbero interessare")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("footer", { attrs: { id: "Footer" } }, [
-      _c("div", { staticClass: "container wmax-100 h-100 pd-20-lr" }, [
-        _c("div", { staticClass: "col-2 h-100" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "cnt-footer-items col-8 h-100" }, [
-          _c("div", { staticClass: "cnt-items-ftr" }, [
-            _c("ul", [
-              _c("li", [
-                _c("a", { attrs: { href: "/weare" } }, [
-                  _c("h2", [_vm._v("Chi siamo")]),
-                ]),
-              ]),
-            ]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-2 h-100" }),
-      ]),
-    ])
-  },
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/NotFoundPage.vue?vue&type=template&id=70390ab2&":
-/*!**********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/NotFoundPage.vue?vue&type=template&id=70390ab2& ***!
-  \**********************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-12 text-center" }, [
-        _vm._v(
-          "\n            Mi Dispiace, la pagina cercata non esiste\n        "
-        ),
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "col-12 text-center" },
-        [
-          _c("router-link", { attrs: { to: { name: "home" } } }, [
-            _vm._v("Ritorna alla Home"),
-          ]),
-        ],
-        1
-      ),
-    ]),
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/SearchPage.vue?vue&type=template&id=483e11c0&":
-/*!********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/SearchPage.vue?vue&type=template&id=483e11c0& ***!
-  \********************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("header", [
-      _c("div", { staticClass: "container wmax-100 h-100 pd-20-lr" }, [
-        _c("div", { staticClass: "cnt-hdr-items" }, [
-          _c("div", { staticClass: "col-2 col-xs-12" }, [
-            _c(
-              "div",
-              { staticClass: "cnt-logo" },
-              [
-                _c("router-link", { attrs: { to: "/" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../../public/img/boolbnb-logo.svg */ "./public/img/boolbnb-logo.svg"),
-                      alt: "logo-BoolBnb",
-                    },
-                  }),
-                ]),
-              ],
-              1
-            ),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "cnt-nav col-8 h-100" }, [
-            _c("div", { staticClass: "search" }, [
-              _c("div", { staticClass: "cnt-lens" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "contStringSrc" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.input,
-                      expression: "input",
-                    },
-                  ],
-                  staticClass: "accountInput",
-                  attrs: {
-                    id: "userInput",
-                    type: "text",
-                    placeholder: "Cerca appartamento",
-                  },
-                  domProps: { value: _vm.input },
-                  on: {
-                    input: [
-                      function ($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.input = $event.target.value
-                      },
-                      _vm.onInputChanged,
-                    ],
-                  },
-                }),
-              ]),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  on: {
-                    click: function ($event) {
-                      return _vm.takeLatLng()
-                    },
-                  },
-                },
-                [_c("div", { staticClass: "cnt-fine" })]
-              ),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-2 d-flex jc-c ai-c" }, [
-            _c(
-              "div",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.$route.name === "home" ? true : false,
-                    expression: "$route.name === 'home' ? true : false",
-                  },
-                ],
-                staticClass: "main-usr-set",
-              },
-              [_vm._m(0)]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-2 d-flex jc-c ai-c" }, [
-              _c(
-                "div",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.$route.name === "search" ? true : false,
-                      expression: "$route.name === 'search' ? true : false",
-                    },
-                  ],
-                  staticClass: "cnt-btn-filter",
-                  attrs: { id: "filter" },
-                },
-                [
-                  _c("div", { staticClass: "btn-filter" }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Filtri")]),
-                ]
-              ),
-            ]),
-          ]),
-        ]),
-      ]),
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "cnt-result-adress" },
-      _vm._l(_vm.indirizzi, function (indirizzo, i) {
-        return _c(
-          "div",
-          { key: i + indirizzo.address, staticClass: "cnt-items" },
-          [
-            _c(
-              "a",
-              {
-                attrs: { href: "#" },
-                on: {
-                  click: function ($event) {
-                    return _vm.take(indirizzo.address.freeformAddress)
-                  },
-                },
-              },
-              [
-                _vm._v(
-                  "\n        " +
-                    _vm._s(indirizzo.address["freeformAddress"]) +
-                    "\n      "
-                ),
-              ]
-            ),
-          ]
-        )
-      }),
-      0
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "bgExpandFilter", attrs: { id: "bgExpand" } }),
-    _vm._v(" "),
-    _c("div", { staticClass: "cntExpandFilter", attrs: { id: "cntExpand" } }, [
-      _c("div", { staticClass: "main-filter" }, [
-        _vm._m(1),
-        _vm._v(" "),
-        _c("div", { staticClass: "cnt-row" }, [
-          _c("div", { staticClass: "row-filter" }, [
-            _c("div", { staticClass: "cnt-filter" }, [
-              _c("h3", [_vm._v("Numero Stanze")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "cnt-filter-select" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.room,
-                      expression: "room",
-                    },
-                  ],
-                  attrs: { type: "number", min: "1", max: "30" },
-                  domProps: { value: _vm.room },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.room = $event.target.value
-                    },
-                  },
-                }),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row-filter" }, [
-            _c("div", { staticClass: "cnt-filter" }, [
-              _c("h3", [_vm._v("Numero posti Letto")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "cnt-filter-select" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.bed,
-                      expression: "bed",
-                    },
-                  ],
-                  attrs: { type: "number", min: "1", max: "30" },
-                  domProps: { value: _vm.bed },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.bed = $event.target.value
-                    },
-                  },
-                }),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row-filter" }, [
-            _c("div", { staticClass: "cnt-filter" }, [
-              _c("h3", [_vm._v("Distanza")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "cnt-filter-select" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.distanceKm,
-                      expression: "distanceKm",
-                    },
-                  ],
-                  attrs: { type: "number" },
-                  domProps: { value: _vm.distanceKm },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.distanceKm = $event.target.value
-                    },
-                  },
-                }),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "cnt-filter d-flex jc-c" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn-cta",
-                on: {
-                  click: function ($event) {
-                    return _vm.takeLatLng()
-                  },
-                },
-              },
-              [_vm._v("Invio")]
-            ),
-          ]),
-        ]),
-      ]),
-    ]),
-    _vm._v(" "),
-    _c("main", { attrs: { id: "main" } }, [
-      _c("div", { staticClass: "container w-100" }, [
-        _c(
-          "div",
-          { staticClass: "cnt-cards pd-20" },
-          _vm._l(_vm.correctApartments, function (apartment) {
-            return _c(
-              "router-link",
-              {
-                key: apartment.id,
-                staticClass: "box-card",
-                attrs: { to: "/home/" + apartment.id },
-              },
-              [
-                _c("div", [
-                  _c("div", { staticClass: "cnt-img" }, [
-                    _c("img", {
-                      attrs: { src: "/storage/" + apartment.img, alt: "" },
-                    }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "cnt-txt cnt-h col-12" }, [
-                    _c("h2", [_vm._v(_vm._s(apartment.title))]),
-                    _vm._v(" "),
-                    _c("h3", [_vm._v(_vm._s(apartment.address))]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "price col-12" }, [
-                    _c("span", [_vm._v(_vm._s(apartment.price) + " €/notte")]),
-                  ]),
-                ]),
-              ]
-            )
-          }),
-          1
-        ),
-      ]),
-    ]),
-    _vm._v(" "),
-    _vm._m(2),
-  ])
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "ul-log-reg" }, [
-      _c("li", [
-        _c("div", { staticClass: "ico-log ico-login" }),
-        _vm._v(" "),
-        _c("a", { attrs: { href: " /login" } }, [_vm._v("Login")]),
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("div", { staticClass: "ico-log ico-reg" }),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "/register" } }, [_vm._v("Register")]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row-filter-ttl jc-e" }, [
-      _c("div", { staticClass: "cnt-ttl" }, [_c("h2", [_vm._v("Filtri")])]),
-      _vm._v(" "),
-      _c("div", { staticClass: "cnt-btn-close" }, [
-        _c("div", { staticClass: "btn-closed" }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("footer", { attrs: { id: "Footer" } }, [
-      _c("div", { staticClass: "container wmax-100 h-100 pd-20-lr" }, [
-        _c("div", { staticClass: "col-2 h-100" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "cnt-footer-items col-8 h-100" }, [
-          _c("div", { staticClass: "cnt-items-ftr" }, [
-            _c("ul", [
-              _c("li", [
-                _c("a", { attrs: { href: "/weare" } }, [
-                  _c("h2", [_vm._v("Chi siamo")]),
-                ]),
-              ]),
-            ]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-2 h-100" }),
-      ]),
-    ])
-  },
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/WearePage.vue?vue&type=template&id=8c392a88&scoped=true&":
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/WearePage.vue?vue&type=template&id=8c392a88&scoped=true& ***!
-  \*******************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", [
-        _c("div", { staticClass: "box-title" }, [
-          _c("h2", [_vm._v("Chi siamo:")]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div"),
-    ])
-  },
-]
-render._withStripped = true
-
-=======
 /***/ "./node_modules/vue-carousel/dist/vue-carousel.min.js":
 /*!************************************************************!*\
   !*** ./node_modules/vue-carousel/dist/vue-carousel.min.js ***!
   \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
->>>>>>> 55d33005333621d860233e4a1f33b3fa88f4eeb9
 
 /*!
  * vue-carousel v0.18.0-alpha
@@ -52582,10 +50930,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WearePage_vue_vue_type_template_id_8c392a88_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./WearePage.vue?vue&type=template&id=8c392a88&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/WearePage.vue?vue&type=template&id=8c392a88&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WearePage_vue_vue_type_template_id_8c392a88_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_WearePage_vue_vue_type_template_id_8c392a88_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../node_modules/vue-loader/lib??vue-loader-options!./WearePage.vue?vue&type=template&id=8c392a88&scoped=true& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/WearePage.vue?vue&type=template&id=8c392a88&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_WearePage_vue_vue_type_template_id_8c392a88_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WearePage_vue_vue_type_template_id_8c392a88_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_WearePage_vue_vue_type_template_id_8c392a88_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -52651,7 +50999,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Amministratore\Desktop\BooleanProject\php\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\Michele\Documents\Boolean\Esercizi\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })
