@@ -249,6 +249,10 @@ export default {
       // this.allServices = results.data.services;
       // console.log(this.allServices);
     });
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 4fe235b (update)
     // if (localStorage.input) {
     //   this.input = localStorage.input;
     // }
