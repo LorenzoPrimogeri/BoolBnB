@@ -237,7 +237,8 @@ export default {
       this.sending = true;
       this.success = false;
       const id = this.$route.params.id;
-      console.log(id)
+      console.log(id);
+      alert('messaggio mandato!')
 
       window.axios.post(`/api/messages/`, {
         email: this.email,
