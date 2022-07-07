@@ -5,7 +5,6 @@ import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ApartmentPage from "./pages/ApartmentPage";
 import SearchPage from "./pages/SearchPage";
-import WearePage from "./pages/WearePage";
 
 Vue.use(VueRouter);
 
@@ -26,11 +25,6 @@ const router = new VueRouter({
             path: "/search/:input",
             name: "search",
             component: SearchPage,
-        },
-        {
-            path: "/weare",
-            name: "weare",
-            component: WearePage,
         },
         {
             path: "/*",
