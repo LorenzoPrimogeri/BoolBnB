@@ -186,21 +186,19 @@
     <!--Main-->
     <!--Footer-->
 
-    <!-- <footer id="Footer">
+    <footer id="Footer">
       <div class="container wmax-100 h-100 pd-20-lr">
         <div class="col-2 h-100"></div>
         <div class="cnt-footer-items col-8 h-100">
           <div class="cnt-items-ftr">
             <ul>
-              <li><a href="#">link1</a></li>
-              <li><a href="#">link2</a></li>
-              <li><a href="#">link3</a></li>
+              <li><a href="/weare"><h2>Chi siamo</h2></a></li>
             </ul>
           </div>
         </div>
         <div class="col-2 h-100"></div>
       </div>
-    </footer> -->
+    </footer> 
 
     <!--Footer-->
   </div>
@@ -251,6 +249,10 @@ export default {
       // this.allServices = results.data.services;
       // console.log(this.allServices);
     });
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 4fe235b (update)
     // if (localStorage.input) {
     //   this.input = localStorage.input;
     // }
@@ -356,10 +358,6 @@ main {
   }
 
 
-
-
-
-
     .cnt-h {
       height: 50px;
       padding: 10px 0;
@@ -427,9 +425,17 @@ footer {
   height: auto;
   width: 100%;
 
+  h2{
+    font-family: 'Lobster', cursive;
+    font-weight: bold;
+    font-size:1.3rem;
+    color: #797cba;
+  }
+
   .cnt-footer-items {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
 
     .cnt-items-ftr {
