@@ -3,6 +3,11 @@
     <div class="main-slct-item">
         <div class="cnt-slct-btn">
             <div class="cnt-th cnt-btns h-100">
+                <a href="{{ route('admin.apartments.index') }}">
+                    <div class="cnt-btn" title="Dashboaard">
+                        <button class="btn btn-home"></button>
+                    </div>
+                </a>
                 <a href="{{ route('admin.apartments.edit', $apartment->id) }}">
                     <div class="cnt-btn" title="Modifica">
                         <button class="btn btn-modify"></button>

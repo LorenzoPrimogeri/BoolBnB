@@ -162,7 +162,7 @@
     <!--Main-->
     <!--Footer-->
 
-    <footer id="Footer">
+    <!-- <footer id="Footer">
       <div class="container wmax-100 h-100 pd-20-lr">
         <div class="col-2 h-100"></div>
         <div class="cnt-footer-items col-8 h-100">
@@ -176,7 +176,7 @@
         </div>
         <div class="col-2 h-100"></div>
       </div>
-    </footer>
+    </footer> -->
 
     <!--Footer-->
   </div>
@@ -204,7 +204,7 @@ export default {
       //  inputUser: ' ',
       //bed: 1,
     };
-    
+
   },
    components: {
     Carousel,
