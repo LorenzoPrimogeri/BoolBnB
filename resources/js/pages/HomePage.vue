@@ -132,19 +132,30 @@
     <!--Main-->
 
     <main>
-      <div class="container w-100">
-        <div class="cnt-cards pd-20">
-          <div class="box-card">
-            <div class="cnt-img"></div>
-            <div class="cnt-txt cnt-h col-12">
-              <h2>Trentino, Italy</h2>
-              <h3>Appartamento</h3>
+      <div class="container w-100 h-100 d-flex jc-c ai-c">
+        <carousel class="w-100">
+          <slide v-for="apartment in allApartaments" :key="apartment.id">
+              <div class="box-card " @click="gotoDetails(apartment.id)" >
+              <!-- <div class="row"> -->
+              <router-link  :to="'/home/'+ apartment.id ">
+              <div class="cnt-img">
+                <a href="#">
+                  <img :src="'/storage/' + apartment.img"  />
+                </a>
+              </div>
+              </router-link>
+              <!-- </div> -->
+              <div class="cnt-txt cnt-h col-12">
+                <h2>{{ apartment.title }}</h2>
+                <h3>{{ apartment.address }}</h3>
+              </div>
+              <div class="price col-12">
+                <span>{{ apartment.price }} €/notte</span>
+              </div>
             </div>
-            <div class="price col-12">
-              <span>129,00€/notte</span>
-            </div>
-          </div>
-        </div>
+          </slide>
+        </carousel>
+
       </div>
     </main>
 
@@ -174,6 +185,7 @@
 
 <script>
 import axios from "axios";
+import { Carousel, Slide } from 'vue-carousel';
 export default {
   name: "HomeComponent",
   data() {
@@ -192,6 +204,11 @@ export default {
       //  inputUser: ' ',
       //bed: 1,
     };
+    
+  },
+   components: {
+    Carousel,
+    Slide
   },
   mounted() {
     //prendo tutti gli appartamenti dal database
@@ -210,11 +227,37 @@ export default {
       // this.allServices = results.data.services;
       // console.log(this.allServices);
     });
+
+       $(document).ready(function() {
+      $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: true,
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 3
+          },
+          1000: {
+            items: 5
+          },
+        }
+      })
+    });
+
     // if (localStorage.input) {
     //   this.input = localStorage.input;
     // }
   },
   methods: {
+    gotoDetails(id) {
+      const url = ' '/home/' + id '
+      return url
+    },
     // persist() {
     //   localStorage.input = this.input;
     //   console.log("Storage Input " + localStorage.input);
@@ -246,7 +289,7 @@ export default {
 };
 </script>
 
-<style  lang="scss">
+<style scoped  lang="scss">
 // style header
 @import url("../../../public/css/layout-preset.css");
 
@@ -272,7 +315,6 @@ main {
     padding: 20px;
     color: #fff;
     height: auto;
-    background-color: violet;
     left: 50px;
     justify-content: center;
     align-items: center;
@@ -280,24 +322,24 @@ main {
     font-size: 2em;
   }
   .cnt-cards {
+    display:flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
   }
   .box-card {
-    background-color: violet;
-    width: 300px;
-    height: 200px;
+   display: flex;
+    width: 500px;
     flex-direction: column;
     .cnt-img {
-      height: 200px;
       width: 100%;
-      background-color: blue;
+      height: 200px;
+       img {
+        height: 100%;
+         width: 100%;
+         border-radius: 20px;
+     }
     }
-    // img {
-    //     width: 100%;
-    //     border-radius: 20px;
-    // }
     .cnt-h {
       height: 50px;
       padding: 10px 0;
@@ -323,6 +365,7 @@ main {
 // style footer
 
 footer {
+  background-color: white;
   border-top: 1px solid lightgray;
   position: fixed;
   bottom: 0;
@@ -357,4 +400,46 @@ footer {
     }
   }
 }
+@media screen and (max-width: 1200px) {
+  .container {
+    .box-card {
+      display: flex;
+      width: calc(100% / 3 - 25px);
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .container {
+    .box-card {
+      display: flex;
+      width: calc(100% / 2 - 25px);
+    }
+  }
+}
+@media screen and (max-width: 650px) {
+  .container {
+    .box-card {
+      display: flex;
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  header {
+    .cnt-hdr-items {
+      .cnt-nav {
+        display: none;
+      }
+    }
+    .cnt-logo {
+      width: 100%;
+      height: 100%;
+      img,
+      a {
+        width: 150px;
+        height: 100%;
+      }
+    }
+  }
+}
+
 </style>
