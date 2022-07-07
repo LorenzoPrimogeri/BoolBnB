@@ -52,7 +52,6 @@
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('js/validation-check.js') }}"></script>
     <script src="{{ asset('js/validation-input.js') }}"></script>
-
     <script src="{{ asset('js/dropDwn-menu.js') }}"></script>
     <script src="{{ asset('js/check-password-equal.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>

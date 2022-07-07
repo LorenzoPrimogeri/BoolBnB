@@ -433,10 +433,10 @@ export default {
     gap: 25px;
   }
   .box-card {
-    display: flex;
-    width: calc(100% / 4 - 25px);
+   display: flex;
+    width: 300px;
     flex-direction: column;
-   .cnt-img {
+    .cnt-img {
       width: 100%;
       height: 200px;
        img {
