@@ -204,7 +204,7 @@ export default {
       //  inputUser: ' ',
       //bed: 1,
     };
-    
+
   },
    components: {
     Carousel,
@@ -215,7 +215,7 @@ export default {
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       let result = [];
       result = results.data.apartments;
-      console.log(result);
+      console.log(results);
       for (let i = 0; i < result.length; i++) {
         let apartment = result[i];
         if (apartment.sponsorships.length >= 1) {

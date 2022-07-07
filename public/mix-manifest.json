@@ -1,10 +1,10 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/css/dashboard.css": "/css/dashboard.css",
     "/css/log-sign.css": "/css/log-sign.css",
     "/css/dropDwn-menu.css": "/css/dropDwn-menu.css",
     "/css/btn-burger.css": "/css/btn-burger.css",
     "/css/menuSlide.css": "/css/menuSlide.css",
-    "/js/front-app.js": "/js/front-app.js",
-    "/css/dashboard.css": "/css/dashboard.css"
+    "/js/front-app.js": "/js/front-app.js"
 }
