@@ -316,7 +316,12 @@ export default {
       gap: 20px;
       img{
         width:30px;
+        margin-right: 25px;
+        vertical-align: none;
       }
+       .service-icon{
+          
+       }
   }
 
   .contacts {
