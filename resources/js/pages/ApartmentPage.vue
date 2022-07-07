@@ -252,6 +252,8 @@ export default {
 
         if (status === 200) {
 
+            alert("Messaggio Inviato");
+
           this.success = data.success;
 
           if (!data.success) {
@@ -320,7 +322,7 @@ export default {
         vertical-align: none;
       }
        .service-icon{
-          
+
        }
   }
 

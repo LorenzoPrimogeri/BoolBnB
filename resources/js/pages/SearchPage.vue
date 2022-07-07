@@ -197,7 +197,7 @@
           <router-link class="box-card"   v-for="apartment in correctApartments"
                 :key="apartment.id" :to="'/home/'+ apartment.id ">
               <div
-                
+
               >
                 <div class="cnt-img">
                   <img :src="'/storage/' + apartment.img" alt="">
@@ -432,11 +432,11 @@ export default {
     justify-content: center;
     gap: 25px;
   }
-  .box-card {
-    display: flex;
-    width: calc(100% / 4 - 25px);
+    .box-card {
+   display: flex;
+    width: 300px;
     flex-direction: column;
-   .cnt-img {
+    .cnt-img {
       width: 100%;
       height: 200px;
        img {
