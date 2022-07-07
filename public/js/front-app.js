@@ -3259,9 +3259,146 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("div", [_c("div", {
-    staticClass: "box-title"
-  }, [_c("h2", [_vm._v("Chi siamo:")])])]), _vm._v(" "), _c("div")]);
+  return _c("div", {
+    staticClass: "body"
+  }, [_c("div", {
+    staticClass: "container pt-4"
+  }, [_c("div", {
+    staticClass: "card card0"
+  }, [_c("div", {
+    staticClass: "border"
+  }, [_c("h2", [_vm._v("Michele Camera")]), _vm._v(" "), _c("div", {
+    staticClass: "icons"
+  }, [_c("a", {}, [_c("img", {
+    attrs: {
+      src: __webpack_require__(/*! ../../../public/img/linkedin-svgrepo-com.svg */ "./public/img/linkedin-svgrepo-com.svg"),
+      alt: "linkedin"
+    }
+  })])])])]), _vm._v(" "), _c("div", {
+    staticClass: "card card1"
+  }, [_c("div", {
+    staticClass: "border"
+  }, [_c("h2", [_vm._v("Lorenzo Primogeni")]), _vm._v(" "), _c("div", {
+    staticClass: "icons"
+  }, [_c("i", {
+    staticClass: "fa fa-codepen",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-instagram",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-dribbble",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-twitter",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-facebook",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "card card2"
+  }, [_c("div", {
+    staticClass: "border"
+  }, [_c("h2", [_vm._v("Francesco Moles")]), _vm._v(" "), _c("div", {
+    staticClass: "icons"
+  }, [_c("i", {
+    staticClass: "fa fa-codepen",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-instagram",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-dribbble",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-twitter",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-facebook",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "card card3"
+  }, [_c("div", {
+    staticClass: "border"
+  }, [_c("h2", [_vm._v("Marco Cataldi")]), _vm._v(" "), _c("div", {
+    staticClass: "icons"
+  }, [_c("i", {
+    staticClass: "fa fa-codepen",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-instagram",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-dribbble",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-twitter",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-facebook",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "card card4"
+  }, [_c("div", {
+    staticClass: "border"
+  }, [_c("h2", [_vm._v("Antonio Ruggiero")]), _vm._v(" "), _c("div", {
+    staticClass: "icons"
+  }, [_c("i", {
+    staticClass: "fa fa-codepen",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-instagram",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-dribbble",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-twitter",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-facebook",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  })])])])]), _vm._v(" "), _c("div")]);
 }];
 render._withStripped = true;
 
@@ -3334,12 +3471,13 @@ exports.push([module.i, "* a {\n  text-decoration: none;\n  color: black;\n}\n* 
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var escape = __webpack_require__(/*! ../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Lobster&display=swap);", ""]);
 
 // module
-exports.push([module.i, ".box-title[data-v-8c392a88] {\n  display: flex;\n  justify-content: center;\n  margin-top: 5%;\n}\n.box-title h2[data-v-8c392a88] {\n  font-family: \"Lobster\", cursive;\n  font-weight: bold;\n  font-size: 2.8rem;\n  color: #797cba;\n}", ""]);
+exports.push([module.i, ".body[data-v-8c392a88] {\n  height: 100vh;\n  width: 100vw;\n  background-color: #7174b6;\n}\n.box-title[data-v-8c392a88] {\n  display: flex;\n  justify-content: center;\n  margin-top: 3%;\n}\n.box-title h2[data-v-8c392a88] {\n  font-family: \"Lobster\", cursive;\n  font-weight: bold;\n  font-size: 2.8rem;\n  color: #797cba;\n}\n.container[data-v-8c392a88] {\n  display: flex;\n  flex-wrap: wrap;\n  height: 100vh;\n  width: 100vw;\n  max-height: 800px;\n  max-width: 1280px;\n  min-height: 600px;\n  min-width: 1000px;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  margin: 0 auto;\n}\n.border[data-v-8c392a88] {\n  height: 369px;\n  width: 290px;\n  background: transparent;\n  border-radius: 10px;\n  transition: border 1s;\n  position: relative;\n}\n.border[data-v-8c392a88]:hover {\n  border: 1px solid #fff;\n}\n.card[data-v-8c392a88] {\n  height: 379px;\n  width: 300px;\n  background: #808080;\n  border-radius: 10px;\n  transition: background 0.8s;\n  overflow: hidden;\n  background: #000;\n  box-shadow: 0 70px 63px -60px #000;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n}\n.card0[data-v-8c392a88] {\n  background: url(" + escape(__webpack_require__(/*! ../../../public/img/1618635419788.jpg */ "./public/img/1618635419788.jpg")) + ") center center no-repeat;\n  background-size: 380px;\n}\n.card0[data-v-8c392a88]:hover {\n  background: url(" + escape(__webpack_require__(/*! ../../../public/img/1618635419788.jpg */ "./public/img/1618635419788.jpg")) + ") left center no-repeat;\n  background-size: 600px;\n}\n.card0:hover h2[data-v-8c392a88] {\n  color: black;\n  opacity: 1;\n}\n.card0:hover .fa[data-v-8c392a88] {\n  opacity: 1;\n}\n.card1[data-v-8c392a88] {\n  background: url(\"https://i.pinimg.com/originals/28/d2/e6/28d2e684e7859a0dd17fbd0cea00f8a9.jpg\") center center no-repeat;\n  background-size: 300px;\n}\n.card1[data-v-8c392a88]:hover {\n  background: url(\"https://i.pinimg.com/originals/28/d2/e6/28d2e684e7859a0dd17fbd0cea00f8a9.jpg\") left center no-repeat;\n  background-size: 600px;\n}\n.card1:hover h2[data-v-8c392a88] {\n  opacity: 1;\n}\n.card1:hover .fa[data-v-8c392a88] {\n  opacity: 1;\n}\n.card2[data-v-8c392a88] {\n  background: url(\"https://i.pinimg.com/originals/ee/85/08/ee850842e68cfcf6e3943c048f45c6d1.jpg\") center center no-repeat;\n  background-size: 300px;\n}\n.card2[data-v-8c392a88]:hover {\n  background: url(\"https://i.pinimg.com/originals/ee/85/08/ee850842e68cfcf6e3943c048f45c6d1.jpg\") left center no-repeat;\n  background-size: 600px;\n}\n.card2:hover h2[data-v-8c392a88] {\n  opacity: 1;\n}\n.card2:hover .fa[data-v-8c392a88] {\n  opacity: 1;\n}\n.card3[data-v-8c392a88] {\n  background: url(" + escape(__webpack_require__(/*! ../../../public/img/marco c.jpg */ "./public/img/marco c.jpg")) + ") center center no-repeat;\n  background-size: 380px;\n}\n.card3[data-v-8c392a88]:hover {\n  background: url(" + escape(__webpack_require__(/*! ../../../public/img/marco c.jpg */ "./public/img/marco c.jpg")) + ") left center no-repeat;\n  background-size: 600px;\n}\n.card3:hover h2[data-v-8c392a88] {\n  opacity: 1;\n}\n.card3:hover .fa[data-v-8c392a88] {\n  opacity: 1;\n}\n.card4[data-v-8c392a88] {\n  background: url(" + escape(__webpack_require__(/*! ../../../public/img/antonio (1).jpg */ "./public/img/antonio (1).jpg")) + ") center center no-repeat;\n  background-size: 380px;\n}\n.card4[data-v-8c392a88]:hover {\n  background: url(" + escape(__webpack_require__(/*! ../../../public/img/antonio (1).jpg */ "./public/img/antonio (1).jpg")) + ") left center no-repeat;\n  background-size: 600px;\n}\n.card4:hover h2[data-v-8c392a88] {\n  opacity: 1;\n}\n.card4:hover .fa[data-v-8c392a88] {\n  opacity: 1;\n}\nh2[data-v-8c392a88] {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  color: #fff;\n  margin: 20px;\n  opacity: 0;\n  transition: opacity 1s;\n}\n.fa[data-v-8c392a88] {\n  opacity: 0;\n  transition: opacity 1s;\n}\n.icons[data-v-8c392a88] {\n  position: absolute;\n  fill: #fff;\n  color: #fff;\n  height: 130px;\n  top: 226px;\n  width: 50px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-around;\n}", ""]);
 
 // exports
 
@@ -50282,6 +50420,28 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./public/img/1618635419788.jpg":
+/*!**************************************!*\
+  !*** ./public/img/1618635419788.jpg ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/1618635419788.jpg?98f74651dc14f8b599379b7d10006951";
+
+/***/ }),
+
+/***/ "./public/img/antonio (1).jpg":
+/*!************************************!*\
+  !*** ./public/img/antonio (1).jpg ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/antonio (1).jpg?09867b7af27c8e0750ad8fb24f49337e";
+
+/***/ }),
+
 /***/ "./public/img/bathroom-svgrepo-com.svg":
 /*!*********************************************!*\
   !*** ./public/img/bathroom-svgrepo-com.svg ***!
@@ -50334,6 +50494,28 @@ module.exports = "/images/euro-svgrepo-com.svg?6be28595eeb9e114a9c4f6a0e578ed3c"
 /***/ (function(module, exports) {
 
 module.exports = "/images/filter.svg?2b53b7d29056335c4ec769058393830d";
+
+/***/ }),
+
+/***/ "./public/img/linkedin-svgrepo-com.svg":
+/*!*********************************************!*\
+  !*** ./public/img/linkedin-svgrepo-com.svg ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/linkedin-svgrepo-com.svg?4b475fb3f54b3e35daa04295ec48df4c";
+
+/***/ }),
+
+/***/ "./public/img/marco c.jpg":
+/*!********************************!*\
+  !*** ./public/img/marco c.jpg ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/marco c.jpg?72dbccaa423a444eea868be4a4720177";
 
 /***/ }),
 
