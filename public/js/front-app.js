@@ -2590,7 +2590,7 @@ var render = function render() {
       type: "submit",
       disabled: _vm.sending
     }
-  }, [_vm._v("\r\n                Invia mail\r\n              ")])])])])]), _vm._v("\r\n<<<<<<< HEAD\r\n    ")]), _vm._v("\r\n=======\r\n\r\n\r\n\r\n    "), _vm._v(" "), _vm._v("\r\n>>>>>>> 6994bb3177bfce5cfd78bbf2e85957f616709d10\r\n  ")]);
+  }, [_vm._v("\r\n                Invia mail\r\n              ")])])])])])])]);
 };
 
 var staticRenderFns = [function () {
