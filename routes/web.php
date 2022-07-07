@@ -1,14 +1,10 @@
 <?php
 
-use Carbon\Carbon;
-use App\Apartment;
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-use App\Http\Controllers\MessageController;
-use App\Sponsorship;
-use Braintree\Gateway;
-use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
