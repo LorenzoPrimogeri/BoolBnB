@@ -17,7 +17,6 @@
       </div>
 
       <div class="description-text cnt-row col-12">
-        <h2>{{ apartment.title }}</h2>
         <h5 class="mt-3">Descrizione:</h5>
         <p>{{ apartment.description }}</p>
       </div>
