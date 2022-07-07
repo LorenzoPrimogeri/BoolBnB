@@ -137,11 +137,13 @@
           <slide v-for="apartment in allApartaments" :key="apartment.id">
               <div class="box-card " @click="gotoDetails(apartment.id)" >
               <!-- <div class="row"> -->
+              <router-link  :to="'/home/'+ apartment.id ">
               <div class="cnt-img">
                 <a href="#">
                   <img :src="'/storage/' + apartment.img"  />
                 </a>
               </div>
+              </router-link>
               <!-- </div> -->
               <div class="cnt-txt cnt-h col-12">
                 <h2>{{ apartment.title }}</h2>

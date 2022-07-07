@@ -255,6 +255,7 @@ export default {
         this.sending = false;
 
         if (status === 200) {
+
           this.success = data.success;
 
           if (!data.success) {

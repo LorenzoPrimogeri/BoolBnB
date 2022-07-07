@@ -2392,6 +2392,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -35412,13 +35414,19 @@ var render = function () {
                     },
                   },
                   [
-                    _c("div", { staticClass: "cnt-img" }, [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: { src: "/storage/" + apartment.img },
-                        }),
-                      ]),
-                    ]),
+                    _c(
+                      "router-link",
+                      { attrs: { to: "/home/" + apartment.id } },
+                      [
+                        _c("div", { staticClass: "cnt-img" }, [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _c("img", {
+                              attrs: { src: "/storage/" + apartment.img },
+                            }),
+                          ]),
+                        ]),
+                      ]
+                    ),
                     _vm._v(" "),
                     _c("div", { staticClass: "cnt-txt cnt-h col-12" }, [
                       _c("h2", [_vm._v(_vm._s(apartment.title))]),
@@ -35431,7 +35439,8 @@ var render = function () {
                         _vm._v(_vm._s(apartment.price) + " €/notte"),
                       ]),
                     ]),
-                  ]
+                  ],
+                  1
                 ),
               ])
             }),
@@ -35557,7 +35566,23 @@ var render = function () {
     _c("header", [
       _c("div", { staticClass: "container wmax-100 h-100 pd-20-lr" }, [
         _c("div", { staticClass: "cnt-hdr-items" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "col-2 col-xs-12" }, [
+            _c(
+              "div",
+              { staticClass: "cnt-logo" },
+              [
+                _c("router-link", { attrs: { to: "/" } }, [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../public/img/boolbnb-logo.svg */ "./public/img/boolbnb-logo.svg"),
+                      alt: "logo-BoolBnb",
+                    },
+                  }),
+                ]),
+              ],
+              1
+            ),
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "cnt-nav col-8 h-100" }, [
             _c("div", { staticClass: "search" }, [
@@ -35622,7 +35647,7 @@ var render = function () {
                 ],
                 staticClass: "main-usr-set",
               },
-              [_vm._m(1)]
+              [_vm._m(0)]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "col-2 d-flex jc-c ai-c" }, [
@@ -35688,7 +35713,7 @@ var render = function () {
     _vm._v(" "),
     _c("div", { staticClass: "cntExpandFilter", attrs: { id: "cntExpand" } }, [
       _c("div", { staticClass: "main-filter" }, [
-        _vm._m(2),
+        _vm._m(1),
         _vm._v(" "),
         _c("div", { staticClass: "cnt-row" }, [
           _c("div", { staticClass: "row-filter" }, [
@@ -35835,27 +35860,10 @@ var render = function () {
       ]),
     ]),
     _vm._v(" "),
-    _vm._m(3),
+    _vm._m(2),
   ])
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-2 col-xs-12" }, [
-      _c("div", { staticClass: "cnt-logo" }, [
-        _c("a", { attrs: { href: "" } }, [
-          _c("img", {
-            attrs: {
-              src: __webpack_require__(/*! ../../../public/img/boolbnb-logo.svg */ "./public/img/boolbnb-logo.svg"),
-              alt: "logo-BoolBnb",
-            },
-          }),
-        ]),
-      ]),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement

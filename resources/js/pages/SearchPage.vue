@@ -9,12 +9,12 @@
             <!--logo-->
 
             <div class="cnt-logo">
-              <a href="">
+              <router-link to="/">
                 <img
                   src="../../../public/img/boolbnb-logo.svg"
                   alt="logo-BoolBnb"
                 />
-              </a>
+              </router-link>
             </div>
 
             <!--logo-->
