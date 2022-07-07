@@ -47,13 +47,15 @@
           <div class="d-flex  service-icon">
             <p><img src="../../../public/img/euro-svgrepo-com.svg" alt="euro">{{ apartment.price }}€ /notte</p>
           </div>
+
+          <div class="col-12 contacts ">
+            <a id="contacts" class="btn-cta">Contatta</a>
+          </div>
         </div>
       </div>
     </div>
 
-      <div class="col-12 contacts">
-        <a id="contacts" class="btn-cta">Contatta</a>
-      </div>
+      
 
       <div id="bgExpand" class="bgExpandFilter">
       </div>
@@ -275,7 +277,7 @@ export default {
     display: flex;
     flex-direction: column;
   }
-}
+
 
   .text-box {
     h5{
@@ -322,12 +324,13 @@ export default {
   }
 
   .contacts {
-    margin-top: 2%;
-    margin-bottom: 5%;
+    margin-top: 30%;
+    margin-bottom: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+}
 }
 
 

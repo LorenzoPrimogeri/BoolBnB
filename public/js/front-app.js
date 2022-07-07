@@ -2048,6 +2048,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 // import LoaderComponent from '../components/LoaderComponent.vue';
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ApartmentComponent",
@@ -2937,7 +2939,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".main .flex[data-v-ca80d4b0] {\n  display: flex;\n  flex-direction: column;\n}\n.text-box[data-v-ca80d4b0] {\n  margin-top: 20px;\n  margin-bottom: 20px;\n}\n.text-box h5[data-v-ca80d4b0] {\n  display: flex;\n  margin-top: 1%;\n  gap: 15px;\n  align-items: center;\n}\n.text-box h5 img[data-v-ca80d4b0] {\n  width: 30px;\n}\n.img-box img[data-v-ca80d4b0] {\n  width: 100%;\n  height: 600px;\n  border-radius: 1%;\n}\n.description-text[data-v-ca80d4b0] {\n  margin-top: 4%;\n}\n.services-box[data-v-ca80d4b0] {\n  display: flex;\n}\n.services-box p[data-v-ca80d4b0] {\n  margin-left: 3%;\n}\n.services-box .services[data-v-ca80d4b0] {\n  margin-top: 4%;\n  gap: 20px;\n}\n.services-box .services img[data-v-ca80d4b0] {\n  width: 30px;\n  margin-right: 25px;\n  vertical-align: none;\n}\n.services-box .contacts[data-v-ca80d4b0] {\n  margin-top: 2%;\n  margin-bottom: 5%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.btn-cta[data-v-ca80d4b0] {\n  text-align: center;\n  position: relative;\n  display: block;\n  width: 150px;\n  border: none;\n  background-color: #7174b6;\n  padding: 15px;\n  margin-top: 50px;\n  border-radius: 30px;\n  color: white;\n  cursor: pointer;\n  font-size: 1.1em;\n  font-weight: 600;\n  transition: 0.3s ease-in-out;\n}\n.btn-cta[data-v-ca80d4b0]:hover {\n  box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);\n  transform: scale(1.1);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #2137a6, #6e83f4);\n  /* filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$secondgradientcolor, endColorstr=$firstgradientcolor); */\n  box-shadow: 5px 6px 15px 0 rgba(179, 179, 179, 0.5);\n  box-shadow: 0px 0px 15px 0 rgba(179, 179, 179, 0.5);\n  box-shadow: 0 11px 16px -3px rgba(45, 35, 66, 0.3), 0 4px 5px 0 rgba(45, 35, 66, 0.4), inset 0 -2px 0 0 #4b58ba;\n  transform: translateY(-2px);\n}\nbody.enlargeFilter[data-v-ca80d4b0] {\n  position: fixed;\n}\n.bgExpandFilter[data-v-ca80d4b0] {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(1, 11, 38, 0);\n  z-index: 3;\n  transition: all 0.5s ease-in-out;\n  visibility: hidden;\n}\n#bgExpand.enlargeFilter[data-v-ca80d4b0] {\n  visibility: visible;\n}\n#cntExpand.enlargeFilter[data-v-ca80d4b0] {\n  top: 0;\n  opacity: 1;\n  height: 100%;\n  width: 100%;\n  background-color: rgba(23, 23, 23, 0.9);\n  margin-top: auto;\n  left: 0;\n  margin-left: auto;\n}\n#map[data-v-ca80d4b0] {\n  width: 300px;\n  height: 300px;\n  margin-top: 50px;\n}\n@media only screen and (max-width: 360px) {\n#map[data-v-ca80d4b0] {\n    width: 225px;\n    height: 225px;\n}\n}", ""]);
+exports.push([module.i, ".main .flex[data-v-ca80d4b0] {\n  display: flex;\n  flex-direction: column;\n}\n.main .text-box[data-v-ca80d4b0] {\n  margin-top: 20px;\n  margin-bottom: 20px;\n}\n.main .text-box h5[data-v-ca80d4b0] {\n  display: flex;\n  margin-top: 1%;\n  gap: 15px;\n  align-items: center;\n}\n.main .text-box h5 img[data-v-ca80d4b0] {\n  width: 30px;\n}\n.main .img-box img[data-v-ca80d4b0] {\n  width: 100%;\n  height: 600px;\n  border-radius: 1%;\n}\n.main .description-text[data-v-ca80d4b0] {\n  margin-top: 4%;\n}\n.main .services-box[data-v-ca80d4b0] {\n  display: flex;\n}\n.main .services-box p[data-v-ca80d4b0] {\n  margin-left: 3%;\n}\n.main .services-box .services[data-v-ca80d4b0] {\n  margin-top: 4%;\n  gap: 20px;\n}\n.main .services-box .services img[data-v-ca80d4b0] {\n  width: 30px;\n  margin-right: 25px;\n  vertical-align: none;\n}\n.main .services-box .contacts[data-v-ca80d4b0] {\n  margin-top: 30%;\n  margin-bottom: 25%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.btn-cta[data-v-ca80d4b0] {\n  text-align: center;\n  position: relative;\n  display: block;\n  width: 150px;\n  border: none;\n  background-color: #7174b6;\n  padding: 15px;\n  margin-top: 50px;\n  border-radius: 30px;\n  color: white;\n  cursor: pointer;\n  font-size: 1.1em;\n  font-weight: 600;\n  transition: 0.3s ease-in-out;\n}\n.btn-cta[data-v-ca80d4b0]:hover {\n  box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);\n  transform: scale(1.1);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #2137a6, #6e83f4);\n  /* filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$secondgradientcolor, endColorstr=$firstgradientcolor); */\n  box-shadow: 5px 6px 15px 0 rgba(179, 179, 179, 0.5);\n  box-shadow: 0px 0px 15px 0 rgba(179, 179, 179, 0.5);\n  box-shadow: 0 11px 16px -3px rgba(45, 35, 66, 0.3), 0 4px 5px 0 rgba(45, 35, 66, 0.4), inset 0 -2px 0 0 #4b58ba;\n  transform: translateY(-2px);\n}\nbody.enlargeFilter[data-v-ca80d4b0] {\n  position: fixed;\n}\n.bgExpandFilter[data-v-ca80d4b0] {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(1, 11, 38, 0);\n  z-index: 3;\n  transition: all 0.5s ease-in-out;\n  visibility: hidden;\n}\n#bgExpand.enlargeFilter[data-v-ca80d4b0] {\n  visibility: visible;\n}\n#cntExpand.enlargeFilter[data-v-ca80d4b0] {\n  top: 0;\n  opacity: 1;\n  height: 100%;\n  width: 100%;\n  background-color: rgba(23, 23, 23, 0.9);\n  margin-top: auto;\n  left: 0;\n  margin-left: auto;\n}\n#map[data-v-ca80d4b0] {\n  width: 300px;\n  height: 300px;\n  margin-top: 50px;\n}\n@media only screen and (max-width: 360px) {\n#map[data-v-ca80d4b0] {\n    width: 225px;\n    height: 225px;\n}\n}", ""]);
 
 // exports
 
@@ -35065,11 +35067,11 @@ var render = function () {
               _vm._v(_vm._s(_vm.apartment.price) + "€ /notte"),
             ]),
           ]),
+          _vm._v(" "),
+          _vm._m(2),
         ]),
       ]),
     ]),
-    _vm._v(" "),
-    _vm._m(2),
     _vm._v(" "),
     _c("div", { staticClass: "bgExpandFilter", attrs: { id: "bgExpand" } }),
     _vm._v(" "),
@@ -35239,7 +35241,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 contacts" }, [
+    return _c("div", { staticClass: "col-12 contacts " }, [
       _c("a", { staticClass: "btn-cta", attrs: { id: "contacts" } }, [
         _vm._v("Contatta"),
       ]),
