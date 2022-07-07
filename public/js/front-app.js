@@ -2461,7 +2461,7 @@ var render = function render() {
       src: __webpack_require__(/*! ../../../public/img/euro-svgrepo-com.svg */ "./public/img/euro-svgrepo-com.svg"),
       alt: "euro"
     }
-  }), _vm._v(_vm._s(_vm.apartment.price) + "€ /notte")])])])])]), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
+  }), _vm._v(_vm._s(_vm.apartment.price) + "€ /notte")])]), _vm._v(" "), _vm._m(2)])])]), _vm._v(" "), _c("div", {
     staticClass: "bgExpandFilter",
     attrs: {
       id: "bgExpand"
@@ -2997,7 +2997,7 @@ var render = function render() {
           return _vm.take(indirizzo.address.freeformAddress);
         }
       }
-    }, [_vm._v("\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\n        ")])]);
+    }, [_vm._v("\r\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\r\n        ")])]);
   }), 0), _vm._v(" "), _c("div", {
     staticClass: "bgExpandFilter",
     attrs: {
@@ -3204,17 +3204,9 @@ render._withStripped = true;
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--12-2!./node_modules/sass-loader/dist/cjs.js??ref--12-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/ApartmentPage.vue?vue&type=style&index=0&id=ca80d4b0&lang=scss&scoped=true& ***!
   \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".main .flex[data-v-ca80d4b0] {\n  display: flex;\n  flex-direction: column;\n}\n.text-box[data-v-ca80d4b0] {\n  margin-top: 20px;\n  margin-bottom: 20px;\n}\n.text-box h5[data-v-ca80d4b0] {\n  display: flex;\n  margin-top: 1%;\n  gap: 15px;\n  align-items: center;\n}\n.text-box h5 img[data-v-ca80d4b0] {\n  width: 30px;\n}\n.img-box img[data-v-ca80d4b0] {\n  width: 100%;\n  height: 600px;\n  border-radius: 1%;\n}\n.description-text[data-v-ca80d4b0] {\n  margin-top: 4%;\n}\n.services-box[data-v-ca80d4b0] {\n  display: flex;\n}\n.services-box p[data-v-ca80d4b0] {\n  margin-left: 3%;\n}\n.services-box .services[data-v-ca80d4b0] {\n  margin-top: 4%;\n  gap: 20px;\n}\n.services-box .services img[data-v-ca80d4b0] {\n  width: 30px;\n  margin-right: 25px;\n  vertical-align: none;\n}\n.services-box .contacts[data-v-ca80d4b0] {\n  margin-top: 2%;\n  margin-bottom: 5%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.btn-cta[data-v-ca80d4b0] {\n  text-align: center;\n  position: relative;\n  display: block;\n  width: 150px;\n  border: none;\n  background-color: #7174b6;\n  padding: 15px;\n  margin-top: 50px;\n  border-radius: 30px;\n  color: white;\n  cursor: pointer;\n  font-size: 1.1em;\n  font-weight: 600;\n  transition: 0.3s ease-in-out;\n}\n.btn-cta[data-v-ca80d4b0]:hover {\n  box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);\n  transform: scale(1.1);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #2137a6, #6e83f4);\n  /* filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$secondgradientcolor, endColorstr=$firstgradientcolor); */\n  box-shadow: 5px 6px 15px 0 rgba(179, 179, 179, 0.5);\n  box-shadow: 0px 0px 15px 0 rgba(179, 179, 179, 0.5);\n  box-shadow: 0 11px 16px -3px rgba(45, 35, 66, 0.3), 0 4px 5px 0 rgba(45, 35, 66, 0.4), inset 0 -2px 0 0 #4b58ba;\n  transform: translateY(-2px);\n}\nbody.enlargeFilter[data-v-ca80d4b0] {\n  position: fixed;\n}\n.bgExpandFilter[data-v-ca80d4b0] {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(1, 11, 38, 0);\n  z-index: 3;\n  transition: all 0.5s ease-in-out;\n  visibility: hidden;\n}\n#bgExpand.enlargeFilter[data-v-ca80d4b0] {\n  visibility: visible;\n}\n#cntExpand.enlargeFilter[data-v-ca80d4b0] {\n  top: 0;\n  opacity: 1;\n  height: 100%;\n  width: 100%;\n  background-color: rgba(23, 23, 23, 0.9);\n  margin-top: auto;\n  left: 0;\n  margin-left: auto;\n}\n#map[data-v-ca80d4b0] {\n  width: 300px;\n  height: 300px;\n  margin-top: 50px;\n}\n@media only screen and (max-width: 360px) {\n#map[data-v-ca80d4b0] {\n    width: 225px;\n    height: 225px;\n}\n}", ""]);
-
-// exports
-
+throw new Error("Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n   ╷\n56 │ >>>>>>> d46ba5c94fa3bc8f6262f42b28a9cbdd804224fc\r\n   │                                                 ^\n   ╵\n  C:\\Users\\Francesco\\Documents\\Boolean\\PHP\\BoolBnB\\resources\\js\\pages\\ApartmentPage.vue 56:49  root stylesheet");
 
 /***/ }),
 
@@ -3242,18 +3234,9 @@ exports.push([module.i, "main[data-v-04c29797] {\n  display: flex;\n  width: 100
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--12-2!./node_modules/sass-loader/dist/cjs.js??ref--12-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/SearchPage.vue?vue&type=style&index=0&id=483e11c0&lang=scss& ***!
   \*****************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-var escape = __webpack_require__(/*! ../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "* a {\n  text-decoration: none;\n  color: black;\n}\n* a:hover {\n  color: black;\n}\n#main {\n  display: flex;\n  width: 100%;\n  margin: 180px auto;\n  flex-direction: column;\n}\n.container {\n  position: relative;\n}\n.container .cnt-label {\n  position: -webkit-sticky;\n  position: sticky;\n  display: flex;\n  padding: 20px;\n  color: #fff;\n  height: auto;\n  left: 50px;\n  justify-content: center;\n  align-items: center;\n  font-weight: 600;\n  font-size: 2em;\n}\n.container .cnt-cards {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 25px;\n}\n.container .box-card {\n  display: flex;\n  width: 300px;\n  flex-direction: column;\n}\n.container .box-card .cnt-img {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card .cnt-img img {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card .cnt-h {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card .cnt-h h2 {\n  font-size: 1em;\n}\n.container .box-card .cnt-h h3 {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card .price {\n  display: contents;\n}\n.container .box-card .price span {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\nfooter {\n  background-color: white;\n  border-top: 1px solid lightgray;\n  position: fixed;\n  bottom: 0;\n  height: auto;\n  width: 100%;\n}\nfooter .cnt-footer-items {\n  display: flex;\n  justify-content: center;\n  width: 100%;\n}\nfooter .cnt-footer-items .cnt-items-ftr ul {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  list-style-type: none;\n  margin: 0 !important;\n  padding: 15px;\n}\nfooter .cnt-footer-items .cnt-items-ftr ul li a {\n  text-decoration: none;\n  color: darkslategray;\n}\nfooter .cnt-footer-items .cnt-items-ftr ul li a:hover {\n  color: #7174b6;\n}\n.cnt-btn-filter {\n  height: 40px;\n  border-radius: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n  padding: 10px;\n  border: 1px solid lightgray;\n  box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);\n  cursor: pointer;\n}\n.cnt-btn-filter .btn-filter {\n  width: 20px;\n  height: 20px;\n  background: url(" + escape(__webpack_require__(/*! ../../../public/img/filter.svg */ "./public/img/filter.svg")) + ") no-repeat center/contain;\n}\nbody.enlargeFilter {\n  overflow: hidden;\n}\n.bgExpandFilter {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(1, 11, 38, 0);\n  z-index: 3;\n  transition: all 0.5s ease-in-out;\n  visibility: hidden;\n}\n#bgExpand.enlargeFilter {\n  visibility: visible;\n}\n#cntExpand.enlargeFilter {\n  top: 0;\n  opacity: 1;\n  height: 100%;\n  width: 100%;\n  background-color: rgba(23, 23, 23, 0.9);\n  margin-top: auto;\n  left: 0;\n  margin-left: auto;\n}\n.main-check {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.main-check .cnt-checkbox {\n  position: relative;\n  height: 25px;\n  width: 25px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  user-select: none;\n}\n.main-check .cnt-checkbox .cnt-checkbox:hover input ~ .checkmark {\n  background-color: #ccc;\n}\n.main-check .cnt-checkbox .cnt-checkbox input:checked ~ .checkmark {\n  background-color: #2196f3;\n}\n.main-check .cnt-checkbox .cnt-checkbox input:checked ~ .checkmark:after {\n  display: block;\n}\n.main-check .cnt-checkbox input[type=checkbox].input-check {\n  position: absolute;\n  width: 25px;\n  height: 25px;\n  left: 0;\n  z-index: 2;\n  accent-color: #7174b6;\n}\n.main-check .cnt-checkbox .checkmark {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 25px;\n  width: 25px;\n  background-color: #eee;\n}\n.main-check .cnt-checkbox .checkmark:after {\n  content: \"\";\n  position: absolute;\n  display: none;\n}\n.main-check .cnt-checkbox .checkmark:after {\n  left: 9px;\n  top: 5px;\n  width: 5px;\n  height: 10px;\n  border: solid white;\n  border-width: 0 3px 3px 0;\n  transform: rotate(45deg);\n}\n.btn-cta {\n  position: relative;\n  display: block;\n  width: 150px;\n  border: none;\n  background-color: #7174b6;\n  padding: 15px;\n  margin-top: 50px;\n  border-radius: 30px;\n  color: white;\n  cursor: pointer;\n  font-size: 1.1em;\n  font-weight: 600;\n  transition: 0.3s ease-in-out;\n}\n.btn-cta:hover {\n  box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);\n  transform: scale(1.1);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);\n  background-image: linear-gradient(180deg, #2137a6, #6e83f4);\n  /* filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$secondgradientcolor, endColorstr=$firstgradientcolor); */\n  box-shadow: 5px 6px 15px 0 rgba(179, 179, 179, 0.5);\n  box-shadow: 0px 0px 15px 0 rgba(179, 179, 179, 0.5);\n  box-shadow: 0 11px 16px -3px rgba(45, 35, 66, 0.3), 0 4px 5px 0 rgba(45, 35, 66, 0.4), inset 0 -2px 0 0 #4b58ba;\n  transform: translateY(-2px);\n}\n.cnt-btn-close {\n  position: relative;\n  width: 40px;\n  height: 40px;\n  box-sizing: border-box;\n  color: black;\n  text-decoration: none;\n  transition: 0.5s ease-in-out;\n  border-radius: 50%;\n  background-color: #010b26;\n  background-color: transparent;\n  cursor: pointer;\n}\n.cnt-btn-close .btn-closed::after {\n  content: \"\";\n  display: block;\n  height: 30px;\n  width: 3px;\n  background: #90a9e8;\n  position: absolute;\n  left: 20px;\n  top: 5px;\n  transform: rotate(-45deg);\n  border-radius: 5px;\n}\n.cnt-btn-close .btn-closed::before {\n  content: \"\";\n  display: block;\n  height: 30px;\n  width: 3px;\n  background: #90a9e8;\n  position: absolute;\n  left: 20px;\n  top: 5px;\n  transform: rotate(45deg);\n  border-radius: 5px;\n}\n.cntExpandFilter {\n  position: fixed;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  top: -1000px;\n  margin-top: -350px;\n  z-index: 200;\n  opacity: 0;\n  transition: all 0.5s ease-in-out;\n}\n.cntExpandFilter .main-filter {\n  width: 80%;\n  height: calc(100% - 100px);\n  border-radius: 5px;\n  background: #fff;\n  border-radius: 5px;\n  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);\n  transform-style: preserve-3d;\n  overflow: auto;\n}\n.cntExpandFilter .main-filter::-webkit-scrollbar {\n  display: none;\n}\n.cntExpandFilter .main-filter {\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n}\n.cntExpandFilter .main-filter .row-filter-ttl {\n  display: flex;\n  justify-content: flex-end;\n  position: -webkit-sticky;\n  position: sticky;\n  width: 100%;\n  top: 0;\n  padding: 10px 20px;\n  background-color: #fff;\n  border-bottom: 1px solid #d9d9d9;\n  z-index: 3;\n}\n.cntExpandFilter .main-filter .row-filter-ttl .cnt-ttl {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.cntExpandFilter .main-filter .row-filter-ttl .cnt-ttl h2 {\n  font-size: 1.5em;\n}\n.cntExpandFilter .main-filter .cnt-row {\n  padding: 50px;\n}\n.cntExpandFilter .main-filter .cnt-row .row-filter {\n  position: relative;\n  display: flex;\n  padding: 10px;\n  border-bottom: 1px solid #d9d9d9;\n}\n.cntExpandFilter .main-filter .cnt-row .row-filter .cnt-filter-select {\n  display: flex;\n  flex-wrap: wrap;\n  margin: 20px 0;\n}\n.cntExpandFilter .main-filter .cnt-row .row-filter .cnt-filter-select input[type=number] {\n  display: inline-block;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  padding: 12px 20px;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n}\n@media screen and (max-width: 1050px) {\n.contExpandLogMob,\n.contExpandLogRegMob {\n    width: 90%;\n    background-color: white;\n    background-size: cover;\n    left: 50%;\n    margin-left: -45%;\n    border-radius: 5px;\n    z-index: 200;\n    opacity: 0;\n    transition: all 0.5s ease-in-out;\n}\n#contExpandLogInMob.enlargeLogIn,\n#contExpandRegMob.enlargeLogIn {\n    opacity: 1;\n    width: 100%;\n    height: 100%;\n}\n}\n@media screen and (max-width: 1200px) {\n.container .box-card {\n    display: flex;\n    width: calc(33.3333333333% - 25px);\n}\n}\n@media screen and (max-width: 800px) {\n.container .box-card {\n    display: flex;\n    width: calc(50% - 25px);\n}\n}\n@media screen and (max-width: 650px) {\n.container .box-card {\n    display: flex;\n    width: 100%;\n    max-width: 300px;\n}\nheader .cnt-hdr-items .cnt-nav {\n    display: none;\n}\nheader .cnt-logo {\n    width: 100%;\n    height: 100%;\n}\nheader .cnt-logo img,\nheader .cnt-logo a {\n    width: 150px;\n    height: 60%;\n}\n}", ""]);
-
-// exports
-
+throw new Error("Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n   ╷\n51 │    display: flex;\r\n   │                 ^\n   ╵\n  C:\\Users\\Francesco\\Documents\\Boolean\\PHP\\BoolBnB\\resources\\js\\pages\\SearchPage.vue 51:17  root stylesheet");
 
 /***/ }),
 
@@ -3358,33 +3341,6 @@ function toComment(sourceMap) {
 	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
 
 	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/lib/url/escape.js":
-/*!***************************************************!*\
-  !*** ./node_modules/css-loader/lib/url/escape.js ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = function escape(url) {
-    if (typeof url !== 'string') {
-        return url
-    }
-    // If url is already wrapped in quotes, remove them
-    if (/^['"].*['"]$/.test(url)) {
-        url = url.slice(1, -1);
-    }
-    // Should url be wrapped?
-    // See https://drafts.csswg.org/css-values-3/#urls
-    if (/["'() \t\n]/.test(url)) {
-        return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"'
-    }
-
-    return url
 }
 
 
@@ -50204,17 +50160,6 @@ module.exports = "/images/boolbnb-logo.svg?f1aced8f583f3dbbaa6c6fd70901e200";
 /***/ (function(module, exports) {
 
 module.exports = "/images/euro-svgrepo-com.svg?6be28595eeb9e114a9c4f6a0e578ed3c";
-
-/***/ }),
-
-/***/ "./public/img/filter.svg":
-/*!*******************************!*\
-  !*** ./public/img/filter.svg ***!
-  \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/filter.svg?2b53b7d29056335c4ec769058393830d";
 
 /***/ }),
 
