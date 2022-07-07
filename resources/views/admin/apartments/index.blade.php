@@ -2,9 +2,11 @@
 @section('content')
     <div class="main-slct-item">
         <div class="cnt-slct-btn">
-            <div class="cnt-th cnt-btn h-100">
+            <div class="cnt-th cnt-btns h-100">
                 <a href="{{ route('admin.apartments.create') }}">
-                    <button>Inserisci</button>
+                    <div class="cnt-btn" title="Inserisci">
+                        <button class="btn btn-add"></button>
+                    </div>
                 </a>
             </div>
         </div>
@@ -36,30 +38,48 @@
                             </div>
                         </div>
                         <div class="cnt-column col-3 col-md-12">
-                            <div class="cnt-th cnt-btn h-100">
-                                <a href="{{ route('admin.checkin', $apartment->id) }}">
-                                    <button>Active</button>
-                                </a>
+                            <div class="cnt-th cnt-btns h-100">
                                 <a href="{{ route('admin.apartments.show', $apartment->id) }}">
-                                    <button>Mostra</button>
+                                    <div class="cnt-btn" title="Mostra">
+                                        <button class="btn btn-show"></button>
+                                    </div>
                                 </a>
                                 <a href="{{ route('admin.apartments.edit', $apartment->id) }}">
-                                    <button>Modifica</button>
+
+                                    <div class="cnt-btn" title="Modifica">
+                                        <button class="btn btn-modify"></button>
+                                    </div>
+                                </a>
+
+                                <a href="{{ route('admin.apartments.messages.index', $apartment->id) }}">
+
+                                    <div class="cnt-btn" title="Messaggi">
+                                        <button class="btn btn-msg"></button>
+                                    </div>
+                                </a>
+                                <a href="{{ route('admin.checkin', $apartment->id) }}">
+
+                                    <div class="cnt-btn" title="Sponsorizzate">
+                                        <button class="btn btn-ads"></button>
+                                    </div>
+                                </a>
+                                <a href="{{ route('admin.apartments.views.index', $apartment->id) }}">
+
+                                    <div class="cnt-btn" title="Statistiche">
+                                        <button class="btn btn-stcs"></button>
+                                    </div>
                                 </a>
                                 <form class="d-inline  wmax-100"
                                     action="{{ route('admin.apartments.destroy', $apartment->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <input name="_method" type="hidden" value="DELETE">
-                                    <button class="btn btn-danger wmax-100 " onclick="return confirm('Are your sure?')"
-                                        type="submit">Elimina</button>
+
+                                    <div class="cnt-btn" title="Cancella">
+                                        <button class="btn btn-delete wmax-100 " onclick="return confirm('Are your sure?')"
+                                            type="submit"></button>
+                                    </div>
                                 </form>
-                                <a href="{{ route('admin.apartments.messages.index', $apartment->id) }}">
-                                    <button>Messaggi</button>
-                                </a>
-                                <a href="{{ route('admin.apartments.views.index', $apartment->id) }}">
-                                    <button>Views</button>
-                                </a>
                             </div>
                         </div>
                     </div>

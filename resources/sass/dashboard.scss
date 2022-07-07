@@ -130,6 +130,8 @@ header {
 
 
 
+
+
 /* .main-usr-set {
     position: fixed;
     top: 0;
@@ -312,6 +314,91 @@ main {
   } */
 }
 
+.cnt-btns {
+    justify-content: center;
+    gap: 10px;
+
+    .cnt-btn {
+        display: flex;
+        border: 0;
+        padding: 5px;
+        border: 1px solid #e1e1e1;
+        border-radius: 10px;
+        cursor: pointer;
+
+        &:hover .btn-show {
+            background: url("../img/ico/dashboard/ico-show.svg") no-repeat center/contain;
+        }
+
+        &:hover .btn-modify {
+            background: url("../img/ico/dashboard/ico-modify.svg") no-repeat center/contain;
+        }
+
+        &:hover .btn-delete {
+            background: url("../img/ico/dashboard/ico-delete.svg") no-repeat center/contain;
+        }
+
+        &:hover .btn-msg {
+            background: url("../img/ico/dashboard/ico-msg.svg") no-repeat center/contain;
+        }
+
+        &:hover .btn-add {
+            background: url("../img/ico/dashboard/ico-add.svg") no-repeat center/contain;
+        }
+
+        &:hover .btn-home {
+            background: url("../img/ico/dashboard/ico-dash.svg") no-repeat center/contain;
+        }
+
+        &:hover .btn-ads {
+            background: url("../img/ico/dashboard/ico-ads.svg") no-repeat center/contain;
+        }
+
+        &:hover .btn-stcs {
+            background: url("../img/ico/dashboard/ico-stcs.svg") no-repeat center/contain;
+        }
+
+        .btn {
+            width: 25px;
+            height: 25px;
+            border: 0;
+            cursor: pointer;
+        }
+
+        .btn-show {
+            background: url("../img/ico/dashboard/ico-show-lgt.svg") no-repeat center/contain;
+        }
+
+        .btn-modify {
+            background: url("../img/ico/dashboard/ico-modify-lgt.svg") no-repeat center/contain;
+        }
+
+        .btn-delete {
+            background: url("../img/ico/dashboard/ico-delete-lgt.svg") no-repeat center/contain;
+        }
+
+        .btn-msg {
+            background: url("../img/ico/dashboard/ico-msg-lgt.svg") no-repeat center/contain;
+        }
+
+        .btn-add {
+            background: url("../img/ico/dashboard/ico-add-lgt.svg") no-repeat center/contain;
+        }
+
+        .btn-home {
+            background: url("../img/ico/dashboard/ico-dash-lgt.svg") no-repeat center/contain;
+        }
+
+        .btn-ads {
+            background: url("../img/ico/dashboard/ico-ads-lgt.svg") no-repeat center/contain;
+        }
+
+        .btn-stcs {
+            background: url("../img/ico/dashboard/ico-stcs-lgt.svg") no-repeat center/contain;
+        }
+    }
+}
+
 .button-disabled {
     cursor: not-allowed;
     pointer-events: none;
@@ -391,7 +478,7 @@ main {
 
 /* @import url("btn-burger.scss"); */
 
-@media screen and (min-width: 0px) and (max-width: 1000px) {
+@media screen and (min-width: 0px) and (max-width: 1250px) {
     .sidebar {
         display: none;
     }
@@ -406,7 +493,7 @@ main {
             }
 
             .cnt-btn {
-                padding: 30px 0;
+                /* padding: 30px 0; */
             }
 
             .cnt-slct-btn {
@@ -476,6 +563,59 @@ main {
         .main-slct-item {
             .cnt-item-details {
                 padding: 30px 10px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .form-container {
+        height: calc(100vh + 80px);
+    }
+
+    .form-container form {
+        padding: 0;
+    }
+
+    span.icon {
+        left: 20px;
+    }
+
+    main {
+        .main-slct-item {
+            .cnt-item-details {
+                padding: 30px 10px;
+            }
+
+            .main-body-th {
+                display: none;
+            }
+
+            .main-columns {
+                flex-direction: column;
+                padding: 20px 0 0;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    header {
+
+        .cnt-logo img,
+        .cnt-logo a {
+            width: 80%;
+        }
+    }
+
+    main {
+        .main-slct-item {
+            .cnt-item-details {
+                padding: 30px 10px;
+            }
+
+            .main-columns {
+                flex-direction: column;
             }
         }
     }
