@@ -81,15 +81,9 @@
         </div>
         <div class="col-4">
           <div class="cnt-row col-12">
-<<<<<<< HEAD
-          <h3>Servizi:</h3>
-              <!-- <p :v-for="service in apartment.services" :key="apartment.id">{{ service}}</p> -->
-        </div>
-=======
             <h3>Servizi:</h3>
             <div v-for="(service, j) in services" :key="j">{{ service }}</div>
           </div>
->>>>>>> 55d33005333621d860233e4a1f33b3fa88f4eeb9
         </div>
       </div>
     </div>
@@ -153,12 +147,7 @@
           </form>
         </div>
       </div>
-<<<<<<< HEAD
-
-
-=======
     </div>
->>>>>>> 55d33005333621d860233e4a1f33b3fa88f4eeb9
   </div>
 </template>
 
