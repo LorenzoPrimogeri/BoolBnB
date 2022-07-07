@@ -319,9 +319,6 @@ export default {
         margin-right: 25px;
         vertical-align: none;
       }
-       .service-icon{
-          
-       }
   }
 
   .contacts {
