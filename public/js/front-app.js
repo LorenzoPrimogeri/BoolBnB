@@ -2138,10 +2138,6 @@ __webpack_require__.r(__webpack_exports__);
     // }
   },
   methods: {
-    gotoDetails: function gotoDetails(id) {
-      var url = " " / home / " + id ";
-      return url;
-    },
     // persist() {
     //   localStorage.input = this.input;
     //   console.log("Storage Input " + localStorage.input);

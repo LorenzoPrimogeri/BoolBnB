@@ -231,10 +231,7 @@ export default {
     // }
   },
   methods: {
-    gotoDetails(id) {
-      const url = " " / home / " + id ";
-      return url;
-    },
+   
     // persist() {
     //   localStorage.input = this.input;
     //   console.log("Storage Input " + localStorage.input);
