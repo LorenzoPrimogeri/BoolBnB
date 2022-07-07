@@ -1,18 +1,24 @@
 <template>
   <div class="main">
     <div class="container flex">
-
-
       <div class="cnt-row col-12 text-box">
         <h2>{{ apartment.title }}</h2>
-        <h5 ><span><img src="../../../public/img/position-svgrepo-com.svg" alt="position"></span>{{ apartment.address }}</h5>
+        <h5>
+          <span
+            ><img
+              src="../../../public/img/position-svgrepo-com.svg"
+              alt="position" /></span
+          >{{ apartment.address }}
+        </h5>
       </div>
-
 
       <div class="cnt-row col-12 img-box">
         <div class="cont-img">
-          <img class="img-fluid" :src="`/storage/${apartment.img}`"
-            :alt="apartment.title" />
+          <img
+            class="img-fluid"
+            :src="`/storage/${apartment.img}`"
+            :alt="apartment.title"
+          />
         </div>
       </div>
 
@@ -25,92 +31,127 @@
           <div id="map"></div>
         </div>
         <div class="services col-3">
-
           <div class="d-flex service-box">
-            <p ><img src="../../../public/img/room-svgrepo-com.svg" alt="room">{{ apartment.room }}</p>
+            <p>
+              <img
+                src="../../../public/img/room-svgrepo-com.svg"
+                alt="room"
+              />{{ apartment.room }}
+            </p>
           </div>
 
-          <div class="d-flex  service-icon">
-            <p><img src="../../../public/img/bathroom-svgrepo-com.svg" alt="bath">{{ apartment.bathroom }}</p>
+          <div class="d-flex service-icon">
+            <p>
+              <img
+                src="../../../public/img/bathroom-svgrepo-com.svg"
+                alt="bath"
+              />{{ apartment.bathroom }}
+            </p>
           </div>
 
-          <div class="d-flex   service-icon">
-            <p><img src="../../../public/img/bed-svgrepo-com.svg" alt="bed">{{ apartment.bed }}</p>
+          <div class="d-flex service-icon">
+            <p>
+              <img src="../../../public/img/bed-svgrepo-com.svg" alt="bed" />{{
+                apartment.bed
+              }}
+            </p>
           </div>
 
-          <div class="d-flex   service-icon">
-            <p><img src="../../../public/img/square-layout-with-boxes-svgrepo-com.svg" alt="square-meter">{{ apartment.mq }}mq</p>
+          <div class="d-flex service-icon">
+            <p>
+              <img
+                src="../../../public/img/square-layout-with-boxes-svgrepo-com.svg"
+                alt="square-meter"
+              />{{ apartment.mq }}mq
+            </p>
           </div>
 
-          <div class="d-flex  service-icon">
-            <p><img src="../../../public/img/euro-svgrepo-com.svg" alt="euro">{{ apartment.price }}€ /notte</p>
+          <div class="d-flex service-icon">
+            <p>
+              <img
+                src="../../../public/img/euro-svgrepo-com.svg"
+                alt="euro"
+              />{{ apartment.price }}€ /notte
+            </p>
           </div>
 
-          <div class="col-12 contacts ">
+          <div class="col-12 contacts">
             <a id="contacts" class="btn-cta">Contatta</a>
           </div>
         </div>
         <div class="col-4">
           <div class="cnt-row col-12">
-          <h3>Servizi:</h3>
-              <!-- <p :v-for="service in apartment.services" :key="apartment.id">{{ service}}</p> -->
-        </div>
+            <h3>Servizi:</h3>
+            <div v-for="(service, j) in services" :key="j">{{ service }}</div>
+          </div>
         </div>
       </div>
     </div>
 
-
-
-      <div id="bgExpand" class="bgExpandFilter">
-      </div>
-      <div id="cntExpand" class="cntExpandFilter">
-        <div class="main-filter">
-
-          <div class="row-filter-ttl jc-e">
-            <div class="cnt-ttl">
-              <h2>Messaggio</h2>
-            </div>
-            <div class="cnt-btn-close">
-              <div class="btn-closed"></div>
-            </div>
+    <div id="bgExpand" class="bgExpandFilter"></div>
+    <div id="cntExpand" class="cntExpandFilter">
+      <div class="main-filter">
+        <div class="row-filter-ttl jc-e">
+          <div class="cnt-ttl">
+            <h2>Messaggio</h2>
           </div>
-          <div class="cnt-row">
+          <div class="cnt-btn-close">
+            <div class="btn-closed"></div>
+          </div>
+        </div>
+        <div class="cnt-row">
           <form method="POST" @submit.prevent="sendForm()">
-           <div class="row-filter d-flex jc-c">
+            <div class="row-filter d-flex jc-c">
               <div class="cnt-filter">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" v-model="email"
-                  id="email" placeholder="name@example.com" required>
+                <input
+                  type="email"
+                  class="form-control"
+                  v-model="email"
+                  id="email"
+                  placeholder="name@example.com"
+                  required
+                />
               </div>
             </div>
             <div class="row-filter d-flex jc-c">
-              <div class="cnt-filter ">
-                  <label for="object" class="form-label">Oggetto</label>
-                  <input type="text" class="form-control" id="object" v-model="object"
-                  placeholder="Oggetto dell'email" required>
-              </div>
-            </div>
-             <div class="row-filter d-flex jc-c">
               <div class="cnt-filter">
-                    <label for="body" class="form-label">Messaggio</label>
-                    <textarea class="form-control" id="body" rows="3" v-model="body"
-                    required></textarea>
+                <label for="object" class="form-label">Oggetto</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="object"
+                  v-model="object"
+                  placeholder="Oggetto dell'email"
+                  required
+                />
               </div>
             </div>
-            <div class="d-flex jc-c ">
-              <button class="btn-cta " type="submit" :disabled="sending">Invia mail</button>
+            <div class="row-filter d-flex jc-c">
+              <div class="cnt-filter">
+                <label for="body" class="form-label">Messaggio</label>
+                <textarea
+                  class="form-control"
+                  id="body"
+                  rows="3"
+                  v-model="body"
+                  required
+                ></textarea>
+              </div>
+            </div>
+            <div class="d-flex jc-c">
+              <button class="btn-cta" type="submit" :disabled="sending">
+                Invia mail
+              </button>
             </div>
           </form>
         </div>
-        </div>
       </div>
-
-
+    </div>
   </div>
 </template>
 
 <script>
-
 // import LoaderComponent from '../components/LoaderComponent.vue';
 export default {
   name: "ApartmentComponent",
@@ -122,9 +163,10 @@ export default {
       apartment: [],
       lat: 0,
       lng: 0,
-      email: '',
-      object: '',
-      body: '',
+      services: [],
+      email: "",
+      object: "",
+      body: "",
       apartment_id: null,
       sending: false,
       success: false,
@@ -139,22 +181,27 @@ export default {
       console.log(this.apartment);
       this.lat = this.apartment.lat; //prendo lat
       this.lng = this.apartment.lng; //prendo lng
-      this.title = this.apartment.title //prendo title
-      this.address = this.apartment.address //prendo address
-      this.apartment_id = this.apartment.id;//prendo id
-
+      this.title = this.apartment.title; //prendo title
+      this.address = this.apartment.address; //prendo address
+      this.apartment_id = this.apartment.id; //prendo id
+      for (let i = 0; i < this.apartment.services.length; i++) {
+        const servizio = this.apartment.services[i]["name"];
+        console.log(servizio);
+        this.services.push(servizio);
+        console.log(this.services);
+      }
       console.log(this.lat);
       console.log(this.lng);
       this.createMap(); //funzione per generare la mappa
     });
 
-
     //axios post per salvare le visualizzazioni
-    window.axios.post(`/api/views/`, {
+    window.axios
+      .post(`/api/views/`, {
         apartment_id: id,
-    }).then(resp => console.log(resp)).catch(err => console.log(err));
-
-
+      })
+      .then((resp) => console.log(resp))
+      .catch((err) => console.log(err));
 
     $("#contacts").click(function () {
       $("#bgExpand").toggleClass("enlargeFilter");
@@ -221,7 +268,9 @@ export default {
 
       let popup = new tt.Popup({ offset: popupOffsets, className: "my-class" })
         .setLngLat(center)
-        .setHTML(`<span><strong>${title}</strong></span><br><span>${address}</span>`)
+        .setHTML(
+          `<span><strong>${title}</strong></span><br><span>${address}</span>`
+        )
         .addTo(map);
     },
     sendForm() {
@@ -229,65 +278,64 @@ export default {
       this.success = false;
       const id = this.$route.params.id;
       console.log(id);
-      alert('messaggio mandato!')
+      alert("messaggio mandato!");
 
-      window.axios.post(`/api/messages/`, {
-        email: this.email,
-        object: this.object,
-        body: this.body,
-        apartment_id: this.apartment_id
+      window.axios
+        .post(`/api/messages/`, {
+          email: this.email,
+          object: this.object,
+          body: this.body,
+          apartment_id: this.apartment_id,
+        })
+        .then(({ data, status }) => {
+          //    console.log(data);
+          this.email = "";
+          this.object = "";
+          this.body = "";
+          this.sending = false;
 
-      }).then(({ data, status }) => {
-        console.log(data);
-        this.email = "";
-        this.object = "";
-        this.body = "";
-        this.sending = false;
-
-        if (status === 200) {
-
+          if (status === 200) {
             alert("Messaggio Inviato");
 
-          this.success = data.success;
+            this.success = data.success;
 
-          if (!data.success) {
-            this.errors = data.errors;
-            console.log(this.errors)
+            if (!data.success) {
+              this.errors = data.errors;
+              console.log(this.errors);
+            }
           }
-        }
-        // this.message = '';
-      }).catch(error => {
-        console.log(error);
-      })
-    }
-
+          // this.message = '';
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 .main {
   .flex {
     display: flex;
     flex-direction: column;
   }
 
-
   .text-box {
-    h2{
-      font-family: 'Lobster', cursive;
+    h2 {
+      font-family: "Lobster", cursive;
       font-weight: bold;
       font-size: 2.8rem;
       color: #797cba;
     }
-    h5{
+    h5 {
       display: flex;
       margin-top: 1%;
       gap: 15px;
       align-items: center;
-      img{
-        width:30px;
+      img {
+        width: 30px;
       }
     }
     margin-top: 20px;
@@ -304,7 +352,6 @@ export default {
 
   .description-text {
     margin-top: 4%;
-
   }
 
   .services-box {
@@ -317,28 +364,24 @@ export default {
     .services {
       margin-top: 4%;
       gap: 20px;
-      img{
-        width:30px;
+      img {
+        width: 30px;
         margin-right: 25px;
         vertical-align: none;
       }
-       .service-icon{
+    }
 
-       }
-  }
-
-  .contacts {
-    margin-top: 30%;
-    margin-bottom: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .contacts {
+      margin-top: 30%;
+      margin-bottom: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
-}
 
-
-.btn-cta{
+.btn-cta {
   text-align: center;
   position: relative;
   display: block;
@@ -353,30 +396,29 @@ export default {
   font-size: 1.1em;
   font-weight: 600;
   transition: 0.3s ease-in-out;
-&:hover {
-  box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);
-  transform: scale(1.1);
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right bottom,
-    from(#8b9cf2),
-    to(#5870f0)
-  );
-  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
-  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
-  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
-  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
-  background-image: linear-gradient(180deg, #2137a6, #6e83f4);
-  /* filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$secondgradientcolor, endColorstr=$firstgradientcolor); */
-  box-shadow: 5px 6px 15px 0 rgba(179, 179, 179, 0.5);
-  box-shadow: 0px 0px 15px 0 rgba(179, 179, 179, 0.5);
-  box-shadow: 0 11px 16px -3px rgba(45, 35, 66, 0.3),
-    0 4px 5px 0 rgba(45, 35, 66, 0.4), inset 0 -2px 0 0 #4b58ba;
-  transform: translateY(-2px);
+  &:hover {
+    box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);
+    transform: scale(1.1);
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      right bottom,
+      from(#8b9cf2),
+      to(#5870f0)
+    );
+    background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+    background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+    background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+    background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+    background-image: linear-gradient(180deg, #2137a6, #6e83f4);
+    /* filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$secondgradientcolor, endColorstr=$firstgradientcolor); */
+    box-shadow: 5px 6px 15px 0 rgba(179, 179, 179, 0.5);
+    box-shadow: 0px 0px 15px 0 rgba(179, 179, 179, 0.5);
+    box-shadow: 0 11px 16px -3px rgba(45, 35, 66, 0.3),
+      0 4px 5px 0 rgba(45, 35, 66, 0.4), inset 0 -2px 0 0 #4b58ba;
+    transform: translateY(-2px);
+  }
 }
-}
-
 
 body.enlargeFilter {
   position: fixed;
@@ -409,7 +451,6 @@ body.enlargeFilter {
   margin-left: auto;
 }
 
-
 #map {
   width: 300px;
   height: 300px;
@@ -422,6 +463,5 @@ body.enlargeFilter {
     height: 225px;
   }
 }
-
 </style>
 
