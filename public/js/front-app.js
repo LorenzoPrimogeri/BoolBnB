@@ -2037,6 +2037,7 @@ __webpack_require__.r(__webpack_exports__);
       this.success = false;
       var id = this.$route.params.id;
       console.log(id);
+      alert('messaggio mandato!');
       window.axios.post("/api/messages/", {
         email: this.email,
         object: this.object,
@@ -2115,10 +2116,11 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     //prendo tutti gli appartamenti dal database
+    delete axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common["X-Requested-With"];
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments").then(function (results) {
       var result = [];
       result = results.data.apartments;
-      console.log(result);
+      console.log(results);
 
       for (var i = 0; i < result.length; i++) {
         var apartment = result[i];
@@ -2132,35 +2134,11 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log(_this.allApartaments); // this.allServices = results.data.services;
       // console.log(this.allServices);
-    });
-    $(document).ready(function () {
-      $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 2000,
-        autoplayHoverPause: true,
-        responsive: {
-          0: {
-            items: 1
-          },
-          600: {
-            items: 3
-          },
-          1000: {
-            items: 5
-          }
-        }
-      });
     }); // if (localStorage.input) {
     //   this.input = localStorage.input;
     // }
   },
   methods: {
-    gotoDetails: function gotoDetails(id) {
-      var url = ' ' / home / ' + id ';
-      return url;
-    },
     // persist() {
     //   localStorage.input = this.input;
     //   console.log("Storage Input " + localStorage.input);
@@ -2254,6 +2232,11 @@ __webpack_require__.r(__webpack_exports__);
       $("body").toggleClass("enlargeFilter");
     });
     $(".cnt-btn-close").click(function () {
+      $("#cntExpand").toggleClass("enlargeFilter");
+      $("#bgExpand").toggleClass("enlargeFilter");
+      $("body").toggleClass("enlargeFilter");
+    });
+    $(".btn-cta").click(function () {
       $("#cntExpand").toggleClass("enlargeFilter");
       $("#bgExpand").toggleClass("enlargeFilter");
       $("body").toggleClass("enlargeFilter");
@@ -2420,7 +2403,7 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "description-text cnt-row col-12"
-  }, [_c("h2", [_vm._v(_vm._s(_vm.apartment.title))]), _vm._v(" "), _c("h5", {
+  }, [_c("h5", {
     staticClass: "mt-3"
   }, [_vm._v("Descrizione:")]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.apartment.description))])]), _vm._v(" "), _c("div", {
     staticClass: "services-box cnt-row col-12"
@@ -2756,7 +2739,7 @@ var render = function render() {
           return _vm.take(indirizzo.address.freeformAddress);
         }
       }
-    }, [_vm._v("\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\n        ")])]);
+    }, [_vm._v("\r\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\r\n        ")])]);
   }), 0), _vm._v(" "), _c("main", [_c("div", {
     staticClass: "container w-100 h-100 d-flex jc-c ai-c"
   }, [_c("carousel", {
@@ -2966,7 +2949,7 @@ var render = function render() {
           return _vm.take(indirizzo.address.freeformAddress);
         }
       }
-    }, [_vm._v("\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\n        ")])]);
+    }, [_vm._v("\r\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\r\n        ")])]);
   }), 0), _vm._v(" "), _c("div", {
     staticClass: "bgExpandFilter",
     attrs: {
@@ -50725,7 +50708,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Francesco\Documents\Boolean\PHP\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\Amministratore\Desktop\BooleanProject\php\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })

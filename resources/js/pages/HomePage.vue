@@ -138,14 +138,14 @@
       <div class="container w-100 h-100 d-flex jc-c ai-c">
         <carousel class="w-100">
           <slide v-for="apartment in allApartaments" :key="apartment.id">
-              <div class="box-card " @click="gotoDetails(apartment.id)" >
+            <div class="box-card" @click="gotoDetails(apartment.id)">
               <!-- <div class="row"> -->
-              <router-link  :to="'/home/'+ apartment.id ">
-              <div class="cnt-img">
-                <a href="#">
-                  <img :src="'/storage/' + apartment.img"  />
-                </a>
-              </div>
+              <router-link :to="'/home/' + apartment.id">
+                <div class="cnt-img">
+                  <a href="#">
+                    <img :src="'/storage/' + apartment.img" />
+                  </a>
+                </div>
               </router-link>
               <!-- </div> -->
               <div class="cnt-txt cnt-h col-12">
@@ -209,7 +209,7 @@
 
 <script>
 import axios from "axios";
-import { Carousel, Slide } from 'vue-carousel';
+import { Carousel, Slide } from "vue-carousel";
 export default {
   name: "HomeComponent",
   data() {
@@ -228,18 +228,18 @@ export default {
       //  inputUser: ' ',
       //bed: 1,
     };
-
   },
-   components: {
+  components: {
     Carousel,
-    Slide
+    Slide,
   },
   mounted() {
     //prendo tutti gli appartamenti dal database
+    delete axios.defaults.headers.common["X-Requested-With"];
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       let result = [];
       result = results.data.apartments;
-      console.log(result);
+      console.log(results);
       for (let i = 0; i < result.length; i++) {
         let apartment = result[i];
         if (apartment.sponsorships.length >= 1) {
@@ -252,36 +252,11 @@ export default {
       // console.log(this.allServices);
     });
 
-       $(document).ready(function() {
-      $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 2000,
-        autoplayHoverPause: true,
-        responsive: {
-          0: {
-            items: 1
-          },
-          600: {
-            items: 3
-          },
-          1000: {
-            items: 5
-          },
-        }
-      })
-    });
-
     // if (localStorage.input) {
     //   this.input = localStorage.input;
     // }
   },
   methods: {
-    gotoDetails(id) {
-      const url = ' '/home/' + id '
-      return url
-    },
     // persist() {
     //   localStorage.input = this.input;
     //   console.log("Storage Input " + localStorage.input);
@@ -358,39 +333,22 @@ main {
     font-size: 2em;
   }
   .cnt-cards {
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
   }
   .box-card {
-   display: flex;
+    display: flex;
     width: 500px;
     flex-direction: column;
     .cnt-img {
       width: 100%;
       height: 200px;
-       img {
+      img {
         height: 100%;
-         width: 100%;
-         border-radius: 20px;
-     }
-  }
-
-
-
-
-
-
-    .cnt-h {
-      height: 50px;
-      padding: 10px 0;
-      h2 {
-        font-size: 1em;
-      }
-      h3 {
-        color: grey;
-        font-size: 0.8em;
+        width: 100%;
+        border-radius: 20px;
       }
     }
     .price {
@@ -518,5 +476,4 @@ footer {
     }
   }
 }
-
 </style>
