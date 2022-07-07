@@ -239,7 +239,7 @@ export default {
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       let result = [];
       result = results.data.apartments;
-      console.log(result);
+      console.log(results);
       for (let i = 0; i < result.length; i++) {
         let apartment = result[i];
         if (apartment.sponsorships.length >= 1) {
@@ -251,28 +251,6 @@ export default {
       // this.allServices = results.data.services;
       // console.log(this.allServices);
     });
-
-       $(document).ready(function() {
-      $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 2000,
-        autoplayHoverPause: true,
-        responsive: {
-          0: {
-            items: 1
-          },
-          600: {
-            items: 3
-          },
-          1000: {
-            items: 5
-          },
-        }
-      })
-    });
-
     // if (localStorage.input) {
     //   this.input = localStorage.input;
     // }
