@@ -2108,7 +2108,8 @@ __webpack_require__.r(__webpack_exports__);
       //tutti gli appartamenti visible
       correctApartments: [],
       //appartamenti che soddisfano la ricerca
-      isClicked: false //  allServices: [],
+      isClicked: false,
+      username: "" //  allServices: [],
       //  services: [],
       //  distanceKm: 20,
       //  room: 1,
@@ -2142,6 +2143,9 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log(_this.allApartaments); // this.allServices = results.data.services;
       // console.log(this.allServices);
+    });
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/user").then(function (res) {
+      console.log("username: ", res);
     }); // if (localStorage.input) {
     //   this.input = localStorage.input;
     // }
@@ -2231,7 +2235,8 @@ __webpack_require__.r(__webpack_exports__);
       services: [],
       distanceKm: 20,
       room: 1,
-      bed: 1
+      bed: 1,
+      isClicked: false
     };
   },
   mounted: function mounted() {
@@ -2275,15 +2280,17 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     take: function take(indirizzo) {
-      // const searchedAdress = indirizzo;
+      this.isClicked = true; // const searchedAdress = indirizzo;
+
       this.input = indirizzo; //   return searchedAdress;
       // console.log('risultato nuovo input', this.input);
     },
     onInputChanged: function onInputChanged() {
       var _this2 = this;
 
-      // console.log(this.distanceKm);
+      this.isClicked = false; // console.log(this.distanceKm);
       //Call axios che restituisce gli indirizzi autocomplete
+
       delete axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common["X-Requested-With"];
       this.indirizzi = [];
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=5&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK", {
@@ -2754,7 +2761,7 @@ var render = function render() {
     staticClass: "cnt-fine"
   })])], 1)]), _vm._v(" "), _c("div", {
     staticClass: "col-2 d-flex jc-c ai-c"
-  }, [_c("div", {
+  }, [_c("div", [_vm._v("\n                User: " + _vm._s(_vm.username) + ";\n            ")]), _vm._v(" "), _c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -3047,7 +3054,7 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "btn-filter"
-  }), _vm._v(" "), _c("span", [_vm._v("Filtri")])])])])])])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("span", [_vm._v("Filtri")])])])])])])]), _vm._v(" "), !_vm.isClicked ? _c("div", {
     staticClass: "cnt-result-adress"
   }, _vm._l(_vm.indirizzi, function (indirizzo, i) {
     return _c("div", {
@@ -3062,8 +3069,8 @@ var render = function render() {
           return _vm.take(indirizzo.address.freeformAddress);
         }
       }
-    }, [_vm._v("\r\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\r\n        ")])]);
-  }), 0), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\n        ")])]);
+  }), 0) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "bgExpandFilter",
     attrs: {
       id: "bgExpand"

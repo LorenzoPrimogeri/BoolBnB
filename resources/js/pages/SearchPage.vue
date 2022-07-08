@@ -111,7 +111,7 @@
         </div>
       </div>
     </header>
-    <div class="cnt-result-adress">
+    <div class="cnt-result-adress" v-if="!isClicked">
       <div
         class="cnt-items"
         v-for="(indirizzo, i) in indirizzi"
@@ -230,7 +230,7 @@
         </div>
         <div class="col-2 h-100"></div>
       </div>
-    </footer> 
+    </footer>
 
     <!--Footer-->
   </div>
@@ -256,6 +256,7 @@ export default {
       distanceKm: 20,
       room: 1,
       bed: 1,
+      isClicked: false,
     };
   },
   mounted() {
@@ -300,12 +301,14 @@ export default {
   },
   methods: {
     take(indirizzo) {
+        this.isClicked = true;
       // const searchedAdress = indirizzo;
       this.input = indirizzo;
       //   return searchedAdress;
       // console.log('risultato nuovo input', this.input);
     },
     onInputChanged() {
+    this.isClicked = false;
       // console.log(this.distanceKm);
       //Call axios che restituisce gli indirizzi autocomplete
       delete axios.defaults.headers.common["X-Requested-With"];
