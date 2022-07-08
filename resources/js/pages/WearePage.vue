@@ -1,5 +1,11 @@
 <template>
     <main>
+
+        <div class="title-box">
+          <h2>Team 57:</h2>
+        </div>
+
+
         <div class="container jc-c wmax-100">
             <div class="cnt-cards">
                 <div class="cards box-card">
@@ -109,12 +115,27 @@ export default {
 <style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 //font-family: 'Lobster', cursive;
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&family=Lobster&display=swap');
+
 
 @import url("../../sass/layout-preset.css");
+
+.title-box{
+  margin-top: 1%;
+  margin-bottom: 1%;
+  display: flex;
+  justify-content: center;
+  h2{
+    font-family: 'Edu SA Beginner', cursive;
+    font-weight: bold;
+
+  }
+}
+
 main {
   display: flex;
   width: 100%;
-  margin: 180px auto;
+  margin: 0 auto;
   flex-direction: column;
 
   .cnt-cards {
@@ -129,7 +150,7 @@ main {
       position: relative;
       width: calc(100% / 4 - 25px);
       padding: 30px 0 80px;
-      margin-bottom: 30px;
+      margin-bottom: 8px;
       background-color: #d2d9ff;
       text-align: center;
       overflow: hidden;
