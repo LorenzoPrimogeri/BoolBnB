@@ -116,7 +116,7 @@
         </div>
       </div>
     </header>
-    <div class="cnt-result-adress">
+    <div class="cnt-result-adress" v-if="!isClicked">
       <div
         class="cnt-items"
         v-for="(indirizzo, i) in indirizzi"
@@ -198,7 +198,7 @@
         </div>
         <div class="col-2 h-100"></div>
       </div>
-    </footer> 
+    </footer>
 
     <!--Footer-->
   </div>
@@ -219,6 +219,7 @@ export default {
       indirizzi: [], //indirizzi che stampo per l'auto complete
       allApartaments: [], //tutti gli appartamenti visible
       correctApartments: [], //appartamenti che soddisfano la ricerca
+      isClicked: false,
       //  allServices: [],
       //  services: [],
       //  distanceKm: 20,
@@ -263,6 +264,7 @@ export default {
     //   console.log("Storage Input " + localStorage.input);
     // },
     onInputChanged() {
+        this.isClicked = false;
       // console.log(this.distanceKm);
       //Call axios che restituisce gli indirizzi autocomplete
       delete axios.defaults.headers.common["X-Requested-With"];
@@ -282,6 +284,7 @@ export default {
     take(indirizzo) {
       // const searchedAdress = indirizzo;
       this.input = indirizzo;
+      this.isClicked = true;
       //   return searchedAdress;
       // console.log('risultato nuovo input', this.input);
     },
