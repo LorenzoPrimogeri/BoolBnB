@@ -132,6 +132,9 @@
     <!--Main-->
 
     <main>
+      <div class="title">
+        <h2>Appartamenti Sponsorizzati</h2>
+      </div>
       <div class="container w-100 h-100 d-flex jc-c ai-c">
         <carousel class="w-100">
           <slide v-for="apartment in allApartaments" :key="apartment.id">
@@ -155,28 +158,47 @@
             </div>
           </slide>
         </carousel>
-
+      </div>
+      <div class="title mt-5">
+        <h2>Ti potrebbero interessare</h2>
+      </div>
+      <div class="container w-100">
+        <div class="cnt-cards pd-20">
+          <router-link class="box-card-csm"   v-for="apartment in allApartaments"
+                :key="apartment.id" :to="'/home/'+ apartment.id ">
+              <div>
+                <div class="cnt-img">
+                  <img :src="'/storage/' + apartment.img" alt="">
+                </div>
+                <div class="cnt-txt cnt-h col-12">
+                  <h2>{{ apartment.title }}</h2>
+                  <h3>{{ apartment.address }}</h3>
+                </div>
+                <div class="price col-12">
+                <span>{{ apartment.price }} €/notte</span>
+                </div>
+              </div>
+          </router-link>
+        </div>
       </div>
     </main>
 
     <!--Main-->
     <!--Footer-->
 
-    <!-- <footer id="Footer">
+    <footer id="Footer">
       <div class="container wmax-100 h-100 pd-20-lr">
         <div class="col-2 h-100"></div>
         <div class="cnt-footer-items col-8 h-100">
           <div class="cnt-items-ftr">
             <ul>
-              <li><a href="#">link1</a></li>
-              <li><a href="#">link2</a></li>
-              <li><a href="#">link3</a></li>
+              <li><a href="/weare"><h2>Chi siamo</h2></a></li>
             </ul>
           </div>
         </div>
         <div class="col-2 h-100"></div>
       </div>
-    </footer> -->
+    </footer> 
 
     <!--Footer-->
   </div>
@@ -215,7 +237,7 @@ export default {
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       let result = [];
       result = results.data.apartments;
-      console.log(result);
+      console.log(results);
       for (let i = 0; i < result.length; i++) {
         let apartment = result[i];
         if (apartment.sponsorships.length >= 1) {
@@ -227,28 +249,6 @@ export default {
       // this.allServices = results.data.services;
       // console.log(this.allServices);
     });
-
-       $(document).ready(function() {
-      $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 2000,
-        autoplayHoverPause: true,
-        responsive: {
-          0: {
-            items: 1
-          },
-          600: {
-            items: 3
-          },
-          1000: {
-            items: 5
-          },
-        }
-      })
-    });
-
     // if (localStorage.input) {
     //   this.input = localStorage.input;
     // }
@@ -292,10 +292,22 @@ export default {
 <style scoped  lang="scss">
 // style header
 @import url("../../../public/css/layout-preset.css");
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 // style main
 
 main {
+  .title{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 3%;
+  }
+  h2{
+    font-family: 'Lobster', cursive;
+    font-weight: bold;
+    font-size: 2.8rem;
+    color: #797cba;
+  }
   display: flex;
   width: 100%;
   margin: 180px auto;
@@ -339,7 +351,44 @@ main {
          width: 100%;
          border-radius: 20px;
      }
+  }
+
+
+    .cnt-h {
+      height: 50px;
+      padding: 10px 0;
+      h2 {
+        font-size: 1em;
+      }
+      h3 {
+        color: grey;
+        font-size: 0.8em;
+      }
     }
+    .price {
+      display: contents;
+      span {
+        width: 100%;
+        text-align: left;
+        font-weight: 600;
+      }
+    }
+  }
+
+   .box-card-csm {
+   display: flex;
+    width: 250px;
+    flex-direction: column;
+    .cnt-img {
+      width: 100%;
+      height: 200px;
+       img {
+        height: 100%;
+         width: 100%;
+         border-radius: 20px;
+     }
+  }
+
     .cnt-h {
       height: 50px;
       padding: 10px 0;
@@ -372,9 +421,17 @@ footer {
   height: auto;
   width: 100%;
 
+  h2{
+    font-family: 'Lobster', cursive;
+    font-weight: bold;
+    font-size:1.3rem;
+    color: #797cba;
+  }
+
   .cnt-footer-items {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
 
     .cnt-items-ftr {
