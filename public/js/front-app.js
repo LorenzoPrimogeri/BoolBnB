@@ -2047,7 +2047,6 @@ __webpack_require__.r(__webpack_exports__);
       this.success = false;
       var id = this.$route.params.id;
       console.log(id);
-      alert("messaggio mandato!");
       window.axios.post("/api/messages/", {
         email: this.email,
         object: this.object,
@@ -2063,7 +2062,6 @@ __webpack_require__.r(__webpack_exports__);
         _this2.sending = false;
 
         if (status === 200) {
-          alert("Messaggio Inviato");
           _this2.success = data.success;
 
           if (!data.success) {
@@ -2430,7 +2428,7 @@ var render = function render() {
     staticClass: "container flex"
   }, [_c("div", {
     staticClass: "cnt-row col-12 text-box"
-  }, [_c("h2", [_vm._v(_vm._s(_vm.apartment.title))]), _vm._v(" "), _c("h5", [_vm._m(0), _vm._v(_vm._s(_vm.apartment.address) + "\r\n        ")])]), _vm._v(" "), _c("div", {
+  }, [_c("h2", [_vm._v(_vm._s(_vm.apartment.title))]), _vm._v(" "), _c("h5", [_vm._m(0), _vm._v(_vm._s(_vm.apartment.address) + "\n        ")])]), _vm._v(" "), _c("div", {
     staticClass: "cnt-row col-12 img-box"
   }, [_c("div", {
     staticClass: "cont-img"
@@ -2453,35 +2451,35 @@ var render = function render() {
       src: __webpack_require__(/*! ../../../public/img/room-svgrepo-com.svg */ "./public/img/room-svgrepo-com.svg"),
       alt: "room"
     }
-  }), _vm._v(_vm._s(_vm.apartment.room) + "\r\n            ")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(_vm._s(_vm.apartment.room) + "\n            ")])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex service-icon"
   }, [_c("p", [_c("img", {
     attrs: {
       src: __webpack_require__(/*! ../../../public/img/bathroom-svgrepo-com.svg */ "./public/img/bathroom-svgrepo-com.svg"),
       alt: "bath"
     }
-  }), _vm._v(_vm._s(_vm.apartment.bathroom) + "\r\n            ")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(_vm._s(_vm.apartment.bathroom) + "\n            ")])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex service-icon"
   }, [_c("p", [_c("img", {
     attrs: {
       src: __webpack_require__(/*! ../../../public/img/bed-svgrepo-com.svg */ "./public/img/bed-svgrepo-com.svg"),
       alt: "bed"
     }
-  }), _vm._v(_vm._s(_vm.apartment.bed) + "\r\n            ")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(_vm._s(_vm.apartment.bed) + "\n            ")])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex service-icon"
   }, [_c("p", [_c("img", {
     attrs: {
       src: __webpack_require__(/*! ../../../public/img/square-layout-with-boxes-svgrepo-com.svg */ "./public/img/square-layout-with-boxes-svgrepo-com.svg"),
       alt: "square-meter"
     }
-  }), _vm._v(_vm._s(_vm.apartment.mq) + "mq\r\n            ")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(_vm._s(_vm.apartment.mq) + "mq\n            ")])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex service-icon"
   }, [_c("p", [_c("img", {
     attrs: {
       src: __webpack_require__(/*! ../../../public/img/euro-svgrepo-com.svg */ "./public/img/euro-svgrepo-com.svg"),
       alt: "euro"
     }
-  }), _vm._v(_vm._s(_vm.apartment.price) + "€ /notte\r\n            ")])]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("div", {
+  }), _vm._v(_vm._s(_vm.apartment.price) + "€ /notte\n            ")])]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("div", {
     staticClass: "services col-4"
   }, [_c("div", {
     staticClass: "cnt-row col-12"
@@ -2608,7 +2606,14 @@ var render = function render() {
         _vm.body = $event.target.value;
       }
     }
-  })])]), _vm._v(" "), _c("div", {
+  })])]), _vm._v(" "), _vm.success ? _c("div", {
+    staticClass: "cnt-row",
+    staticStyle: {
+      color: "blue",
+      display: "flex",
+      "justify-content": "center"
+    }
+  }, [_vm._v("\n                Messaggio inviato!\n            ")]) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "d-flex jc-c"
   }, [_c("button", {
     staticClass: "btn-cta",
@@ -2616,7 +2621,7 @@ var render = function render() {
       type: "submit",
       disabled: _vm.sending
     }
-  }, [_vm._v("\r\n                Invia mail\r\n              ")])])])])])])]);
+  }, [_vm._v("\n                Invia mail\n              ")])])])])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -51159,7 +51164,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Francesco\Documents\Boolean\PHP\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\yomos\booleanprojects\phpboolean\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })
