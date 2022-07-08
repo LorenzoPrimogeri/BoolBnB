@@ -14,7 +14,7 @@
                 </span>
                 <input id="name" name="name" onkeypress="return /[a-z]/i.test(event.key)" type="text"
                     placeholder="nome" class="input-log-reg @error('name') is-invalid @enderror" value="{{ old('name') }}"
-                    required autocomplete="on">
+                    autocomplete="on">
                 <small></small>
                 @error('name')
                     <span class="invalid-feedback" role="alert">
@@ -28,7 +28,7 @@
                 </span>
                 <input id="surname" name="surname" type="text"
                     class="input-log-reg @error('surname') is-invalid @enderror" placeholder="cognome"
-                    value="{{ old('surname') }}" required autocomplete="on" autofocus>
+                    value="{{ old('surname') }}" autocomplete="on" autofocus>
                 <small></small>
                 @error('surname')
                     <span class="invalid-feedback" role="alert">

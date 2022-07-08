@@ -56,6 +56,7 @@
     <script src="{{ asset('js/check-password-equal.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/search.js') }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" defer></script>
 
 
     <!-- Fonts -->
@@ -186,7 +187,6 @@
             </div>
             @yield('content')
         </main>
-        @stack('input-validation')
         @stack('client-validate-reg')
     </div>
 

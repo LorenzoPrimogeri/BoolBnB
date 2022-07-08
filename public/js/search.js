@@ -22,5 +22,6 @@ ttSearchBox.on("tomtom.searchbox.resultselected", function (data) {
 
 const miaVar = document.querySelector(".tt-search-box-input");
 miaVar.setAttribute("name", "address");
+miaVar.setAttribute("required", "");
 const oldAddress = document.getElementById("oldAddress").value;
 miaVar.value = oldAddress;

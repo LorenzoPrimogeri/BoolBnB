@@ -22,8 +22,8 @@
                     </div>
                 @endif
             </div>
-            <form name="modulo" action="{{ route('admin.apartments.update', $apartment->id) }}" method="POST"
-                enctype="multipart/form-data">
+            <form id="form-validate" name="modulo" action="{{ route('admin.apartments.update', $apartment->id) }}"
+                method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="cnt-row col-12">
@@ -103,22 +103,20 @@
                     <div class="cnt-items-services col-11">
                         @foreach ($services as $service)
                             <div class="cnt-item-service">
-                                <input type="checkbox" value="{{ $service->id }}" name="services[]"
-                                    {{ $apartment->services->contains($service) ? 'checked' : '' }}>
-                                <span class="form-check-label">{{ $service->name }}</span>
+                                <label for="{{ $service->name }}">
+                                    <input type="checkbox" value="{{ $service->id }}" name="services[]"
+                                        {{ in_array($service->id, old('services', [])) ? 'checked' : '' }} required>
+                                    {{ $service->name }}</label>
                             </div>
                         @endforeach
                     </div>
 
                     <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
-                        <button class="btn-modify" type="submit" id='btn-submit' onclick="SelezTT()">Salva
+                        <button class="btn-modify" type="submit" id='btn-submit'>Salva
                             modifiche</button>
                     </div>
                 </div>
             </form>
         </div>
-        {{-- @push('input-validation')
-    <script type="text/javascript" src="{{ asset('js/validation-input.js') }}"></script>
-    @endpush --}}
     </div>
 @endsection

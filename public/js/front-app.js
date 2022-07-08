@@ -2037,6 +2037,7 @@ __webpack_require__.r(__webpack_exports__);
       this.success = false;
       var id = this.$route.params.id;
       console.log(id);
+      alert('messaggio mandato!');
       window.axios.post("/api/messages/", {
         email: this.email,
         object: this.object,
@@ -2254,6 +2255,11 @@ __webpack_require__.r(__webpack_exports__);
       $("body").toggleClass("enlargeFilter");
     });
     $(".cnt-btn-close").click(function () {
+      $("#cntExpand").toggleClass("enlargeFilter");
+      $("#bgExpand").toggleClass("enlargeFilter");
+      $("body").toggleClass("enlargeFilter");
+    });
+    $(".btn-cta").click(function () {
       $("#cntExpand").toggleClass("enlargeFilter");
       $("#bgExpand").toggleClass("enlargeFilter");
       $("body").toggleClass("enlargeFilter");
@@ -2966,7 +2972,7 @@ var render = function render() {
           return _vm.take(indirizzo.address.freeformAddress);
         }
       }
-    }, [_vm._v("\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\n        ")])]);
+    }, [_vm._v("\r\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\r\n        ")])]);
   }), 0), _vm._v(" "), _c("div", {
     staticClass: "bgExpandFilter",
     attrs: {

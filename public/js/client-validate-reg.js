@@ -14,9 +14,10 @@ function checkUsername() {
         max = 25;
     const username = usernameEl.value.trim();
 
-    if (!isRequired(username)) {
+    /* if (!isRequired(username)) {
         showError(usernameEl, 'il Nome non può essere vuoto.');
-    } else if (!isBetween(username.length, min, max)) {
+    } else  */
+    if (!isBetween(username.length, min, max)) {
         showError(usernameEl, `il Nome deve essere compreso tra ${min} e ${max} caratteri.`);
     } else {
         showSuccess(usernameEl);
