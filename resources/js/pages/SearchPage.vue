@@ -34,7 +34,7 @@
                   @input="onInputChanged"
                 />
               </div>
-              <a  @click="takeLatLng()">
+              <a @click="takeLatLng()">
                 <div class="cnt-fine"></div>
               </a>
             </div>
@@ -154,25 +154,29 @@
               </div>
             </div>
           </div>
-          <!-- <div class="row-filter">
-            <div class="cnt-filter">
+          <div class="">
+            <div class="">
               <h3>Servizi</h3>
               <div class="cnt-filter-select d-flex gp-20">
                 <div class="main-check">
-                  <div class="cnt-checkbox">
-                    <input
-                      class="input-check"
-                      type="checkbox"
-                      value=""
-                      name="services[]"
-                    />
-                    <span class="checkmark"></span>
+                  <div class="" style="margin-bottom: 40px">
+                    <div
+                      v-for="(service, index) in allServiceFilter"
+                      :key="index + service"
+                    >
+                      <input
+                        type="checkbox"
+                        :name="service"
+                        :value="service"
+                        v-model="allServiceFiltered"
+                      />
+                      <label for="">{{ service }}</label>
+                    </div>
                   </div>
-                  <div class="form-check-label">Wi-Fi</div>
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
           <div class="row-filter">
             <div class="cnt-filter">
               <h3>Distanza</h3>
@@ -194,22 +198,24 @@
     <main id="main">
       <div class="container w-100">
         <div class="cnt-cards pd-20">
-          <router-link class="box-card"   v-for="apartment in correctApartments"
-                :key="apartment.id" :to="'/home/'+ apartment.id ">
-              <div
-
-              >
-                <div class="cnt-img">
-                  <img :src="'/storage/' + apartment.img" alt="">
-                </div>
-                <div class="cnt-txt cnt-h col-12">
-                  <h2>{{ apartment.title }}</h2>
-                  <h3>{{ apartment.address }}</h3>
-                </div>
-                <div class="price col-12">
-                <span>{{ apartment.price }} €/notte</span>
-                </div>
+          <router-link
+            class="box-card"
+            v-for="apartment in correctApartments"
+            :key="apartment.id"
+            :to="'/home/' + apartment.id"
+          >
+            <div>
+              <div class="cnt-img">
+                <img :src="'/storage/' + apartment.img" alt="" />
               </div>
+              <div class="cnt-txt cnt-h col-12">
+                <h2>{{ apartment.title }}</h2>
+                <h3>{{ apartment.address }}</h3>
+              </div>
+              <div class="price col-12">
+                <span>{{ apartment.price }} €/notte</span>
+              </div>
+            </div>
           </router-link>
         </div>
       </div>
@@ -224,13 +230,15 @@
         <div class="cnt-footer-items col-8 h-100">
           <div class="cnt-items-ftr">
             <ul>
-              <li><a href="/weare"><h2>Chi siamo</h2></a></li>
+              <li>
+                <a href="/weare"><h2>Chi siamo</h2></a>
+              </li>
             </ul>
           </div>
         </div>
         <div class="col-2 h-100"></div>
       </div>
-    </footer> 
+    </footer>
 
     <!--Footer-->
   </div>
@@ -253,6 +261,8 @@ export default {
       correctApartments: [], //appartamenti che soddisfano la ricerca
       allServices: [],
       services: [],
+      allServiceFilter: [],
+      allServiceFiltered: [],
       distanceKm: 20,
       room: 1,
       bed: 1,
@@ -274,7 +284,7 @@ export default {
       $("body").toggleClass("enlargeFilter");
     });
 
-     $(".btn-cta").click(function () {
+    $(".btn-cta").click(function () {
       $("#cntExpand").toggleClass("enlargeFilter");
       $("#bgExpand").toggleClass("enlargeFilter");
       $("body").toggleClass("enlargeFilter");
@@ -294,7 +304,13 @@ export default {
     //prendo tutti gli appartamenti dal database
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       this.allApartaments = results.data.apartments;
-      console.log(this.allApartaments);
+      const array = results.data.services;
+      for (let i = 0; i < array.length; i++) {
+        const element = array[i]["name"];
+        //console.log(element);
+        this.allServiceFilter.push(element);
+      }
+      // console.log(this.allServiceFilter);
       this.searchApartments();
     });
   },
@@ -339,29 +355,60 @@ export default {
         });
     },
     searchApartments() {
-      console.log("ciao sono qui");
+      console.log(this.allServiceFiltered);
       // console.log(this.services);
       //reset degli appartamenti corretti
       this.correctApartments = [];
       //console.log(this.apartaments);
       for (let i = 0; i < this.allApartaments.length; i++) {
+        const apartmentservices = [];
         const apartment = this.allApartaments[i];
-        const distance = this.distance(
-          this.lat,
-          this.lng,
-          apartment.lat,
-          apartment.lng
-        );
-        if (
-          distance <= this.distanceKm &&
-          apartment.room >= this.room &&
-          apartment.bed >= this.bed
-        ) {
-          // console.log("la distanza è: " + distance.toFixed(3) + " km :)");
-          // console.log(apartment.room);
-          // console.log(apartment.bed);
-          // console.log("Fatto");
-          this.correctApartments.push(apartment);
+        if (this.allServiceFiltered.length >= 1) {
+          for (let j = 0; j < apartment.services.length; j++) {
+            const servizio = apartment.services[j]["name"];
+            apartmentservices.push(servizio);
+          }
+          console.log(apartment.id + "   " + apartmentservices);
+          if (
+            this.allServiceFiltered.every((r) => apartmentservices.includes(r))
+          ) {
+            const distance2 = this.distance(
+              this.lat,
+              this.lng,
+              apartment.lat,
+              apartment.lng
+            );
+            if (
+              distance2 <= this.distanceKm &&
+              apartment.room >= this.room &&
+              apartment.bed >= this.bed
+            ) {
+              // console.log("la distanza è: " + distance.toFixed(3) + " km :)");
+              // console.log(apartment.room);
+              // console.log(apartment.bed);
+              // console.log("Fatto");
+              this.correctApartments.push(apartment);
+            }
+            console.log("Funziona");
+          }
+        } else {
+          const distance = this.distance(
+            this.lat,
+            this.lng,
+            apartment.lat,
+            apartment.lng
+          );
+          if (
+            distance <= this.distanceKm &&
+            apartment.room >= this.room &&
+            apartment.bed >= this.bed
+          ) {
+            // console.log("la distanza è: " + distance.toFixed(3) + " km :)");
+            // console.log(apartment.room);
+            // console.log(apartment.bed);
+            // console.log("Fatto");
+            this.correctApartments.push(apartment);
+          }
         }
       }
       console.log(this.correctApartments);
@@ -392,15 +439,13 @@ export default {
 </script>
 
 <style  lang="scss">
-
-*a{
-  text-decoration:none;
+*a {
+  text-decoration: none;
   color: black;
-  &:hover{
+  &:hover {
     color: black;
   }
 }
-
 
 // style main
 
@@ -412,8 +457,8 @@ export default {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  h2{
-    font-family: 'Lobster', cursive;
+  h2 {
+    font-family: "Lobster", cursive;
     font-weight: bold;
     color: #797cba;
   }
@@ -441,18 +486,18 @@ export default {
     justify-content: center;
     gap: 25px;
   }
-    .box-card {
-   display: flex;
+  .box-card {
+    display: flex;
     width: 300px;
     flex-direction: column;
     .cnt-img {
       width: 100%;
       height: 200px;
-       img {
+      img {
         height: 100%;
-         width: 100%;
-         border-radius: 20px;
-     }
+        width: 100%;
+        border-radius: 20px;
+      }
     }
     .cnt-h {
       height: 50px;
@@ -479,17 +524,17 @@ export default {
 // style footer
 
 footer {
-  background-color:white;
+  background-color: white;
   border-top: 1px solid lightgray;
   position: fixed;
   bottom: 0;
   height: 50px;
   width: 100%;
 
- h2{
-    font-family: 'Lobster', cursive;
+  h2 {
+    font-family: "Lobster", cursive;
     font-weight: bold;
-    font-size:1.3rem;
+    font-size: 1.3rem;
     color: #797cba;
   }
 
@@ -545,7 +590,6 @@ footer {
     background: url("../../../public/img/filter.svg") no-repeat center/contain;
   }
 }
-
 
 body.enlargeFilter {
   overflow: hidden;
@@ -642,8 +686,7 @@ body.enlargeFilter {
   }
 }
 
-.btn-cta{
-
+.btn-cta {
   position: relative;
   display: block;
   width: 150px;
@@ -657,30 +700,29 @@ body.enlargeFilter {
   font-size: 1.1em;
   font-weight: 600;
   transition: 0.3s ease-in-out;
-&:hover {
-  box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);
-  transform: scale(1.1);
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right bottom,
-    from(#8b9cf2),
-    to(#5870f0)
-  );
-  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
-  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
-  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
-  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
-  background-image: linear-gradient(180deg, #2137a6, #6e83f4);
-  /* filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$secondgradientcolor, endColorstr=$firstgradientcolor); */
-  box-shadow: 5px 6px 15px 0 rgba(179, 179, 179, 0.5);
-  box-shadow: 0px 0px 15px 0 rgba(179, 179, 179, 0.5);
-  box-shadow: 0 11px 16px -3px rgba(45, 35, 66, 0.3),
-    0 4px 5px 0 rgba(45, 35, 66, 0.4), inset 0 -2px 0 0 #4b58ba;
-  transform: translateY(-2px);
+  &:hover {
+    box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);
+    transform: scale(1.1);
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      right bottom,
+      from(#8b9cf2),
+      to(#5870f0)
+    );
+    background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+    background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+    background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+    background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+    background-image: linear-gradient(180deg, #2137a6, #6e83f4);
+    /* filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$secondgradientcolor, endColorstr=$firstgradientcolor); */
+    box-shadow: 5px 6px 15px 0 rgba(179, 179, 179, 0.5);
+    box-shadow: 0px 0px 15px 0 rgba(179, 179, 179, 0.5);
+    box-shadow: 0 11px 16px -3px rgba(45, 35, 66, 0.3),
+      0 4px 5px 0 rgba(45, 35, 66, 0.4), inset 0 -2px 0 0 #4b58ba;
+    transform: translateY(-2px);
+  }
 }
-}
-
 
 .cnt-btn-close {
   position: relative;
@@ -878,5 +920,4 @@ body.enlargeFilter {
     }
   }
 }
-
 </style>

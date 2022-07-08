@@ -2229,6 +2229,8 @@ __webpack_require__.r(__webpack_exports__);
       //appartamenti che soddisfano la ricerca
       allServices: [],
       services: [],
+      allServiceFilter: [],
+      allServiceFiltered: [],
       distanceKm: 20,
       room: 1,
       bed: 1
@@ -2268,7 +2270,14 @@ __webpack_require__.r(__webpack_exports__);
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments").then(function (results) {
       _this.allApartaments = results.data.apartments;
-      console.log(_this.allApartaments);
+      var array = results.data.services;
+
+      for (var i = 0; i < array.length; i++) {
+        var element = array[i]["name"]; //console.log(element);
+
+        _this.allServiceFilter.push(element);
+      } // console.log(this.allServiceFilter);
+
 
       _this.searchApartments();
     });
@@ -2314,22 +2323,55 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     searchApartments: function searchApartments() {
-      console.log("ciao sono qui"); // console.log(this.services);
+      var _this4 = this;
+
+      console.log(this.allServiceFiltered); // console.log(this.services);
       //reset degli appartamenti corretti
 
       this.correctApartments = []; //console.log(this.apartaments);
 
-      for (var i = 0; i < this.allApartaments.length; i++) {
-        var apartment = this.allApartaments[i];
-        var distance = this.distance(this.lat, this.lng, apartment.lat, apartment.lng);
+      var _loop = function _loop(i) {
+        var apartmentservices = [];
+        var apartment = _this4.allApartaments[i];
 
-        if (distance <= this.distanceKm && apartment.room >= this.room && apartment.bed >= this.bed) {
-          // console.log("la distanza è: " + distance.toFixed(3) + " km :)");
-          // console.log(apartment.room);
-          // console.log(apartment.bed);
-          // console.log("Fatto");
-          this.correctApartments.push(apartment);
+        if (_this4.allServiceFiltered.length >= 1) {
+          for (var j = 0; j < apartment.services.length; j++) {
+            var servizio = apartment.services[j]["name"];
+            apartmentservices.push(servizio);
+          }
+
+          console.log(apartment.id + "   " + apartmentservices);
+
+          if (_this4.allServiceFiltered.every(function (r) {
+            return apartmentservices.includes(r);
+          })) {
+            var distance2 = _this4.distance(_this4.lat, _this4.lng, apartment.lat, apartment.lng);
+
+            if (distance2 <= _this4.distanceKm && apartment.room >= _this4.room && apartment.bed >= _this4.bed) {
+              // console.log("la distanza è: " + distance.toFixed(3) + " km :)");
+              // console.log(apartment.room);
+              // console.log(apartment.bed);
+              // console.log("Fatto");
+              _this4.correctApartments.push(apartment);
+            }
+
+            console.log("Funziona");
+          }
+        } else {
+          var distance = _this4.distance(_this4.lat, _this4.lng, apartment.lat, apartment.lng);
+
+          if (distance <= _this4.distanceKm && apartment.room >= _this4.room && apartment.bed >= _this4.bed) {
+            // console.log("la distanza è: " + distance.toFixed(3) + " km :)");
+            // console.log(apartment.room);
+            // console.log(apartment.bed);
+            // console.log("Fatto");
+            _this4.correctApartments.push(apartment);
+          }
         }
+      };
+
+      for (var i = 0; i < this.allApartaments.length; i++) {
+        _loop(i);
       }
 
       console.log(this.correctApartments);
@@ -2792,7 +2834,7 @@ var render = function render() {
           return _vm.take(indirizzo.address.freeformAddress);
         }
       }
-    }, [_vm._v("\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\n        ")])]);
+    }, [_vm._v("\r\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\r\n        ")])]);
   }), 0) : _vm._e(), _vm._v(" "), _c("main", [_vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "container w-100 h-100 d-flex jc-c ai-c"
   }, [_c("carousel", {
@@ -3131,7 +3173,58 @@ var render = function render() {
         _vm.bed = $event.target.value;
       }
     }
-  })])])]), _vm._v(" "), _c("div", {
+  })])])]), _vm._v(" "), _c("div", {}, [_c("div", {}, [_c("h3", [_vm._v("Servizi")]), _vm._v(" "), _c("div", {
+    staticClass: "cnt-filter-select d-flex gp-20"
+  }, [_c("div", {
+    staticClass: "main-check"
+  }, [_c("div", {
+    staticStyle: {
+      "margin-bottom": "40px"
+    }
+  }, _vm._l(_vm.allServiceFilter, function (service, index) {
+    return _c("div", {
+      key: index + service
+    }, [_c("input", {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: _vm.allServiceFiltered,
+        expression: "allServiceFiltered"
+      }],
+      attrs: {
+        type: "checkbox",
+        name: service
+      },
+      domProps: {
+        value: service,
+        checked: Array.isArray(_vm.allServiceFiltered) ? _vm._i(_vm.allServiceFiltered, service) > -1 : _vm.allServiceFiltered
+      },
+      on: {
+        change: function change($event) {
+          var $$a = _vm.allServiceFiltered,
+              $$el = $event.target,
+              $$c = $$el.checked ? true : false;
+
+          if (Array.isArray($$a)) {
+            var $$v = service,
+                $$i = _vm._i($$a, $$v);
+
+            if ($$el.checked) {
+              $$i < 0 && (_vm.allServiceFiltered = $$a.concat([$$v]));
+            } else {
+              $$i > -1 && (_vm.allServiceFiltered = $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+            }
+          } else {
+            _vm.allServiceFiltered = $$c;
+          }
+        }
+      }
+    }), _vm._v(" "), _c("label", {
+      attrs: {
+        "for": ""
+      }
+    }, [_vm._v(_vm._s(service))])]);
+  }), 0)])])])]), _vm._v(" "), _c("div", {
     staticClass: "row-filter"
   }, [_c("div", {
     staticClass: "cnt-filter"
@@ -3515,7 +3608,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Montserrat&display=swap);", ""]);
 
 // module
-exports.push([module.i, "* {\n    font-family: \"Montserrat\", sans-serif;\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n.container {\n    display: flex;\n    width: 100%;\n    height: 100%;\n    max-width: 1170px;\n    margin: 0 auto;\n}\n\n[class*=\"col-\"] {\n    /* flex-direction: grow basis width; */\n    /* flex-direction: 0 0 auto; */\n}\n\n[class*=\"col-\"] {\n    position: relative;\n}\n\n.row {\n    display: flex;\n}\n\n.col-1 {\n    flex-basis: calc((100% / 12) * 1);\n}\n\n.col-2 {\n    flex-basis: calc((100% / 12) * 2);\n}\n\n.col-3 {\n    flex-basis: calc((100% / 12) * 3);\n}\n\n.col-4 {\n    flex-basis: calc((100% / 12) * 4);\n}\n\n.col-5 {\n    flex-basis: calc((100% / 12) * 5);\n}\n\n.col-6 {\n    flex-basis: calc((100% / 12) * 6);\n}\n\n.col-7 {\n    flex-basis: calc((100% / 12) * 7);\n}\n\n.col-8 {\n    flex-basis: calc((100% / 12) * 8);\n}\n\n.col-9 {\n    flex-basis: calc((100% / 12) * 9);\n}\n\n.col-10 {\n    flex-basis: calc((100% / 12) * 10);\n}\n\n.col-11 {\n    flex-basis: calc((100% / 12) * 11);\n}\n\n.col-12 {\n    flex-basis: calc((100% / 12) * 12);\n}\n\n.d-flex {\n    display: flex;\n}\n\n.flex-dr-col {\n    flex-direction: column;\n}\n\n.w-auto {\n    width: auto;\n}\n\n.h-vh {\n    height: 100vh;\n}\n\n.gp-5 {\n    gap: 5px;\n}\n\n.gp-10 {\n    gap: 10px;\n}\n\n.gp-15 {\n    gap: 15px;\n}\n\n.gp-20 {\n    gap: 20px;\n}\n\n.gp-25 {\n    gap: 25px;\n}\n\n.gp-30 {\n    gap: 30px;\n}\n\n.jc-c {\n    justify-content: center;\n}\n\n.ai-c {\n    align-items: center;\n}\n\n.w-100 {\n    width: 100%;\n}\n\n.wmax-100 {\n    max-width: 100%;\n}\n\n.w-max {\n    width: max-content;\n}\n\n.h-100 {\n    height: 100%;\n}\n\n.txt-c {\n    font-weight: 600;\n    margin: 0 15px;\n    text-align: center;\n}\n\n.m-tb {\n    margin: 10px 0;\n}\n\n.pd-20 {\n    padding: 20px !important;\n}\n\n.pd-20-lr {\n    padding: 0 20px !important;\n}\n\n.algn-itm-init {\n    align-items: initial !important;\n}\n\n.b-0 {\n    border: 0 !important;\n}\n\n.red {\n    color: red !important;\n}\n\n.d-block {\n    display: block;\n    color: red;\n}\n\n.d-none {\n    display: none;\n}\n\n#address-error {\n    position: absolute;\n    bottom: -25px;\n    left: 0;\n}\n\n.error {\n    color: red;\n    font-size: 15px;\n    position: relative;\n}\n\nlabel.error {\n    position: absolute !important;\n    bottom: -10px;\n    margin-bottom: 5px;\n}\n\n.tbl-title {\n    font-weight: 900;\n}\n\n.f-grow {\n    flex-grow: 1;\n}\n\n.p-20 {\n    padding: 20px;\n}\n\n.mt-2 {\n    margin-top: 2rem;\n}\n\n.gap-20 {\n    gap: 20px;\n}\n\n.cnt-item-service label:nth-child(2) {\n\n    bottom: -30px;\n    left: 0;\n}\n\n@media screen and (max-width: 480px) {\n    .col-xs-12 {\n        flex-basis: calc((100% / 12) * 12);\n    }\n}\n\n@media screen and (max-width: 820px) {\n    .col-md-1 {\n        flex-basis: calc((100% / 12) * 1);\n    }\n\n    .col-md-2 {\n        flex-basis: calc((100% / 12) * 2);\n    }\n\n    .col-md-3 {\n        flex-basis: calc((100% / 12) * 3);\n    }\n\n    .col-md-4 {\n        flex-basis: calc((100% / 12) * 4);\n    }\n\n    .col-md-5 {\n        flex-basis: calc((100% / 12) * 5);\n    }\n\n    .col-md-12 {\n        flex-basis: calc((100% / 12) * 12);\n    }\n}\n", ""]);
+exports.push([module.i, "* {\r\n    font-family: \"Montserrat\", sans-serif;\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n}\r\n\r\n.container {\r\n    display: flex;\r\n    width: 100%;\r\n    height: 100%;\r\n    max-width: 1170px;\r\n    margin: 0 auto;\r\n}\r\n\r\n[class*=\"col-\"] {\r\n    /* flex-direction: grow basis width; */\r\n    /* flex-direction: 0 0 auto; */\r\n}\r\n\r\n[class*=\"col-\"] {\r\n    position: relative;\r\n}\r\n\r\n.row {\r\n    display: flex;\r\n}\r\n\r\n.col-1 {\r\n    flex-basis: calc((100% / 12) * 1);\r\n}\r\n\r\n.col-2 {\r\n    flex-basis: calc((100% / 12) * 2);\r\n}\r\n\r\n.col-3 {\r\n    flex-basis: calc((100% / 12) * 3);\r\n}\r\n\r\n.col-4 {\r\n    flex-basis: calc((100% / 12) * 4);\r\n}\r\n\r\n.col-5 {\r\n    flex-basis: calc((100% / 12) * 5);\r\n}\r\n\r\n.col-6 {\r\n    flex-basis: calc((100% / 12) * 6);\r\n}\r\n\r\n.col-7 {\r\n    flex-basis: calc((100% / 12) * 7);\r\n}\r\n\r\n.col-8 {\r\n    flex-basis: calc((100% / 12) * 8);\r\n}\r\n\r\n.col-9 {\r\n    flex-basis: calc((100% / 12) * 9);\r\n}\r\n\r\n.col-10 {\r\n    flex-basis: calc((100% / 12) * 10);\r\n}\r\n\r\n.col-11 {\r\n    flex-basis: calc((100% / 12) * 11);\r\n}\r\n\r\n.col-12 {\r\n    flex-basis: calc((100% / 12) * 12);\r\n}\r\n\r\n.d-flex {\r\n    display: flex;\r\n}\r\n\r\n.flex-dr-col {\r\n    flex-direction: column;\r\n}\r\n\r\n.w-auto {\r\n    width: auto;\r\n}\r\n\r\n.h-vh {\r\n    height: 100vh;\r\n}\r\n\r\n.gp-5 {\r\n    gap: 5px;\r\n}\r\n\r\n.gp-10 {\r\n    gap: 10px;\r\n}\r\n\r\n.gp-15 {\r\n    gap: 15px;\r\n}\r\n\r\n.gp-20 {\r\n    gap: 20px;\r\n}\r\n\r\n.gp-25 {\r\n    gap: 25px;\r\n}\r\n\r\n.gp-30 {\r\n    gap: 30px;\r\n}\r\n\r\n.jc-c {\r\n    justify-content: center;\r\n}\r\n\r\n.ai-c {\r\n    align-items: center;\r\n}\r\n\r\n.w-100 {\r\n    width: 100%;\r\n}\r\n\r\n.wmax-100 {\r\n    max-width: 100%;\r\n}\r\n\r\n.w-max {\r\n    width: max-content;\r\n}\r\n\r\n.h-100 {\r\n    height: 100%;\r\n}\r\n\r\n.txt-c {\r\n    font-weight: 600;\r\n    margin: 0 15px;\r\n    text-align: center;\r\n}\r\n\r\n.m-tb {\r\n    margin: 10px 0;\r\n}\r\n\r\n.pd-20 {\r\n    padding: 20px !important;\r\n}\r\n\r\n.pd-20-lr {\r\n    padding: 0 20px !important;\r\n}\r\n\r\n.algn-itm-init {\r\n    align-items: initial !important;\r\n}\r\n\r\n.b-0 {\r\n    border: 0 !important;\r\n}\r\n\r\n.red {\r\n    color: red !important;\r\n}\r\n\r\n.d-block {\r\n    display: block;\r\n    color: red;\r\n}\r\n\r\n.d-none {\r\n    display: none;\r\n}\r\n\r\n#address-error {\r\n    position: absolute;\r\n    bottom: -25px;\r\n    left: 0;\r\n}\r\n\r\n.error {\r\n    color: red;\r\n    font-size: 15px;\r\n    position: relative;\r\n}\r\n\r\nlabel.error {\r\n    position: absolute !important;\r\n    bottom: -10px;\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.tbl-title {\r\n    font-weight: 900;\r\n}\r\n\r\n.f-grow {\r\n    flex-grow: 1;\r\n}\r\n\r\n.p-20 {\r\n    padding: 20px;\r\n}\r\n\r\n.mt-2 {\r\n    margin-top: 2rem;\r\n}\r\n\r\n.gap-20 {\r\n    gap: 20px;\r\n}\r\n\r\n.cnt-item-service label:nth-child(2) {\r\n\r\n    bottom: -30px;\r\n    left: 0;\r\n}\r\n\r\n@media screen and (max-width: 480px) {\r\n    .col-xs-12 {\r\n        flex-basis: calc((100% / 12) * 12);\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 820px) {\r\n    .col-md-1 {\r\n        flex-basis: calc((100% / 12) * 1);\r\n    }\r\n\r\n    .col-md-2 {\r\n        flex-basis: calc((100% / 12) * 2);\r\n    }\r\n\r\n    .col-md-3 {\r\n        flex-basis: calc((100% / 12) * 3);\r\n    }\r\n\r\n    .col-md-4 {\r\n        flex-basis: calc((100% / 12) * 4);\r\n    }\r\n\r\n    .col-md-5 {\r\n        flex-basis: calc((100% / 12) * 5);\r\n    }\r\n\r\n    .col-md-12 {\r\n        flex-basis: calc((100% / 12) * 12);\r\n    }\r\n}\r\n", ""]);
 
 // exports
 
@@ -50534,7 +50627,7 @@ module.exports = "/images/square-layout-with-boxes-svgrepo-com.svg?58452092e36d4
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/ico-lnkd.svg?1818b2d362ae200b5e1aae534b2de671";
+module.exports = "/images/ico-lnkd.svg?9b2a808c9a9dbb5877627399f9eec8b1";
 
 /***/ }),
 
@@ -51167,7 +51260,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Francesco\Documents\Boolean\PHP\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\Amministratore\Desktop\BooleanProject\php\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })
