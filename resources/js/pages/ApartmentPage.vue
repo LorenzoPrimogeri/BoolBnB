@@ -83,7 +83,7 @@
             <a id="contacts" class="btn-cta">Contatta</a>
           </div>
         </div>
-        
+
 
         <div class="services col-4">
           <div class="cnt-row col-12">
@@ -145,6 +145,9 @@
                   required
                 ></textarea>
               </div>
+            </div>
+            <div class="cnt-row" v-if="success" style="color: blue; display: flex; justify-content: center;">
+                Messaggio inviato!
             </div>
             <div class="d-flex jc-c">
               <button class="btn-cta" type="submit" :disabled="sending">
@@ -285,7 +288,6 @@ export default {
       this.success = false;
       const id = this.$route.params.id;
       console.log(id);
-      alert("messaggio mandato!");
 
       window.axios
         .post(`/api/messages/`, {
@@ -302,7 +304,6 @@ export default {
           this.sending = false;
 
           if (status === 200) {
-            alert("Messaggio Inviato");
 
             this.success = data.success;
 
