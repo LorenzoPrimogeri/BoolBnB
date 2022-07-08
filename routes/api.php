@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Auth::routes();
+
 Route::namespace('Api')->name('api.')->group(function () {
     Route::post("/messages", "MessageController@store")->name('messages.store');
     Route::post("/views", "ViewController@store")->name("view.store");
