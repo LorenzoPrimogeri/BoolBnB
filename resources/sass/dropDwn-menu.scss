@@ -1,14 +1,4 @@
 .main-usr-set {
-    /* display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 200px;
-    top: 50%;
-    transform: translate(0, -50%);
-    right: 40px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,49 +8,48 @@
     top: 50%;
     transform: translate(0, -50%);
     right: 40px;
+    left: 50%;
+    width: 50%;
+    transform: translate(-50%, -50%);
+
     .cnt-usr-set {
         position: relative;
         width: 100%;
+
         .contUlAccount {
             position: fixed;
             max-height: 0;
-            /* transform: translate(-50%, 0); */
-            /*  left: -4px;
-            top: 55px;
-            overflow: hidden;
-            background-color: transparent;
-            -webkit-transition: all 0.5s ease-in-out;
-            -moz-transition: all 0.5s ease-in-out;
-            -ms-transition: all 0.5s ease-in-out;
-            -o-transition: all 0.5s ease-in-out;
-            transition: all 0.5s ease-in-out;
-            -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
-            box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
-            background: #fff;
-            z-index: 4; */
-            /* transform: translate(-50%, 0); */
-            right: 0;
+            left: 50%;
             top: 55px;
             overflow: hidden;
             transition: all 0.5s ease-in-out;
             box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
             background: #fff;
             z-index: 4;
+            transform: translate(-50%, 0);
+
             &::-webkit-scrollbar {
                 display: none;
             }
+
             ul.ulSet-usr {
                 padding: 10px;
                 list-style-type: none;
+
                 &::-webkit-scrollbar {
                     display: none;
                 }
+
                 &:before {
                     -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
                     -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
                     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
                 }
+
                 li {
+                    display: flex;
+                    justify-content: center;
+
                     a {
                         text-decoration: none;
                         color: grey;
@@ -69,53 +58,27 @@
                 }
             }
         }
-    }
-    ul.ul-log-reg {
-        /* position: absolute;
-        display: flex;
-        width: 70px;
-        gap: 20px;
-        list-style-type: none; */
-        position: absolute;
-        display: flex;
-        width: max-content;
-        gap: 20px;
-        list-style-type: none;
-        li {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            &:hover .ico-login {
-                background: url("../img/ico/login/login.svg") no-repeat
-                    center/contain;
-            }
-            &:hover .ico-reg {
-                background: url("../img/ico/login/register.svg") no-repeat
-                    center/contain;
-            }
-            &:hover span {
-                color: #4b5663;
-                /* transition: 0.4s ease-in-out; */
-            }
-        }
+
         .ico-log {
             width: 30px;
             height: 30px;
         }
+
         .ico-login {
-            background: url("../img/ico/login/login-lgt.svg") no-repeat
-                center/contain;
+            background: url("../img/ico/login/login-lgt.svg") no-repeat center/contain;
         }
+
         .ico-reg {
-            background: url("../img/ico/login/register-lgt.svg") no-repeat
-                center/contain;
+            background: url("../img/ico/login/register-lgt.svg") no-repeat center/contain;
         }
+
         a {
             font-weight: 600;
             text-decoration: none;
             color: grey;
             font-size: 0.9em;
         }
+
         .cnt-arrow {
             /* position: absolute;
             width: 20px;
@@ -127,12 +90,14 @@
             height: 20px;
             right: -20px;
             top: 0;
+
             .arrow {
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 cursor: pointer;
+
                 &::before,
                 &::after {
                     position: relative;
@@ -143,9 +108,11 @@
                     background: #7174b6;
                     transition: 0.3s ease-in-out;
                 }
+
                 &::before {
                     transform: rotate(45deg);
                 }
+
                 &::after {
                     left: 6px;
                     top: -1px;
@@ -153,14 +120,17 @@
                 }
             }
         }
+
         #arrowUsr.active .arrow::before {
             transform: rotate(-45deg);
         }
+
         #arrowUsr.active .arrow::after {
             transform: rotate(45deg);
         }
     }
 }
+
 @media only screen and (min-width: 0) and (max-width: 1000px) {
     /* .main-usr-set {
         ul.ul-log-reg {
@@ -168,6 +138,7 @@
         }
     } */
 }
+
 @media screen and (max-width: 820px) {
     .main-usr-set {
         display: flex;

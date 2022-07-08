@@ -27,10 +27,14 @@
       </div>
       <!-- map -->
       <div class="services-box cnt-row col-12">
+
+
         <div class="col-4">
           <div id="map"></div>
         </div>
-        <div class="services col-3">
+
+
+        <div class="details col-3">
           <div class="d-flex service-box">
             <p>
               <img
@@ -79,12 +83,15 @@
             <a id="contacts" class="btn-cta">Contatta</a>
           </div>
         </div>
-        <div class="col-4">
+
+
+        <div class="services col-4">
           <div class="cnt-row col-12">
-            <h3>Servizi:</h3>
             <div v-for="(service, j) in services" :key="j">{{ service }}</div>
           </div>
         </div>
+
+
       </div>
     </div>
 
@@ -138,6 +145,9 @@
                   required
                 ></textarea>
               </div>
+            </div>
+            <div class="cnt-row" v-if="success" style="color: blue; display: flex; justify-content: center;">
+                Messaggio inviato!
             </div>
             <div class="d-flex jc-c">
               <button class="btn-cta" type="submit" :disabled="sending">
@@ -278,7 +288,6 @@ export default {
       this.success = false;
       const id = this.$route.params.id;
       console.log(id);
-      alert("messaggio mandato!");
 
       window.axios
         .post(`/api/messages/`, {
@@ -295,7 +304,6 @@ export default {
           this.sending = false;
 
           if (status === 200) {
-            alert("Messaggio Inviato");
 
             this.success = data.success;
 
@@ -359,6 +367,16 @@ export default {
 
     p {
       margin-left: 3%;
+    }
+
+    .details {
+      margin-top: 4%;
+      gap: 20px;
+      img {
+        width: 30px;
+        margin-right: 25px;
+        vertical-align: none;
+      }
     }
 
     .services {

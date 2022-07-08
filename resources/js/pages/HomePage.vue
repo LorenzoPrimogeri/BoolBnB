@@ -116,7 +116,7 @@
         </div>
       </div>
     </header>
-    <div class="cnt-result-adress">
+    <div class="cnt-result-adress" v-if="!isClicked">
       <div
         class="cnt-items"
         v-for="(indirizzo, i) in indirizzi"
@@ -186,21 +186,19 @@
     <!--Main-->
     <!--Footer-->
 
-    <!-- <footer id="Footer">
+    <footer id="Footer">
       <div class="container wmax-100 h-100 pd-20-lr">
         <div class="col-2 h-100"></div>
         <div class="cnt-footer-items col-8 h-100">
           <div class="cnt-items-ftr">
             <ul>
-              <li><a href="#">link1</a></li>
-              <li><a href="#">link2</a></li>
-              <li><a href="#">link3</a></li>
+              <li><a href="/weare"><h2>Chi siamo</h2></a></li>
             </ul>
           </div>
         </div>
         <div class="col-2 h-100"></div>
       </div>
-    </footer> -->
+    </footer>
 
     <!--Footer-->
   </div>
@@ -221,6 +219,7 @@ export default {
       indirizzi: [], //indirizzi che stampo per l'auto complete
       allApartaments: [], //tutti gli appartamenti visible
       correctApartments: [], //appartamenti che soddisfano la ricerca
+      isClicked: false,
       //  allServices: [],
       //  services: [],
       //  distanceKm: 20,
@@ -265,6 +264,7 @@ export default {
     //   console.log("Storage Input " + localStorage.input);
     // },
     onInputChanged() {
+        this.isClicked = false;
       // console.log(this.distanceKm);
       //Call axios che restituisce gli indirizzi autocomplete
       delete axios.defaults.headers.common["X-Requested-With"];
@@ -284,6 +284,7 @@ export default {
     take(indirizzo) {
       // const searchedAdress = indirizzo;
       this.input = indirizzo;
+      this.isClicked = true;
       //   return searchedAdress;
       // console.log('risultato nuovo input', this.input);
     },
@@ -356,10 +357,6 @@ main {
   }
 
 
-
-
-
-
     .cnt-h {
       height: 50px;
       padding: 10px 0;
@@ -427,9 +424,17 @@ footer {
   height: auto;
   width: 100%;
 
+  h2{
+    font-family: 'Lobster', cursive;
+    font-weight: bold;
+    font-size:1.3rem;
+    color: #797cba;
+  }
+
   .cnt-footer-items {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
 
     .cnt-items-ftr {

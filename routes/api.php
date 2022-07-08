@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-
-Route::namespace('Api')->name('api.')->group(function () {
+Route::namespace('Api')->name('api.')->group(function ()  {
     Route::post("/messages", "MessageController@store")->name('messages.store');
     Route::post("/views", "ViewController@store")->name("view.store");
 });
 
 Route::get('/apartments', 'Api\ApartmentController@index')->name('index');
 Route::get('/apartments/{id}', 'Api\ApartmentController@show')->name('apartments.show');
+
+
+

@@ -23,9 +23,13 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.1.1",
+        "@fortawesome/free-brands-svg-icons": "^6.1.1",
+        "@fortawesome/free-regular-svg-icons": "^6.1.1",
+        "@fortawesome/free-solid-svg-icons": "^6.1.1",
         "artisan": "^0.1.2",
         "chart.js": "^3.8.0",
-        "jquery-validation": "^1.19.4",
+        "jquery-validation": "^1.19.5",
         "php": "^1.0.2",
         "serve": "^13.0.2",
         "vue-carousel": "^0.18.0",
