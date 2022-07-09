@@ -334,19 +334,19 @@ label.error {
 .form-container form.formLog .row-log-reg .ico .usr {
   width: 30px;
   height: 30px;
-  background: url(/images/usr.svg?a07c3102f647d01ab947dc39a7e214c7) no-repeat center;
+  background: url(/images/usr.svg?d9f6ee27f8201d8973f74049142ca9b8) no-repeat center;
 }
 
 .form-container form.formLog .row-log-reg .ico .mail {
   width: 30px;
   height: 30px;
-  background: url(/images/email.svg?9480c64125de8a5103a124aabb12bfa6) no-repeat center;
+  background: url(/images/email.svg?26815b5c81e167d8fd9f853d12c91398) no-repeat center;
 }
 
 .form-container form.formLog .row-log-reg .ico .psw {
   width: 30px;
   height: 30px;
-  background: url(/images/lock.svg?423f2aee5486eb31e0e0d5108b089040) no-repeat center;
+  background: url(/images/lock.svg?0e897bfe2377b427b712d7f8b8e3a2bf) no-repeat center;
 }
 
 .form-container form.formLog .row-log-reg input {
@@ -384,12 +384,12 @@ label.error {
 }
 
 .form-container form.formLog .row-log-reg .eye {
-  background: url(/images/eye.svg?677eb74ff538707088d2ab41169e033b) no-repeat center;
+  background: url(/images/eye.svg?4a94ce0937a8d416fce6b646e46ee20b) no-repeat center;
   background-size: contain;
 }
 
 .form-container form.formLog .row-log-reg .eye-slash {
-  background: url(/images/eye-slash.svg?89adf438d3050d4d44b59e596b244d7e) no-repeat center;
+  background: url(/images/eye-slash.svg?edcc64f18fdc3ab5aae73c624e728774) no-repeat center;
   background-size: contain;
 }
 
@@ -493,6 +493,7 @@ label.error {
   position: relative;
   -webkit-user-select: none;
   -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
