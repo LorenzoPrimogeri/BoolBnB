@@ -2834,7 +2834,7 @@ var render = function render() {
         }
       }
     }, [_vm._v("\r\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\r\n        ")])]);
-  }), 0) : _vm._e(), _vm._v(" "), _c("main", [_c("div", {
+  }), 0) : _vm._e(), _vm._v(" "), _c("main", [_vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "container w-100 h-100 d-flex jc-c ai-c"
   }, [_c("carousel", {
     staticClass: "w-100"
@@ -2867,7 +2867,7 @@ var render = function render() {
     }, [_c("h2", [_vm._v(_vm._s(apartment.title))]), _vm._v(" "), _c("h3", [_vm._v(_vm._s(apartment.address))])]), _vm._v(" "), _c("div", {
       staticClass: "price col-12"
     }, [_c("span", [_vm._v(_vm._s(apartment.price) + " €/notte")])])], 1)]);
-  }), 1)], 1)]), _vm._v(" "), _vm._m(1)]);
+  }), 1)], 1)]), _vm._v(" "), _vm._m(2)]);
 };
 
 var staticRenderFns = [function () {
@@ -2893,49 +2893,32 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("footer", [_c("div", {
-    staticClass: "row-ftr"
-  }, [_c("div", {
-    staticClass: "obj-cont-ftr"
-  }, [_c("div", {
-    staticClass: "col-3 cnt-obj-ftr"
-  }, [_c("div", {
-    staticClass: "cnt-obj-ftr"
-  }, [_c("a", {
+  return _c("div", {
+    staticClass: "title"
+  }, [_c("h2", [_vm._v("Appartamenti Sponsorizzati")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("footer", {
     attrs: {
-      href: "#"
+      id: "Footer"
     }
-  }, [_vm._v(" Contact us ")])]), _vm._v(" "), _c("div", {
-    staticClass: "cnt-obj-ftr"
-  }, [_c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v(" Privacy Policy ")])]), _vm._v(" "), _c("div", {
-    staticClass: "cnt-obj-ftr"
-  }, [_c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("Terms & condition ")])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-9 cnt-obj-ftr"
   }, [_c("div", {
-    staticClass: "row-obj-ftr"
+    staticClass: "container wmax-100 h-100 pd-20-lr"
   }, [_c("div", {
-    staticClass: "ico-soc fb"
+    staticClass: "col-2 h-100"
   }), _vm._v(" "), _c("div", {
-    staticClass: "ico-soc ig"
-  })])])])]), _vm._v(" "), _c("div", {
-    staticClass: "row-ftr"
+    staticClass: "cnt-footer-items col-8 h-100"
   }, [_c("div", {
-    staticClass: "obj-cont-ftr obj-cont-tm"
-  }, [_c("p", {
-    staticClass: "tm"
-  }, [_vm._v("©\r\n          ")]), _vm._v(" "), _c("div", {
-    staticClass: "logo-tm"
-  }), _vm._v(" "), _c("p", {
-    staticClass: "tm"
-  }, [_vm._v(" - All Rights Reserved")])])])]);
+    staticClass: "cnt-items-ftr"
+  }, [_c("ul", [_c("li", [_c("a", {
+    attrs: {
+      href: "/weare"
+    }
+  }, [_c("h2", [_vm._v("Chi siamo")])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-2 h-100"
+  })])]);
 }];
 render._withStripped = true;
 
@@ -3516,14 +3499,13 @@ exports.push([module.i, ".main .flex[data-v-ca80d4b0] {\n  display: flex;\n  fle
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var escape = __webpack_require__(/*! ../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader!../../../public/css/layout-preset.css */ "./node_modules/css-loader/index.js!./public/css/layout-preset.css"), "");
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Lobster&display=swap);", ""]);
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\nmain[data-v-04c29797] {\n  display: flex;\n  width: 100%;\n  margin: 180px auto;\n  flex-direction: column;\n}\nmain .title[data-v-04c29797] {\n  display: flex;\n  justify-content: space-around;\n  margin-bottom: 3%;\n}\nmain h2[data-v-04c29797] {\n  font-family: \"Lobster\", cursive;\n  font-weight: bold;\n  font-size: 2.8rem;\n  color: #797cba;\n}\n.container[data-v-04c29797] {\n  position: relative;\n}\n.container .cnt-label[data-v-04c29797] {\n  position: -webkit-sticky;\n  position: sticky;\n  display: flex;\n  padding: 20px;\n  color: #fff;\n  height: auto;\n  left: 50px;\n  justify-content: center;\n  align-items: center;\n  font-weight: 600;\n  font-size: 2em;\n}\n.container .cnt-cards[data-v-04c29797] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 25px;\n}\n.container .box-card[data-v-04c29797] {\n  display: flex;\n  width: 500px;\n  flex-direction: column;\n}\n.container .box-card .cnt-img[data-v-04c29797] {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card .cnt-img img[data-v-04c29797] {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card .cnt-h[data-v-04c29797] {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card .cnt-h h2[data-v-04c29797] {\n  font-size: 1em;\n}\n.container .box-card .cnt-h h3[data-v-04c29797] {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card .price[data-v-04c29797] {\n  display: contents;\n}\n.container .box-card .price span[data-v-04c29797] {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\n.container .box-card-csm[data-v-04c29797] {\n  display: flex;\n  width: 250px;\n  flex-direction: column;\n}\n.container .box-card-csm .cnt-img[data-v-04c29797] {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card-csm .cnt-img img[data-v-04c29797] {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card-csm .cnt-h[data-v-04c29797] {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card-csm .cnt-h h2[data-v-04c29797] {\n  font-size: 1em;\n}\n.container .box-card-csm .cnt-h h3[data-v-04c29797] {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card-csm .price[data-v-04c29797] {\n  display: contents;\n}\n.container .box-card-csm .price span[data-v-04c29797] {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\nfooter[data-v-04c29797] {\n  display: grid;\n  position: relative;\n  width: 100%;\n  background-color: #2f2e41;\n  padding: 0;\n  gap: 10px;\n}\nfooter .row-ftr[data-v-04c29797] {\n  width: 100%;\n  display: flex;\n  background-color: transparent;\n  padding: 50px;\n}\nfooter .row-ftr[data-v-04c29797]:nth-child(2) {\n  padding: 10px;\n  border: 1px solid #403f52;\n}\nfooter .row-ftr .obj-cont-ftr[data-v-04c29797] {\n  position: relative;\n  width: 100%;\n  background-color: transparent;\n  display: flex;\n  gap: 10px;\n  padding: 50px 50px 0px;\n  padding: 0;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-04c29797] {\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr a[data-v-04c29797] {\n  color: #b3b3b3;\n  text-decoration: none;\n  font-size: 0.8em;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr a[data-v-04c29797]:hover {\n  color: #a4a7ea;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-04c29797]:nth-child(1) {\n  display: flex;\n  align-items: center;\n  gap: 20px;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-04c29797]:nth-child(4) {\n  display: flex;\n  justify-content: flex-end;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797] {\n  display: flex;\n  gap: 20px;\n  justify-content: flex-end;\n  width: 100%;\n  background-color: transparent;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797]:nth-child(3) {\n  display: flex;\n  gap: 15px;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr a[data-v-04c29797] {\n  color: #b3b3b3;\n  text-decoration: none;\n  font-size: 0.8em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr a[data-v-04c29797]:hover {\n  color: #a4a7ea;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr h4[data-v-04c29797] {\n  color: #d2d2d2;\n  font-size: 1.2em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr p[data-v-04c29797] {\n  color: #d2d2d2;\n  font-size: 0.6em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797],\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1) {\n  position: relative;\n  width: 100px;\n  height: 30px;\n  background-size: contain;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]:after,\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1):after {\n  content: \"\\2122\";\n  position: absolute;\n  right: -5px;\n  top: 0px;\n  color: grey;\n  font-size: 0.8em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1),\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1)::nth-child(1) {\n  width: 150px;\n  height: 50px;\n}\nfooter .obj-cont-tm[data-v-04c29797] {\n  display: flex;\n  position: relative;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  padding: 0px;\n  color: white;\n  justify-content: center;\n  align-items: center;\n  margin: 0 auto;\n}\nfooter .obj-cont-tm p.tm[data-v-04c29797] {\n  display: inline-block;\n  font-size: 1em;\n  letter-spacing: 1px;\n}\nfooter .obj-cont-tm .logo-tm[data-v-04c29797],\nfooter .obj-cont-tm .logo-tm[data-v-04c29797]:nth-child(1) {\n  position: relative;\n  width: 100px;\n  height: 30px;\n  background: url(" + escape(__webpack_require__(/*! ../../../public/img/boolbnb-logo.svg */ "./public/img/boolbnb-logo.svg")) + ") no-repeat center/contain;\n  background-size: contain;\n}\nfooter .obj-cont-tm .logo-tm[data-v-04c29797]:nth-child(1) {\n  width: 150px;\n  height: 50px;\n}\nfooter .obj-cont-tm .logo-tm[data-v-04c29797]:after {\n  content: \"\\2122\";\n  position: absolute;\n  right: -5px;\n  top: 0px;\n  color: grey;\n  font-size: 0.8em;\n}\n@media screen and (max-width: 1200px) {\n.container .box-card[data-v-04c29797] {\n    display: flex;\n    width: calc(33.3333333333% - 25px);\n}\n}\n@media screen and (max-width: 800px) {\n.container .box-card[data-v-04c29797] {\n    display: flex;\n    width: calc(50% - 25px);\n}\n}\n@media screen and (max-width: 650px) {\n.container .box-card[data-v-04c29797] {\n    display: flex;\n    width: 100%;\n    max-width: 300px;\n}\nheader .cnt-hdr-items .cnt-nav[data-v-04c29797] {\n    display: none;\n}\nheader .cnt-logo[data-v-04c29797] {\n    width: 100%;\n    height: 100%;\n}\nheader .cnt-logo img[data-v-04c29797],\nheader .cnt-logo a[data-v-04c29797] {\n    width: 150px;\n    height: 100%;\n}\n}", ""]);
+exports.push([module.i, "main[data-v-04c29797] {\n  display: flex;\n  width: 100%;\n  margin: 180px auto;\n  flex-direction: column;\n}\nmain .title[data-v-04c29797] {\n  display: flex;\n  justify-content: space-around;\n  margin-bottom: 3%;\n}\nmain h2[data-v-04c29797] {\n  font-family: \"Lobster\", cursive;\n  font-weight: bold;\n  font-size: 2.8rem;\n  color: #797cba;\n}\n.container[data-v-04c29797] {\n  position: relative;\n}\n.container .cnt-label[data-v-04c29797] {\n  position: -webkit-sticky;\n  position: sticky;\n  display: flex;\n  padding: 20px;\n  color: #fff;\n  height: auto;\n  left: 50px;\n  justify-content: center;\n  align-items: center;\n  font-weight: 600;\n  font-size: 2em;\n}\n.container .cnt-cards[data-v-04c29797] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 25px;\n}\n.container .box-card[data-v-04c29797] {\n  display: flex;\n  width: 500px;\n  flex-direction: column;\n}\n.container .box-card .cnt-img[data-v-04c29797] {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card .cnt-img img[data-v-04c29797] {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card .cnt-h[data-v-04c29797] {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card .cnt-h h2[data-v-04c29797] {\n  font-size: 1em;\n}\n.container .box-card .cnt-h h3[data-v-04c29797] {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card .price[data-v-04c29797] {\n  display: contents;\n}\n.container .box-card .price span[data-v-04c29797] {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\n.container .box-card-csm[data-v-04c29797] {\n  display: flex;\n  width: 250px;\n  flex-direction: column;\n}\n.container .box-card-csm .cnt-img[data-v-04c29797] {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card-csm .cnt-img img[data-v-04c29797] {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card-csm .cnt-h[data-v-04c29797] {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card-csm .cnt-h h2[data-v-04c29797] {\n  font-size: 1em;\n}\n.container .box-card-csm .cnt-h h3[data-v-04c29797] {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card-csm .price[data-v-04c29797] {\n  display: contents;\n}\n.container .box-card-csm .price span[data-v-04c29797] {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\nfooter[data-v-04c29797] {\n  background-color: white;\n  border-top: 1px solid lightgray;\n  position: fixed;\n  bottom: 0;\n  height: auto;\n  width: 100%;\n}\nfooter h2[data-v-04c29797] {\n  font-family: \"Lobster\", cursive;\n  font-weight: bold;\n  font-size: 1.3rem;\n  color: #797cba;\n}\nfooter .cnt-footer-items[data-v-04c29797] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n}\nfooter .cnt-footer-items .cnt-items-ftr ul[data-v-04c29797] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  list-style-type: none;\n  margin: 0 !important;\n  padding: 15px;\n}\nfooter .cnt-footer-items .cnt-items-ftr ul li a[data-v-04c29797] {\n  text-decoration: none;\n  color: darkslategray;\n}\nfooter .cnt-footer-items .cnt-items-ftr ul li a[data-v-04c29797]:hover {\n  color: #7174b6;\n}\n@media screen and (max-width: 1200px) {\n.container .box-card[data-v-04c29797] {\n    display: flex;\n    width: calc(33.3333333333% - 25px);\n}\n}\n@media screen and (max-width: 800px) {\n.container .box-card[data-v-04c29797] {\n    display: flex;\n    width: calc(50% - 25px);\n}\n}\n@media screen and (max-width: 650px) {\n.container .box-card[data-v-04c29797] {\n    display: flex;\n    width: 100%;\n    max-width: 300px;\n}\nheader .cnt-hdr-items .cnt-nav[data-v-04c29797] {\n    display: none;\n}\nheader .cnt-logo[data-v-04c29797] {\n    width: 100%;\n    height: 100%;\n}\nheader .cnt-logo img[data-v-04c29797],\nheader .cnt-logo a[data-v-04c29797] {\n    width: 150px;\n    height: 100%;\n}\n}", ""]);
 
 // exports
 

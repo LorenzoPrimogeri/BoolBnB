@@ -132,7 +132,9 @@
     <!--Main-->
 
     <main>
-      
+      <div class="title">
+        <h2>Appartamenti Sponsorizzati</h2>
+      </div>
       <div class="container w-100 h-100 d-flex jc-c ai-c">
         <carousel class="w-100">
           <slide v-for="apartment in allApartaments" :key="apartment.id">
@@ -157,46 +159,26 @@
           </slide>
         </carousel>
       </div>
-      
+
     </main>
 
     <!--Main-->
     <!--Footer-->
 
-  <footer>
-    <div class="row-ftr">
-      <div class="obj-cont-ftr">
-        <div class="col-3 cnt-obj-ftr">
-          <div class=" cnt-obj-ftr">
-            <a href="#"> Contact us </a>
-          </div>
-          <div class=" cnt-obj-ftr">
-            <a href="#"> Privacy Policy </a>
-          </div>
-          <div class=" cnt-obj-ftr">
-            <a href="#">Terms & condition </a>
+    <footer id="Footer">
+      <div class="container wmax-100 h-100 pd-20-lr">
+        <div class="col-2 h-100"></div>
+        <div class="cnt-footer-items col-8 h-100">
+          <div class="cnt-items-ftr">
+            <ul>
+              <li><a href="/weare"><h2>Chi siamo</h2></a></li>
+            </ul>
           </div>
         </div>
-        <div class="col-9 cnt-obj-ftr">
-          <div class="row-obj-ftr">
-            <div class="ico-soc fb"></div>
-            <div class="ico-soc ig"></div>
-          </div>
-        </div>
+        <div class="col-2 h-100"></div>
       </div>
-    </div>
-    <div class="row-ftr">
-      <div class="obj-cont-ftr obj-cont-tm">
-        <p class="tm">©
-          <!-- <script>
-          document.write(new Date().getFullYear())
-          </script> -->
-        </p>
-        <div class="logo-tm"></div>
-        <p class="tm"> - All Rights Reserved</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
+
     <!--Footer-->
   </div>
 </template>
@@ -410,134 +392,49 @@ main {
 // style footer
 
 footer {
-  display: grid;
-  position: relative;
+  background-color: white;
+  border-top: 1px solid lightgray;
+  position: fixed;
+  bottom: 0;
+  height: auto;
   width: 100%;
-  background-color: #2f2e41;
-  padding: 0;
-  gap: 10px;
-  .row-ftr {
-    width: 100%;
-    display: flex;
-    background-color: transparent;
-    padding: 50px;
-    &:nth-child(2) {
-      padding: 10px;
-      border: 1px solid #403f52;
-    }
-    .obj-cont-ftr {
-      position: relative;
-      width: 100%;
-      background-color: transparent;
-      display: flex;
-      gap: 10px;
-      padding: 50px 50px 0px;
-      padding: 0;
-      .cnt-obj-ftr {
-        width: max-content;
-        a {
-          color: #b3b3b3;
-          text-decoration: none;
-          font-size: 0.8em;
-          &:hover {
-            color: #a4a7ea;
-          }
-        }
-        &:nth-child(1) {
-          display: flex;
-          align-items: center;
-          gap: 20px;
-        }
-        &:nth-child(4) {
-          display: flex;
-          justify-content: flex-end;
-        }
-      }
-      .row-obj-ftr {
-        display: flex;
-        gap: 20px;
-        justify-content: flex-end;
-        width: 100%;
-        background-color: transparent;
-        &:nth-child(3) {
-          display: flex;
-          gap: 15px;
-        }
-        a {
-          color: #b3b3b3;
-          text-decoration: none;
-          font-size: 0.8em;
-          &:hover {
-            color: #a4a7ea;
-          }
-        }
-        & h4 {
-          color: #d2d2d2;
-          font-size: 1.2em;
-        }
-        & p {
-          color: #d2d2d2;
-          font-size: 0.6em;
-        }
-        .logo-tm,
-        .logo-tm::nth-child(1) {
-          position: relative;
-          width: 100px;
-          height: 30px;
-          background-size: contain;
-          &:after {
-            content: "™";
-            position: absolute;
-            right: -5px;
-            top: 0px;
-            color: grey;
-            font-size: 0.8em;
-          }
-          &::nth-child(1) {
-            width: 150px;
-            height: 50px;
-          }
-        }
-      }
-    }
+
+  h2{
+    font-family: 'Lobster', cursive;
+    font-weight: bold;
+    font-size:1.3rem;
+    color: #797cba;
   }
-  .obj-cont-tm {
+
+  .cnt-footer-items {
     display: flex;
-    position: relative;
-    width: max-content;
-    padding: 0px;
-    color: white;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
-    p.tm {
-      display: inline-block;
-      font-size: 1em;
-      letter-spacing: 1px;
-    }
-    .logo-tm,
-    .logo-tm:nth-child(1) {
-      position: relative;
-      width: 100px;
-      height: 30px;
-      background: url("../../../public/img/boolbnb-logo.svg") no-repeat center/contain;
-      background-size: contain;
-    }
-    .logo-tm:nth-child(1) {
-      width: 150px;
-      height: 50px;
-    }
-    .logo-tm:after {
-      content: "™";
-      position: absolute;
-      right: -5px;
-      top: 0px;
-      color: grey;
-      font-size: 0.8em;
+    width: 100%;
+
+    .cnt-items-ftr {
+      ul {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        list-style-type: none;
+        margin: 0 !important;
+        padding: 15px;
+
+        li {
+          a {
+            text-decoration: none;
+            color: darkslategray;
+
+            &:hover {
+              color: #7174b6;
+            }
+          }
+        }
+      }
     }
   }
 }
-
 @media screen and (max-width: 1200px) {
   .container {
     .box-card {
