@@ -2108,8 +2108,7 @@ __webpack_require__.r(__webpack_exports__);
       //tutti gli appartamenti visible
       correctApartments: [],
       //appartamenti che soddisfano la ricerca
-      isClicked: false,
-      username: "" //  allServices: [],
+      isClicked: false //  allServices: [],
       //  services: [],
       //  distanceKm: 20,
       //  room: 1,
@@ -2143,9 +2142,6 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log(_this.allApartaments); // this.allServices = results.data.services;
       // console.log(this.allServices);
-    });
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/user").then(function (res) {
-      console.log("username: ", res);
     }); // if (localStorage.input) {
     //   this.input = localStorage.input;
     // }
@@ -2155,10 +2151,6 @@ __webpack_require__.r(__webpack_exports__);
       var url = ' ' / home / ' + id ';
       return url;
     },
-    // persist() {
-    //   localStorage.input = this.input;
-    //   console.log("Storage Input " + localStorage.input);
-    // },
     onInputChanged: function onInputChanged() {
       var _this2 = this;
 
@@ -2233,6 +2225,8 @@ __webpack_require__.r(__webpack_exports__);
       //appartamenti che soddisfano la ricerca
       allServices: [],
       services: [],
+      allServiceFilter: [],
+      allServiceFiltered: [],
       distanceKm: 20,
       room: 1,
       bed: 1,
@@ -2273,7 +2267,14 @@ __webpack_require__.r(__webpack_exports__);
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments").then(function (results) {
       _this.allApartaments = results.data.apartments;
-      console.log(_this.allApartaments);
+      var array = results.data.services;
+
+      for (var i = 0; i < array.length; i++) {
+        var element = array[i]["name"]; //console.log(element);
+
+        _this.allServiceFilter.push(element);
+      } // console.log(this.allServiceFilter);
+
 
       _this.searchApartments();
     });
@@ -2321,22 +2322,55 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     searchApartments: function searchApartments() {
-      console.log("ciao sono qui"); // console.log(this.services);
+      var _this4 = this;
+
+      console.log(this.allServiceFiltered); // console.log(this.services);
       //reset degli appartamenti corretti
 
       this.correctApartments = []; //console.log(this.apartaments);
 
-      for (var i = 0; i < this.allApartaments.length; i++) {
-        var apartment = this.allApartaments[i];
-        var distance = this.distance(this.lat, this.lng, apartment.lat, apartment.lng);
+      var _loop = function _loop(i) {
+        var apartmentservices = [];
+        var apartment = _this4.allApartaments[i];
 
-        if (distance <= this.distanceKm && apartment.room >= this.room && apartment.bed >= this.bed) {
-          // console.log("la distanza è: " + distance.toFixed(3) + " km :)");
-          // console.log(apartment.room);
-          // console.log(apartment.bed);
-          // console.log("Fatto");
-          this.correctApartments.push(apartment);
+        if (_this4.allServiceFiltered.length >= 1) {
+          for (var j = 0; j < apartment.services.length; j++) {
+            var servizio = apartment.services[j]["name"];
+            apartmentservices.push(servizio);
+          }
+
+          console.log(apartment.id + "   " + apartmentservices);
+
+          if (_this4.allServiceFiltered.every(function (r) {
+            return apartmentservices.includes(r);
+          })) {
+            var distance2 = _this4.distance(_this4.lat, _this4.lng, apartment.lat, apartment.lng);
+
+            if (distance2 <= _this4.distanceKm && apartment.room >= _this4.room && apartment.bed >= _this4.bed) {
+              // console.log("la distanza è: " + distance.toFixed(3) + " km :)");
+              // console.log(apartment.room);
+              // console.log(apartment.bed);
+              // console.log("Fatto");
+              _this4.correctApartments.push(apartment);
+            }
+
+            console.log("Funziona");
+          }
+        } else {
+          var distance = _this4.distance(_this4.lat, _this4.lng, apartment.lat, apartment.lng);
+
+          if (distance <= _this4.distanceKm && apartment.room >= _this4.room && apartment.bed >= _this4.bed) {
+            // console.log("la distanza è: " + distance.toFixed(3) + " km :)");
+            // console.log(apartment.room);
+            // console.log(apartment.bed);
+            // console.log("Fatto");
+            _this4.correctApartments.push(apartment);
+          }
         }
+      };
+
+      for (var i = 0; i < this.allApartaments.length; i++) {
+        _loop(i);
       }
 
       console.log(this.correctApartments);
@@ -2761,7 +2795,7 @@ var render = function render() {
     staticClass: "cnt-fine"
   })])], 1)]), _vm._v(" "), _c("div", {
     staticClass: "col-2 d-flex jc-c ai-c"
-  }, [_c("div", [_vm._v("\n                User: " + _vm._s(_vm.username) + ";\n            ")]), _vm._v(" "), _c("div", {
+  }, [_c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -2799,8 +2833,8 @@ var render = function render() {
           return _vm.take(indirizzo.address.freeformAddress);
         }
       }
-    }, [_vm._v("\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\n        ")])]);
-  }), 0) : _vm._e(), _vm._v(" "), _c("main", [_vm._m(1), _vm._v(" "), _c("div", {
+    }, [_vm._v("\r\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\r\n        ")])]);
+  }), 0) : _vm._e(), _vm._v(" "), _c("main", [_c("div", {
     staticClass: "container w-100 h-100 d-flex jc-c ai-c"
   }, [_c("carousel", {
     staticClass: "w-100"
@@ -2833,30 +2867,7 @@ var render = function render() {
     }, [_c("h2", [_vm._v(_vm._s(apartment.title))]), _vm._v(" "), _c("h3", [_vm._v(_vm._s(apartment.address))])]), _vm._v(" "), _c("div", {
       staticClass: "price col-12"
     }, [_c("span", [_vm._v(_vm._s(apartment.price) + " €/notte")])])], 1)]);
-  }), 1)], 1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
-    staticClass: "container w-100"
-  }, [_c("div", {
-    staticClass: "cnt-cards pd-20"
-  }, _vm._l(_vm.allApartaments, function (apartment) {
-    return _c("router-link", {
-      key: apartment.id,
-      staticClass: "box-card-csm",
-      attrs: {
-        to: "/home/" + apartment.id
-      }
-    }, [_c("div", [_c("div", {
-      staticClass: "cnt-img"
-    }, [_c("img", {
-      attrs: {
-        src: "/storage/" + apartment.img,
-        alt: ""
-      }
-    })]), _vm._v(" "), _c("div", {
-      staticClass: "cnt-txt cnt-h col-12"
-    }, [_c("h2", [_vm._v(_vm._s(apartment.title))]), _vm._v(" "), _c("h3", [_vm._v(_vm._s(apartment.address))])]), _vm._v(" "), _c("div", {
-      staticClass: "price col-12"
-    }, [_c("span", [_vm._v(_vm._s(apartment.price) + " €/notte")])])])]);
-  }), 1)])]), _vm._v(" "), _vm._m(3)]);
+  }), 1)], 1)]), _vm._v(" "), _vm._m(1)]);
 };
 
 var staticRenderFns = [function () {
@@ -2882,39 +2893,49 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", {
-    staticClass: "title"
-  }, [_c("h2", [_vm._v("Appartamenti Sponsorizzati")])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "title mt-5"
-  }, [_c("h2", [_vm._v("Ti potrebbero interessare")])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("footer", {
+  return _c("footer", [_c("div", {
+    staticClass: "row-ftr"
+  }, [_c("div", {
+    staticClass: "obj-cont-ftr"
+  }, [_c("div", {
+    staticClass: "col-3 cnt-obj-ftr"
+  }, [_c("div", {
+    staticClass: "cnt-obj-ftr"
+  }, [_c("a", {
     attrs: {
-      id: "Footer"
+      href: "#"
     }
+  }, [_vm._v(" Contact us ")])]), _vm._v(" "), _c("div", {
+    staticClass: "cnt-obj-ftr"
+  }, [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v(" Privacy Policy ")])]), _vm._v(" "), _c("div", {
+    staticClass: "cnt-obj-ftr"
+  }, [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Terms & condition ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-9 cnt-obj-ftr"
   }, [_c("div", {
-    staticClass: "container wmax-100 h-100 pd-20-lr"
+    staticClass: "row-obj-ftr"
   }, [_c("div", {
-    staticClass: "col-2 h-100"
+    staticClass: "ico-soc fb"
   }), _vm._v(" "), _c("div", {
-    staticClass: "cnt-footer-items col-8 h-100"
+    staticClass: "ico-soc ig"
+  })])])])]), _vm._v(" "), _c("div", {
+    staticClass: "row-ftr"
   }, [_c("div", {
-    staticClass: "cnt-items-ftr"
-  }, [_c("ul", [_c("li", [_c("a", {
-    attrs: {
-      href: "/weare"
-    }
-  }, [_c("h2", [_vm._v("Chi siamo")])])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-2 h-100"
-  })])]);
+    staticClass: "obj-cont-ftr obj-cont-tm"
+  }, [_c("p", {
+    staticClass: "tm"
+  }, [_vm._v("©\r\n          ")]), _vm._v(" "), _c("div", {
+    staticClass: "logo-tm"
+  }), _vm._v(" "), _c("p", {
+    staticClass: "tm"
+  }, [_vm._v(" - All Rights Reserved")])])])]);
 }];
 render._withStripped = true;
 
@@ -3069,7 +3090,7 @@ var render = function render() {
           return _vm.take(indirizzo.address.freeformAddress);
         }
       }
-    }, [_vm._v("\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\n        ")])]);
+    }, [_vm._v("\r\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\r\n        ")])]);
   }), 0) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "bgExpandFilter",
     attrs: {
@@ -3142,6 +3163,62 @@ var render = function render() {
     staticClass: "row-filter"
   }, [_c("div", {
     staticClass: "cnt-filter"
+  }, [_c("h3", [_vm._v("Servizi")]), _vm._v(" "), _c("div", {
+    staticClass: "cnt-filter-select d-flex gp-20"
+  }, _vm._l(_vm.allServiceFilter, function (service, index) {
+    return _c("div", {
+      key: index + service,
+      staticClass: "main-check"
+    }, [_c("div", {
+      staticClass: "cnt-checkbox",
+      attrs: {
+        all: ""
+      }
+    }, [_c("input", {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: _vm.allServiceFiltered,
+        expression: "allServiceFiltered"
+      }],
+      staticClass: "input-check",
+      attrs: {
+        type: "checkbox",
+        name: service
+      },
+      domProps: {
+        value: service,
+        checked: Array.isArray(_vm.allServiceFiltered) ? _vm._i(_vm.allServiceFiltered, service) > -1 : _vm.allServiceFiltered
+      },
+      on: {
+        change: function change($event) {
+          var $$a = _vm.allServiceFiltered,
+              $$el = $event.target,
+              $$c = $$el.checked ? true : false;
+
+          if (Array.isArray($$a)) {
+            var $$v = service,
+                $$i = _vm._i($$a, $$v);
+
+            if ($$el.checked) {
+              $$i < 0 && (_vm.allServiceFiltered = $$a.concat([$$v]));
+            } else {
+              $$i > -1 && (_vm.allServiceFiltered = $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+            }
+          } else {
+            _vm.allServiceFiltered = $$c;
+          }
+        }
+      }
+    }), _vm._v(" "), _c("span", {
+      staticClass: "checkmark"
+    })]), _vm._v(" "), _c("div", {
+      staticClass: "form-check-label"
+    }, [_vm._v(_vm._s(service))])]);
+  }), 0)])]), _vm._v(" "), _c("div", {
+    staticClass: "row-filter"
+  }, [_c("div", {
+    staticClass: "cnt-filter"
   }, [_c("h3", [_vm._v("Distanza")]), _vm._v(" "), _c("div", {
     staticClass: "cnt-filter-select"
   }, [_c("input", {
@@ -3172,7 +3249,7 @@ var render = function render() {
         return _vm.takeLatLng();
       }
     }
-  }, [_vm._v("Invio")])])])])]), _vm._v(" "), _c("main", {
+  }, [_vm._v("Invio")])])])])]), _vm._v(" "), _vm._v("\r\n//v-if nessun risultato se appartment è correctApartment >=1\r\n    "), _c("main", {
     attrs: {
       id: "main"
     }
@@ -3286,6 +3363,8 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("main", [_c("div", {
+    staticClass: "title-box"
+  }, [_c("h2", [_vm._v("Team 57:")])]), _vm._v(" "), _c("div", {
     staticClass: "container jc-c wmax-100"
   }, [_c("div", {
     staticClass: "cnt-cards"
@@ -3437,13 +3516,14 @@ exports.push([module.i, ".main .flex[data-v-ca80d4b0] {\n  display: flex;\n  fle
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var escape = __webpack_require__(/*! ../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader!../../../public/css/layout-preset.css */ "./node_modules/css-loader/index.js!./public/css/layout-preset.css"), "");
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Lobster&display=swap);", ""]);
 
 // module
-exports.push([module.i, "main[data-v-04c29797] {\n  display: flex;\n  width: 100%;\n  margin: 180px auto;\n  flex-direction: column;\n}\nmain .title[data-v-04c29797] {\n  display: flex;\n  justify-content: space-around;\n  margin-bottom: 3%;\n}\nmain h2[data-v-04c29797] {\n  font-family: \"Lobster\", cursive;\n  font-weight: bold;\n  font-size: 2.8rem;\n  color: #797cba;\n}\n.container[data-v-04c29797] {\n  position: relative;\n}\n.container .cnt-label[data-v-04c29797] {\n  position: -webkit-sticky;\n  position: sticky;\n  display: flex;\n  padding: 20px;\n  color: #fff;\n  height: auto;\n  left: 50px;\n  justify-content: center;\n  align-items: center;\n  font-weight: 600;\n  font-size: 2em;\n}\n.container .cnt-cards[data-v-04c29797] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 25px;\n}\n.container .box-card[data-v-04c29797] {\n  display: flex;\n  width: 500px;\n  flex-direction: column;\n}\n.container .box-card .cnt-img[data-v-04c29797] {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card .cnt-img img[data-v-04c29797] {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card .cnt-h[data-v-04c29797] {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card .cnt-h h2[data-v-04c29797] {\n  font-size: 1em;\n}\n.container .box-card .cnt-h h3[data-v-04c29797] {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card .price[data-v-04c29797] {\n  display: contents;\n}\n.container .box-card .price span[data-v-04c29797] {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\n.container .box-card-csm[data-v-04c29797] {\n  display: flex;\n  width: 250px;\n  flex-direction: column;\n}\n.container .box-card-csm .cnt-img[data-v-04c29797] {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card-csm .cnt-img img[data-v-04c29797] {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card-csm .cnt-h[data-v-04c29797] {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card-csm .cnt-h h2[data-v-04c29797] {\n  font-size: 1em;\n}\n.container .box-card-csm .cnt-h h3[data-v-04c29797] {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card-csm .price[data-v-04c29797] {\n  display: contents;\n}\n.container .box-card-csm .price span[data-v-04c29797] {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\nfooter[data-v-04c29797] {\n  background-color: white;\n  border-top: 1px solid lightgray;\n  position: fixed;\n  bottom: 0;\n  height: auto;\n  width: 100%;\n}\nfooter h2[data-v-04c29797] {\n  font-family: \"Lobster\", cursive;\n  font-weight: bold;\n  font-size: 1.3rem;\n  color: #797cba;\n}\nfooter .cnt-footer-items[data-v-04c29797] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n}\nfooter .cnt-footer-items .cnt-items-ftr ul[data-v-04c29797] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  list-style-type: none;\n  margin: 0 !important;\n  padding: 15px;\n}\nfooter .cnt-footer-items .cnt-items-ftr ul li a[data-v-04c29797] {\n  text-decoration: none;\n  color: darkslategray;\n}\nfooter .cnt-footer-items .cnt-items-ftr ul li a[data-v-04c29797]:hover {\n  color: #7174b6;\n}\n@media screen and (max-width: 1200px) {\n.container .box-card[data-v-04c29797] {\n    display: flex;\n    width: calc(33.3333333333% - 25px);\n}\n}\n@media screen and (max-width: 800px) {\n.container .box-card[data-v-04c29797] {\n    display: flex;\n    width: calc(50% - 25px);\n}\n}\n@media screen and (max-width: 650px) {\n.container .box-card[data-v-04c29797] {\n    display: flex;\n    width: 100%;\n    max-width: 300px;\n}\nheader .cnt-hdr-items .cnt-nav[data-v-04c29797] {\n    display: none;\n}\nheader .cnt-logo[data-v-04c29797] {\n    width: 100%;\n    height: 100%;\n}\nheader .cnt-logo img[data-v-04c29797],\nheader .cnt-logo a[data-v-04c29797] {\n    width: 150px;\n    height: 100%;\n}\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\nmain[data-v-04c29797] {\n  display: flex;\n  width: 100%;\n  margin: 180px auto;\n  flex-direction: column;\n}\nmain .title[data-v-04c29797] {\n  display: flex;\n  justify-content: space-around;\n  margin-bottom: 3%;\n}\nmain h2[data-v-04c29797] {\n  font-family: \"Lobster\", cursive;\n  font-weight: bold;\n  font-size: 2.8rem;\n  color: #797cba;\n}\n.container[data-v-04c29797] {\n  position: relative;\n}\n.container .cnt-label[data-v-04c29797] {\n  position: -webkit-sticky;\n  position: sticky;\n  display: flex;\n  padding: 20px;\n  color: #fff;\n  height: auto;\n  left: 50px;\n  justify-content: center;\n  align-items: center;\n  font-weight: 600;\n  font-size: 2em;\n}\n.container .cnt-cards[data-v-04c29797] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 25px;\n}\n.container .box-card[data-v-04c29797] {\n  display: flex;\n  width: 500px;\n  flex-direction: column;\n}\n.container .box-card .cnt-img[data-v-04c29797] {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card .cnt-img img[data-v-04c29797] {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card .cnt-h[data-v-04c29797] {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card .cnt-h h2[data-v-04c29797] {\n  font-size: 1em;\n}\n.container .box-card .cnt-h h3[data-v-04c29797] {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card .price[data-v-04c29797] {\n  display: contents;\n}\n.container .box-card .price span[data-v-04c29797] {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\n.container .box-card-csm[data-v-04c29797] {\n  display: flex;\n  width: 250px;\n  flex-direction: column;\n}\n.container .box-card-csm .cnt-img[data-v-04c29797] {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card-csm .cnt-img img[data-v-04c29797] {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card-csm .cnt-h[data-v-04c29797] {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card-csm .cnt-h h2[data-v-04c29797] {\n  font-size: 1em;\n}\n.container .box-card-csm .cnt-h h3[data-v-04c29797] {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card-csm .price[data-v-04c29797] {\n  display: contents;\n}\n.container .box-card-csm .price span[data-v-04c29797] {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\nfooter[data-v-04c29797] {\n  display: grid;\n  position: relative;\n  width: 100%;\n  background-color: #2f2e41;\n  padding: 0;\n  gap: 10px;\n}\nfooter .row-ftr[data-v-04c29797] {\n  width: 100%;\n  display: flex;\n  background-color: transparent;\n  padding: 50px;\n}\nfooter .row-ftr[data-v-04c29797]:nth-child(2) {\n  padding: 10px;\n  border: 1px solid #403f52;\n}\nfooter .row-ftr .obj-cont-ftr[data-v-04c29797] {\n  position: relative;\n  width: 100%;\n  background-color: transparent;\n  display: flex;\n  gap: 10px;\n  padding: 50px 50px 0px;\n  padding: 0;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-04c29797] {\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr a[data-v-04c29797] {\n  color: #b3b3b3;\n  text-decoration: none;\n  font-size: 0.8em;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr a[data-v-04c29797]:hover {\n  color: #a4a7ea;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-04c29797]:nth-child(1) {\n  display: flex;\n  align-items: center;\n  gap: 20px;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-04c29797]:nth-child(4) {\n  display: flex;\n  justify-content: flex-end;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797] {\n  display: flex;\n  gap: 20px;\n  justify-content: flex-end;\n  width: 100%;\n  background-color: transparent;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797]:nth-child(3) {\n  display: flex;\n  gap: 15px;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr a[data-v-04c29797] {\n  color: #b3b3b3;\n  text-decoration: none;\n  font-size: 0.8em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr a[data-v-04c29797]:hover {\n  color: #a4a7ea;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr h4[data-v-04c29797] {\n  color: #d2d2d2;\n  font-size: 1.2em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr p[data-v-04c29797] {\n  color: #d2d2d2;\n  font-size: 0.6em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797],\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1) {\n  position: relative;\n  width: 100px;\n  height: 30px;\n  background-size: contain;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]:after,\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1):after {\n  content: \"\\2122\";\n  position: absolute;\n  right: -5px;\n  top: 0px;\n  color: grey;\n  font-size: 0.8em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1),\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1)::nth-child(1) {\n  width: 150px;\n  height: 50px;\n}\nfooter .obj-cont-tm[data-v-04c29797] {\n  display: flex;\n  position: relative;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  padding: 0px;\n  color: white;\n  justify-content: center;\n  align-items: center;\n  margin: 0 auto;\n}\nfooter .obj-cont-tm p.tm[data-v-04c29797] {\n  display: inline-block;\n  font-size: 1em;\n  letter-spacing: 1px;\n}\nfooter .obj-cont-tm .logo-tm[data-v-04c29797],\nfooter .obj-cont-tm .logo-tm[data-v-04c29797]:nth-child(1) {\n  position: relative;\n  width: 100px;\n  height: 30px;\n  background: url(" + escape(__webpack_require__(/*! ../../../public/img/boolbnb-logo.svg */ "./public/img/boolbnb-logo.svg")) + ") no-repeat center/contain;\n  background-size: contain;\n}\nfooter .obj-cont-tm .logo-tm[data-v-04c29797]:nth-child(1) {\n  width: 150px;\n  height: 50px;\n}\nfooter .obj-cont-tm .logo-tm[data-v-04c29797]:after {\n  content: \"\\2122\";\n  position: absolute;\n  right: -5px;\n  top: 0px;\n  color: grey;\n  font-size: 0.8em;\n}\n@media screen and (max-width: 1200px) {\n.container .box-card[data-v-04c29797] {\n    display: flex;\n    width: calc(33.3333333333% - 25px);\n}\n}\n@media screen and (max-width: 800px) {\n.container .box-card[data-v-04c29797] {\n    display: flex;\n    width: calc(50% - 25px);\n}\n}\n@media screen and (max-width: 650px) {\n.container .box-card[data-v-04c29797] {\n    display: flex;\n    width: 100%;\n    max-width: 300px;\n}\nheader .cnt-hdr-items .cnt-nav[data-v-04c29797] {\n    display: none;\n}\nheader .cnt-logo[data-v-04c29797] {\n    width: 100%;\n    height: 100%;\n}\nheader .cnt-logo img[data-v-04c29797],\nheader .cnt-logo a[data-v-04c29797] {\n    width: 150px;\n    height: 100%;\n}\n}", ""]);
 
 // exports
 
@@ -3481,10 +3561,11 @@ var escape = __webpack_require__(/*! ../../../node_modules/css-loader/lib/url/es
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Lobster&display=swap);", ""]);
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&family=Lobster&display=swap);", ""]);
 exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader!../../sass/layout-preset.css */ "./node_modules/css-loader/index.js!./resources/sass/layout-preset.css"), "");
 
 // module
-exports.push([module.i, "main[data-v-8c392a88] {\n  display: flex;\n  width: 100%;\n  margin: 180px auto;\n  flex-direction: column;\n}\nmain .cnt-cards[data-v-8c392a88] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 25px;\n}\nmain .cnt-cards .box-card[data-v-8c392a88] {\n  display: flex;\n  flex-direction: column;\n  position: relative;\n  width: calc(25% - 25px);\n  padding: 30px 0 80px;\n  margin-bottom: 30px;\n  background-color: #d2d9ff;\n  text-align: center;\n  overflow: hidden;\n  border-radius: 20px;\n  border: 1px solid #dfdfdf;\n  box-shadow: 0px 0px 10px 5px rgba(150, 150, 150, 0.2);\n}\nmain .cnt-cards .box-card .picture[data-v-8c392a88] {\n  position: relative;\n  display: inline-block;\n  height: 130px;\n  width: 130px;\n  margin: 0 auto 20px;\n  z-index: 1;\n}\nmain .cnt-cards .box-card .picture[data-v-8c392a88]::before {\n  content: \"\";\n  width: 100%;\n  height: 0;\n  border-radius: 50%;\n  background-color: #9eadff;\n  position: absolute;\n  bottom: 135%;\n  right: 0;\n  left: 0;\n  opacity: 0.9;\n  transform: scale(3);\n  transition: all 0.3s linear 0s;\n}\nmain .cnt-cards .box-card .picture img[data-v-8c392a88] {\n  width: 100%;\n  height: auto;\n  border-radius: 50%;\n  transform: scale(1);\n  transition: all 0.9s ease 0s;\n}\nmain .cnt-cards .box-card:hover .picture[data-v-8c392a88]::before {\n  height: 100%;\n}\nmain .cnt-cards .box-card .picture img[data-v-8c392a88] {\n  box-shadow: 0 0 0 5px #f7f5ec;\n  transform: scale(0.7);\n}\nmain .cnt-cards .box-card .team-content[data-v-8c392a88] {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n}\nmain .cnt-cards .box-card .team-content h3[data-v-8c392a88],\nmain .cnt-cards .box-card .team-content h5[data-v-8c392a88] {\n  color: #3b426c;\n}\nmain .cnt-cards .box-card .team-content h4[data-v-8c392a88] {\n  color: #fff;\n}\nmain .cnt-cards .box-card .title[data-v-8c392a88] {\n  display: block;\n  font-size: 15px;\n  color: #4e5052;\n  text-transform: capitalize;\n}\nmain .cnt-cards .box-card .social[data-v-8c392a88] {\n  display: flex;\n  padding: 10px;\n  justify-content: center;\n  width: 100%;\n  margin: 0;\n  background-color: #313131;\n  position: absolute;\n  bottom: -100px;\n  left: 0;\n  transition: all 0.5s ease 0s;\n}\nmain .cnt-cards .box-card .social li[data-v-8c392a88] {\n  display: inline-block;\n}\nmain .cnt-cards .box-card .social li a[data-v-8c392a88] {\n  display: block;\n  padding: 10px;\n  font-size: 17px;\n  color: white;\n  transition: all 0.3s ease 0s;\n  text-decoration: none;\n}\nmain .cnt-cards .box-card .social li .ico[data-v-8c392a88] {\n  width: 30px;\n  height: 30px;\n  background-color: lightgray;\n}\nmain .cnt-cards .box-card .social li .ico-lnkd[data-v-8c392a88] {\n  background: url(" + escape(__webpack_require__(/*! ../../img/ico/ico-lnkd.svg */ "./resources/img/ico/ico-lnkd.svg")) + ");\n}\nmain .cnt-cards .box-card:hover .social[data-v-8c392a88] {\n  bottom: 0;\n}\n@media screen and (max-width: 1200px) {\nmain .cnt-cards .box-card[data-v-8c392a88] {\n    width: calc(33.3333333333% - 25px);\n}\n}\n@media screen and (max-width: 800px) {\nmain .cnt-cards .box-card[data-v-8c392a88] {\n    width: calc(50% - 25px);\n}\n}\n@media screen and (max-width: 650px) {\nmain .cnt-cards .box-card[data-v-8c392a88] {\n    width: 100%;\n    max-width: 300px;\n}\n}", ""]);
+exports.push([module.i, ".title-box[data-v-8c392a88] {\n  margin-top: 1%;\n  margin-bottom: 1%;\n  display: flex;\n  justify-content: center;\n}\n.title-box h2[data-v-8c392a88] {\n  font-family: \"Edu SA Beginner\", cursive;\n  font-weight: bold;\n}\nmain[data-v-8c392a88] {\n  display: flex;\n  width: 100%;\n  margin: 0 auto;\n  flex-direction: column;\n}\nmain .cnt-cards[data-v-8c392a88] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 25px;\n}\nmain .cnt-cards .box-card[data-v-8c392a88] {\n  display: flex;\n  flex-direction: column;\n  position: relative;\n  width: calc(25% - 25px);\n  padding: 30px 0 80px;\n  margin-bottom: 8px;\n  background-color: #d2d9ff;\n  text-align: center;\n  overflow: hidden;\n  border-radius: 20px;\n  border: 1px solid #dfdfdf;\n  box-shadow: 0px 0px 10px 5px rgba(150, 150, 150, 0.2);\n}\nmain .cnt-cards .box-card .picture[data-v-8c392a88] {\n  position: relative;\n  display: inline-block;\n  height: 130px;\n  width: 130px;\n  margin: 0 auto 20px;\n  z-index: 1;\n}\nmain .cnt-cards .box-card .picture[data-v-8c392a88]::before {\n  content: \"\";\n  width: 100%;\n  height: 0;\n  border-radius: 50%;\n  background-color: #9eadff;\n  position: absolute;\n  bottom: 135%;\n  right: 0;\n  left: 0;\n  opacity: 0.9;\n  transform: scale(3);\n  transition: all 0.3s linear 0s;\n}\nmain .cnt-cards .box-card .picture img[data-v-8c392a88] {\n  width: 100%;\n  height: auto;\n  border-radius: 50%;\n  transform: scale(1);\n  transition: all 0.9s ease 0s;\n}\nmain .cnt-cards .box-card:hover .picture[data-v-8c392a88]::before {\n  height: 100%;\n}\nmain .cnt-cards .box-card .picture img[data-v-8c392a88] {\n  box-shadow: 0 0 0 5px #f7f5ec;\n  transform: scale(0.7);\n}\nmain .cnt-cards .box-card .team-content[data-v-8c392a88] {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n}\nmain .cnt-cards .box-card .team-content h3[data-v-8c392a88],\nmain .cnt-cards .box-card .team-content h5[data-v-8c392a88] {\n  color: #3b426c;\n}\nmain .cnt-cards .box-card .team-content h4[data-v-8c392a88] {\n  color: #fff;\n}\nmain .cnt-cards .box-card .title[data-v-8c392a88] {\n  display: block;\n  font-size: 15px;\n  color: #4e5052;\n  text-transform: capitalize;\n}\nmain .cnt-cards .box-card .social[data-v-8c392a88] {\n  display: flex;\n  padding: 10px;\n  justify-content: center;\n  width: 100%;\n  margin: 0;\n  background-color: #313131;\n  position: absolute;\n  bottom: -100px;\n  left: 0;\n  transition: all 0.5s ease 0s;\n}\nmain .cnt-cards .box-card .social li[data-v-8c392a88] {\n  display: inline-block;\n}\nmain .cnt-cards .box-card .social li a[data-v-8c392a88] {\n  display: block;\n  padding: 10px;\n  font-size: 17px;\n  color: white;\n  transition: all 0.3s ease 0s;\n  text-decoration: none;\n}\nmain .cnt-cards .box-card .social li .ico[data-v-8c392a88] {\n  width: 30px;\n  height: 30px;\n  background-color: lightgray;\n}\nmain .cnt-cards .box-card .social li .ico-lnkd[data-v-8c392a88] {\n  background: url(" + escape(__webpack_require__(/*! ../../img/ico/ico-lnkd.svg */ "./resources/img/ico/ico-lnkd.svg")) + ");\n}\nmain .cnt-cards .box-card:hover .social[data-v-8c392a88] {\n  bottom: 0;\n}\n@media screen and (max-width: 1200px) {\nmain .cnt-cards .box-card[data-v-8c392a88] {\n    width: calc(33.3333333333% - 25px);\n}\n}\n@media screen and (max-width: 800px) {\nmain .cnt-cards .box-card[data-v-8c392a88] {\n    width: calc(50% - 25px);\n}\n}\n@media screen and (max-width: 650px) {\nmain .cnt-cards .box-card[data-v-8c392a88] {\n    width: 100%;\n    max-width: 300px;\n}\n}", ""]);
 
 // exports
 
@@ -3522,7 +3603,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Montserrat&display=swap);", ""]);
 
 // module
-exports.push([module.i, "* {\n    font-family: \"Montserrat\", sans-serif;\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n.container {\n    display: flex;\n    width: 100%;\n    height: 100%;\n    max-width: 1170px;\n    margin: 0 auto;\n}\n\n[class*=\"col-\"] {\n    /* flex-direction: grow basis width; */\n    /* flex-direction: 0 0 auto; */\n}\n\n[class*=\"col-\"] {\n    position: relative;\n}\n\n.row {\n    display: flex;\n}\n\n.col-1 {\n    flex-basis: calc((100% / 12) * 1);\n}\n\n.col-2 {\n    flex-basis: calc((100% / 12) * 2);\n}\n\n.col-3 {\n    flex-basis: calc((100% / 12) * 3);\n}\n\n.col-4 {\n    flex-basis: calc((100% / 12) * 4);\n}\n\n.col-5 {\n    flex-basis: calc((100% / 12) * 5);\n}\n\n.col-6 {\n    flex-basis: calc((100% / 12) * 6);\n}\n\n.col-7 {\n    flex-basis: calc((100% / 12) * 7);\n}\n\n.col-8 {\n    flex-basis: calc((100% / 12) * 8);\n}\n\n.col-9 {\n    flex-basis: calc((100% / 12) * 9);\n}\n\n.col-10 {\n    flex-basis: calc((100% / 12) * 10);\n}\n\n.col-11 {\n    flex-basis: calc((100% / 12) * 11);\n}\n\n.col-12 {\n    flex-basis: calc((100% / 12) * 12);\n}\n\n.d-flex {\n    display: flex;\n}\n\n.flex-dr-col {\n    flex-direction: column;\n}\n\n.w-auto {\n    width: auto;\n}\n\n.h-vh {\n    height: 100vh;\n}\n\n.gp-5 {\n    gap: 5px;\n}\n\n.gp-10 {\n    gap: 10px;\n}\n\n.gp-15 {\n    gap: 15px;\n}\n\n.gp-20 {\n    gap: 20px;\n}\n\n.gp-25 {\n    gap: 25px;\n}\n\n.gp-30 {\n    gap: 30px;\n}\n\n.jc-c {\n    justify-content: center;\n}\n\n.ai-c {\n    align-items: center;\n}\n\n.w-100 {\n    width: 100%;\n}\n\n.wmax-100 {\n    max-width: 100%;\n}\n\n.w-max {\n    width: max-content;\n}\n\n.h-100 {\n    height: 100%;\n}\n\n.txt-c {\n    font-weight: 600;\n    margin: 0 15px;\n    text-align: center;\n}\n\n.m-tb {\n    margin: 10px 0;\n}\n\n.pd-20 {\n    padding: 20px !important;\n}\n\n.pd-20-lr {\n    padding: 0 20px !important;\n}\n\n.algn-itm-init {\n    align-items: initial !important;\n}\n\n.b-0 {\n    border: 0 !important;\n}\n\n.red {\n    color: red !important;\n}\n\n.d-block {\n    display: block;\n    color: red;\n}\n\n.d-none {\n    display: none;\n}\n\n#address-error {\n    position: absolute;\n    bottom: -25px;\n    left: 0;\n}\n\n.error {\n    color: red;\n    font-size: 15px;\n    position: relative;\n}\n\nlabel.error {\n    position: absolute !important;\n    bottom: -10px;\n    margin-bottom: 5px;\n}\n\n.tbl-title {\n    font-weight: 900;\n}\n\n.f-grow {\n    flex-grow: 1;\n}\n\n.p-20 {\n    padding: 20px;\n}\n\n.mt-2 {\n    margin-top: 2rem;\n}\n\n.gap-20 {\n    gap: 20px;\n}\n\n.cnt-item-service label:nth-child(2) {\n\n    bottom: -30px;\n    left: 0;\n}\n\n@media screen and (max-width: 480px) {\n    .col-xs-12 {\n        flex-basis: calc((100% / 12) * 12);\n    }\n}\n\n@media screen and (max-width: 820px) {\n    .col-md-1 {\n        flex-basis: calc((100% / 12) * 1);\n    }\n\n    .col-md-2 {\n        flex-basis: calc((100% / 12) * 2);\n    }\n\n    .col-md-3 {\n        flex-basis: calc((100% / 12) * 3);\n    }\n\n    .col-md-4 {\n        flex-basis: calc((100% / 12) * 4);\n    }\n\n    .col-md-5 {\n        flex-basis: calc((100% / 12) * 5);\n    }\n\n    .col-md-12 {\n        flex-basis: calc((100% / 12) * 12);\n    }\n}\n", ""]);
+exports.push([module.i, "* {\r\n    font-family: \"Montserrat\", sans-serif;\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n}\r\n\r\n.container {\r\n    display: flex;\r\n    width: 100%;\r\n    height: 100%;\r\n    max-width: 1170px;\r\n    margin: 0 auto;\r\n}\r\n\r\n[class*=\"col-\"] {\r\n    /* flex-direction: grow basis width; */\r\n    /* flex-direction: 0 0 auto; */\r\n}\r\n\r\n[class*=\"col-\"] {\r\n    position: relative;\r\n}\r\n\r\n.row {\r\n    display: flex;\r\n}\r\n\r\n.col-1 {\r\n    flex-basis: calc((100% / 12) * 1);\r\n}\r\n\r\n.col-2 {\r\n    flex-basis: calc((100% / 12) * 2);\r\n}\r\n\r\n.col-3 {\r\n    flex-basis: calc((100% / 12) * 3);\r\n}\r\n\r\n.col-4 {\r\n    flex-basis: calc((100% / 12) * 4);\r\n}\r\n\r\n.col-5 {\r\n    flex-basis: calc((100% / 12) * 5);\r\n}\r\n\r\n.col-6 {\r\n    flex-basis: calc((100% / 12) * 6);\r\n}\r\n\r\n.col-7 {\r\n    flex-basis: calc((100% / 12) * 7);\r\n}\r\n\r\n.col-8 {\r\n    flex-basis: calc((100% / 12) * 8);\r\n}\r\n\r\n.col-9 {\r\n    flex-basis: calc((100% / 12) * 9);\r\n}\r\n\r\n.col-10 {\r\n    flex-basis: calc((100% / 12) * 10);\r\n}\r\n\r\n.col-11 {\r\n    flex-basis: calc((100% / 12) * 11);\r\n}\r\n\r\n.col-12 {\r\n    flex-basis: calc((100% / 12) * 12);\r\n}\r\n\r\n.d-flex {\r\n    display: flex;\r\n}\r\n\r\n.flex-dr-col {\r\n    flex-direction: column;\r\n}\r\n\r\n.w-auto {\r\n    width: auto;\r\n}\r\n\r\n.h-vh {\r\n    height: 100vh;\r\n}\r\n\r\n.gp-5 {\r\n    gap: 5px;\r\n}\r\n\r\n.gp-10 {\r\n    gap: 10px;\r\n}\r\n\r\n.gp-15 {\r\n    gap: 15px;\r\n}\r\n\r\n.gp-20 {\r\n    gap: 20px;\r\n}\r\n\r\n.gp-25 {\r\n    gap: 25px;\r\n}\r\n\r\n.gp-30 {\r\n    gap: 30px;\r\n}\r\n\r\n.jc-c {\r\n    justify-content: center;\r\n}\r\n\r\n.ai-c {\r\n    align-items: center;\r\n}\r\n\r\n.w-100 {\r\n    width: 100%;\r\n}\r\n\r\n.wmax-100 {\r\n    max-width: 100%;\r\n}\r\n\r\n.w-max {\r\n    width: max-content;\r\n}\r\n\r\n.h-100 {\r\n    height: 100%;\r\n}\r\n\r\n.txt-c {\r\n    font-weight: 600;\r\n    margin: 0 15px;\r\n    text-align: center;\r\n}\r\n\r\n.m-tb {\r\n    margin: 10px 0;\r\n}\r\n\r\n.pd-20 {\r\n    padding: 20px !important;\r\n}\r\n\r\n.pd-20-lr {\r\n    padding: 0 20px !important;\r\n}\r\n\r\n.algn-itm-init {\r\n    align-items: initial !important;\r\n}\r\n\r\n.b-0 {\r\n    border: 0 !important;\r\n}\r\n\r\n.red {\r\n    color: red !important;\r\n}\r\n\r\n.d-block {\r\n    display: block;\r\n    color: red;\r\n}\r\n\r\n.d-none {\r\n    display: none;\r\n}\r\n\r\n#address-error {\r\n    position: absolute;\r\n    bottom: -25px;\r\n    left: 0;\r\n}\r\n\r\n.error {\r\n    color: red;\r\n    font-size: 15px;\r\n    position: relative;\r\n}\r\n\r\nlabel.error {\r\n    position: absolute !important;\r\n    bottom: -10px;\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.tbl-title {\r\n    font-weight: 900;\r\n}\r\n\r\n.f-grow {\r\n    flex-grow: 1;\r\n}\r\n\r\n.p-20 {\r\n    padding: 20px;\r\n}\r\n\r\n.mt-2 {\r\n    margin-top: 2rem;\r\n}\r\n\r\n.gap-20 {\r\n    gap: 20px;\r\n}\r\n\r\n.cnt-item-service label:nth-child(2) {\r\n\r\n    bottom: -30px;\r\n    left: 0;\r\n}\r\n\r\n@media screen and (max-width: 480px) {\r\n    .col-xs-12 {\r\n        flex-basis: calc((100% / 12) * 12);\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 820px) {\r\n    .col-md-1 {\r\n        flex-basis: calc((100% / 12) * 1);\r\n    }\r\n\r\n    .col-md-2 {\r\n        flex-basis: calc((100% / 12) * 2);\r\n    }\r\n\r\n    .col-md-3 {\r\n        flex-basis: calc((100% / 12) * 3);\r\n    }\r\n\r\n    .col-md-4 {\r\n        flex-basis: calc((100% / 12) * 4);\r\n    }\r\n\r\n    .col-md-5 {\r\n        flex-basis: calc((100% / 12) * 5);\r\n    }\r\n\r\n    .col-md-12 {\r\n        flex-basis: calc((100% / 12) * 12);\r\n    }\r\n}\r\n", ""]);
 
 // exports
 
@@ -50541,7 +50622,7 @@ module.exports = "/images/square-layout-with-boxes-svgrepo-com.svg?58452092e36d4
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/ico-lnkd.svg?1818b2d362ae200b5e1aae534b2de671";
+module.exports = "/images/ico-lnkd.svg?9b2a808c9a9dbb5877627399f9eec8b1";
 
 /***/ }),
 
@@ -51174,7 +51255,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Francesco\Documents\Boolean\PHP\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\Michele\Documents\Boolean\Esercizi\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })
