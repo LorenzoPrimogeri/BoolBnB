@@ -154,25 +154,26 @@
               </div>
             </div>
           </div>
-          <!-- <div class="row-filter">
+          <div class="row-filter">
             <div class="cnt-filter">
               <h3>Servizi</h3>
               <div class="cnt-filter-select d-flex gp-20">
-                <div class="main-check">
-                  <div class="cnt-checkbox">
+                <div v-for="(service, index) in allServiceFilter" :key="index  +  service" class="main-check">
+                  <div   all class="cnt-checkbox">
                     <input
                       class="input-check"
                       type="checkbox"
-                      value=""
-                      name="services[]"
+                      :value="service"
+                      :name="service"
+                      v-model="allServiceFiltered"
                     />
                     <span class="checkmark"></span>
                   </div>
-                  <div class="form-check-label">Wi-Fi</div>
+                  <div class="form-check-label">{{service}}</div>
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
           <div class="row-filter">
             <div class="cnt-filter">
               <h3>Distanza</h3>
@@ -190,15 +191,13 @@
 
     <!--Filter-->
     <!--Main-->
-
+//v-if nessun risultato se appartment è correctApartment >=1
     <main id="main">
       <div class="container w-100">
         <div class="cnt-cards pd-20">
           <router-link class="box-card"   v-for="apartment in correctApartments"
                 :key="apartment.id" :to="'/home/'+ apartment.id ">
-              <div
-
-              >
+              <div>
                 <div class="cnt-img">
                   <img :src="'/storage/' + apartment.img" alt="">
                 </div>
@@ -253,6 +252,8 @@ export default {
       correctApartments: [], //appartamenti che soddisfano la ricerca
       allServices: [],
       services: [],
+      allServiceFilter: [],
+      allServiceFiltered: [],
       distanceKm: 20,
       room: 1,
       bed: 1,
@@ -274,7 +275,7 @@ export default {
       $("body").toggleClass("enlargeFilter");
     });
 
-     $(".btn-cta").click(function () {
+    $(".btn-cta").click(function () {
       $("#cntExpand").toggleClass("enlargeFilter");
       $("#bgExpand").toggleClass("enlargeFilter");
       $("body").toggleClass("enlargeFilter");
@@ -294,7 +295,13 @@ export default {
     //prendo tutti gli appartamenti dal database
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       this.allApartaments = results.data.apartments;
-      console.log(this.allApartaments);
+      const array = results.data.services;
+      for (let i = 0; i < array.length; i++) {
+        const element = array[i]["name"];
+        //console.log(element);
+        this.allServiceFilter.push(element);
+      }
+      // console.log(this.allServiceFilter);
       this.searchApartments();
     });
   },
@@ -339,29 +346,60 @@ export default {
         });
     },
     searchApartments() {
-      console.log("ciao sono qui");
+      console.log(this.allServiceFiltered);
       // console.log(this.services);
       //reset degli appartamenti corretti
       this.correctApartments = [];
       //console.log(this.apartaments);
       for (let i = 0; i < this.allApartaments.length; i++) {
+        const apartmentservices = [];
         const apartment = this.allApartaments[i];
-        const distance = this.distance(
-          this.lat,
-          this.lng,
-          apartment.lat,
-          apartment.lng
-        );
-        if (
-          distance <= this.distanceKm &&
-          apartment.room >= this.room &&
-          apartment.bed >= this.bed
-        ) {
-          // console.log("la distanza è: " + distance.toFixed(3) + " km :)");
-          // console.log(apartment.room);
-          // console.log(apartment.bed);
-          // console.log("Fatto");
-          this.correctApartments.push(apartment);
+        if (this.allServiceFiltered.length >= 1) {
+          for (let j = 0; j < apartment.services.length; j++) {
+            const servizio = apartment.services[j]["name"];
+            apartmentservices.push(servizio);
+          }
+          console.log(apartment.id + "   " + apartmentservices);
+          if (
+            this.allServiceFiltered.every((r) => apartmentservices.includes(r))
+          ) {
+            const distance2 = this.distance(
+              this.lat,
+              this.lng,
+              apartment.lat,
+              apartment.lng
+            );
+            if (
+              distance2 <= this.distanceKm &&
+              apartment.room >= this.room &&
+              apartment.bed >= this.bed
+            ) {
+              // console.log("la distanza è: " + distance.toFixed(3) + " km :)");
+              // console.log(apartment.room);
+              // console.log(apartment.bed);
+              // console.log("Fatto");
+              this.correctApartments.push(apartment);
+            }
+            console.log("Funziona");
+          }
+        } else {
+          const distance = this.distance(
+            this.lat,
+            this.lng,
+            apartment.lat,
+            apartment.lng
+          );
+          if (
+            distance <= this.distanceKm &&
+            apartment.room >= this.room &&
+            apartment.bed >= this.bed
+          ) {
+            // console.log("la distanza è: " + distance.toFixed(3) + " km :)");
+            // console.log(apartment.room);
+            // console.log(apartment.bed);
+            // console.log("Fatto");
+            this.correctApartments.push(apartment);
+          }
         }
       }
       console.log(this.correctApartments);
@@ -390,6 +428,7 @@ export default {
   },
 };
 </script>
+
 
 <style  lang="scss">
 

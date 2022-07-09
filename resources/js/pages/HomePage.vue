@@ -259,10 +259,6 @@ export default {
       const url = ' '/home/' + id '
       return url
     },
-    // persist() {
-    //   localStorage.input = this.input;
-    //   console.log("Storage Input " + localStorage.input);
-    // },
     onInputChanged() {
         this.isClicked = false;
       // console.log(this.distanceKm);

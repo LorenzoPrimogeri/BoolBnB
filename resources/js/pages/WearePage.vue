@@ -4,8 +4,7 @@
         <div class="title-box">
           <h2>Team 57:</h2>
         </div>
-
-
+        
         <div class="container jc-c wmax-100">
             <div class="cnt-cards">
                 <div class="cards box-card">
