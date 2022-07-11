@@ -14,11 +14,11 @@
                 </a>
             </div>
         </div>
-        <div style="width:45%;">
-            <div class="cnt-item-dash">
+        <div class="cnt-item-dash">
+            <div class="cnt-chart">
                 {!! $chartjsV->render() !!}
             </div>
-            <div class="cnt-item-dash mt-2">
+            <div class="cnt-chart">
                 {!! $chartjsM->render() !!}
             </div>
         </div>

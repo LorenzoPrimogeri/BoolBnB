@@ -28,13 +28,15 @@ header {
             align-items: center;
             justify-content: center;
             height: 100%;
-
+            width: 150px;
             img,
             a {
-                width: 90%;
+                width: 100%;
             }
         }
-
+        .logo-mob {
+            display: none;
+        }
         .cnt-btn-filter {
             border-radius: 30px;
             display: flex;
@@ -147,11 +149,12 @@ header {
 .search {
     display: flex;
     position: relative;
-    width: max-content;
+    width: 500px;
     height: 50px;
     border-radius: 30px;
     align-items: center;
     padding: 0 20px;
+    background-color: #fff;
     border: 1px solid #ececec;
     -webkit-box-shadow: 0px 0px 8px 5px rgba(121, 121, 121, 0.1);
     -moz-box-shadow: 0px 0px 8px 5px rgba(121, 121, 121, 0.1);
@@ -189,5 +192,77 @@ header {
     .cnt-fine {
         background-color: rgba(153, 51, 0, 1);
         background: url(../../../public/img/fineIcon.svg) no-repeat center;
+    }
+}
+
+@media only screen and(max-width:850px) {
+    .search {
+        width: 100%;
+    }
+}
+@media only screen and(max-width:650px) {
+    #btn-hamburger {
+        display: block;
+        position: absolute;
+        width: 40px;
+        height: 30px;
+        margin: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        cursor: pointer;
+    }
+    #btn-hamburger span {
+        display: block;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background: #7174b6;
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        cursor: pointer;
+        transform: rotate(0deg);
+        transition: 0.25s ease-in-out;
+    }
+    #btn-hamburger span:nth-child(1) {
+        top: 0px;
+    }
+    #btn-hamburger span:nth-child(2),
+    header #btn-hamburger span:nth-child(3) {
+        top: 12px;
+    }
+    #btn-hamburger span:nth-child(4) {
+        top: 24px;
+    }
+    #btn-hamburger.open span:nth-child(1) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+    }
+    #btn-hamburger.open span:nth-child(2) {
+        transform: rotate(45deg);
+    }
+    #btn-hamburger.open span:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+    #btn-hamburger.open span:nth-child(4) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+    }
+    header {
+        .cnt-hdr-items {
+            .cnt-logo {
+                width: 80px;
+            }
+        }
+    }
+    .logo-desk {
+        display: none;
+    }
+    .logo-mob {
+        display: block !important;
     }
 }

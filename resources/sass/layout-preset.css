@@ -218,7 +218,6 @@ label.error {
 }
 
 .cnt-item-service label:nth-child(2) {
-
     bottom: -30px;
     left: 0;
 }
@@ -251,6 +250,6 @@ label.error {
     }
 
     .col-md-12 {
-        flex-basis: calc((100% / 12) * 12);
+        flex: calc((100% / 12) * 12);
     }
 }

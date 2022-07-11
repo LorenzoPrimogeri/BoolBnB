@@ -13,10 +13,9 @@
         <div class="cnt-item-dash">
             <div class="cnt-table">
                 <div class="main-body-th">
-                    <div class="cnt-th col-3 col-md-5 tbl-title f-grow">Inviato da</div>
-                    <div class="cnt-th col-3 col-md-5 tbl-title f-grow">Oggetto</div>
-                    <div class="cnt-th col-3 col-md-2 tbl-title f-grow">Inviato il</div>
-                    <div class="cnt-th col-3 col-md-2 tbl-title f-grow"></div>
+                    <div class="cnt-th col-4 col-md-5 tbl-title f-grow">Inviato da</div>
+                    <div class="cnt-th col-4 col-md-5 tbl-title f-grow">Oggetto</div>
+                    <div class="cnt-th col-4 col-md-2 tbl-title f-grow">Inviato il</div>
                 </div>
                 @foreach ($messages as $message)
                     <div class="main-columns">

@@ -2,11 +2,12 @@
 @section('content')
     <div class="main-slct-item">
         <div class="cnt-slct-btn">
-            <div class="cnt-th cnt-btn h-100">
+            <div class="cnt-th cnt-btns h-100">
                 <a href="{{ route('admin.apartments.index') }}">
-                    <button>Appartamenti</button>
+                    <div class="cnt-btn" title="Dashboaard">
+                        <button class="btn btn-home"></button>
+                    </div>
                 </a>
-                {{-- <a href="#"><button>Elimina</button></a> --}}
             </div>
         </div>
         <div class="cnt-item-details">

@@ -56,11 +56,11 @@
                     <textarea name="description" class="w-100" rows="10" placeholder="descrizione" required>{{ $apartment->description }}</textarea>
                 </div>
                 <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
+                    <h3>Immagine: <span class="red">*</span></h3>
                     <div class="cnt-img">
-                        <h3>Immagine: <span class="red">*</span></h3>
                         <img src="{{ asset('storage/' . $apartment->img) }}" alt="">
-                        <input type="file" name="img">
                     </div>
+                    <input type="file" name="img">
                 </div>
                 <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                     <div class="autocomplete">
@@ -95,9 +95,7 @@
                 </div>
                 <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
                     <div class="cnt-service">
-                        <div class="col-1">
-                            <h3>Servizi: <span class="red">*</span></h3>
-                        </div>
+                        <h3>Servizi: <span class="red">*</span></h3>
                     </div>
                     <div id='checkdiv'></div>
                     <div class="cnt-items-services col-11">
@@ -110,11 +108,10 @@
                             </div>
                         @endforeach
                     </div>
-
-                    <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
-                        <button class="btn-modify" type="submit" id='btn-submit'>Salva
-                            modifiche</button>
-                    </div>
+                </div>
+                <div class="cnt-row col-12 flex-dr-col algn-itm-init b-0">
+                    <button class="btn-modify" type="submit" id='btn-submit'>Salva
+                        modifiche</button>
                 </div>
             </form>
         </div>

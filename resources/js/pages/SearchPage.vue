@@ -34,7 +34,7 @@
                   @input="onInputChanged"
                 />
               </div>
-              <a  @click="takeLatLng()">
+              <a @click="takeLatLng()">
                 <div class="cnt-fine"></div>
               </a>
             </div>
@@ -122,10 +122,9 @@
         </a>
       </div>
     </div>
-
     <!--Header-->
-    <!--Filter-->
 
+    <!--Filter-->
     <div id="bgExpand" class="bgExpandFilter"></div>
     <div id="cntExpand" class="cntExpandFilter">
       <div class="main-filter">
@@ -158,8 +157,12 @@
             <div class="cnt-filter">
               <h3>Servizi</h3>
               <div class="cnt-filter-select d-flex gp-20">
-                <div v-for="(service, index) in allServiceFilter" :key="index  +  service" class="main-check">
-                  <div   all class="cnt-checkbox">
+                <div
+                  v-for="(service, index) in allServiceFilter"
+                  :key="index + service"
+                  class="main-check"
+                >
+                  <div all class="cnt-checkbox">
                     <input
                       class="input-check"
                       type="checkbox"
@@ -169,7 +172,7 @@
                     />
                     <span class="checkmark"></span>
                   </div>
-                  <div class="form-check-label">{{service}}</div>
+                  <div class="form-check-label">{{ service }}</div>
                 </div>
               </div>
             </div>
@@ -191,24 +194,28 @@
 
     <!--Filter-->
     <!--Main-->
-//v-if nessun risultato se appartment è correctApartment >=1
-    <main id="main">
+    //v-if nessun risultato se appartment è correctApartment >=1
+    <main>
       <div class="container w-100">
         <div class="cnt-cards pd-20">
-          <router-link class="box-card"   v-for="apartment in correctApartments"
-                :key="apartment.id" :to="'/home/'+ apartment.id ">
-              <div>
-                <div class="cnt-img">
-                  <img :src="'/storage/' + apartment.img" alt="">
-                </div>
-                <div class="cnt-txt cnt-h col-12">
-                  <h2>{{ apartment.title }}</h2>
-                  <h3>{{ apartment.address }}</h3>
-                </div>
-                <div class="price col-12">
-                <span>{{ apartment.price }} €/notte</span>
-                </div>
+          <router-link
+            class="box-card"
+            v-for="apartment in correctApartments"
+            :key="apartment.id"
+            :to="'/home/' + apartment.id"
+          >
+            <div>
+              <div class="cnt-img">
+                <img :src="'/storage/' + apartment.img" alt="" />
               </div>
+              <div class="cnt-txt cnt-h col-12">
+                <h2>{{ apartment.title }}</h2>
+                <h3>{{ apartment.address }}</h3>
+              </div>
+              <div class="price col-12">
+                <span>{{ apartment.price }} €/notte</span>
+              </div>
+            </div>
           </router-link>
         </div>
       </div>
@@ -216,20 +223,6 @@
 
     <!--Main-->
     <!--Footer-->
-
-    <footer id="Footer">
-      <div class="container wmax-100 h-100 pd-20-lr">
-        <div class="col-2 h-100"></div>
-        <div class="cnt-footer-items col-8 h-100">
-          <div class="cnt-items-ftr">
-            <ul>
-              <li><a href="/weare"><h2>Chi siamo</h2></a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-2 h-100"></div>
-      </div>
-    </footer>
 
     <!--Footer-->
   </div>
@@ -308,14 +301,14 @@ export default {
   },
   methods: {
     take(indirizzo) {
-        this.isClicked = true;
+      this.isClicked = true;
       // const searchedAdress = indirizzo;
       this.input = indirizzo;
       //   return searchedAdress;
       // console.log('risultato nuovo input', this.input);
     },
     onInputChanged() {
-    this.isClicked = false;
+      this.isClicked = false;
       // console.log(this.distanceKm);
       //Call axios che restituisce gli indirizzi autocomplete
       delete axios.defaults.headers.common["X-Requested-With"];
@@ -434,31 +427,25 @@ export default {
 
 
 <style  lang="scss">
-
-*a{
-  text-decoration:none;
+*a {
+  text-decoration: none;
   color: black;
-  &:hover{
+  &:hover {
     color: black;
   }
 }
 
-
 // style main
 
-#main {
+main {
   display: flex;
   width: 100%;
-  margin: 180px auto;
+  margin: 0 !important;
+  padding: 180px 0 100px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  h2{
-    font-family: 'Lobster', cursive;
-    font-weight: bold;
-    color: #797cba;
-  }
 }
 
 // style main card
@@ -483,18 +470,18 @@ export default {
     justify-content: center;
     gap: 25px;
   }
-    .box-card {
-   display: flex;
+  .box-card {
+    display: flex;
     width: 300px;
     flex-direction: column;
     .cnt-img {
       width: 100%;
       height: 200px;
-       img {
+      img {
         height: 100%;
-         width: 100%;
-         border-radius: 20px;
-     }
+        width: 100%;
+        border-radius: 20px;
+      }
     }
     .cnt-h {
       height: 50px;
@@ -520,51 +507,6 @@ export default {
 
 // style footer
 
-footer {
-  background-color:white;
-  border-top: 1px solid lightgray;
-  position: fixed;
-  bottom: 0;
-  height: 50px;
-  width: 100%;
-
- h2{
-    font-family: 'Lobster', cursive;
-    font-weight: bold;
-    font-size:1.3rem;
-    color: #797cba;
-  }
-
-  .cnt-footer-items {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-
-    .cnt-items-ftr {
-      ul {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        list-style-type: none;
-        margin: 0 !important;
-        padding: 15px;
-
-        li {
-          a {
-            text-decoration: none;
-            color: darkslategray;
-
-            &:hover {
-              color: #7174b6;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
 // style filter
 
 .cnt-btn-filter {
@@ -587,7 +529,6 @@ footer {
     background: url("../../../public/img/filter.svg") no-repeat center/contain;
   }
 }
-
 
 body.enlargeFilter {
   overflow: hidden;
@@ -684,8 +625,7 @@ body.enlargeFilter {
   }
 }
 
-.btn-cta{
-
+.btn-cta {
   position: relative;
   display: block;
   width: 150px;
@@ -699,30 +639,29 @@ body.enlargeFilter {
   font-size: 1.1em;
   font-weight: 600;
   transition: 0.3s ease-in-out;
-&:hover {
-  box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);
-  transform: scale(1.1);
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right bottom,
-    from(#8b9cf2),
-    to(#5870f0)
-  );
-  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
-  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
-  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
-  background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
-  background-image: linear-gradient(180deg, #2137a6, #6e83f4);
-  /* filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$secondgradientcolor, endColorstr=$firstgradientcolor); */
-  box-shadow: 5px 6px 15px 0 rgba(179, 179, 179, 0.5);
-  box-shadow: 0px 0px 15px 0 rgba(179, 179, 179, 0.5);
-  box-shadow: 0 11px 16px -3px rgba(45, 35, 66, 0.3),
-    0 4px 5px 0 rgba(45, 35, 66, 0.4), inset 0 -2px 0 0 #4b58ba;
-  transform: translateY(-2px);
+  &:hover {
+    box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);
+    transform: scale(1.1);
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      right bottom,
+      from(#8b9cf2),
+      to(#5870f0)
+    );
+    background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+    background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+    background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+    background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
+    background-image: linear-gradient(180deg, #2137a6, #6e83f4);
+    /* filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$secondgradientcolor, endColorstr=$firstgradientcolor); */
+    box-shadow: 5px 6px 15px 0 rgba(179, 179, 179, 0.5);
+    box-shadow: 0px 0px 15px 0 rgba(179, 179, 179, 0.5);
+    box-shadow: 0 11px 16px -3px rgba(45, 35, 66, 0.3),
+      0 4px 5px 0 rgba(45, 35, 66, 0.4), inset 0 -2px 0 0 #4b58ba;
+    transform: translateY(-2px);
+  }
 }
-}
-
 
 .cnt-btn-close {
   position: relative;
@@ -860,7 +799,6 @@ body.enlargeFilter {
   .contExpandLogMob,
   .contExpandLogRegMob {
     width: 90%;
-    // background: url("../img/index/bg-dots-blu.svg") no-repeat center;
     background-color: white;
     background-size: cover;
     left: 50%;
@@ -903,7 +841,7 @@ body.enlargeFilter {
       max-width: 300px;
     }
   }
-  header {
+  /* header {
     .cnt-hdr-items {
       .cnt-nav {
         display: none;
@@ -915,10 +853,9 @@ body.enlargeFilter {
       img,
       a {
         width: 150px;
-        height: 60%;
+        height: 100%;
       }
     }
-  }
+  } */
 }
-
 </style>

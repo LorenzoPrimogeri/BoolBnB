@@ -27,12 +27,9 @@
       </div>
       <!-- map -->
       <div class="services-box cnt-row col-12">
-
-
         <div class="col-4">
           <div id="map"></div>
         </div>
-
 
         <div class="details col-3">
           <div class="d-flex service-box">
@@ -84,14 +81,11 @@
           </div>
         </div>
 
-
         <div class="services col-4">
           <div class="cnt-row col-12">
             <div v-for="(service, j) in services" :key="j">{{ service }}</div>
           </div>
         </div>
-
-
       </div>
     </div>
 
@@ -146,8 +140,12 @@
                 ></textarea>
               </div>
             </div>
-            <div class="cnt-row" v-if="success" style="color: blue; display: flex; justify-content: center;">
-                Messaggio inviato!
+            <div
+              class="cnt-row"
+              v-if="success"
+              style="color: blue; display: flex; justify-content: center"
+            >
+              Messaggio inviato!
             </div>
             <div class="d-flex jc-c">
               <button class="btn-cta" type="submit" :disabled="sending">
@@ -304,7 +302,6 @@ export default {
           this.sending = false;
 
           if (status === 200) {
-
             this.success = data.success;
 
             if (!data.success) {
@@ -477,8 +474,13 @@ body.enlargeFilter {
 
 @media only screen and (max-width: 360px) {
   #map {
-    width: 225px;
-    height: 225px;
+    width: 100%;
+    height: auto;
+    .mapboxgl-canvas {
+      width: 100% !important;
+      /* height: 225px; */
+      margin: 0 auto;
+    }
   }
 }
 </style>

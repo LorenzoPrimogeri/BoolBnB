@@ -37,7 +37,7 @@
                                 {{ $apartment->price }}
                             </div>
                         </div>
-                        <div class="cnt-column col-3 col-md-12">
+                        <div class="cnt-column cnt-col-btns col-3">
                             <div class="cnt-th cnt-btns h-100">
                                 <a href="{{ route('admin.apartments.show', $apartment->id) }}">
                                     <div class="cnt-btn" title="Mostra">
@@ -45,26 +45,21 @@
                                     </div>
                                 </a>
                                 <a href="{{ route('admin.apartments.edit', $apartment->id) }}">
-
                                     <div class="cnt-btn" title="Modifica">
                                         <button class="btn btn-modify"></button>
                                     </div>
                                 </a>
-
                                 <a href="{{ route('admin.apartments.messages.index', $apartment->id) }}">
-
                                     <div class="cnt-btn" title="Messaggi">
                                         <button class="btn btn-msg"></button>
                                     </div>
                                 </a>
                                 <a href="{{ route('admin.checkin', $apartment->id) }}">
-
                                     <div class="cnt-btn" title="Sponsorizzate">
                                         <button class="btn btn-ads"></button>
                                     </div>
                                 </a>
                                 <a href="{{ route('admin.apartments.views.index', $apartment->id) }}">
-
                                     <div class="cnt-btn" title="Statistiche">
                                         <button class="btn btn-stcs"></button>
                                     </div>

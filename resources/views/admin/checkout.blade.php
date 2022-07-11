@@ -1,36 +1,57 @@
 @extends('layouts.app')
 @section('content')
     <div class="main-slct-item">
-        <p> Type: {{ $sponsor->type }}</p>
-        <p>Duration: {{ $sponsor->duration }} Hr</p>
-        <p> Price: {{ $sponsor->price }}$</p>
-        <p>apartment id: {{ $apartment->id }}</p>
-        <p>Use this fake Card: 4009348888881881</p>
-        <div>
-            <form id="payment-form" action="{{ route('admin.payment') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
-                <section>
-                    <label for="amount">
-                        <div class="input-wrapper amount-wrapper">
-                            <input type="hidden" id="amount" name="amount" min="1" placeholder="amount"
-                                value="{{ $sponsor->price }}" readonly>
-                        </div>
-                    </label>
+        <div class="cnt-pay">
+            <div class="cnt-type-ads">
+                <div class="ico-ads"></div>
+            </div>
+            <div class="cnt-txt-card">
+                <span>Type:</span>
+                <p> {{ $sponsor->type }}</p>
+            </div>
+            <div class="cnt-txt-card">
+                <span>Duration:</span>
+                <p> {{ $sponsor->duration }} Hr</p>
+            </div>
+            <div class="cnt-txt-card">
+                <span>Price:</span>
+                <p> {{ $sponsor->price }}$</p>
+            </div>
+            <div class="cnt-txt-card">
+                <span>apartment id:</span>
+                <p> {{ $apartment->id }}</p>
+            </div>
+            <div class="cnt-txt-card">
+                <span>N. Card:</span>
+                <p> 4009348888881881</p>
+            </div>
 
-                    <input type="hidden" name="id" value="{{ $id }}">
-                    <input type="hidden" name="token" value="{{ $token }}">
-                    <div class="bt-drop-in-wrapper">
-                        <div id="bt-dropin"></div>
+            <div>
+                <form id="payment-form" action="{{ route('admin.payment') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <section>
+                        <label for="amount">
+                            <div class="input-wrapper amount-wrapper">
+                                <input type="hidden" id="amount" name="amount" min="1" placeholder="amount"
+                                    value="{{ $sponsor->price }}" readonly>
+                            </div>
+                        </label>
+
+                        <input type="hidden" name="id" value="{{ $id }}">
+                        <input type="hidden" name="token" value="{{ $token }}">
+                        <div class="bt-drop-in-wrapper">
+                            <div id="bt-dropin"></div>
+                        </div>
+                        <input type="hidden" name="payment_method_nonce" value="fake-valid-visa-nonce" id="nonce">
+                    </section>
+                    <div class="cnt-btn-cta">
+                        <button class="btn-cta" type="submit">
+                            <span>BUY</span>
+                        </button>
                     </div>
-                    <input type="hidden" name="payment_method_nonce" value="fake-valid-visa-nonce" id="nonce">
-                </section>
-                <div class="d-flex w-100 justify-content-between align-item-baseline">
-                    <button class="button btn btn-success" type="submit">
-                        <span>BUY</span>
-                    </button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 
