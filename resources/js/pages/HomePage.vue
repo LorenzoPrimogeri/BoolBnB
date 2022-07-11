@@ -929,7 +929,7 @@ ul.ul-ftr {
     }
   }
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 840px) {
     .container {
     .box-card {
       width: 340px;
@@ -959,8 +959,8 @@ ul.ul-ftr {
     .box-card {
       display: flex;
       width: 150px;
-      max-width: 350px;
-      height: 350px;
+      max-width: 150px;
+      height: 430px;
       .cnt-img {
       width: 100%;
       height: 200px;
