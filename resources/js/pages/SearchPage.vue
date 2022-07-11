@@ -175,7 +175,7 @@
     <main>
       <div class="container w-100">
 
-        <div v-if="!correctApartments.length >= 1">
+        <div v-if="!correctApartments.length">
           <p>
             Nessun risultato!
           </p>
