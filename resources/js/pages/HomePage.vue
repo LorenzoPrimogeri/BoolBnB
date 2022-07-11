@@ -442,10 +442,7 @@ legati alla finestra del browser
       console.log(results);
       for (let i = 0; i < result.length; i++) {
         let apartment = result[i];
-        if (apartment.sponsorships.length >= 1) {
-          console.log("ciao sono apparso");
-          this.allApartaments.push(apartment);
-        }
+        this.allApartaments.push(apartment);
       }
       console.log(this.allApartaments);
       // this.allServices = results.data.services;

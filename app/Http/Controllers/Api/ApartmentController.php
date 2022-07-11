@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class ApartmentController extends Controller
 {
@@ -17,11 +18,12 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        //$apartments = Apartment::all();
-        //mandiamo alla home solo gli apartamenti che gli utenti hanno impostato "visibile"
-        //  $user = Auth::user();
-        // @dd($user);
-        $apartments = Apartment::where('visible', 1)->with(['services'])->with(['sponsorships'])->get();
+
+        /* dd($dateNow); */
+
+        $apartments = Apartment::where('visible', 1)->with(['services'])->whereHas('sponsorships',function($q){
+            $q->where('expiration_date', '>', Carbon::now());
+        })->get();
         // $sApartments = Apartment::where('visible', 1)->with(['sponsorships'])->get();
         $services = Service::all();
         $result = ['apartments' => $apartments, 'services' => $services, 'success' => true];

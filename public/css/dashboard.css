@@ -535,7 +535,7 @@ main .main-slct-item select {
 }
 
 .cnt-btns .cnt-btn:hover .btn-msg {
-  background: url(/images/ico-msg.svg?aba9e199fec7691210823e34968d4f81) no-repeat center/contain;
+  background: url(/images/ico-msg.svg?507cab0cc544c7fdfe3891df219e2c8b) no-repeat center/contain;
 }
 
 .cnt-btns .cnt-btn:hover .btn-add {
@@ -543,15 +543,15 @@ main .main-slct-item select {
 }
 
 .cnt-btns .cnt-btn:hover .btn-home {
-  background: url(/images/ico-dash.svg?67dc1d8effbe5a32af9e52eab450cb53) no-repeat center/contain;
+  background: url(/images/ico-dash.svg?e14612bd5035281794d07f3d300a3df5) no-repeat center/contain;
 }
 
 .cnt-btns .cnt-btn:hover .btn-ads {
-  background: url(/images/ico-ads.svg?3e46fe5e95fec6985dc6e8c5d60c2f7d) no-repeat center/contain;
+  background: url(/images/ico-ads.svg?f55e5f15ccc81ef1f03adc9f04bdb267) no-repeat center/contain;
 }
 
 .cnt-btns .cnt-btn:hover .btn-stcs {
-  background: url(/images/ico-stcs.svg?310cee7e5ef3b7385c9130cae57aff41) no-repeat center/contain;
+  background: url(/images/ico-stcs.svg?f6c866ac318bd17503e80a776c05a1a3) no-repeat center/contain;
 }
 
 .cnt-btns .cnt-btn .btn {
@@ -574,7 +574,7 @@ main .main-slct-item select {
 }
 
 .cnt-btns .cnt-btn .btn-msg {
-  background: url(/images/ico-msg-lgt.svg?fc39d0d3e57b354172bd67f0a4d46744) no-repeat center/contain;
+  background: url(/images/ico-msg-lgt.svg?2f27bcccd88acfc59f31d45313533b59) no-repeat center/contain;
 }
 
 .cnt-btns .cnt-btn .btn-add {
@@ -582,15 +582,15 @@ main .main-slct-item select {
 }
 
 .cnt-btns .cnt-btn .btn-home {
-  background: url(/images/ico-dash-lgt.svg?d32ffe6a06df88f4a6aff4f1c3a006d7) no-repeat center/contain;
+  background: url(/images/ico-dash-lgt.svg?ab50abde4e770438b5ee75c3c8bd8a81) no-repeat center/contain;
 }
 
 .cnt-btns .cnt-btn .btn-ads {
-  background: url(/images/ico-ads-lgt.svg?f3008cd21ab414a207205a8021291075) no-repeat center/contain;
+  background: url(/images/ico-ads-lgt.svg?c413114ea8e47bc421a3f866863d2079) no-repeat center/contain;
 }
 
 .cnt-btns .cnt-btn .btn-stcs {
-  background: url(/images/ico-stcs-lgt.svg?3a85bf2b49b53953df65fca31ef172ce) no-repeat center/contain;
+  background: url(/images/ico-stcs-lgt.svg?2b9c4ae8d9df3c6be0f369e2c0d4ebee) no-repeat center/contain;
 }
 
 .button-disabled {
@@ -616,11 +616,11 @@ ul.ul-log-reg li {
 }
 
 ul.ul-log-reg li:hover .ico-login {
-  background: url(/images/login.svg?d99977f35d4b129a95cb2787c1422611) no-repeat center/contain;
+  background: url(/images/login.svg?dc85f1b5e4949dc8ac9498bb1d7fffc8) no-repeat center/contain;
 }
 
 ul.ul-log-reg li:hover .ico-reg {
-  background: url(/images/register.svg?3c6cd24aee4ad0f0e4b064ed5e4190bc) no-repeat center/contain;
+  background: url(/images/register.svg?0b27b7ec2b77bd97fd41b51307437c4a) no-repeat center/contain;
 }
 
 ul.ul-log-reg li:hover span {
@@ -634,11 +634,11 @@ ul.ul-log-reg .ico-log {
 }
 
 ul.ul-log-reg .ico-login {
-  background: url(/images/login-lgt.svg?dd9f332e91b8436aa908f505efae312d) no-repeat center/contain;
+  background: url(/images/login-lgt.svg?5165130587df9f1860fc5179cf2c5bdc) no-repeat center/contain;
 }
 
 ul.ul-log-reg .ico-reg {
-  background: url(/images/register-lgt.svg?950dc65f8f6315451e3371d54df438b9) no-repeat center/contain;
+  background: url(/images/register-lgt.svg?55437a987bb5ff96396c014f67d0cb1e) no-repeat center/contain;
 }
 
 ul.ul-log-reg a {
@@ -672,19 +672,19 @@ ul.ul-log-reg a {
 }
 
 .cnt-ul ul li:hover .aprt {
-  background: url(/images/ico-dash.svg?67dc1d8effbe5a32af9e52eab450cb53) no-repeat center/contain;
+  background: url(/images/ico-dash.svg?e14612bd5035281794d07f3d300a3df5) no-repeat center/contain;
 }
 
 .cnt-ul ul li:hover .msg {
-  background: url(/images/ico-msg.svg?aba9e199fec7691210823e34968d4f81) no-repeat center/contain;
+  background: url(/images/ico-msg.svg?507cab0cc544c7fdfe3891df219e2c8b) no-repeat center/contain;
 }
 
 .cnt-ul ul li:hover .ads {
-  background: url(/images/ico-ads.svg?3e46fe5e95fec6985dc6e8c5d60c2f7d) no-repeat center/contain;
+  background: url(/images/ico-ads.svg?f55e5f15ccc81ef1f03adc9f04bdb267) no-repeat center/contain;
 }
 
 .cnt-ul ul li:hover .stcs {
-  background: url(/images/ico-stcs.svg?310cee7e5ef3b7385c9130cae57aff41) no-repeat center/contain;
+  background: url(/images/ico-stcs.svg?f6c866ac318bd17503e80a776c05a1a3) no-repeat center/contain;
 }
 
 .cnt-ul ul li:hover a {
@@ -705,19 +705,19 @@ ul.ul-log-reg a {
 }
 
 .cnt-ul ul li .aprt {
-  background: url(/images/ico-dash-lgt.svg?d32ffe6a06df88f4a6aff4f1c3a006d7) no-repeat center/contain;
+  background: url(/images/ico-dash-lgt.svg?ab50abde4e770438b5ee75c3c8bd8a81) no-repeat center/contain;
 }
 
 .cnt-ul ul li .msg {
-  background: url(/images/ico-msg-lgt.svg?fc39d0d3e57b354172bd67f0a4d46744) no-repeat center/contain;
+  background: url(/images/ico-msg-lgt.svg?2f27bcccd88acfc59f31d45313533b59) no-repeat center/contain;
 }
 
 .cnt-ul ul li .ads {
-  background: url(/images/ico-ads-lgt.svg?f3008cd21ab414a207205a8021291075) no-repeat center/contain;
+  background: url(/images/ico-ads-lgt.svg?c413114ea8e47bc421a3f866863d2079) no-repeat center/contain;
 }
 
 .cnt-ul ul li .stcs {
-  background: url(/images/ico-stcs-lgt.svg?3a85bf2b49b53953df65fca31ef172ce) no-repeat center/contain;
+  background: url(/images/ico-stcs-lgt.svg?2b9c4ae8d9df3c6be0f369e2c0d4ebee) no-repeat center/contain;
 }
 
 /* CARDS-SPONSOR */
@@ -810,15 +810,15 @@ ul.ul-log-reg a {
 }
 
 .main-heading-ads .main-cards-ads .box-card-ads .picture .gold {
-  background: url(/images/ads-gold.svg?091d9cc46c38c5c0817eadff6b74f3a4) no-repeat center/contain, linear-gradient(to right, #fff, #fff);
+  background: url(/images/ads-gold.svg?8bef768dbef27c768380f4be226a4445) no-repeat center/contain, linear-gradient(to right, #fff, #fff);
 }
 
 .main-heading-ads .main-cards-ads .box-card-ads .picture .silver {
-  background: url(/images/ads-silver.svg?547a089e7b2d5ab9afc58803e5e4098b) no-repeat center/contain, linear-gradient(to right, #fff, #fff);
+  background: url(/images/ads-silver.svg?f1b19a01973eac61b6db85ec6174869f) no-repeat center/contain, linear-gradient(to right, #fff, #fff);
 }
 
 .main-heading-ads .main-cards-ads .box-card-ads .picture .bronze {
-  background: url(/images/ads-bronze.svg?62024a903f67c2effee6e86e5c7cef33) no-repeat center/contain, linear-gradient(to right, #fff, #fff);
+  background: url(/images/ads-bronze.svg?9f54cc7ff70af4292f89b128cb572c40) no-repeat center/contain, linear-gradient(to right, #fff, #fff);
 }
 
 .main-heading-ads .main-cards-ads .box-card-ads:hover .picture::before {
@@ -1029,7 +1029,7 @@ ul.ul-log-reg a {
 }
 
 .contSuccess .logoBool {
-  background: url(/images/pitto.svg?61e365b40d898378307dce1715d98800) no-repeat center/contain #fff;
+  background: url(/images/pitto.svg?63a42ba89915f5803f9738c35fa5abf4) no-repeat center/contain #fff;
 }
 
 .contSuccess .logoSuc {
