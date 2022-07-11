@@ -10,8 +10,10 @@
 
             <div class="cnt-logo">
               <router-link to="/">
-                <img src="../../../public/img/boolbnb-logo.svg"
-                  alt="logo-BoolBnb" />
+                <img
+                  src="../../../public/img/boolbnb-logo.svg"
+                  alt="logo-BoolBnb"
+                />
               </router-link>
             </div>
 
@@ -23,9 +25,14 @@
             <div class="search">
               <div class="cnt-lens"></div>
               <div class="contStringSrc">
-                <input id="userInput" class="accountInput" type="text"
-                  placeholder="Cerca appartamento" v-model="input"
-                  @input="onInputChanged" />
+                <input
+                  id="userInput"
+                  class="accountInput"
+                  type="text"
+                  placeholder="Cerca appartamento"
+                  v-model="input"
+                  @input="onInputChanged"
+                />
               </div>
               <a @click="takeLatLng()">
                 <div class="cnt-fine"></div>
@@ -37,8 +44,10 @@
           <div class="col-2 d-flex jc-c ai-c">
             <!--login/register button-->
 
-            <div class="main-usr-set"
-              v-show="$route.name === 'home' ? true : false">
+            <div
+              class="main-usr-set"
+              v-show="$route.name === 'home' ? true : false"
+            >
               <ul class="ul-log-reg">
                 <!-- Authentication Links -->
                 <!-- <a href="{{ route('login') }}"> -->
@@ -87,8 +96,11 @@
             <!--filter button-->
 
             <div class="col-2 d-flex jc-c ai-c">
-              <div id="filter" class="cnt-btn-filter"
-                v-show="$route.name === 'search' ? true : false">
+              <div
+                id="filter"
+                class="cnt-btn-filter"
+                v-show="$route.name === 'search' ? true : false"
+              >
                 <div class="btn-filter"></div>
                 <span>Filtri</span>
               </div>
@@ -100,8 +112,11 @@
       </div>
     </header>
     <div class="cnt-result-adress" v-if="!isClicked">
-      <div class="cnt-items" v-for="(indirizzo, i) in indirizzi"
-        :key="i + indirizzo.address">
+      <div
+        class="cnt-items"
+        v-for="(indirizzo, i) in indirizzi"
+        :key="i + indirizzo.address"
+      >
         <a href="#" @click="take(indirizzo.address.freeformAddress)">
           {{ indirizzo.address["freeformAddress"] }}
         </a>
@@ -142,11 +157,19 @@
             <div class="cnt-filter">
               <h3>Servizi</h3>
               <div class="cnt-filter-select d-flex gp-20">
-                <div v-for="(service, index) in allServiceFilter"
-                  :key="index + service" class="main-check">
+                <div
+                  v-for="(service, index) in allServiceFilter"
+                  :key="index + service"
+                  class="main-check"
+                >
                   <div all class="cnt-checkbox">
-                    <input class="input-check" type="checkbox" :value="service"
-                      :name="service" v-model="allServiceFiltered" />
+                    <input
+                      class="input-check"
+                      type="checkbox"
+                      :value="service"
+                      :name="service"
+                      v-model="allServiceFiltered"
+                    />
                     <span class="checkmark"></span>
                   </div>
                   <div class="form-check-label">{{ service }}</div>
@@ -174,17 +197,17 @@
     <!-- v-if nessun risultato se appartment è correctApartment >=1 -->
     <main>
       <div class="container w-100">
-
-        <div v-if="!correctApartments.length">
-          <p>
-            Nessun risultato!
-          </p>
+        <div class="cnt-notMatch" v-if="!correctApartments.length">
+          <h2>Nessun risultato!</h2>
         </div>
 
-
         <div class="cnt-cards pd-20">
-          <router-link class="box-card" v-for="apartment in correctApartments"
-            :key="apartment.id" :to="'/home/' + apartment.id">
+          <router-link
+            class="box-card"
+            v-for="apartment in correctApartments"
+            :key="apartment.id"
+            :to="'/home/' + apartment.id"
+          >
             <div>
               <div class="cnt-img">
                 <img :src="'/storage/' + apartment.img" alt="" />
@@ -444,6 +467,16 @@ export default {
 
 
 <style  lang="scss">
+.cnt-notMatch {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  h2 {
+    font-size: 3em;
+    color: #5870f0;
+  }
+}
+
 *a {
   text-decoration: none;
   color: black;
@@ -837,15 +870,15 @@ body.enlargeFilter {
     -ms-user-select: none;
     user-select: none;
 
-    .cnt-checkbox:hover input~.checkmark {
+    .cnt-checkbox:hover input ~ .checkmark {
       background-color: #ccc;
     }
 
-    .cnt-checkbox input:checked~.checkmark {
+    .cnt-checkbox input:checked ~ .checkmark {
       background-color: #2196f3;
     }
 
-    .cnt-checkbox input:checked~.checkmark:after {
+    .cnt-checkbox input:checked ~ .checkmark:after {
       display: block;
     }
 
@@ -905,11 +938,13 @@ body.enlargeFilter {
   &:hover {
     box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);
     transform: scale(1.1);
-    background-image: -webkit-gradient(linear,
-        left top,
-        right bottom,
-        from(#8b9cf2),
-        to(#5870f0));
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      right bottom,
+      from(#8b9cf2),
+      to(#5870f0)
+    );
     background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
     background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
     background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
@@ -1058,7 +1093,6 @@ body.enlargeFilter {
 }
 
 @media screen and (max-width: 1050px) {
-
   .contExpandLogMob,
   .contExpandLogRegMob {
     width: 90%;

@@ -432,14 +432,14 @@ export default {
       this.username = risp.data[0].name;
     });
 
-    /* axios.get(`/api/user/${this.user_id}`).then((risp) => {
+    axios.get(`/api/user/${this.user_id}`).then((risp) => {
       console.log(risp);
       this.user_email = risp.data[0].email;
       this.email = this.user_email;
-    }); */
+    });
 
     const id = this.$route.params.id;
-    // console.log(id)
+
     const url = "/api/apartments/" + id;
     window.axios.get(url).then((result) => {
       this.apartment = result.data.results;
@@ -471,17 +471,13 @@ export default {
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       let result = [];
       result = results.data.apartments;
-      console.log(results);
       for (let i = 0; i < result.length; i++) {
         let apartment = result[i];
         if (apartment.sponsorships.length >= 1) {
-          console.log("ciao sono apparso");
           this.allApartaments.push(apartment);
         }
       }
       console.log(this.allApartaments);
-      // this.allServices = results.data.services;
-      // console.log(this.allServices);
     });
 
     $("#contacts").click(function () {
@@ -503,7 +499,6 @@ export default {
     },
     onInputChanged() {
       this.isClicked = false;
-      // console.log(this.distanceKm);
       //Call axios che restituisce gli indirizzi autocomplete
       delete axios.defaults.headers.common["X-Requested-With"];
       this.indirizzi = [];
@@ -514,17 +509,12 @@ export default {
         )
         .then((risp) => {
           const risultati = risp.data.results;
-          // console.log('risultato', this.input);
           this.indirizzi = risultati;
         });
-      //return this.indirizzi;
     },
     take(indirizzo) {
-      // const searchedAdress = indirizzo;
       this.input = indirizzo;
       this.isClicked = true;
-      //   return searchedAdress;
-      // console.log('risultato nuovo input', this.input);
     },
 
     createMap() {
