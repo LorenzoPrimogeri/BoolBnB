@@ -1,60 +1,55 @@
 <template>
   <div class="main">
     <div class="container flex">
+
+      <!-- title -->
       <div class="cnt-row col-12 text-box">
         <h2>{{ apartment.title }}</h2>
         <h5>
-          <span
-            ><img
-              src="../../../public/img/position-svgrepo-com.svg"
-              alt="position" /></span
-          >{{ apartment.address }}
+          <span><img src="../../../public/img/position-svgrepo-com.svg"
+              alt="position" /></span>{{ apartment.address }}
         </h5>
       </div>
+      <!-- title-->
 
+      <!-- img-box -->
       <div class="cnt-row col-12 img-box">
         <div class="cont-img">
-          <img
-            class="img-fluid"
-            :src="`/storage/${apartment.img}`"
-            :alt="apartment.title"
-          />
+          <img class="img-fluid" :src="`/storage/${apartment.img}`"
+            :alt="apartment.title" />
         </div>
       </div>
+      <!-- img-box -->
 
+      <!-- description -->
       <div class="description-text cnt-row col-12">
         <p>{{ apartment.description }}</p>
       </div>
-      <!-- map -->
+      <!-- description -->
+
+      <!-- service and tecnic data -->
       <div class="services-box cnt-row col-12">
-        <div class="col-4">
-          <div id="map"></div>
-        </div>
 
         <div class="details col-3">
-          <h3>Caratteristiche:</h3>
-          <div class="d-flex service-box">
+          <h3 class="mb-4">Caratteristiche:</h3>
+          <div class="d-flex service-icon">
             <p>
-              <img
-                src="../../../public/img/room-svgrepo-com.svg"
-                alt="room"
-              />{{ apartment.room }}
+              <img src="../../../public/img/room-svgrepo-com.svg"
+                alt="room" />{{ apartment.room }}
             </p>
           </div>
 
           <div class="d-flex service-icon">
             <p>
-              <img
-                src="../../../public/img/bathroom-svgrepo-com.svg"
-                alt="bath"
-              />{{ apartment.bathroom }}
+              <img src="../../../public/img/bathroom-svgrepo-com.svg"
+                alt="bath" />{{ apartment.bathroom }}
             </p>
           </div>
 
           <div class="d-flex service-icon">
             <p>
               <img src="../../../public/img/bed-svgrepo-com.svg" alt="bed" />{{
-                apartment.bed
+                  apartment.bed
               }}
             </p>
           </div>
@@ -63,32 +58,44 @@
             <p>
               <img
                 src="../../../public/img/square-layout-with-boxes-svgrepo-com.svg"
-                alt="square-meter"
-              />{{ apartment.mq }}mq
+                alt="square-meter" />{{ apartment.mq }}mq
             </p>
           </div>
 
           <div class="d-flex service-icon">
             <p>
-              <img
-                src="../../../public/img/euro-svgrepo-com.svg"
-                alt="euro"
-              />{{ apartment.price }}€ /notte
+              <img src="../../../public/img/euro-svgrepo-com.svg"
+                alt="euro" />{{ apartment.price }}€ /notte
             </p>
           </div>
 
-          <div class="col-12 contacts">
-            <a id="contacts" class="btn-cta">Contatta</a>
-          </div>
+
         </div>
 
         <div class="services col-4">
           <div class="cnt-row col-12">
-            <h3>Servizi:</h3>
+            <h3 class="mb-4">Servizi:</h3>
             <div v-for="(service, j) in services" :key="j">{{ service }}</div>
           </div>
         </div>
+
       </div>
+      <!-- service and tecnic data -->
+
+      <!-- map -->
+      <div class="main-map mt-5">
+        <div class="cnt-map">
+          <div id="map"></div>
+        </div>
+      </div>
+      <!-- map -->
+
+      <!-- contacts -->
+      <div class="col-12  d-flex jc-c mb-5 mt-5">
+        <a id="contacts" class="btn-cta">Contatta</a>
+      </div>
+      <!-- contacts -->
+
     </div>
 
     <div id="bgExpand" class="bgExpandFilter"></div>
@@ -107,46 +114,26 @@
             <div class="row-filter d-flex jc-c">
               <div class="cnt-filter">
                 <label for="email" class="form-label">Email</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  v-model="email"
-                  id="email"
-                  placeholder="name@example.com"
-                  required
-                />
+                <input type="email" class="form-control" v-model="email"
+                  id="email" placeholder="name@example.com" required />
               </div>
             </div>
             <div class="row-filter d-flex jc-c">
               <div class="cnt-filter">
                 <label for="object" class="form-label">Oggetto</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="object"
-                  v-model="object"
-                  placeholder="Oggetto dell'email"
-                  required
-                />
+                <input type="text" class="form-control" id="object"
+                  v-model="object" placeholder="Oggetto dell'email" required />
               </div>
             </div>
             <div class="row-filter d-flex jc-c">
               <div class="cnt-filter">
                 <label for="body" class="form-label">Messaggio</label>
-                <textarea
-                  class="form-control"
-                  id="body"
-                  rows="3"
-                  v-model="body"
-                  required
-                ></textarea>
+                <textarea class="form-control" id="body" rows="3" v-model="body"
+                  required></textarea>
               </div>
             </div>
-            <div
-              class="cnt-row"
-              v-if="success"
-              style="color: blue; display: flex; justify-content: center"
-            >
+            <div class="cnt-row" v-if="success"
+              style="color: blue; display: flex; justify-content: center">
               Messaggio inviato!
             </div>
             <div class="d-flex jc-c">
@@ -158,6 +145,7 @@
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -186,10 +174,10 @@ export default {
   mounted() {
 
     axios.get(`/api/user/${this.user_id}`).then(risp => {
-        console.log(risp);
-        this.user_email = risp.data[0].email;
-        this.email = this.user_email;
-        });
+      console.log(risp);
+      this.user_email = risp.data[0].email;
+      this.email = this.user_email;
+    });
 
 
     const id = this.$route.params.id;
@@ -331,8 +319,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 .main {
+  padding: 100px 0px;
+
   .flex {
     display: flex;
     flex-direction: column;
@@ -340,25 +329,30 @@ export default {
 
   .text-box {
     h2 {
-      font-family: "Lobster", cursive;
       font-weight: bold;
       font-size: 2.8rem;
       color: #797cba;
     }
+
     h5 {
       display: flex;
       margin-top: 1%;
       gap: 15px;
       align-items: center;
+
       img {
         width: 30px;
       }
     }
+
+    border-bottom: 1px solid #80808070;
     margin-top: 20px;
     margin-bottom: 20px;
   }
 
   .img-box {
+    border-bottom: 1px solid #80808070;
+
     img {
       width: 100%;
       height: 600px;
@@ -367,10 +361,12 @@ export default {
   }
 
   .description-text {
+    border-bottom: 1px solid #80808070;
     margin-top: 4%;
   }
 
   .services-box {
+    border-bottom: 1px solid #80808070;
     display: flex;
 
     p {
@@ -380,6 +376,7 @@ export default {
     .details {
       margin-top: 4%;
       gap: 20px;
+
       img {
         width: 30px;
         margin-right: 25px;
@@ -390,20 +387,30 @@ export default {
     .services {
       margin-top: 4%;
       gap: 20px;
+
+      div {
+        gap: 5px;
+        display: flex;
+        flex-direction: column;
+      }
+
       img {
         width: 30px;
         margin-right: 25px;
         vertical-align: none;
       }
     }
+  }
+}
 
-    .contacts {
-      margin-top: 30%;
-      margin-bottom: 25%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.main-map {
+  .cnt-txt {
+    h2 {}
+  }
+
+  .cnt-map {
+    width: 100%;
+    height: 299px;
   }
 }
 
@@ -422,16 +429,15 @@ export default {
   font-size: 1.1em;
   font-weight: 600;
   transition: 0.3s ease-in-out;
+
   &:hover {
     box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);
     transform: scale(1.1);
-    background-image: -webkit-gradient(
-      linear,
-      left top,
-      right bottom,
-      from(#8b9cf2),
-      to(#5870f0)
-    );
+    background-image: -webkit-gradient(linear,
+        left top,
+        right bottom,
+        from(#8b9cf2),
+        to(#5870f0));
     background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
     background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
     background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
@@ -478,15 +484,16 @@ body.enlargeFilter {
 }
 
 #map {
-  width: 300px;
-  height: 300px;
-  margin-top: 50px;
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid #80808070;
 }
 
 @media only screen and (max-width: 360px) {
   #map {
     width: 100%;
     height: auto;
+
     .mapboxgl-canvas {
       width: 100% !important;
       /* height: 225px; */
