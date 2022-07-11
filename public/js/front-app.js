@@ -2529,7 +2529,7 @@ var render = function render() {
     staticClass: "container flex"
   }, [_c("div", {
     staticClass: "cnt-row col-12 text-box"
-  }, [_c("h2", [_vm._v(_vm._s(_vm.apartment.title))]), _vm._v(" "), _c("h5", [_vm._m(0), _vm._v(_vm._s(_vm.apartment.address) + "\n        ")])]), _vm._v(" "), _c("div", {
+  }, [_c("h2", [_vm._v(_vm._s(_vm.apartment.title))]), _vm._v(" "), _c("h5", [_vm._m(0), _vm._v(_vm._s(_vm.apartment.address) + "\n      ")])]), _vm._v(" "), _c("div", {
     staticClass: "cnt-row col-12 img-box"
   }, [_c("div", {
     staticClass: "cont-img"
@@ -2552,35 +2552,35 @@ var render = function render() {
       src: __webpack_require__(/*! ../../../public/img/room-svgrepo-com.svg */ "./public/img/room-svgrepo-com.svg"),
       alt: "room"
     }
-  }), _vm._v(_vm._s(_vm.apartment.room) + "\n            ")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(_vm._s(_vm.apartment.room) + "\n          ")])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex service-icon"
   }, [_c("p", [_c("img", {
     attrs: {
       src: __webpack_require__(/*! ../../../public/img/bathroom-svgrepo-com.svg */ "./public/img/bathroom-svgrepo-com.svg"),
       alt: "bath"
     }
-  }), _vm._v(_vm._s(_vm.apartment.bathroom) + "\n            ")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(_vm._s(_vm.apartment.bathroom) + "\n          ")])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex service-icon"
   }, [_c("p", [_c("img", {
     attrs: {
       src: __webpack_require__(/*! ../../../public/img/bed-svgrepo-com.svg */ "./public/img/bed-svgrepo-com.svg"),
       alt: "bed"
     }
-  }), _vm._v(_vm._s(_vm.apartment.bed) + "\n            ")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(_vm._s(_vm.apartment.bed) + "\n          ")])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex service-icon"
   }, [_c("p", [_c("img", {
     attrs: {
       src: __webpack_require__(/*! ../../../public/img/square-layout-with-boxes-svgrepo-com.svg */ "./public/img/square-layout-with-boxes-svgrepo-com.svg"),
       alt: "square-meter"
     }
-  }), _vm._v(_vm._s(_vm.apartment.mq) + "mq\n            ")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(_vm._s(_vm.apartment.mq) + "mq\n          ")])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex service-icon"
   }, [_c("p", [_c("img", {
     attrs: {
       src: __webpack_require__(/*! ../../../public/img/euro-svgrepo-com.svg */ "./public/img/euro-svgrepo-com.svg"),
       alt: "euro"
     }
-  }), _vm._v(_vm._s(_vm.apartment.price) + "€ /notte\n            ")])]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("div", {
+  }), _vm._v(_vm._s(_vm.apartment.price) + "€ /notte\n          ")])]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("div", {
     staticClass: "services col-4"
   }, [_c("div", {
     staticClass: "cnt-row col-12"
@@ -2714,7 +2714,7 @@ var render = function render() {
       display: "flex",
       "justify-content": "center"
     }
-  }, [_vm._v("\n              Messaggio inviato!\n            ")]) : _vm._e(), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            Messaggio inviato!\n          ")]) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "d-flex jc-c"
   }, [_c("button", {
     staticClass: "btn-cta",
@@ -2722,7 +2722,7 @@ var render = function render() {
       type: "submit",
       disabled: _vm.sending
     }
-  }, [_vm._v("\n                Invia mail\n              ")])])])])])])]);
+  }, [_vm._v("\n              Invia mail\n            ")])])])])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -3100,7 +3100,7 @@ var render = function render() {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-12 text-center"
-  }, [_vm._v("\n               Mi Dispiace, la pagina cercata non esiste\n           ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            Mi Dispiace, la pagina cercata non esiste\n        ")]), _vm._v(" "), _c("div", {
     staticClass: "col-12 text-center"
   }, [_c("router-link", {
     attrs: {
@@ -3227,7 +3227,7 @@ var render = function render() {
           return _vm.take(indirizzo.address.freeformAddress);
         }
       }
-    }, [_vm._v("\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\n        ")])]);
+    }, [_vm._v("\n        " + _vm._s(indirizzo.address["freeformAddress"]) + "\n      ")])]);
   }), 0) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "bgExpandFilter",
     attrs: {
@@ -3386,7 +3386,7 @@ var render = function render() {
         return _vm.takeLatLng();
       }
     }
-  }, [_vm._v("Invio")])])])])]), _vm._v(" "), _vm._v("\n    //v-if nessun risultato se appartment è correctApartment >=1\n    "), _c("main", [_c("div", {
+  }, [_vm._v("Invio")])])])])]), _vm._v(" "), _vm._v("\n  //v-if nessun risultato se appartment è correctApartment >=1\n  "), _c("main", [_c("div", {
     staticClass: "container w-100"
   }, [_c("div", {
     staticClass: "cnt-cards pd-20"
@@ -3632,7 +3632,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\nmain[data-v-04c29797] {\n  display: flex;\n  width: 100%;\n  margin: 180px auto;\n  flex-direction: column;\n}\nmain .title[data-v-04c29797] {\n  display: flex;\n  justify-content: space-around;\n  margin-bottom: 3%;\n}\nmain h2[data-v-04c29797] {\n  font-weight: bold;\n  font-size: 2.2rem;\n}\n\n/* MAIN-CAROUSEL-LAYOUT */\n/* MAIN-CAROUSEL-LAYOUT */\n/* CNT-LAYOUT */\n.cnt-layout[data-v-04c29797] {\n  width: 90%;\n  max-width: 1400px;\n  margin: 0 auto;\n  padding: 150px 0 0;\n}\n.cnt-layout .cnt-section[data-v-04c29797] {\n  position: relative;\n  display: flex;\n  width: 100%;\n  background-size: cover;\n  padding: 50px 0;\n}\n.cnt-layout .cnt-section .cnt-section-layout[data-v-04c29797] {\n  display: flex;\n  width: 100%;\n  padding: 80px 0;\n  align-items: center;\n}\n.cnt-layout .cnt-section .cnt-cntr[data-v-04c29797] {\n  width: 100%;\n  padding: 20px;\n}\n.cnt-layout .cnt-section .cnt-lft[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt[data-v-04c29797] {\n  display: flex;\n  position: relative;\n  width: 50%;\n  padding: 50px;\n  gap: 50px;\n  flex-direction: column;\n  visibility: hidden;\n}\n.cnt-layout .cnt-section .cnt-lft img[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt img[data-v-04c29797] {\n  width: 100%;\n  max-width: 500px;\n  margin: 0 auto;\n}\n.cnt-layout .cnt-section .cnt-lft h2[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt h2[data-v-04c29797] {\n  font-size: 2em;\n  font-weight: 600;\n}\n.cnt-layout .cnt-section .cnt-lft p[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt p[data-v-04c29797] {\n  line-height: 1.8em;\n}\n.cnt-layout .cnt-section .cnt-lft p strong[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt p strong[data-v-04c29797] {\n  font-size: 1.2em;\n  color: #7174b6;\n}\n.fadeLeft[data-v-04c29797],\n.fadeRight[data-v-04c29797] {\n  visibility: hidden;\n}\n.fadeLeft.fadein-left[data-v-04c29797] {\n  visibility: visible !important;\n  -webkit-animation: animateleft-04c29797 1.5s;\n  animation: animateleft-04c29797 1.5s;\n  padding: 0 0 0 60px;\n}\n.fadeRight.fadein-right[data-v-04c29797] {\n  visibility: visible !important;\n  -webkit-animation: animateright-04c29797 2s;\n  animation: animateright-04c29797 2s;\n}\n@-webkit-keyframes animateleft-04c29797 {\nfrom {\n    left: -300px;\n    opacity: 0;\n}\nto {\n    left: 0px;\n    opacity: 1;\n}\n}\n@keyframes animateleft-04c29797 {\nfrom {\n    left: -300px;\n    opacity: 0;\n}\nto {\n    left: 0px;\n    opacity: 1;\n}\n}\n@-webkit-keyframes animateright-04c29797 {\nfrom {\n    right: -300px;\n    opacity: 0;\n}\nto {\n    right: 0px;\n    opacity: 1;\n}\n}\n@keyframes animateright-04c29797 {\nfrom {\n    right: -300px;\n    opacity: 0;\n}\nto {\n    right: 0px;\n    opacity: 1;\n}\n}\n/* CNT-LAYOUT */\n/* MAIN-CARDS */\n.container[data-v-04c29797] {\n  position: relative;\n}\n.container .cnt-label[data-v-04c29797] {\n  position: -webkit-sticky;\n  position: sticky;\n  display: flex;\n  padding: 20px;\n  color: #fff;\n  height: auto;\n  left: 50px;\n  justify-content: center;\n  align-items: center;\n  font-weight: 600;\n  font-size: 2em;\n}\n.container .cnt-cards[data-v-04c29797] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 25px;\n}\n.container .box-card[data-v-04c29797] {\n  display: flex;\n  width: 500px;\n  flex-direction: column;\n}\n.container .box-card .cnt-img[data-v-04c29797] {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card .cnt-img img[data-v-04c29797] {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card .cnt-h[data-v-04c29797] {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card .cnt-h h2[data-v-04c29797] {\n  font-size: 1em;\n}\n.container .box-card .cnt-h h3[data-v-04c29797] {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card .price[data-v-04c29797] {\n  display: contents;\n}\n.container .box-card .price span[data-v-04c29797] {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\n.container .box-card-csm[data-v-04c29797] {\n  display: flex;\n  width: 250px;\n  flex-direction: column;\n}\n.container .box-card-csm .cnt-img[data-v-04c29797] {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card-csm .cnt-img img[data-v-04c29797] {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card-csm .cnt-h[data-v-04c29797] {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card-csm .cnt-h h2[data-v-04c29797] {\n  font-size: 1em;\n}\n.container .box-card-csm .cnt-h h3[data-v-04c29797] {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card-csm .price[data-v-04c29797] {\n  display: contents;\n}\n.container .box-card-csm .price span[data-v-04c29797] {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\n\n/* MAIN-CARDS */\n/* FOOTER */\nfooter[data-v-04c29797] {\n  display: grid;\n  position: relative;\n  bottom: 0;\n  width: 100%;\n  background-color: #2f2e41;\n  padding: 0;\n}\nfooter .row-ftr[data-v-04c29797] {\n  width: 100%;\n  display: flex;\n  background-color: transparent;\n  padding: 20px 50px;\n}\nfooter .row-ftr[data-v-04c29797]:nth-child(2) {\n  padding: 10px;\n  border-top: 1px solid #403f52;\n}\nfooter .row-ftr .obj-cont-ftr[data-v-04c29797] {\n  position: relative;\n  width: 100%;\n  background-color: transparent;\n  display: flex;\n  gap: 10px;\n  padding: 50px 50px 0px;\n  padding: 0;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-04c29797] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info[data-v-04c29797] {\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info a[data-v-04c29797] {\n  color: #b3b3b3;\n  text-decoration: none;\n  font-size: 0.8em;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info a[data-v-04c29797]:hover {\n  color: #a4a7ea;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info[data-v-04c29797]:nth-child(1) {\n  display: flex;\n  align-items: center;\n  gap: 20px;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info[data-v-04c29797]:nth-child(4) {\n  display: flex;\n  justify-content: flex-end;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797] {\n  display: flex;\n  gap: 20px;\n  justify-content: flex-end;\n  width: 100%;\n  background-color: transparent;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797]:nth-child(3) {\n  display: flex;\n  gap: 15px;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr a[data-v-04c29797] {\n  color: #b3b3b3;\n  text-decoration: none;\n  font-size: 0.8em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr a[data-v-04c29797]:hover {\n  color: #a4a7ea;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr h4[data-v-04c29797] {\n  color: #d2d2d2;\n  font-size: 1.2em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr p[data-v-04c29797] {\n  color: #d2d2d2;\n  font-size: 0.6em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797],\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1) {\n  position: relative;\n  width: 100px;\n  height: 30px;\n  background-size: contain;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]:after,\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1):after {\n  content: \"\\2122\";\n  position: absolute;\n  right: -5px;\n  top: 0px;\n  color: grey;\n  font-size: 0.8em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1),\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1)::nth-child(1) {\n  width: 150px;\n  height: 50px;\n}\nfooter .obj-cont-tm[data-v-04c29797] {\n  display: flex;\n  position: relative;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  padding: 0px;\n  color: white;\n  justify-content: center;\n  align-items: center;\n  margin: 0 auto;\n}\nfooter .obj-cont-tm p.tm[data-v-04c29797] {\n  display: inline-block;\n  font-size: 1em;\n  letter-spacing: 1px;\n  margin: 0;\n}\nfooter .obj-cont-tm .logo-tm[data-v-04c29797],\nfooter .obj-cont-tm .logo-tm[data-v-04c29797]:nth-child(1) {\n  position: relative;\n  width: 100px;\n  height: 30px;\n  background: url(" + escape(__webpack_require__(/*! ../../img/pitto-logotype.svg */ "./resources/img/pitto-logotype.svg")) + ") no-repeat center/contain;\n  background-size: contain;\n}\nfooter .obj-cont-tm .logo-tm[data-v-04c29797]:nth-child(1) {\n  width: 150px;\n  height: 50px;\n}\nfooter .obj-cont-tm .logo-tm[data-v-04c29797]:after {\n  content: \"\\2122\";\n  position: absolute;\n  right: -5px;\n  top: 0px;\n  color: grey;\n  font-size: 0.8em;\n}\n.ico-soc[data-v-04c29797] {\n  width: 30px;\n  height: 30px;\n  cursor: pointer;\n}\n.fb[data-v-04c29797] {\n  background: url(" + escape(__webpack_require__(/*! ../../img/fb-g.svg */ "./resources/img/fb-g.svg")) + ") no-repeat center;\n  background-size: contain;\n}\n.ig[data-v-04c29797] {\n  background: url(" + escape(__webpack_require__(/*! ../../img/ig-g.svg */ "./resources/img/ig-g.svg")) + ") no-repeat center;\n  background-size: contain;\n}\n.fb[data-v-04c29797]:hover {\n  background: url(" + escape(__webpack_require__(/*! ../../img/fb.svg */ "./resources/img/fb.svg")) + ");\n}\n.ig[data-v-04c29797]:hover {\n  background: url(" + escape(__webpack_require__(/*! ../../img/ig.svg */ "./resources/img/ig.svg")) + ");\n}\nul.ul-ftr[data-v-04c29797] {\n  position: relative;\n  display: block;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  margin: 0 auto;\n  gap: 30px;\n}\nul.ul-ftr li[data-v-04c29797] {\n  position: relative;\n  display: block;\n  overflow: hidden;\n}\nul.ul-ftr li:hover a[data-v-04c29797]:hover {\n  color: #7174b6;\n}\nul.ul-ftr li a[data-v-04c29797] {\n  text-decoration: none;\n  color: #a2a2a2;\n  font-size: 1em;\n  font-weight: 300;\n}\n\n/* FOOTER */\n.scrollToTop[data-v-04c29797] {\n  position: fixed;\n  width: 50px;\n  height: 50px;\n  display: none;\n  bottom: 200px;\n  right: 60px;\n  border-radius: 50%;\n  cursor: pointer;\n  background: url(" + escape(__webpack_require__(/*! ../../img/arrowUp.svg */ "./resources/img/arrowUp.svg")) + ") no-repeat center;\n  background-size: contain;\n  background-color: white;\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);\n}\n@media screen and (max-width: 1000px) {\n  /* header {\n    .cnt-hdr-items {\n      .cnt-nav {\n        nav {\n          display: none;\n        }\n      }\n    }\n    #btn-hamburger {\n      display: block;\n    }\n    .cnt-hdr-src-mob {\n      display: flex;\n      width: 100%;\n      height: 70px;\n      justify-content: center;\n      align-items: center;\n    }\n    .container-src {\n      display: none;\n    }\n  } */\n.main-usr-set[data-v-04c29797] {\n    display: none;\n}\n.cnt-layout[data-v-04c29797] {\n    padding: 80px 0 0;\n}\n.cnt-layout .cnt-section .cnt-section-layout[data-v-04c29797] {\n    flex-direction: column;\n    padding: 0;\n}\n.cnt-layout .cnt-section .second[data-v-04c29797] {\n    flex-direction: column-reverse;\n}\n.cnt-layout .cnt-section .cnt-lft[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt[data-v-04c29797] {\n    width: 100%;\n}\n}\n@media screen and (max-width: 750px) {\nfooter .row-ftr[data-v-04c29797] {\n    padding: 20px 0;\n}\nfooter .row-ftr .obj-cont-ftr[data-v-04c29797] {\n    flex-direction: column-reverse;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-04c29797] {\n    flex-direction: column;\n    align-items: center;\n    margin: 0 auto;\n    padding: 10px 0;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797] {\n    justify-content: center;\n}\n}\n@media screen and (max-width: 480px) {\nmain h1[data-v-04c29797] {\n    padding: 0 20px;\n}\nmain h2[data-v-04c29797] {\n    padding: 0;\n}\nmain .cnt-layout[data-v-04c29797] {\n    padding: 0;\n}\n.cnt-layout .cnt-section[data-v-04c29797] {\n    margin-bottom: 50px;\n    padding: 0;\n}\n.cnt-layout .cnt-section[data-v-04c29797]:nth-child(1) {\n    padding: 100px 0 0;\n}\n.cnt-layout .cnt-section .cnt-section-layout[data-v-04c29797] {\n    flex-direction: column;\n    padding: 0;\n}\n.cnt-layout .cnt-section .second[data-v-04c29797] {\n    flex-direction: column-reverse;\n}\n.cnt-layout .cnt-section .cnt-lft[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt[data-v-04c29797] {\n    padding: 30px 0;\n}\n.cnt-layout .cnt-section .cnt-lft h2[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt h2[data-v-04c29797] {\n    font-size: 1.5em;\n}\nfooter .row-ftr[data-v-04c29797] {\n    padding: 20px 0;\n}\nfooter .row-ftr .obj-cont-ftr[data-v-04c29797] {\n    flex-direction: column-reverse;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-04c29797] {\n    flex-direction: column;\n    align-items: center;\n    margin: 0 auto;\n    padding: 10px 0;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797] {\n    justify-content: center;\n}\n.scrollToTop[data-v-04c29797] {\n    right: 20px;\n    bottom: 50px;\n}\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\nmain[data-v-04c29797] {\n  display: flex;\n  width: 100%;\n  margin: 180px auto;\n  flex-direction: column;\n}\nmain .title[data-v-04c29797] {\n  display: flex;\n  justify-content: space-around;\n  margin-bottom: 3%;\n}\nmain h2[data-v-04c29797] {\n  font-weight: bold;\n  font-size: 2.2rem;\n}\n\n/* MAIN-CAROUSEL-LAYOUT */\n/* MAIN-CAROUSEL-LAYOUT */\n/* CNT-LAYOUT */\n.cnt-layout[data-v-04c29797] {\n  width: 90%;\n  max-width: 1400px;\n  margin: 0 auto;\n  padding: 150px 0 0;\n}\n.cnt-layout .cnt-section[data-v-04c29797] {\n  position: relative;\n  display: flex;\n  width: 100%;\n  background-size: cover;\n  padding: 50px 0;\n}\n.cnt-layout .cnt-section .cnt-section-layout[data-v-04c29797] {\n  display: flex;\n  width: 100%;\n  padding: 80px 0;\n  align-items: center;\n}\n.cnt-layout .cnt-section .cnt-cntr[data-v-04c29797] {\n  width: 100%;\n  padding: 20px;\n}\n.cnt-layout .cnt-section .cnt-lft[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt[data-v-04c29797] {\n  display: flex;\n  position: relative;\n  width: 50%;\n  padding: 50px;\n  gap: 50px;\n  flex-direction: column;\n  visibility: hidden;\n}\n.cnt-layout .cnt-section .cnt-lft img[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt img[data-v-04c29797] {\n  width: 100%;\n  max-width: 500px;\n  margin: 0 auto;\n}\n.cnt-layout .cnt-section .cnt-lft h2[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt h2[data-v-04c29797] {\n  font-size: 2em;\n  font-weight: 600;\n}\n.cnt-layout .cnt-section .cnt-lft p[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt p[data-v-04c29797] {\n  line-height: 1.8em;\n}\n.cnt-layout .cnt-section .cnt-lft p strong[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt p strong[data-v-04c29797] {\n  font-size: 1.2em;\n  color: #7174b6;\n}\n.fadeLeft[data-v-04c29797],\n.fadeRight[data-v-04c29797] {\n  visibility: hidden;\n}\n.fadeLeft.fadein-left[data-v-04c29797] {\n  visibility: visible !important;\n  -webkit-animation: animateleft-04c29797 1.5s;\n  animation: animateleft-04c29797 1.5s;\n  padding: 0 0 0 60px;\n}\n.fadeRight.fadein-right[data-v-04c29797] {\n  visibility: visible !important;\n  -webkit-animation: animateright-04c29797 2s;\n  animation: animateright-04c29797 2s;\n}\n@-webkit-keyframes animateleft-04c29797 {\nfrom {\n    left: -300px;\n    opacity: 0;\n}\nto {\n    left: 0px;\n    opacity: 1;\n}\n}\n@keyframes animateleft-04c29797 {\nfrom {\n    left: -300px;\n    opacity: 0;\n}\nto {\n    left: 0px;\n    opacity: 1;\n}\n}\n@-webkit-keyframes animateright-04c29797 {\nfrom {\n    right: -300px;\n    opacity: 0;\n}\nto {\n    right: 0px;\n    opacity: 1;\n}\n}\n@keyframes animateright-04c29797 {\nfrom {\n    right: -300px;\n    opacity: 0;\n}\nto {\n    right: 0px;\n    opacity: 1;\n}\n}\n/* CNT-LAYOUT */\n/* MAIN-CARDS */\n.container[data-v-04c29797] {\n  position: relative;\n}\n.container .cnt-label[data-v-04c29797] {\n  position: -webkit-sticky;\n  position: sticky;\n  display: flex;\n  padding: 20px;\n  color: #fff;\n  height: auto;\n  left: 50px;\n  justify-content: center;\n  align-items: center;\n  font-weight: 600;\n  font-size: 2em;\n}\n.container .cnt-cards[data-v-04c29797] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 25px;\n}\n.container .box-card[data-v-04c29797] {\n  display: flex;\n  width: 500px;\n  flex-direction: column;\n}\n.container .box-card .cnt-img[data-v-04c29797] {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card .cnt-img img[data-v-04c29797] {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card .cnt-h[data-v-04c29797] {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card .cnt-h h2[data-v-04c29797] {\n  font-size: 1em;\n}\n.container .box-card .cnt-h h3[data-v-04c29797] {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card .price[data-v-04c29797] {\n  display: contents;\n}\n.container .box-card .price span[data-v-04c29797] {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\n.container .box-card-csm[data-v-04c29797] {\n  display: flex;\n  width: 250px;\n  flex-direction: column;\n}\n.container .box-card-csm .cnt-img[data-v-04c29797] {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card-csm .cnt-img img[data-v-04c29797] {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card-csm .cnt-h[data-v-04c29797] {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card-csm .cnt-h h2[data-v-04c29797] {\n  font-size: 1em;\n}\n.container .box-card-csm .cnt-h h3[data-v-04c29797] {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card-csm .price[data-v-04c29797] {\n  display: contents;\n}\n.container .box-card-csm .price span[data-v-04c29797] {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\n\n/* MAIN-CARDS */\n/* FOOTER */\nfooter[data-v-04c29797] {\n  display: grid;\n  position: relative;\n  bottom: 0;\n  width: 100%;\n  background-color: #2f2e41;\n  padding: 0;\n}\nfooter .row-ftr[data-v-04c29797] {\n  width: 100%;\n  display: flex;\n  background-color: transparent;\n  padding: 20px 50px;\n}\nfooter .row-ftr[data-v-04c29797]:nth-child(2) {\n  padding: 10px;\n  border-top: 1px solid #403f52;\n}\nfooter .row-ftr .obj-cont-ftr[data-v-04c29797] {\n  position: relative;\n  width: 100%;\n  background-color: transparent;\n  display: flex;\n  gap: 10px;\n  padding: 50px 50px 0px;\n  padding: 0;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-04c29797] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info[data-v-04c29797] {\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info a[data-v-04c29797] {\n  color: #b3b3b3;\n  text-decoration: none;\n  font-size: 0.8em;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info a[data-v-04c29797]:hover {\n  color: #a4a7ea;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info[data-v-04c29797]:nth-child(1) {\n  display: flex;\n  align-items: center;\n  gap: 20px;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info[data-v-04c29797]:nth-child(4) {\n  display: flex;\n  justify-content: flex-end;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797] {\n  display: flex;\n  gap: 20px;\n  justify-content: flex-end;\n  width: 100%;\n  background-color: transparent;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797]:nth-child(3) {\n  display: flex;\n  gap: 15px;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr a[data-v-04c29797] {\n  color: #b3b3b3;\n  text-decoration: none;\n  font-size: 0.8em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr a[data-v-04c29797]:hover {\n  color: #a4a7ea;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr h4[data-v-04c29797] {\n  color: #d2d2d2;\n  font-size: 1.2em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr p[data-v-04c29797] {\n  color: #d2d2d2;\n  font-size: 0.6em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797],\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1) {\n  position: relative;\n  width: 100px;\n  height: 30px;\n  background-size: contain;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]:after,\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1):after {\n  content: \"\\2122\";\n  position: absolute;\n  right: -5px;\n  top: 0px;\n  color: grey;\n  font-size: 0.8em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1),\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1)::nth-child(1) {\n  width: 150px;\n  height: 50px;\n}\nfooter .obj-cont-tm[data-v-04c29797] {\n  display: flex;\n  position: relative;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  padding: 0px;\n  color: white;\n  justify-content: center;\n  align-items: center;\n  margin: 0 auto;\n}\nfooter .obj-cont-tm p.tm[data-v-04c29797] {\n  display: inline-block;\n  font-size: 1em;\n  letter-spacing: 1px;\n  margin: 0;\n}\nfooter .obj-cont-tm .logo-tm[data-v-04c29797],\nfooter .obj-cont-tm .logo-tm[data-v-04c29797]:nth-child(1) {\n  position: relative;\n  width: 100px;\n  height: 30px;\n  background: url(" + escape(__webpack_require__(/*! ../../img/pitto-logotype.svg */ "./resources/img/pitto-logotype.svg")) + ") no-repeat center/contain;\n  background-size: contain;\n}\nfooter .obj-cont-tm .logo-tm[data-v-04c29797]:nth-child(1) {\n  width: 150px;\n  height: 50px;\n}\nfooter .obj-cont-tm .logo-tm[data-v-04c29797]:after {\n  content: \"\\2122\";\n  position: absolute;\n  right: -5px;\n  top: 0px;\n  color: grey;\n  font-size: 0.8em;\n}\n.ico-soc[data-v-04c29797] {\n  width: 30px;\n  height: 30px;\n  cursor: pointer;\n}\n.fb[data-v-04c29797] {\n  background: url(" + escape(__webpack_require__(/*! ../../img/fb-g.svg */ "./resources/img/fb-g.svg")) + ") no-repeat center;\n  background-size: contain;\n}\n.ig[data-v-04c29797] {\n  background: url(" + escape(__webpack_require__(/*! ../../img/ig-g.svg */ "./resources/img/ig-g.svg")) + ") no-repeat center;\n  background-size: contain;\n}\n.fb[data-v-04c29797]:hover {\n  background: url(" + escape(__webpack_require__(/*! ../../img/fb.svg */ "./resources/img/fb.svg")) + ");\n}\n.ig[data-v-04c29797]:hover {\n  background: url(" + escape(__webpack_require__(/*! ../../img/ig.svg */ "./resources/img/ig.svg")) + ");\n}\nul.ul-ftr[data-v-04c29797] {\n  position: relative;\n  display: block;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  margin: 0 auto;\n  gap: 30px;\n}\nul.ul-ftr li[data-v-04c29797] {\n  position: relative;\n  display: block;\n  overflow: hidden;\n}\nul.ul-ftr li:hover a[data-v-04c29797]:hover {\n  color: #7174b6;\n}\nul.ul-ftr li a[data-v-04c29797] {\n  text-decoration: none;\n  color: #a2a2a2;\n  font-size: 1em;\n  font-weight: 300;\n}\n\n/* FOOTER */\n.scrollToTop[data-v-04c29797] {\n  position: fixed;\n  width: 50px;\n  height: 50px;\n  display: none;\n  bottom: 200px;\n  right: 60px;\n  border-radius: 50%;\n  cursor: pointer;\n  background: url(" + escape(__webpack_require__(/*! ../../img/arrowUp.svg */ "./resources/img/arrowUp.svg")) + ") no-repeat center;\n  background-size: contain;\n  background-color: white;\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);\n}\n@media screen and (max-width: 1000px) {\n.container .box-card[data-v-04c29797] {\n    width: 450px;\n    max-width: 450px;\n}\n  /* header {\n    .cnt-hdr-items {\n      .cnt-nav {\n        nav {\n          display: none;\n        }\n      }\n    }\n    #btn-hamburger {\n      display: block;\n    }\n    .cnt-hdr-src-mob {\n      display: flex;\n      width: 100%;\n      height: 70px;\n      justify-content: center;\n      align-items: center;\n    }\n    .container-src {\n      display: none;\n    }\n  } */\n.main-usr-set[data-v-04c29797] {\n    display: none;\n}\n.cnt-layout[data-v-04c29797] {\n    padding: 80px 0 0;\n}\n.cnt-layout .cnt-section .cnt-section-layout[data-v-04c29797] {\n    flex-direction: column;\n    padding: 0;\n}\n.cnt-layout .cnt-section .second[data-v-04c29797] {\n    flex-direction: column-reverse;\n}\n.cnt-layout .cnt-section .cnt-lft[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt[data-v-04c29797] {\n    width: 100%;\n}\n}\n@media screen and (max-width: 850px) {\n.container .box-card[data-v-04c29797] {\n    width: 340px;\n    max-width: 340px;\n}\nfooter .row-ftr[data-v-04c29797] {\n    padding: 20px 0;\n}\nfooter .row-ftr .obj-cont-ftr[data-v-04c29797] {\n    flex-direction: column-reverse;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-04c29797] {\n    flex-direction: column;\n    align-items: center;\n    margin: 0 auto;\n    padding: 10px 0;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797] {\n    justify-content: center;\n}\n}\n@media screen and (max-width: 480px) {\n.container .box-card[data-v-04c29797] {\n    display: flex;\n    width: 150px;\n    max-width: 350px;\n    height: 350px;\n}\n.container .box-card .cnt-img[data-v-04c29797] {\n    width: 100%;\n    height: 200px;\n}\n.container .box-card .cnt-img img[data-v-04c29797] {\n    height: 85%;\n    width: 100%;\n    border-radius: 20px;\n}\nmain h1[data-v-04c29797] {\n    padding: 0 20px;\n}\nmain h2[data-v-04c29797] {\n    padding: 0;\n}\nmain .cnt-layout[data-v-04c29797] {\n    padding: 0;\n}\n.cnt-layout .cnt-section[data-v-04c29797] {\n    margin-bottom: 50px;\n    padding: 0;\n}\n.cnt-layout .cnt-section[data-v-04c29797]:nth-child(1) {\n    padding: 100px 0 0;\n}\n.cnt-layout .cnt-section .cnt-section-layout[data-v-04c29797] {\n    flex-direction: column;\n    padding: 0;\n}\n.cnt-layout .cnt-section .second[data-v-04c29797] {\n    flex-direction: column-reverse;\n}\n.cnt-layout .cnt-section .cnt-lft[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt[data-v-04c29797] {\n    padding: 30px 0;\n}\n.cnt-layout .cnt-section .cnt-lft h2[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt h2[data-v-04c29797] {\n    font-size: 1.5em;\n}\nfooter .row-ftr[data-v-04c29797] {\n    padding: 20px 0;\n}\nfooter .row-ftr .obj-cont-ftr[data-v-04c29797] {\n    flex-direction: column-reverse;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-04c29797] {\n    flex-direction: column;\n    align-items: center;\n    margin: 0 auto;\n    padding: 10px 0;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797] {\n    justify-content: center;\n}\n.scrollToTop[data-v-04c29797] {\n    right: 20px;\n    bottom: 50px;\n}\n}", ""]);
 
 // exports
 
@@ -3693,7 +3693,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Montserrat&display=swap);", ""]);
 
 // module
-exports.push([module.i, "* {\n    font-family: \"Montserrat\", sans-serif;\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n.container {\n    display: flex;\n    width: 100%;\n    height: 100%;\n    max-width: 1170px;\n    margin: 0 auto;\n}\n\n[class*=\"col-\"] {\n    /* flex-direction: grow basis width; */\n    /* flex-direction: 0 0 auto; */\n}\n\n[class*=\"col-\"] {\n    position: relative;\n}\n\n.row {\n    display: flex;\n}\n\n.col-1 {\n    flex-basis: calc((100% / 12) * 1);\n}\n\n.col-2 {\n    flex-basis: calc((100% / 12) * 2);\n}\n\n.col-3 {\n    flex-basis: calc((100% / 12) * 3);\n}\n\n.col-4 {\n    flex-basis: calc((100% / 12) * 4);\n}\n\n.col-5 {\n    flex-basis: calc((100% / 12) * 5);\n}\n\n.col-6 {\n    flex-basis: calc((100% / 12) * 6);\n}\n\n.col-7 {\n    flex-basis: calc((100% / 12) * 7);\n}\n\n.col-8 {\n    flex-basis: calc((100% / 12) * 8);\n}\n\n.col-9 {\n    flex-basis: calc((100% / 12) * 9);\n}\n\n.col-10 {\n    flex-basis: calc((100% / 12) * 10);\n}\n\n.col-11 {\n    flex-basis: calc((100% / 12) * 11);\n}\n\n.col-12 {\n    flex-basis: calc((100% / 12) * 12);\n}\n\n.d-flex {\n    display: flex;\n}\n\n.flex-dr-col {\n    flex-direction: column;\n}\n\n.w-auto {\n    width: auto;\n}\n\n.h-vh {\n    height: 100vh;\n}\n\n.gp-5 {\n    gap: 5px;\n}\n\n.gp-10 {\n    gap: 10px;\n}\n\n.gp-15 {\n    gap: 15px;\n}\n\n.gp-20 {\n    gap: 20px;\n}\n\n.gp-25 {\n    gap: 25px;\n}\n\n.gp-30 {\n    gap: 30px;\n}\n\n.jc-c {\n    justify-content: center;\n}\n\n.ai-c {\n    align-items: center;\n}\n\n.w-100 {\n    width: 100%;\n}\n\n.wmax-100 {\n    max-width: 100%;\n}\n\n.w-max {\n    width: max-content;\n}\n\n.h-100 {\n    height: 100%;\n}\n\n.txt-c {\n    font-weight: 600;\n    margin: 0 15px;\n    text-align: center;\n}\n\n.m-tb {\n    margin: 10px 0;\n}\n\n.pd-20 {\n    padding: 20px !important;\n}\n\n.pd-20-lr {\n    padding: 0 20px !important;\n}\n\n.algn-itm-init {\n    align-items: initial !important;\n}\n\n.b-0 {\n    border: 0 !important;\n}\n\n.red {\n    color: red !important;\n}\n\n.d-block {\n    display: block;\n    color: red;\n}\n\n.d-none {\n    display: none;\n}\n\n#address-error {\n    position: absolute;\n    bottom: -25px;\n    left: 0;\n}\n\n.error {\n    color: red;\n    font-size: 15px;\n    position: relative;\n}\n\nlabel.error {\n    position: absolute !important;\n    bottom: -10px;\n    margin-bottom: 5px;\n}\n\n.tbl-title {\n    font-weight: 900;\n}\n\n.f-grow {\n    flex-grow: 1;\n}\n\n.p-20 {\n    padding: 20px;\n}\n\n.mt-2 {\n    margin-top: 2rem;\n}\n\n.gap-20 {\n    gap: 20px;\n}\n\n.cnt-item-service label:nth-child(2) {\n    bottom: -30px;\n    left: 0;\n}\n\n@media screen and (max-width: 480px) {\n    .col-xs-12 {\n        flex-basis: calc((100% / 12) * 12);\n    }\n}\n\n@media screen and (max-width: 820px) {\n    .col-md-1 {\n        flex-basis: calc((100% / 12) * 1);\n    }\n\n    .col-md-2 {\n        flex-basis: calc((100% / 12) * 2);\n    }\n\n    .col-md-3 {\n        flex-basis: calc((100% / 12) * 3);\n    }\n\n    .col-md-4 {\n        flex-basis: calc((100% / 12) * 4);\n    }\n\n    .col-md-5 {\n        flex-basis: calc((100% / 12) * 5);\n    }\n\n    .col-md-12 {\n        flex: calc((100% / 12) * 12);\n    }\n}\n", ""]);
+exports.push([module.i, "* {\r\n    font-family: \"Montserrat\", sans-serif;\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n}\r\n\r\n.container {\r\n    display: flex;\r\n    width: 100%;\r\n    height: 100%;\r\n    max-width: 1170px;\r\n    margin: 0 auto;\r\n}\r\n\r\n[class*=\"col-\"] {\r\n    /* flex-direction: grow basis width; */\r\n    /* flex-direction: 0 0 auto; */\r\n}\r\n\r\n[class*=\"col-\"] {\r\n    position: relative;\r\n}\r\n\r\n.row {\r\n    display: flex;\r\n}\r\n\r\n.col-1 {\r\n    flex-basis: calc((100% / 12) * 1);\r\n}\r\n\r\n.col-2 {\r\n    flex-basis: calc((100% / 12) * 2);\r\n}\r\n\r\n.col-3 {\r\n    flex-basis: calc((100% / 12) * 3);\r\n}\r\n\r\n.col-4 {\r\n    flex-basis: calc((100% / 12) * 4);\r\n}\r\n\r\n.col-5 {\r\n    flex-basis: calc((100% / 12) * 5);\r\n}\r\n\r\n.col-6 {\r\n    flex-basis: calc((100% / 12) * 6);\r\n}\r\n\r\n.col-7 {\r\n    flex-basis: calc((100% / 12) * 7);\r\n}\r\n\r\n.col-8 {\r\n    flex-basis: calc((100% / 12) * 8);\r\n}\r\n\r\n.col-9 {\r\n    flex-basis: calc((100% / 12) * 9);\r\n}\r\n\r\n.col-10 {\r\n    flex-basis: calc((100% / 12) * 10);\r\n}\r\n\r\n.col-11 {\r\n    flex-basis: calc((100% / 12) * 11);\r\n}\r\n\r\n.col-12 {\r\n    flex-basis: calc((100% / 12) * 12);\r\n}\r\n\r\n.d-flex {\r\n    display: flex;\r\n}\r\n\r\n.flex-dr-col {\r\n    flex-direction: column;\r\n}\r\n\r\n.w-auto {\r\n    width: auto;\r\n}\r\n\r\n.h-vh {\r\n    height: 100vh;\r\n}\r\n\r\n.gp-5 {\r\n    gap: 5px;\r\n}\r\n\r\n.gp-10 {\r\n    gap: 10px;\r\n}\r\n\r\n.gp-15 {\r\n    gap: 15px;\r\n}\r\n\r\n.gp-20 {\r\n    gap: 20px;\r\n}\r\n\r\n.gp-25 {\r\n    gap: 25px;\r\n}\r\n\r\n.gp-30 {\r\n    gap: 30px;\r\n}\r\n\r\n.jc-c {\r\n    justify-content: center;\r\n}\r\n\r\n.ai-c {\r\n    align-items: center;\r\n}\r\n\r\n.w-100 {\r\n    width: 100%;\r\n}\r\n\r\n.wmax-100 {\r\n    max-width: 100%;\r\n}\r\n\r\n.w-max {\r\n    width: max-content;\r\n}\r\n\r\n.h-100 {\r\n    height: 100%;\r\n}\r\n\r\n.txt-c {\r\n    font-weight: 600;\r\n    margin: 0 15px;\r\n    text-align: center;\r\n}\r\n\r\n.m-tb {\r\n    margin: 10px 0;\r\n}\r\n\r\n.pd-20 {\r\n    padding: 20px !important;\r\n}\r\n\r\n.pd-20-lr {\r\n    padding: 0 20px !important;\r\n}\r\n\r\n.algn-itm-init {\r\n    align-items: initial !important;\r\n}\r\n\r\n.b-0 {\r\n    border: 0 !important;\r\n}\r\n\r\n.red {\r\n    color: red !important;\r\n}\r\n\r\n.d-block {\r\n    display: block;\r\n    color: red;\r\n}\r\n\r\n.d-none {\r\n    display: none;\r\n}\r\n\r\n#address-error {\r\n    position: absolute;\r\n    bottom: -25px;\r\n    left: 0;\r\n}\r\n\r\n.error {\r\n    color: red;\r\n    font-size: 15px;\r\n    position: relative;\r\n}\r\n\r\nlabel.error {\r\n    position: absolute !important;\r\n    bottom: -10px;\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.tbl-title {\r\n    font-weight: 900;\r\n}\r\n\r\n.f-grow {\r\n    flex-grow: 1;\r\n}\r\n\r\n.p-20 {\r\n    padding: 20px;\r\n}\r\n\r\n.mt-2 {\r\n    margin-top: 2rem;\r\n}\r\n\r\n.gap-20 {\r\n    gap: 20px;\r\n}\r\n\r\n.cnt-item-service label:nth-child(2) {\r\n    bottom: -30px;\r\n    left: 0;\r\n}\r\n\r\n@media screen and (max-width: 480px) {\r\n    .col-xs-12 {\r\n        flex-basis: calc((100% / 12) * 12);\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 820px) {\r\n    .col-md-1 {\r\n        flex-basis: calc((100% / 12) * 1);\r\n    }\r\n\r\n    .col-md-2 {\r\n        flex-basis: calc((100% / 12) * 2);\r\n    }\r\n\r\n    .col-md-3 {\r\n        flex-basis: calc((100% / 12) * 3);\r\n    }\r\n\r\n    .col-md-4 {\r\n        flex-basis: calc((100% / 12) * 4);\r\n    }\r\n\r\n    .col-md-5 {\r\n        flex-basis: calc((100% / 12) * 5);\r\n    }\r\n\r\n    .col-md-12 {\r\n        flex: calc((100% / 12) * 12);\r\n    }\r\n}\r\n", ""]);
 
 // exports
 
@@ -38947,7 +38947,7 @@ if (inBrowser && window.Vue) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
- * Vue.js v2.7.3
+ * Vue.js v2.7.4
  * (c) 2014-2022 Evan You
  * Released under the MIT License.
  */
@@ -41476,7 +41476,7 @@ function renderStatic(index, isInFor) {
         return tree;
     }
     // otherwise, render a fresh tree.
-    tree = cached[index] = this.$options.staticRenderFns[index].call(this._renderProxy, null, this // for render fns generated for functional component templates
+    tree = cached[index] = this.$options.staticRenderFns[index].call(this._renderProxy, this._c, this // for render fns generated for functional component templates
     );
     markStatic$1(tree, `__static__${index}`, false);
     return tree;
@@ -43249,8 +43249,8 @@ function doWatch(source, cb, { immediate, deep, flush = 'pre', onTrack, onTrigge
     else {
         // pre
         watcher.update = () => {
-            if (instance && instance === currentInstance) {
-                // pre-watcher triggered inside setup()
+            if (instance && instance === currentInstance && !instance._isMounted) {
+                // pre-watcher triggered before
                 const buffer = instance._preWatchers || (instance._preWatchers = []);
                 if (buffer.indexOf(watcher) < 0)
                     buffer.push(watcher);
@@ -43516,6 +43516,77 @@ function useCssVars(getter) {
     });
 }
 
+/**
+ * v3-compatible async component API.
+ * @internal the type is manually declared in <root>/types/v3-define-async-component.d.ts
+ * because it relies on existing manual types
+ */
+function defineAsyncComponent(source) {
+    if (isFunction(source)) {
+        source = { loader: source };
+    }
+    const { loader, loadingComponent, errorComponent, delay = 200, timeout, // undefined = never times out
+    suspensible = false, // in Vue 3 default is true
+    onError: userOnError } = source;
+    if (suspensible) {
+        warn$2(`The suspensiblbe option for async components is not supported in Vue2. It is ignored.`);
+    }
+    let pendingRequest = null;
+    let retries = 0;
+    const retry = () => {
+        retries++;
+        pendingRequest = null;
+        return load();
+    };
+    const load = () => {
+        let thisRequest;
+        return (pendingRequest ||
+            (thisRequest = pendingRequest =
+                loader()
+                    .catch(err => {
+                    err = err instanceof Error ? err : new Error(String(err));
+                    if (userOnError) {
+                        return new Promise((resolve, reject) => {
+                            const userRetry = () => resolve(retry());
+                            const userFail = () => reject(err);
+                            userOnError(err, userRetry, userFail, retries + 1);
+                        });
+                    }
+                    else {
+                        throw err;
+                    }
+                })
+                    .then((comp) => {
+                    if (thisRequest !== pendingRequest && pendingRequest) {
+                        return pendingRequest;
+                    }
+                    if (!comp) {
+                        warn$2(`Async component loader resolved to undefined. ` +
+                            `If you are using retry(), make sure to return its return value.`);
+                    }
+                    // interop module default
+                    if (comp &&
+                        (comp.__esModule || comp[Symbol.toStringTag] === 'Module')) {
+                        comp = comp.default;
+                    }
+                    if (comp && !isObject(comp) && !isFunction(comp)) {
+                        throw new Error(`Invalid async component load result: ${comp}`);
+                    }
+                    return comp;
+                })));
+    };
+    return () => {
+        const component = load();
+        return {
+            component,
+            delay,
+            timeout,
+            error: errorComponent,
+            loading: loadingComponent
+        };
+    };
+}
+
 function createLifeCycle(hookName) {
     return (fn, target = currentInstance) => {
         if (!target) {
@@ -43553,7 +43624,10 @@ const onServerPrefetch = createLifeCycle('serverPrefetch');
 const onRenderTracked = createLifeCycle('renderTracked');
 const onRenderTriggered = createLifeCycle('renderTriggered');
 
-const version = '2.7.3';
+/**
+ * Note: also update dist/vue.runtime.mjs when adding new exports to this file.
+ */
+const version = '2.7.4';
 /**
  * @internal type is manually declared in <root>/types/v3-define-component.d.ts
  */
@@ -43605,6 +43679,7 @@ var vca = /*#__PURE__*/Object.freeze({
   del: del,
   useCssModule: useCssModule,
   useCssVars: useCssVars,
+  defineAsyncComponent: defineAsyncComponent,
   onBeforeMount: onBeforeMount,
   onMounted: onMounted,
   onBeforeUpdate: onBeforeUpdate,
@@ -43801,7 +43876,7 @@ function set(target, key, val) {
         target.length = Math.max(target.length, key);
         target.splice(key, 1, val);
         // when mocking for SSR, array methods are not hijacked
-        if (!ob.shallow && ob.mock) {
+        if (ob && !ob.shallow && ob.mock) {
             observe(val, false, true);
         }
         return val;
@@ -50624,7 +50699,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/bathroom-svgrepo-com.svg?b2d6572b9df7417b463c45dc47b35b71";
+module.exports = "/images/bathroom-svgrepo-com.svg?341b8b9156e45ba7c7d8697f2dbe38e8";
 
 /***/ }),
 
@@ -50635,7 +50710,7 @@ module.exports = "/images/bathroom-svgrepo-com.svg?b2d6572b9df7417b463c45dc47b35
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/bed-svgrepo-com.svg?d11497d4ff7ee111b6e9341afe3a3b18";
+module.exports = "/images/bed-svgrepo-com.svg?362611fbc513962611e9857175cd2e3e";
 
 /***/ }),
 
@@ -50646,7 +50721,7 @@ module.exports = "/images/bed-svgrepo-com.svg?d11497d4ff7ee111b6e9341afe3a3b18";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/boolbnb-logo.svg?3d280ce93a87d5787e75541b133a5ee5";
+module.exports = "/images/boolbnb-logo.svg?f1aced8f583f3dbbaa6c6fd70901e200";
 
 /***/ }),
 
@@ -50657,7 +50732,7 @@ module.exports = "/images/boolbnb-logo.svg?3d280ce93a87d5787e75541b133a5ee5";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/euro-svgrepo-com.svg?98f0b04e44aa53477cbcd122b968fe44";
+module.exports = "/images/euro-svgrepo-com.svg?6be28595eeb9e114a9c4f6a0e578ed3c";
 
 /***/ }),
 
@@ -50668,7 +50743,7 @@ module.exports = "/images/euro-svgrepo-com.svg?98f0b04e44aa53477cbcd122b968fe44"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/filter.svg?1292f7e21681da2478caee5e12acd748";
+module.exports = "/images/filter.svg?2b53b7d29056335c4ec769058393830d";
 
 /***/ }),
 
@@ -50679,7 +50754,7 @@ module.exports = "/images/filter.svg?1292f7e21681da2478caee5e12acd748";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/position-svgrepo-com.svg?aa6ca64d6c082e36a5f2525fd96e4cc2";
+module.exports = "/images/position-svgrepo-com.svg?1f238e05684b622a1332e92c81028a7f";
 
 /***/ }),
 
@@ -50690,7 +50765,7 @@ module.exports = "/images/position-svgrepo-com.svg?aa6ca64d6c082e36a5f2525fd96e4
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/room-svgrepo-com.svg?bf8078af8c6edf27e34bb786df407b62";
+module.exports = "/images/room-svgrepo-com.svg?ef873c2538fab9dc90045907763b1f15";
 
 /***/ }),
 
@@ -50701,7 +50776,7 @@ module.exports = "/images/room-svgrepo-com.svg?bf8078af8c6edf27e34bb786df407b62"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/square-layout-with-boxes-svgrepo-com.svg?8e5d221275620c525869035a60184014";
+module.exports = "/images/square-layout-with-boxes-svgrepo-com.svg?58452092e36d4f3c329132273b0c35dd";
 
 /***/ }),
 
@@ -50712,7 +50787,7 @@ module.exports = "/images/square-layout-with-boxes-svgrepo-com.svg?8e5d221275620
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/arrowUp.svg?69c93130ff8c276950bf58f5e705f178";
+module.exports = "/images/arrowUp.svg?4a1431c2c69ce35b24abf5322508e11d";
 
 /***/ }),
 
@@ -50723,7 +50798,7 @@ module.exports = "/images/arrowUp.svg?69c93130ff8c276950bf58f5e705f178";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/fb-g.svg?618649db81b56cc4443b3adb7cb03321";
+module.exports = "/images/fb-g.svg?7755cad3a47567a33e945f1b8d77e7de";
 
 /***/ }),
 
@@ -50734,7 +50809,7 @@ module.exports = "/images/fb-g.svg?618649db81b56cc4443b3adb7cb03321";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/fb.svg?427f029e1c5cdd761ad04aed367498be";
+module.exports = "/images/fb.svg?5047fab4814fae2b96faf251b162ad2b";
 
 /***/ }),
 
@@ -50756,7 +50831,7 @@ module.exports = "/images/ico-lnkd.svg?1818b2d362ae200b5e1aae534b2de671";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/ig-g.svg?16aee3329d7194ec9f7bf2f3af84e760";
+module.exports = "/images/ig-g.svg?7447cc21a569d15e4c06a1587a68d7cd";
 
 /***/ }),
 
@@ -50767,7 +50842,7 @@ module.exports = "/images/ig-g.svg?16aee3329d7194ec9f7bf2f3af84e760";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/ig.svg?2774bbbaf1b0df7f1beb186e50055bd0";
+module.exports = "/images/ig.svg?1f7277f4e3563d239d47507a8c67b994";
 
 /***/ }),
 
@@ -50811,7 +50886,7 @@ module.exports = "/images/undraw_travel_booking_re_6umu.svg?3ee5847d5ad4c6f042e3
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/pitto-logotype.svg?3d280ce93a87d5787e75541b133a5ee5";
+module.exports = "/images/pitto-logotype.svg?f1aced8f583f3dbbaa6c6fd70901e200";
 
 /***/ }),
 
@@ -50822,7 +50897,7 @@ module.exports = "/images/pitto-logotype.svg?3d280ce93a87d5787e75541b133a5ee5";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/pitto.svg?61e365b40d898378307dce1715d98800";
+module.exports = "/images/pitto.svg?63a42ba89915f5803f9738c35fa5abf4";
 
 /***/ }),
 
@@ -51455,7 +51530,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/js/front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\Francesco\Documents\Boolean\PHP\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })

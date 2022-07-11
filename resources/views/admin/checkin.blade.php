@@ -14,6 +14,7 @@
                         <div class="box-card-ads">
                             <div class="picture">
                                 <div class="pic-ads">
+                                    <img src="{{ asset('storage/' . $sponsor->img) }}" alt="">
                                 </div>
                             </div>
                             <div class="cnt-txt-ads">
