@@ -14,11 +14,11 @@ class ChartController extends Controller
     public function index($id)
     {
 
-        $views = View::select('created_at')->where('apartment_id',$id)->get()->groupBy(function($data){
+        $views = View::select('created_at')->where('apartment_id',$id)->orderBy("created_at")->get()->groupBy(function($data){
             return Carbon::parse($data->created_at)->format("M");
         });
 
-        $messages = Message::select('created_at')->where('apartment_id',$id)->get()->groupBy(function($data){
+        $messages = Message::select('created_at')->where('apartment_id',$id)->orderBy("created_at")->get()->groupBy(function($data){
             return Carbon::parse($data->created_at)->format("M");
         });
 
@@ -35,12 +35,12 @@ class ChartController extends Controller
          ->name('visual')
          ->type('bar')
          ->size(['width' => 400, 'height' => 200])
-         ->labels(array_reverse($monthsV))
+         ->labels($monthsV)
          ->datasets([
              [
                  "label" => "visualizzazioni",
                  'backgroundColor' => ['rgb(128,255,234,0.5)', 'rgba(54, 162, 235, 0.2)'],
-                 'data' => array_reverse($monthsCountV)
+                 'data' => $monthsCountV
              ]
          ])
          ->options([]);
@@ -58,12 +58,12 @@ class ChartController extends Controller
          ->name('message')
          ->type('bar')
          ->size(['width' => 400, 'height' => 200])
-         ->labels(array_reverse($monthsM))
+         ->labels($monthsM)
          ->datasets([
              [
                  "label" => "messaggi",
                  'backgroundColor' => ['rgba(54, 162, 235, 0.2), rgb(128,255,234,0.5)'],
-                 'data' => array_reverse($monthsCountM)
+                 'data' => $monthsCountM
              ]
          ])
          ->options([]);
