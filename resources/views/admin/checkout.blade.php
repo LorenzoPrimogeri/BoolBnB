@@ -19,15 +19,6 @@
             <span>Price:</span>
             <p> {{ $sponsor->price }}$</p>
         </div>
-        <div class="cnt-txt-card">
-            <span>apartment id:</span>
-            <p> {{ $apartment->id }}</p>
-        </div>
-        <div class="cnt-txt-card">
-            <span>N. Card:</span>
-            <p> 4009348888881881</p>
-        </div>
-
         <div>
             <form id="payment-form" action="{{ route('admin.payment') }}" method="POST" enctype="multipart/form-data">
                 @csrf
