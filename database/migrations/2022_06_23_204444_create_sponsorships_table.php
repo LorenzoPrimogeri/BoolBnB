@@ -18,6 +18,7 @@ class CreateSponsorshipsTable extends Migration
             $table->string("type", 50);
             $table->float("price");
             $table->smallInteger("duration");
+            $table->string("img");
         });
     }
 
