@@ -2714,7 +2714,7 @@ var render = function render() {
     staticClass: "services-box cnt-row col-12"
   }, [_vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "details col-3"
-  }, [_c("div", {
+  }, [_c("h3", [_vm._v("Caratteristiche:")]), _vm._v(" "), _c("div", {
     staticClass: "d-flex service-box"
   }, [_c("p", [_c("img", {
     attrs: {
@@ -2753,11 +2753,11 @@ var render = function render() {
     staticClass: "services col-4"
   }, [_c("div", {
     staticClass: "cnt-row col-12"
-  }, _vm._l(_vm.services, function (service, j) {
+  }, [_c("h3", [_vm._v("Servizi:")]), _vm._v(" "), _vm._l(_vm.services, function (service, j) {
     return _c("div", {
       key: j
     }, [_vm._v(_vm._s(service))]);
-  }), 0)])])]), _vm._v(" "), _c("div", {
+  })], 2)])])]), _vm._v(" "), _c("div", {
     staticClass: "bgExpandFilter",
     attrs: {
       id: "bgExpand"
@@ -3145,7 +3145,7 @@ var render = function render() {
         src: "/storage/" + apartment.img
       }
     })])])]), _vm._v(" "), _c("div", {
-      staticClass: "cnt-txt cnt-h col-12"
+      staticClass: "cnt-txt cnt-h"
     }, [_c("h2", [_vm._v(_vm._s(apartment.title))]), _vm._v(" "), _c("h3", [_vm._v(_vm._s(apartment.address))])]), _vm._v(" "), _c("div", {
       staticClass: "price col-12"
     }, [_c("span", [_vm._v(_vm._s(apartment.price) + " €/notte")])])], 1)]);
@@ -52004,7 +52004,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Amministratore\Desktop\BooleanProject\php\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\Michele\Documents\Boolean\Esercizi\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })
