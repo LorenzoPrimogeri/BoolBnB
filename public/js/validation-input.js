@@ -4,7 +4,7 @@ const form = document.getElementById("form-validate");
 $(document).ready(function () {
     $('.onlynumber').keypress(function (e) {
         var charCode = (e.which) ? e.which : event.keyCode
-        if (String.fromCharCode(charCode).match(/[^1-9]/g))
+        if (String.fromCharCode(charCode).match(/[^0-9]/g))
             return false;
     });
     /* $('#rooms').on('input', function () {
