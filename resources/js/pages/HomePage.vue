@@ -37,11 +37,11 @@
             </div>
           </div>
           <!-- SEARCH -->
-
           <!-- LOGIN-REGISTER -->
           <div class="col-2 d-flex jc-c ai-c">
             <div v-if="user_id">
               <span>{{ username }}</span>
+              <!-- inserire dashboard -->
             </div>
             <div v-else class="main-usr-set"
               v-show="$route.name === 'home' ? true : false">
