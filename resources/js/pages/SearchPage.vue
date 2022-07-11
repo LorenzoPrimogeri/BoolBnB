@@ -194,7 +194,7 @@
 
     <!--Filter-->
     <!--Main-->
-    //v-if nessun risultato se appartment è correctApartment >=1
+    <!-- v-if nessun risultato se appartment è correctApartment >=1 -->
     <main>
       <div class="container w-100">
         <div class="cnt-cards pd-20">

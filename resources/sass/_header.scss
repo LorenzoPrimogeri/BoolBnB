@@ -3,9 +3,10 @@
 header {
     position: fixed;
     width: 100%;
-    height: 100px;
+    height: auto;
     top: 0;
     left: 0;
+    padding: 10px 0;
     background-color: #fff;
     -webkit-box-shadow: 0 4px 10px -5px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 4px 10px -5px rgba(0, 0, 0, 0.2);
@@ -22,7 +23,7 @@ header {
         width: 100%;
         height: 100%;
         justify-content: space-between;
-
+        align-items: center;
         .cnt-logo {
             display: flex;
             align-items: center;
@@ -108,18 +109,18 @@ header {
             font-size: 0.9em;
         }
     }
+    .container-src {
+        display: none;
+    }
 }
 
 .cnt-result-adress {
-    position: fixed;
+    position: relative;
     width: 100%;
     top: 0;
     background: #fff;
-    padding: 100px 0 0;
-    -webkit-box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    padding: 0 20px;
     .cnt-items {
         width: 50%;
         margin: 0 auto;
@@ -194,13 +195,7 @@ header {
         background: url(../../../public/img/fineIcon.svg) no-repeat center;
     }
 }
-
-@media only screen and(max-width:850px) {
-    .search {
-        width: 100%;
-    }
-}
-@media only screen and(max-width:650px) {
+@media only screen and(max-width:1024px) {
     #btn-hamburger {
         display: block;
         position: absolute;
@@ -252,10 +247,72 @@ header {
         width: 0%;
         left: 50%;
     }
+}
+@media only screen and(max-width:890px) {
     header {
         .cnt-hdr-items {
             .cnt-logo {
-                width: 80px;
+                width: 55px;
+            }
+        }
+    }
+    .logo-desk {
+        display: none;
+    }
+    .logo-mob {
+        display: block !important;
+    }
+    .container-src {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .cnt-hdr-src {
+            width: 100%;
+            .search {
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+    }
+    .cnt-result-adress {
+        .cnt-items {
+            width: 100%;
+        }
+    }
+}
+@media only screen and(max-width:740px) {
+    .cnt-search {
+        display: none;
+    }
+}
+@media only screen and(max-width:650px) {
+    header {
+        .cnt-hdr-items {
+            .cnt-logo {
+                width: 55px;
+            }
+        }
+        .cnt-search {
+            display: none;
+        }
+        .container-src {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px !important;
+            .cnt-hdr-src {
+                width: 100%;
+                .search {
+                    width: 100%;
+                    max-width: 500px;
+                    margin: 0 auto;
+                    .contStringSrc {
+                        input {
+                            font-size: 0.8em;
+                        }
+                    }
+                }
             }
         }
     }

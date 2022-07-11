@@ -39,27 +39,6 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  /* .ico {
-      width: 40px;
-      height: 40px;
-      background-color: violet;
-  }
-  .aprt {
-      background: url("../img/ico/ico-apartment.svg") no-repeat
-          center/contain;
-  }
-  .msg {
-      background: url("../img/ico/ico-message.svg") no-repeat
-          center/contain;
-  }
-  .ads {
-      background: url("../img/ico/ico-sponsored.svg") no-repeat
-          center/contain;
-  }
-  .stcs {
-      background: url("../img/ico/ico-statistic.svg") no-repeat
-          center/contain;
-  } */
 }
 
 .subMenu .contSubMenuSlide ul li a {
@@ -78,19 +57,6 @@
   justify-content: center;
   gap: 30px;
   padding: 50px;
-}
-
-.subMenu .cnt-obj-hdr-mob .cnt-actions a {
-  /* .log,
-  .reg {
-    height: 25px;
-  }
-  .log {
-    background: url("../img/login.svg") no-repeat center/contain;
-  }
-  .reg {
-    background: url("../img/register.svg") no-repeat center/contain;
-  } */
 }
 
 .subMenu .cnt-obj-hdr-mob .cnt-actions a.a-log,

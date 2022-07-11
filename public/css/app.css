@@ -1,9 +1,10 @@
 header {
   position: fixed;
   width: 100%;
-  height: 100px;
+  height: auto;
   top: 0;
   left: 0;
+  padding: 10px 0;
   background-color: #fff;
   box-shadow: 0 4px 10px -5px rgba(0, 0, 0, 0.2);
   z-index: 2;
@@ -20,6 +21,7 @@ header .cnt-hdr-items {
   width: 100%;
   height: 100%;
   justify-content: space-between;
+  align-items: center;
 }
 
 header .cnt-hdr-items .cnt-logo {
@@ -106,14 +108,17 @@ header ul.ul-log-reg a {
   font-size: 0.9em;
 }
 
+header .container-src {
+  display: none;
+}
+
 .cnt-result-adress {
-  position: fixed;
+  position: relative;
   width: 100%;
   top: 0;
   background: #fff;
-  padding: 100px 0 0;
-  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  padding: 0 20px;
 }
 
 .cnt-result-adress .cnt-items {
@@ -187,13 +192,7 @@ header ul.ul-log-reg a {
   background: url(/images/fineIcon.svg?551757e6b172e6d3b801ea9d9dfe8a56) no-repeat center;
 }
 
-@media only screen and (max-width: 850px) {
-  .search {
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 1024px) {
   #btn-hamburger {
     display: block;
     position: absolute;
@@ -253,9 +252,76 @@ header ul.ul-log-reg a {
     width: 0%;
     left: 50%;
   }
+}
 
+@media only screen and (max-width: 890px) {
   header .cnt-hdr-items .cnt-logo {
-    width: 80px;
+    width: 55px;
+  }
+
+  .logo-desk {
+    display: none;
+  }
+
+  .logo-mob {
+    display: block !important;
+  }
+
+  .container-src {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container-src .cnt-hdr-src {
+    width: 100%;
+  }
+
+  .container-src .cnt-hdr-src .search {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .cnt-result-adress .cnt-items {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  .cnt-search {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  header .cnt-hdr-items .cnt-logo {
+    width: 55px;
+  }
+
+  header .cnt-search {
+    display: none;
+  }
+
+  header .container-src {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px !important;
+  }
+
+  header .container-src .cnt-hdr-src {
+    width: 100%;
+  }
+
+  header .container-src .cnt-hdr-src .search {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  header .container-src .cnt-hdr-src .search .contStringSrc input {
+    font-size: 0.8em;
   }
 
   .logo-desk {
@@ -273,7 +339,7 @@ header ul.ul-log-reg a {
   justify-content: center;
   position: relative;
   height: 100%;
-  width: 300px;
+  width: 350px;
   top: 50%;
   transform: translate(0, -50%);
 }

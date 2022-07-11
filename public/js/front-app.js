@@ -2124,6 +2124,22 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
+    $(document).ready(function () {
+      $("#btn-hamburger").click(function () {
+        ShowMenu();
+      });
+    });
+
+    function ShowMenu() {
+      var tag = document.getElementById("subMenuSlide");
+
+      if (tag.style.maxHeight !== "100%") {
+        tag.style.maxHeight = "100%";
+      } else {
+        tag.style.maxHeight = "0";
+      }
+    }
+
     $("#btn-hamburger").click(function () {
       $(this).toggleClass("open");
     });
@@ -2153,7 +2169,20 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     }
+    /*
+    Lancio la funzione al verificarsi di alcuni eventi (scrolling e resize)
+    legati alla finestra del browser
+    */
 
+
+    $(window).on("scroll resize", function () {
+      // applico l'effetto alle sole immagini con classe 'fadeimg'
+      imgFadeIn(".fadeLeft, .fadeRight");
+    });
+    $(window).on("load resize", function () {
+      // applico l'effetto alle sole immagini con classe 'fadeimg'
+      imgFadeIn(".fadeLeft, .fadeRight");
+    });
     $(document).ready(function () {
       $(window).scroll(function () {
         if ($(this).scrollTop() > 250) {
@@ -2167,19 +2196,6 @@ __webpack_require__.r(__webpack_exports__);
           scrollTop: 0
         }, 900);
       });
-    });
-    /*
-    Lancio la funzione al verificarsi di alcuni eventi (scrolling e resize)
-    legati alla finestra del browser
-    */
-
-    $(window).on("scroll resize", function () {
-      // applico l'effetto alle sole immagini con classe 'fadeimg'
-      imgFadeIn(".fadeLeft, .fadeRight");
-    });
-    $(window).on("load resize", function () {
-      // applico l'effetto alle sole immagini con classe 'fadeimg'
-      imgFadeIn(".fadeLeft, .fadeRight");
     }); //prendo tutti gli appartamenti dal database
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments").then(function (results) {
@@ -2467,18 +2483,159 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'wearePage',
-  mounted: function mounted() {
-    $(document).ready(function () {
-      var cards = $(".cards");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-      for (var i = 0; i < cards.length; i++) {
-        var target = Math.floor(Math.random() * cards.length - 1) + 1;
-        var target2 = Math.floor(Math.random() * cards.length - 1) + 1;
-        cards.eq(target).before(cards.eq(target2));
-      }
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "WearePage",
+  data: function data() {
+    return {
+      input: "",
+      searchedAdress: "",
+      //  lat: 0, //Riferito all'indirizzo inserito dal utente
+      //  lng: 0, //Riferito all'indirizzo inserito dal utente
+      indirizzi: [],
+      //indirizzi che stampo per l'auto complete
+      allApartaments: [],
+      //tutti gli appartamenti visible
+      correctApartments: [],
+      //appartamenti che soddisfano la ricerca
+      isClicked: false //  allServices: [],
+      //  services: [],
+      //  distanceKm: 20,
+      //  room: 1,
+      //  inputUser: ' ',
+      //bed: 1,
+
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    $(document).ready(function () {
+      $("#btn-hamburger").click(function () {
+        ShowMenu();
+      });
     });
+
+    function ShowMenu() {
+      var tag = document.getElementById("subMenuSlide");
+
+      if (tag.style.maxHeight !== "100%") {
+        tag.style.maxHeight = "100%";
+      } else {
+        tag.style.maxHeight = "0";
+      }
+    }
+
+    $("#btn-hamburger").click(function () {
+      $(this).toggleClass("open");
+    });
+
+    function imgFadeInTm(ele) {
+      // calcolo l'altezza della finestra
+      var wh = $(window).height();
+      var x = window.matchMedia("(max-width: 800px)"); // ciclo tutte le immagini identificate mediante il selettore
+      // passato in argomento alla funzione imgFadeIn()
+
+      $(ele).each(function () {
+        // calcolo la posizione, lungo l'asse verticale, dell'immagine
+        var thisPos = $(this).offset().top; // calcolo la posizione attuale dello scroll
+
+        var topOfWindow = $(window).scrollTop(); // faccio una serie di calcoli per capire quando l'utente si avvicina all'immagine
+
+        if (topOfWindow + wh - 50 > thisPos) {
+          // appena l'immagine entra nello schermo applico la classe 'fadein'
+          // (...e tutto quello che succederà è definito mediante CSS)
+          $(this).addClass("fadein-left-tm");
+          $(this).addClass("fadein-right-tm");
+        }
+
+        if (x.matches && topOfWindow + wh - 1000 > thisPos) {
+          $(this).addClass("fadein-left-tm");
+          $(this).addClass("fadein-right-tm");
+        }
+      });
+    }
+    /*
+    Lancio la funzione al verificarsi di alcuni eventi (scrolling e resize)
+    legati alla finestra del browser
+    */
+
+
+    $(window).on("scroll resize", function () {
+      // applico l'effetto alle sole immagini con classe 'fadeimg'
+      imgFadeInTm(".fadeLeft-tm, .fadeRight-tm");
+    });
+    $(window).on("load resize", function () {
+      // applico l'effetto alle sole immagini con classe 'fadeimg'
+      imgFadeInTm(".fadeLeft-tm, .fadeRight-tm");
+    });
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 250) {
+          $(".scrollToTop").fadeIn();
+        } else {
+          $(".scrollToTop").fadeOut();
+        }
+      });
+      $(".scrollToTop").click(function () {
+        $("html, body").animate({
+          scrollTop: 0
+        }, 900);
+      });
+    }); //prendo tutti gli appartamenti dal database
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments").then(function (results) {
+      var result = [];
+      result = results.data.apartments;
+      console.log(results);
+
+      for (var i = 0; i < result.length; i++) {
+        var apartment = result[i];
+
+        if (apartment.sponsorships.length >= 1) {
+          console.log("ciao sono apparso");
+
+          _this.allApartaments.push(apartment);
+        }
+      }
+
+      console.log(_this.allApartaments); // this.allServices = results.data.services;
+      // console.log(this.allServices);
+    }); // if (localStorage.input) {
+    //   this.input = localStorage.input;
+    // }
+  },
+  methods: {
+    gotoDetails: function gotoDetails(id) {
+      var url = " " / home / " + id ";
+      return url;
+    },
+    onInputChanged: function onInputChanged() {
+      var _this2 = this;
+
+      this.isClicked = false; // console.log(this.distanceKm);
+      //Call axios che restituisce gli indirizzi autocomplete
+
+      delete axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common["X-Requested-With"];
+      this.indirizzi = [];
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=5&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK", {
+        params: {
+          query: this.input
+        }
+      }).then(function (risp) {
+        var risultati = risp.data.results; // console.log('risultato', this.input);
+
+        _this2.indirizzi = risultati;
+      }); //return this.indirizzi;
+    },
+    take: function take(indirizzo) {
+      // const searchedAdress = indirizzo;
+      this.input = indirizzo;
+      this.isClicked = true; //   return searchedAdress;
+      // console.log('risultato nuovo input', this.input);
+    }
   }
 });
 
@@ -2819,6 +2976,8 @@ var render = function render() {
   })])], 1)]), _vm._v(" "), _c("div", {
     staticClass: "cnt-nav col-8 h-100"
   }, [_c("div", {
+    staticClass: "cnt-search"
+  }, [_c("div", {
     staticClass: "search"
   }, [_c("div", {
     staticClass: "cnt-lens"
@@ -2857,7 +3016,7 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "cnt-fine"
-  })])], 1)]), _vm._v(" "), _c("div", {
+  })])], 1)])]), _vm._v(" "), _c("div", {
     staticClass: "col-2 d-flex jc-c ai-c"
   }, [_c("div", {
     directives: [{
@@ -2882,7 +3041,50 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "btn-filter"
-  }), _vm._v(" "), _c("span", [_vm._v("Filtri")])])])])])])]), _vm._v(" "), !_vm.isClicked ? _c("div", {
+  }), _vm._v(" "), _c("span", [_vm._v("Filtri")])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "container container-src wmax-100 h-100 pd-20-lr bg-white"
+  }, [_c("div", {
+    staticClass: "cnt-hdr-src"
+  }, [_c("div", {
+    staticClass: "search"
+  }, [_c("div", {
+    staticClass: "cnt-lens"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "contStringSrc"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.input,
+      expression: "input"
+    }],
+    staticClass: "accountInput",
+    attrs: {
+      id: "userInput",
+      type: "text",
+      placeholder: "Cerca appartamento"
+    },
+    domProps: {
+      value: _vm.input
+    },
+    on: {
+      input: [function ($event) {
+        if ($event.target.composing) return;
+        _vm.input = $event.target.value;
+      }, _vm.onInputChanged]
+    }
+  })]), _vm._v(" "), _c("router-link", {
+    attrs: {
+      to: {
+        name: "search",
+        params: {
+          input: _vm.input
+        }
+      }
+    }
+  }, [_c("div", {
+    staticClass: "cnt-fine"
+  })])], 1)])]), _vm._v(" "), !_vm.isClicked ? _c("div", {
     staticClass: "cnt-result-adress"
   }, _vm._l(_vm.indirizzi, function (indirizzo, i) {
     return _c("div", {
@@ -2897,8 +3099,8 @@ var render = function render() {
           return _vm.take(indirizzo.address.freeformAddress);
         }
       }
-    }, [_vm._v("\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\n        ")])]);
-  }), 0) : _vm._e(), _vm._v(" "), _c("main", [_c("div", {
+    }, [_vm._v("\n            " + _vm._s(indirizzo.address["freeformAddress"]) + "\n          ")])]);
+  }), 0) : _vm._e()]), _vm._v(" "), _c("main", [_c("div", {
     staticClass: "main-carousel-layout"
   }, [_c("div", {
     staticClass: "cnt-carousel"
@@ -2935,7 +3137,17 @@ var render = function render() {
     }, [_c("h2", [_vm._v(_vm._s(apartment.title))]), _vm._v(" "), _c("h3", [_vm._v(_vm._s(apartment.address))])]), _vm._v(" "), _c("div", {
       staticClass: "price col-12"
     }, [_c("span", [_vm._v(_vm._s(apartment.price) + " €/notte")])])], 1)]);
-  }), 1)], 1)]), _vm._v(" "), _vm._m(3)])]), _vm._v(" "), _c("footer", [_vm._m(4), _vm._v(" "), _c("div", {
+  }), 1)], 1)]), _vm._v(" "), _vm._m(3)])]), _vm._v(" "), _c("footer", [_c("div", {
+    staticClass: "cnt-main-rows-ftr"
+  }, [_c("div", {
+    staticClass: "row-ftr"
+  }, [_c("div", {
+    staticClass: "cnt-info weare"
+  }, [_c("router-link", {
+    attrs: {
+      to: "weare"
+    }
+  }, [_vm._v(" Chi Siamo ")])], 1)]), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("div", {
     staticClass: "row-ftr"
   }, [_c("div", {
     staticClass: "obj-cont-ftr obj-cont-tm"
@@ -2945,7 +3157,7 @@ var render = function render() {
     staticClass: "logo-tm"
   }), _vm._v(" "), _c("p", {
     staticClass: "tm"
-  }, [_vm._v("- All Rights Reserved")])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("- All Rights Reserved")])])])])]), _vm._v(" "), _vm._m(5), _vm._v(" "), _c("div", {
     staticClass: "scrollToTop"
   })]);
 };
@@ -2956,30 +3168,24 @@ var staticRenderFns = [function () {
 
   return _c("ul", {
     staticClass: "ul-log-reg"
-  }, [_c("li", [_c("div", {
-    staticClass: "ico-log ico-login"
+  }, [_c("div", {
+    staticClass: "cnt-ul"
+  }, [_c("ul", [_c("li", [_c("div", {
+    staticClass: "ico aprt"
   }), _vm._v(" "), _c("a", {
     attrs: {
-      href: " /login"
+      href: "/admin/apartments"
     }
-  }, [_vm._v("Login")])]), _vm._v(" "), _c("li", [_c("div", {
-    staticClass: "ico-log ico-reg"
-  }), _vm._v(" "), _c("a", {
-    attrs: {
-      href: "/register"
-    }
-  }, [_vm._v("Register")])])]);
+  }, [_vm._v("Dashboard")])])])])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "col-2 h-100 d-flex jc-c ai-c"
-  }, [_c("div", {
     attrs: {
       id: "btn-hamburger"
     }
-  }, [_c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span")])]);
+  }, [_c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span")]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
@@ -3073,6 +3279,30 @@ var staticRenderFns = [function () {
   }), _vm._v(" "), _c("div", {
     staticClass: "ico-soc ig"
   })])])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "subMenu closeMenu",
+    staticStyle: {
+      filter: "progid:DXImageTransform.Microsoft.Shadow(color='#dedede', Direction=135, Strength=10)",
+      "-webkit-overflow-scrolling": "touch"
+    },
+    attrs: {
+      id: "subMenuSlide"
+    }
+  }, [_c("div", {
+    staticClass: "contSubMenuSlide"
+  }, [_c("div", {
+    staticClass: "cnt-ul"
+  }, [_c("ul", [_c("li", [_c("div", {
+    staticClass: "ico aprt"
+  }), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "/admin/apartments"
+    }
+  }, [_vm._v("Dashboard")])])])])])]);
 }];
 render._withStripped = true;
 
@@ -3386,7 +3616,7 @@ var render = function render() {
         return _vm.takeLatLng();
       }
     }
-  }, [_vm._v("Invio")])])])])]), _vm._v(" "), _vm._v("\n    //v-if nessun risultato se appartment è correctApartment >=1\n    "), _c("main", [_c("div", {
+  }, [_vm._v("Invio")])])])])]), _vm._v(" "), _c("main", [_c("div", {
     staticClass: "container w-100"
   }, [_c("div", {
     staticClass: "cnt-cards pd-20"
@@ -3465,19 +3695,222 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
+  return _c("div", [_c("header", [_c("div", {
+    staticClass: "container wmax-100 h-100 pd-20-lr"
+  }, [_c("div", {
+    staticClass: "cnt-hdr-items"
+  }, [_c("div", {
+    staticClass: "col-2 col-xs-12"
+  }, [_c("div", {
+    staticClass: "cnt-logo"
+  }, [_c("router-link", {
+    attrs: {
+      to: "/"
+    }
+  }, [_c("img", {
+    staticClass: "logo-desk",
+    attrs: {
+      src: __webpack_require__(/*! ../../img/pitto-logotype.svg */ "./resources/img/pitto-logotype.svg"),
+      alt: "logo-BoolBnb"
+    }
+  }), _vm._v(" "), _c("img", {
+    staticClass: "logo-mob",
+    attrs: {
+      src: __webpack_require__(/*! ../../img/pitto.svg */ "./resources/img/pitto.svg"),
+      alt: "logo-BoolBnb"
+    }
+  })])], 1)]), _vm._v(" "), _c("div", {
+    staticClass: "cnt-nav col-8 h-100"
+  }, [_c("div", {
+    staticClass: "cnt-search"
+  }, [_c("div", {
+    staticClass: "search"
+  }, [_c("div", {
+    staticClass: "cnt-lens"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "contStringSrc"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.input,
+      expression: "input"
+    }],
+    staticClass: "accountInput",
+    attrs: {
+      id: "userInput",
+      type: "text",
+      placeholder: "Cerca appartamento"
+    },
+    domProps: {
+      value: _vm.input
+    },
+    on: {
+      input: [function ($event) {
+        if ($event.target.composing) return;
+        _vm.input = $event.target.value;
+      }, _vm.onInputChanged]
+    }
+  })]), _vm._v(" "), _c("router-link", {
+    attrs: {
+      to: {
+        name: "search",
+        params: {
+          input: _vm.input
+        }
+      }
+    }
+  }, [_c("div", {
+    staticClass: "cnt-fine"
+  })])], 1)])]), _vm._v(" "), _c("div", {
+    staticClass: "col-2 d-flex jc-c ai-c"
+  }, [_c("div", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.$route.name === "weare" ? true : false,
+      expression: "$route.name === 'weare' ? true : false"
+    }],
+    staticClass: "main-usr-set"
+  }, [_vm._m(0)]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "col-2 d-flex jc-c ai-c"
+  }, [_c("div", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.$route.name === "search" ? true : false,
+      expression: "$route.name === 'search' ? true : false"
+    }],
+    staticClass: "cnt-btn-filter",
+    attrs: {
+      id: "filter"
+    }
+  }, [_c("div", {
+    staticClass: "btn-filter"
+  }), _vm._v(" "), _c("span", [_vm._v("Filtri")])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "container container-src wmax-100 h-100 pd-20-lr bg-white"
+  }, [_c("div", {
+    staticClass: "cnt-hdr-src"
+  }, [_c("div", {
+    staticClass: "search"
+  }, [_c("div", {
+    staticClass: "cnt-lens"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "contStringSrc"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.input,
+      expression: "input"
+    }],
+    staticClass: "accountInput",
+    attrs: {
+      id: "userInput",
+      type: "text",
+      placeholder: "Cerca appartamento"
+    },
+    domProps: {
+      value: _vm.input
+    },
+    on: {
+      input: [function ($event) {
+        if ($event.target.composing) return;
+        _vm.input = $event.target.value;
+      }, _vm.onInputChanged]
+    }
+  })]), _vm._v(" "), _c("router-link", {
+    attrs: {
+      to: {
+        name: "search",
+        params: {
+          input: _vm.input
+        }
+      }
+    }
+  }, [_c("div", {
+    staticClass: "cnt-fine"
+  })])], 1)])]), _vm._v(" "), !_vm.isClicked ? _c("div", {
+    staticClass: "cnt-result-adress"
+  }, _vm._l(_vm.indirizzi, function (indirizzo, i) {
+    return _c("div", {
+      key: i + indirizzo.address,
+      staticClass: "cnt-items"
+    }, [_c("a", {
+      attrs: {
+        href: "#"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.take(indirizzo.address.freeformAddress);
+        }
+      }
+    }, [_vm._v("\n            " + _vm._s(indirizzo.address["freeformAddress"]) + "\n          ")])]);
+  }), 0) : _vm._e()]), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("footer", [_c("div", {
+    staticClass: "cnt-main-rows-ftr"
+  }, [_c("div", {
+    staticClass: "row-ftr"
+  }, [_c("div", {
+    staticClass: "cnt-info weare"
+  }, [_c("router-link", {
+    attrs: {
+      to: "weare"
+    }
+  }, [_vm._v(" Chi Siamo ")])], 1)]), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("div", {
+    staticClass: "row-ftr"
+  }, [_c("div", {
+    staticClass: "obj-cont-ftr obj-cont-tm"
+  }, [_c("p", {
+    staticClass: "tm"
+  }, [_vm._v("©" + _vm._s(new Date().getFullYear()))]), _vm._v(" "), _c("div", {
+    staticClass: "logo-tm"
+  }), _vm._v(" "), _c("p", {
+    staticClass: "tm"
+  }, [_vm._v("- All Rights Reserved")])])])])]), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("div", {
+    staticClass: "scrollToTop"
+  })]);
 };
 
 var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("main", [_c("div", {
-    staticClass: "title-box"
-  }, [_c("h2", [_vm._v("Team 57:")])]), _vm._v(" "), _c("div", {
-    staticClass: "container jc-c wmax-100"
+  return _c("ul", {
+    staticClass: "ul-log-reg"
   }, [_c("div", {
-    staticClass: "cnt-cards"
+    staticClass: "cnt-ul"
+  }, [_c("ul", [_c("li", [_c("div", {
+    staticClass: "ico aprt"
+  }), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "/admin/apartments"
+    }
+  }, [_vm._v("Dashboard")])])])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    attrs: {
+      id: "btn-hamburger"
+    }
+  }, [_c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span")]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("main", [_c("div", {
+    staticClass: "cnt-layout"
+  }, [_c("div", {
+    staticClass: "cnt-h1"
+  }, [_c("h1", [_vm._v("I Fantastici")]), _vm._v(" "), _c("p", [_vm._v("del")]), _vm._v(" "), _c("h2", [_vm._v("A-TEAM 5")])]), _vm._v(" "), _c("section", {
+    staticClass: "sctn-cards cnt-section"
+  }, [_c("div", {
+    staticClass: "cnt-section-layout"
+  }, [_c("div", {
+    staticClass: "cnt-lft-tm fadeLeft-tm"
+  }, [_c("h2", [_vm._v("Lorenzo Primogeri")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Boolbnb")]), _vm._v(" propone anche dei servizi aggiuntivi\n                per rendere la tua esperienza di viaggio il più\n                "), _c("strong", [_vm._v("completa")]), _vm._v(" possibile, senza doverti preoccupare\n                di nulla e godereti la tua vacanza da semplice turista a ospite\n                nella località da te scelta.\n              ")])]), _vm._v(" "), _c("div", {
+    staticClass: "cnt-rgt-tm fadeRight-tm"
   }, [_c("div", {
     staticClass: "cards box-card"
   }, [_c("div", {
@@ -3493,7 +3926,7 @@ var staticRenderFns = [function () {
     staticClass: "name"
   }, [_vm._v("Lorenzo Primogeri")]), _vm._v(" "), _c("h4", {
     staticClass: "title"
-  }, [_vm._v("Jr. FullStack Developer")]), _vm._v(" "), _c("h5", [_vm._v("Backend Developer")])]), _vm._v(" "), _c("ul", {
+  }, [_vm._v("Jr. FullStack Developer")]), _vm._v(" "), _c("h5", [_vm._v("Front-Back Developer")])]), _vm._v(" "), _c("ul", {
     staticClass: "social"
   }, [_c("li", [_c("a", {
     staticClass: "ico ico-lnkd",
@@ -3501,7 +3934,15 @@ var staticRenderFns = [function () {
       href: "#",
       "aria-hidden": "true"
     }
-  })])])]), _vm._v(" "), _c("div", {
+  })])])])])])]), _vm._v(" "), _c("section", {
+    staticClass: "sctn-cards cnt-section"
+  }, [_c("div", {
+    staticClass: "cnt-section-layout"
+  }, [_c("div", {
+    staticClass: "cnt-lft-tm fadeLeft-tm"
+  }, [_c("h2", [_vm._v("Antonio Ruggiero")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Boolbnb")]), _vm._v(" propone anche dei servizi aggiuntivi\n                per rendere la tua esperienza di viaggio il più\n                "), _c("strong", [_vm._v("completa")]), _vm._v(" possibile, senza doverti preoccupare\n                di nulla e godereti la tua vacanza da semplice turista a ospite\n                nella località da te scelta.\n              ")])]), _vm._v(" "), _c("div", {
+    staticClass: "cnt-rgt-tm fadeRight-tm"
+  }, [_c("div", {
     staticClass: "cards box-card"
   }, [_c("div", {
     staticClass: "picture"
@@ -3514,9 +3955,9 @@ var staticRenderFns = [function () {
     staticClass: "team-content"
   }, [_c("h3", {
     staticClass: "name"
-  }, [_vm._v("Antonio Ruggero")]), _vm._v(" "), _c("h4", {
+  }, [_vm._v("Antonio Ruggiero")]), _vm._v(" "), _c("h4", {
     staticClass: "title"
-  }, [_vm._v("Jr. FullStack Developer")]), _vm._v(" "), _c("h5", [_vm._v("Backend Developer")])]), _vm._v(" "), _c("ul", {
+  }, [_vm._v("Jr. FullStack Developer")]), _vm._v(" "), _c("h5", [_vm._v("Front-Back Developer")])]), _vm._v(" "), _c("ul", {
     staticClass: "social"
   }, [_c("li", [_c("a", {
     staticClass: "ico ico-lnkd",
@@ -3524,7 +3965,15 @@ var staticRenderFns = [function () {
       href: "#",
       "aria-hidden": "true"
     }
-  })])])]), _vm._v(" "), _c("div", {
+  })])])])])])]), _vm._v(" "), _c("section", {
+    staticClass: "sctn-cards cnt-section"
+  }, [_c("div", {
+    staticClass: "cnt-section-layout"
+  }, [_c("div", {
+    staticClass: "cnt-lft-tm fadeLeft-tm"
+  }, [_c("h2", [_vm._v("Francesco Moles")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Boolbnb")]), _vm._v(" propone anche dei servizi aggiuntivi\n                per rendere la tua esperienza di viaggio il più\n                "), _c("strong", [_vm._v("completa")]), _vm._v(" possibile, senza doverti preoccupare\n                di nulla e godereti la tua vacanza da semplice turista a ospite\n                nella località da te scelta.\n              ")])]), _vm._v(" "), _c("div", {
+    staticClass: "cnt-rgt-tm fadeRight-tm"
+  }, [_c("div", {
     staticClass: "cards box-card"
   }, [_c("div", {
     staticClass: "picture"
@@ -3539,7 +3988,7 @@ var staticRenderFns = [function () {
     staticClass: "name"
   }, [_vm._v("Francesco Moles")]), _vm._v(" "), _c("h4", {
     staticClass: "title"
-  }, [_vm._v("Jr. FullStack Developer")]), _vm._v(" "), _c("h5", [_vm._v("Backend Developer")])]), _vm._v(" "), _c("ul", {
+  }, [_vm._v("Jr. FullStack Developer")]), _vm._v(" "), _c("h5", [_vm._v("Front-Back Developer")])]), _vm._v(" "), _c("ul", {
     staticClass: "social"
   }, [_c("li", [_c("a", {
     staticClass: "ico ico-lnkd",
@@ -3547,7 +3996,15 @@ var staticRenderFns = [function () {
       href: "#",
       "aria-hidden": "true"
     }
-  })])])]), _vm._v(" "), _c("div", {
+  })])])])])])]), _vm._v(" "), _c("section", {
+    staticClass: "sctn-cards cnt-section"
+  }, [_c("div", {
+    staticClass: "cnt-section-layout"
+  }, [_c("div", {
+    staticClass: "cnt-lft-tm fadeLeft-tm"
+  }, [_c("h2", [_vm._v("Michele Camera")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Boolbnb")]), _vm._v(" propone anche dei servizi aggiuntivi\n                per rendere la tua esperienza di viaggio il più\n                "), _c("strong", [_vm._v("completa")]), _vm._v(" possibile, senza doverti preoccupare\n                di nulla e godereti la tua vacanza da semplice turista a ospite\n                nella località da te scelta.\n              ")])]), _vm._v(" "), _c("div", {
+    staticClass: "cnt-rgt-tm fadeRight-tm"
+  }, [_c("div", {
     staticClass: "cards box-card"
   }, [_c("div", {
     staticClass: "picture"
@@ -3562,7 +4019,7 @@ var staticRenderFns = [function () {
     staticClass: "name"
   }, [_vm._v("Michele Camera")]), _vm._v(" "), _c("h4", {
     staticClass: "title"
-  }, [_vm._v("Jr. FullStack Developer")]), _vm._v(" "), _c("h5", [_vm._v("Fontend Developer")])]), _vm._v(" "), _c("ul", {
+  }, [_vm._v("Jr. FullStack Developer")]), _vm._v(" "), _c("h5", [_vm._v("Front-Back Developer")])]), _vm._v(" "), _c("ul", {
     staticClass: "social"
   }, [_c("li", [_c("a", {
     staticClass: "ico ico-lnkd",
@@ -3570,7 +4027,15 @@ var staticRenderFns = [function () {
       href: "#",
       "aria-hidden": "true"
     }
-  })])])]), _vm._v(" "), _c("div", {
+  })])])])])])]), _vm._v(" "), _c("section", {
+    staticClass: "sctn-cards cnt-section"
+  }, [_c("div", {
+    staticClass: "cnt-section-layout"
+  }, [_c("div", {
+    staticClass: "cnt-lft-tm fadeLeft-tm"
+  }, [_c("h2", [_vm._v("Marco Cataldi")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Boolbnb")]), _vm._v(" propone anche dei servizi aggiuntivi\n                per rendere la tua esperienza di viaggio il più\n                "), _c("strong", [_vm._v("completa")]), _vm._v(" possibile, senza doverti preoccupare\n                di nulla e godereti la tua vacanza da semplice turista a ospite\n                nella località da te scelta.\n              ")])]), _vm._v(" "), _c("div", {
+    staticClass: "cnt-rgt-tm fadeRight-tm"
+  }, [_c("div", {
     staticClass: "cards box-card"
   }, [_c("div", {
     staticClass: "picture"
@@ -3585,7 +4050,7 @@ var staticRenderFns = [function () {
     staticClass: "name"
   }, [_vm._v("Marco Cataldi")]), _vm._v(" "), _c("h4", {
     staticClass: "title"
-  }, [_vm._v("Jr. FullStack Developer")]), _vm._v(" "), _c("h5", [_vm._v("Frontend Developer")])]), _vm._v(" "), _c("ul", {
+  }, [_vm._v("Jr. FullStack Developer")]), _vm._v(" "), _c("h5", [_vm._v("Front-Back Developer")])]), _vm._v(" "), _c("ul", {
     staticClass: "social"
   }, [_c("li", [_c("a", {
     staticClass: "ico ico-lnkd",
@@ -3593,7 +4058,68 @@ var staticRenderFns = [function () {
       href: "#",
       "aria-hidden": "true"
     }
-  })])])])])])]);
+  })])])])])])])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "row-ftr"
+  }, [_c("div", {
+    staticClass: "obj-cont-ftr"
+  }, [_c("div", {
+    staticClass: "col-5 cnt-obj-ftr col-md-12"
+  }, [_c("div", {
+    staticClass: "cnt-info"
+  }, [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v(" Contact us ")])]), _vm._v(" "), _c("div", {
+    staticClass: "cnt-info"
+  }, [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v(" Privacy Policy ")])]), _vm._v(" "), _c("div", {
+    staticClass: "cnt-info"
+  }, [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Terms & condition ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-7 cnt-obj-ftr col-md-12"
+  }, [_c("div", {
+    staticClass: "row-obj-ftr"
+  }, [_c("div", {
+    staticClass: "ico-soc fb"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "ico-soc ig"
+  })])])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "subMenu closeMenu",
+    staticStyle: {
+      filter: "progid:DXImageTransform.Microsoft.Shadow(color='#dedede', Direction=135, Strength=10)",
+      "-webkit-overflow-scrolling": "touch"
+    },
+    attrs: {
+      id: "subMenuSlide"
+    }
+  }, [_c("div", {
+    staticClass: "contSubMenuSlide"
+  }, [_c("div", {
+    staticClass: "cnt-ul"
+  }, [_c("ul", [_c("li", [_c("div", {
+    staticClass: "ico aprt"
+  }), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "/admin/apartments"
+    }
+  }, [_vm._v("Dashboard")])])])])])]);
 }];
 render._withStripped = true;
 
@@ -3632,7 +4158,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\nmain[data-v-04c29797] {\n  display: flex;\n  width: 100%;\n  margin: 180px auto;\n  flex-direction: column;\n}\nmain .title[data-v-04c29797] {\n  display: flex;\n  justify-content: space-around;\n  margin-bottom: 3%;\n}\nmain h2[data-v-04c29797] {\n  font-weight: bold;\n  font-size: 2.2rem;\n}\n\n/* MAIN-CAROUSEL-LAYOUT */\n/* MAIN-CAROUSEL-LAYOUT */\n/* CNT-LAYOUT */\n.cnt-layout[data-v-04c29797] {\n  width: 90%;\n  max-width: 1400px;\n  margin: 0 auto;\n  padding: 150px 0 0;\n}\n.cnt-layout .cnt-section[data-v-04c29797] {\n  position: relative;\n  display: flex;\n  width: 100%;\n  background-size: cover;\n  padding: 50px 0;\n}\n.cnt-layout .cnt-section .cnt-section-layout[data-v-04c29797] {\n  display: flex;\n  width: 100%;\n  padding: 80px 0;\n  align-items: center;\n}\n.cnt-layout .cnt-section .cnt-cntr[data-v-04c29797] {\n  width: 100%;\n  padding: 20px;\n}\n.cnt-layout .cnt-section .cnt-lft[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt[data-v-04c29797] {\n  display: flex;\n  position: relative;\n  width: 50%;\n  padding: 50px;\n  gap: 50px;\n  flex-direction: column;\n  visibility: hidden;\n}\n.cnt-layout .cnt-section .cnt-lft img[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt img[data-v-04c29797] {\n  width: 100%;\n  max-width: 500px;\n  margin: 0 auto;\n}\n.cnt-layout .cnt-section .cnt-lft h2[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt h2[data-v-04c29797] {\n  font-size: 2em;\n  font-weight: 600;\n}\n.cnt-layout .cnt-section .cnt-lft p[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt p[data-v-04c29797] {\n  line-height: 1.8em;\n}\n.cnt-layout .cnt-section .cnt-lft p strong[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt p strong[data-v-04c29797] {\n  font-size: 1.2em;\n  color: #7174b6;\n}\n.fadeLeft[data-v-04c29797],\n.fadeRight[data-v-04c29797] {\n  visibility: hidden;\n}\n.fadeLeft.fadein-left[data-v-04c29797] {\n  visibility: visible !important;\n  -webkit-animation: animateleft-04c29797 1.5s;\n  animation: animateleft-04c29797 1.5s;\n  padding: 0 0 0 60px;\n}\n.fadeRight.fadein-right[data-v-04c29797] {\n  visibility: visible !important;\n  -webkit-animation: animateright-04c29797 2s;\n  animation: animateright-04c29797 2s;\n}\n@-webkit-keyframes animateleft-04c29797 {\nfrom {\n    left: -300px;\n    opacity: 0;\n}\nto {\n    left: 0px;\n    opacity: 1;\n}\n}\n@keyframes animateleft-04c29797 {\nfrom {\n    left: -300px;\n    opacity: 0;\n}\nto {\n    left: 0px;\n    opacity: 1;\n}\n}\n@-webkit-keyframes animateright-04c29797 {\nfrom {\n    right: -300px;\n    opacity: 0;\n}\nto {\n    right: 0px;\n    opacity: 1;\n}\n}\n@keyframes animateright-04c29797 {\nfrom {\n    right: -300px;\n    opacity: 0;\n}\nto {\n    right: 0px;\n    opacity: 1;\n}\n}\n/* CNT-LAYOUT */\n/* MAIN-CARDS */\n.container[data-v-04c29797] {\n  position: relative;\n}\n.container .cnt-label[data-v-04c29797] {\n  position: -webkit-sticky;\n  position: sticky;\n  display: flex;\n  padding: 20px;\n  color: #fff;\n  height: auto;\n  left: 50px;\n  justify-content: center;\n  align-items: center;\n  font-weight: 600;\n  font-size: 2em;\n}\n.container .cnt-cards[data-v-04c29797] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 25px;\n}\n.container .box-card[data-v-04c29797] {\n  display: flex;\n  width: 500px;\n  flex-direction: column;\n}\n.container .box-card .cnt-img[data-v-04c29797] {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card .cnt-img img[data-v-04c29797] {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card .cnt-h[data-v-04c29797] {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card .cnt-h h2[data-v-04c29797] {\n  font-size: 1em;\n}\n.container .box-card .cnt-h h3[data-v-04c29797] {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card .price[data-v-04c29797] {\n  display: contents;\n}\n.container .box-card .price span[data-v-04c29797] {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\n.container .box-card-csm[data-v-04c29797] {\n  display: flex;\n  width: 250px;\n  flex-direction: column;\n}\n.container .box-card-csm .cnt-img[data-v-04c29797] {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card-csm .cnt-img img[data-v-04c29797] {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card-csm .cnt-h[data-v-04c29797] {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card-csm .cnt-h h2[data-v-04c29797] {\n  font-size: 1em;\n}\n.container .box-card-csm .cnt-h h3[data-v-04c29797] {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card-csm .price[data-v-04c29797] {\n  display: contents;\n}\n.container .box-card-csm .price span[data-v-04c29797] {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\n\n/* MAIN-CARDS */\n/* FOOTER */\nfooter[data-v-04c29797] {\n  display: grid;\n  position: relative;\n  bottom: 0;\n  width: 100%;\n  background-color: #2f2e41;\n  padding: 0;\n}\nfooter .row-ftr[data-v-04c29797] {\n  width: 100%;\n  display: flex;\n  background-color: transparent;\n  padding: 20px 50px;\n}\nfooter .row-ftr[data-v-04c29797]:nth-child(2) {\n  padding: 10px;\n  border-top: 1px solid #403f52;\n}\nfooter .row-ftr .obj-cont-ftr[data-v-04c29797] {\n  position: relative;\n  width: 100%;\n  background-color: transparent;\n  display: flex;\n  gap: 10px;\n  padding: 50px 50px 0px;\n  padding: 0;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-04c29797] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info[data-v-04c29797] {\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info a[data-v-04c29797] {\n  color: #b3b3b3;\n  text-decoration: none;\n  font-size: 0.8em;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info a[data-v-04c29797]:hover {\n  color: #a4a7ea;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info[data-v-04c29797]:nth-child(1) {\n  display: flex;\n  align-items: center;\n  gap: 20px;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info[data-v-04c29797]:nth-child(4) {\n  display: flex;\n  justify-content: flex-end;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797] {\n  display: flex;\n  gap: 20px;\n  justify-content: flex-end;\n  width: 100%;\n  background-color: transparent;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797]:nth-child(3) {\n  display: flex;\n  gap: 15px;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr a[data-v-04c29797] {\n  color: #b3b3b3;\n  text-decoration: none;\n  font-size: 0.8em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr a[data-v-04c29797]:hover {\n  color: #a4a7ea;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr h4[data-v-04c29797] {\n  color: #d2d2d2;\n  font-size: 1.2em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr p[data-v-04c29797] {\n  color: #d2d2d2;\n  font-size: 0.6em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797],\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1) {\n  position: relative;\n  width: 100px;\n  height: 30px;\n  background-size: contain;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]:after,\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1):after {\n  content: \"\\2122\";\n  position: absolute;\n  right: -5px;\n  top: 0px;\n  color: grey;\n  font-size: 0.8em;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1),\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1)::nth-child(1) {\n  width: 150px;\n  height: 50px;\n}\nfooter .obj-cont-tm[data-v-04c29797] {\n  display: flex;\n  position: relative;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  padding: 0px;\n  color: white;\n  justify-content: center;\n  align-items: center;\n  margin: 0 auto;\n}\nfooter .obj-cont-tm p.tm[data-v-04c29797] {\n  display: inline-block;\n  font-size: 1em;\n  letter-spacing: 1px;\n  margin: 0;\n}\nfooter .obj-cont-tm .logo-tm[data-v-04c29797],\nfooter .obj-cont-tm .logo-tm[data-v-04c29797]:nth-child(1) {\n  position: relative;\n  width: 100px;\n  height: 30px;\n  background: url(" + escape(__webpack_require__(/*! ../../img/pitto-logotype.svg */ "./resources/img/pitto-logotype.svg")) + ") no-repeat center/contain;\n  background-size: contain;\n}\nfooter .obj-cont-tm .logo-tm[data-v-04c29797]:nth-child(1) {\n  width: 150px;\n  height: 50px;\n}\nfooter .obj-cont-tm .logo-tm[data-v-04c29797]:after {\n  content: \"\\2122\";\n  position: absolute;\n  right: -5px;\n  top: 0px;\n  color: grey;\n  font-size: 0.8em;\n}\n.ico-soc[data-v-04c29797] {\n  width: 30px;\n  height: 30px;\n  cursor: pointer;\n}\n.fb[data-v-04c29797] {\n  background: url(" + escape(__webpack_require__(/*! ../../img/fb-g.svg */ "./resources/img/fb-g.svg")) + ") no-repeat center;\n  background-size: contain;\n}\n.ig[data-v-04c29797] {\n  background: url(" + escape(__webpack_require__(/*! ../../img/ig-g.svg */ "./resources/img/ig-g.svg")) + ") no-repeat center;\n  background-size: contain;\n}\n.fb[data-v-04c29797]:hover {\n  background: url(" + escape(__webpack_require__(/*! ../../img/fb.svg */ "./resources/img/fb.svg")) + ");\n}\n.ig[data-v-04c29797]:hover {\n  background: url(" + escape(__webpack_require__(/*! ../../img/ig.svg */ "./resources/img/ig.svg")) + ");\n}\nul.ul-ftr[data-v-04c29797] {\n  position: relative;\n  display: block;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  margin: 0 auto;\n  gap: 30px;\n}\nul.ul-ftr li[data-v-04c29797] {\n  position: relative;\n  display: block;\n  overflow: hidden;\n}\nul.ul-ftr li:hover a[data-v-04c29797]:hover {\n  color: #7174b6;\n}\nul.ul-ftr li a[data-v-04c29797] {\n  text-decoration: none;\n  color: #a2a2a2;\n  font-size: 1em;\n  font-weight: 300;\n}\n\n/* FOOTER */\n.scrollToTop[data-v-04c29797] {\n  position: fixed;\n  width: 50px;\n  height: 50px;\n  display: none;\n  bottom: 200px;\n  right: 60px;\n  border-radius: 50%;\n  cursor: pointer;\n  background: url(" + escape(__webpack_require__(/*! ../../img/arrowUp.svg */ "./resources/img/arrowUp.svg")) + ") no-repeat center;\n  background-size: contain;\n  background-color: white;\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);\n}\n@media screen and (max-width: 1000px) {\n  /* header {\n    .cnt-hdr-items {\n      .cnt-nav {\n        nav {\n          display: none;\n        }\n      }\n    }\n    #btn-hamburger {\n      display: block;\n    }\n    .cnt-hdr-src-mob {\n      display: flex;\n      width: 100%;\n      height: 70px;\n      justify-content: center;\n      align-items: center;\n    }\n    .container-src {\n      display: none;\n    }\n  } */\n.main-usr-set[data-v-04c29797] {\n    display: none;\n}\n.cnt-layout[data-v-04c29797] {\n    padding: 80px 0 0;\n}\n.cnt-layout .cnt-section .cnt-section-layout[data-v-04c29797] {\n    flex-direction: column;\n    padding: 0;\n}\n.cnt-layout .cnt-section .second[data-v-04c29797] {\n    flex-direction: column-reverse;\n}\n.cnt-layout .cnt-section .cnt-lft[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt[data-v-04c29797] {\n    width: 100%;\n}\n}\n@media screen and (max-width: 750px) {\nfooter .row-ftr[data-v-04c29797] {\n    padding: 20px 0;\n}\nfooter .row-ftr .obj-cont-ftr[data-v-04c29797] {\n    flex-direction: column-reverse;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-04c29797] {\n    flex-direction: column;\n    align-items: center;\n    margin: 0 auto;\n    padding: 10px 0;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797] {\n    justify-content: center;\n}\n}\n@media screen and (max-width: 480px) {\nmain h1[data-v-04c29797] {\n    padding: 0 20px;\n}\nmain h2[data-v-04c29797] {\n    padding: 0;\n}\nmain .cnt-layout[data-v-04c29797] {\n    padding: 0;\n}\n.cnt-layout .cnt-section[data-v-04c29797] {\n    margin-bottom: 50px;\n    padding: 0;\n}\n.cnt-layout .cnt-section[data-v-04c29797]:nth-child(1) {\n    padding: 100px 0 0;\n}\n.cnt-layout .cnt-section .cnt-section-layout[data-v-04c29797] {\n    flex-direction: column;\n    padding: 0;\n}\n.cnt-layout .cnt-section .second[data-v-04c29797] {\n    flex-direction: column-reverse;\n}\n.cnt-layout .cnt-section .cnt-lft[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt[data-v-04c29797] {\n    padding: 30px 0;\n}\n.cnt-layout .cnt-section .cnt-lft h2[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt h2[data-v-04c29797] {\n    font-size: 1.5em;\n}\nfooter .row-ftr[data-v-04c29797] {\n    padding: 20px 0;\n}\nfooter .row-ftr .obj-cont-ftr[data-v-04c29797] {\n    flex-direction: column-reverse;\n}\nfooter .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-04c29797] {\n    flex-direction: column;\n    align-items: center;\n    margin: 0 auto;\n    padding: 10px 0;\n}\nfooter .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797] {\n    justify-content: center;\n}\n.scrollToTop[data-v-04c29797] {\n    right: 20px;\n    bottom: 50px;\n}\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\nmain[data-v-04c29797] {\n  display: flex;\n  width: 100%;\n  margin: 180px auto;\n  flex-direction: column;\n}\nmain .title[data-v-04c29797] {\n  display: flex;\n  justify-content: space-around;\n  margin-bottom: 50px;\n}\nmain h2[data-v-04c29797] {\n  font-weight: bold;\n  font-size: 2.2rem;\n}\n\n/* MAIN-CAROUSEL-LAYOUT */\n/* MAIN-CAROUSEL-LAYOUT */\n/* CNT-LAYOUT */\n.cnt-layout[data-v-04c29797] {\n  width: 90%;\n  max-width: 1400px;\n  margin: 0 auto;\n  padding: 150px 0 0;\n}\n.cnt-layout .cnt-section[data-v-04c29797] {\n  position: relative;\n  display: flex;\n  width: 100%;\n  background-size: cover;\n  padding: 50px 0;\n}\n.cnt-layout .cnt-section .cnt-section-layout[data-v-04c29797] {\n  display: flex;\n  width: 100%;\n  padding: 50px 0;\n  align-items: center;\n}\n.cnt-layout .cnt-section .cnt-cntr[data-v-04c29797] {\n  width: 100%;\n  padding: 20px;\n}\n.cnt-layout .cnt-section .cnt-lft[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt[data-v-04c29797] {\n  display: flex;\n  position: relative;\n  width: 50%;\n  padding: 50px;\n  gap: 50px;\n  flex-direction: column;\n  visibility: hidden;\n}\n.cnt-layout .cnt-section .cnt-lft img[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt img[data-v-04c29797] {\n  width: 100%;\n  max-width: 500px;\n  margin: 0 auto;\n}\n.cnt-layout .cnt-section .cnt-lft h2[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt h2[data-v-04c29797] {\n  font-size: 2em;\n  font-weight: 600;\n}\n.cnt-layout .cnt-section .cnt-lft p[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt p[data-v-04c29797] {\n  line-height: 1.8em;\n}\n.cnt-layout .cnt-section .cnt-lft p strong[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt p strong[data-v-04c29797] {\n  font-size: 1.2em;\n  color: #7174b6;\n}\n.fadeLeft[data-v-04c29797],\n.fadeRight[data-v-04c29797] {\n  visibility: hidden;\n}\n.fadeLeft.fadein-left[data-v-04c29797] {\n  visibility: visible !important;\n  -webkit-animation: animateleft-04c29797 1.5s;\n  animation: animateleft-04c29797 1.5s;\n  padding: 0 0 0 60px;\n}\n.fadeRight.fadein-right[data-v-04c29797] {\n  visibility: visible !important;\n  -webkit-animation: animateright-04c29797 2s;\n  animation: animateright-04c29797 2s;\n}\n@-webkit-keyframes animateleft-04c29797 {\nfrom {\n    left: -300px;\n    opacity: 0;\n}\nto {\n    left: 0px;\n    opacity: 1;\n}\n}\n@keyframes animateleft-04c29797 {\nfrom {\n    left: -300px;\n    opacity: 0;\n}\nto {\n    left: 0px;\n    opacity: 1;\n}\n}\n@-webkit-keyframes animateright-04c29797 {\nfrom {\n    right: -300px;\n    opacity: 0;\n}\nto {\n    right: 0px;\n    opacity: 1;\n}\n}\n@keyframes animateright-04c29797 {\nfrom {\n    right: -300px;\n    opacity: 0;\n}\nto {\n    right: 0px;\n    opacity: 1;\n}\n}\n/* CNT-LAYOUT */\n/* MAIN-CARDS */\n.container[data-v-04c29797] {\n  position: relative;\n}\n.container .cnt-label[data-v-04c29797] {\n  position: -webkit-sticky;\n  position: sticky;\n  display: flex;\n  padding: 20px;\n  color: #fff;\n  height: auto;\n  left: 50px;\n  justify-content: center;\n  align-items: center;\n  font-weight: 600;\n  font-size: 2em;\n}\n.container .cnt-cards[data-v-04c29797] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 25px;\n}\n.container .box-card[data-v-04c29797] {\n  display: flex;\n  width: 500px;\n  flex-direction: column;\n}\n.container .box-card .cnt-img[data-v-04c29797] {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card .cnt-img img[data-v-04c29797] {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card .cnt-h[data-v-04c29797] {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card .cnt-h h2[data-v-04c29797] {\n  font-size: 1em;\n}\n.container .box-card .cnt-h h3[data-v-04c29797] {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card .price[data-v-04c29797] {\n  display: contents;\n}\n.container .box-card .price span[data-v-04c29797] {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\n.container .box-card-csm[data-v-04c29797] {\n  display: flex;\n  width: 250px;\n  flex-direction: column;\n}\n.container .box-card-csm .cnt-img[data-v-04c29797] {\n  width: 100%;\n  height: 200px;\n}\n.container .box-card-csm .cnt-img img[data-v-04c29797] {\n  height: 100%;\n  width: 100%;\n  border-radius: 20px;\n}\n.container .box-card-csm .cnt-h[data-v-04c29797] {\n  height: 50px;\n  padding: 10px 0;\n}\n.container .box-card-csm .cnt-h h2[data-v-04c29797] {\n  font-size: 1em;\n}\n.container .box-card-csm .cnt-h h3[data-v-04c29797] {\n  color: grey;\n  font-size: 0.8em;\n}\n.container .box-card-csm .price[data-v-04c29797] {\n  display: contents;\n}\n.container .box-card-csm .price span[data-v-04c29797] {\n  width: 100%;\n  text-align: left;\n  font-weight: 600;\n}\n\n/* MAIN-CARDS */\n/* FOOTER */\nfooter[data-v-04c29797] {\n  display: grid;\n  position: relative;\n  bottom: 0;\n  width: 100%;\n  background-color: #2f2e41;\n  padding: 0;\n}\nfooter .cnt-main-rows-ftr .row-ftr[data-v-04c29797] {\n  width: 100%;\n  display: flex;\n  background-color: transparent;\n  padding: 20px 50px;\n}\nfooter .cnt-main-rows-ftr .row-ftr[data-v-04c29797]:nth-child(2) {\n  padding: 10px;\n  border-top: 1px solid #403f52;\n}\nfooter .cnt-main-rows-ftr .row-ftr[data-v-04c29797]:nth-child(3) {\n  padding: 10px;\n  border-top: 1px solid #403f52;\n}\nfooter .cnt-main-rows-ftr .row-ftr .weare[data-v-04c29797] {\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  font-size: 1.5em;\n}\nfooter .cnt-main-rows-ftr .row-ftr .weare a[data-v-04c29797] {\n  color: #888aba;\n}\nfooter .cnt-main-rows-ftr .row-ftr .weare a[data-v-04c29797]:hover {\n  color: #a8aaeb;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr[data-v-04c29797] {\n  position: relative;\n  width: 100%;\n  background-color: transparent;\n  display: flex;\n  gap: 10px;\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 0;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-04c29797] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info[data-v-04c29797] {\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info a[data-v-04c29797] {\n  color: #b3b3b3;\n  text-decoration: none;\n  font-size: 0.8em;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info a[data-v-04c29797]:hover {\n  color: #a4a7ea;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info[data-v-04c29797]:nth-child(1) {\n  display: flex;\n  align-items: center;\n  gap: 20px;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info[data-v-04c29797]:nth-child(4) {\n  display: flex;\n  justify-content: flex-end;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797] {\n  display: flex;\n  gap: 20px;\n  justify-content: flex-end;\n  width: 100%;\n  background-color: transparent;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797]:nth-child(3) {\n  display: flex;\n  gap: 15px;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr a[data-v-04c29797] {\n  color: #b3b3b3;\n  text-decoration: none;\n  font-size: 0.8em;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr a[data-v-04c29797]:hover {\n  color: #a4a7ea;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr h4[data-v-04c29797] {\n  color: #d2d2d2;\n  font-size: 1.2em;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr p[data-v-04c29797] {\n  color: #d2d2d2;\n  font-size: 0.6em;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797],\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1) {\n  position: relative;\n  width: 100px;\n  height: 30px;\n  background-size: contain;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]:after,\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1):after {\n  content: \"\\2122\";\n  position: absolute;\n  right: -5px;\n  top: 0px;\n  color: grey;\n  font-size: 0.8em;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1),\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-04c29797]::nth-child(1)::nth-child(1) {\n  width: 150px;\n  height: 50px;\n}\nfooter .cnt-main-rows-ftr .obj-cont-tm[data-v-04c29797] {\n  display: flex;\n  position: relative;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  padding: 0px;\n  color: white;\n  justify-content: center;\n  align-items: center;\n  margin: 0 auto;\n}\nfooter .cnt-main-rows-ftr .obj-cont-tm p.tm[data-v-04c29797] {\n  display: inline-block;\n  font-size: 1em;\n  letter-spacing: 1px;\n  margin: 0;\n}\nfooter .cnt-main-rows-ftr .obj-cont-tm .logo-tm[data-v-04c29797],\nfooter .cnt-main-rows-ftr .obj-cont-tm .logo-tm[data-v-04c29797]:nth-child(1) {\n  position: relative;\n  width: 100px;\n  height: 30px;\n  background: url(" + escape(__webpack_require__(/*! ../../img/pitto-logotype.svg */ "./resources/img/pitto-logotype.svg")) + ") no-repeat center/contain;\n  background-size: contain;\n}\nfooter .cnt-main-rows-ftr .obj-cont-tm .logo-tm[data-v-04c29797]:nth-child(1) {\n  width: 150px;\n  height: 50px;\n}\nfooter .cnt-main-rows-ftr .obj-cont-tm .logo-tm[data-v-04c29797]:after {\n  content: \"\\2122\";\n  position: absolute;\n  right: -5px;\n  top: 0px;\n  color: grey;\n  font-size: 0.8em;\n}\n.ico-soc[data-v-04c29797] {\n  width: 30px;\n  height: 30px;\n  cursor: pointer;\n}\n.fb[data-v-04c29797] {\n  background: url(" + escape(__webpack_require__(/*! ../../img/fb-g.svg */ "./resources/img/fb-g.svg")) + ") no-repeat center;\n  background-size: contain;\n}\n.ig[data-v-04c29797] {\n  background: url(" + escape(__webpack_require__(/*! ../../img/ig-g.svg */ "./resources/img/ig-g.svg")) + ") no-repeat center;\n  background-size: contain;\n}\n.fb[data-v-04c29797]:hover {\n  background: url(" + escape(__webpack_require__(/*! ../../img/fb.svg */ "./resources/img/fb.svg")) + ");\n}\n.ig[data-v-04c29797]:hover {\n  background: url(" + escape(__webpack_require__(/*! ../../img/ig.svg */ "./resources/img/ig.svg")) + ");\n}\nul.ul-ftr[data-v-04c29797] {\n  position: relative;\n  display: block;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  margin: 0 auto;\n  gap: 30px;\n}\nul.ul-ftr li[data-v-04c29797] {\n  position: relative;\n  display: block;\n  overflow: hidden;\n}\nul.ul-ftr li:hover a[data-v-04c29797]:hover {\n  color: #7174b6;\n}\nul.ul-ftr li a[data-v-04c29797] {\n  text-decoration: none;\n  color: #a2a2a2;\n  font-size: 1em;\n  font-weight: 300;\n}\n\n/* FOOTER */\n/* MENU-SLIDE-DOWN */\n.subMenu[data-v-04c29797] {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 70px;\n  max-height: 0;\n  overflow: hidden;\n  background: white;\n  transition: all 0.5s ease-in-out;\n  z-index: 2;\n}\n.subMenu[data-v-04c29797]::-webkit-scrollbar {\n  display: none;\n}\n.subMenu .contSubMenuSlide[data-v-04c29797] {\n  padding: 50px 0;\n  box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.2);\n}\n.subMenu .contSubMenuSlide[data-v-04c29797]::-webkit-scrollbar {\n  display: none;\n}\n.subMenu .contSubMenuSlide ul[data-v-04c29797] {\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  display: flex;\n  flex-direction: column;\n  gap: 25px;\n  margin: 0 auto;\n}\n.subMenu .contSubMenuSlide ul li[data-v-04c29797] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.subMenu .contSubMenuSlide ul li .ico[data-v-04c29797] {\n  width: 30px;\n  height: 30px;\n  background-color: violet;\n}\n.subMenu .contSubMenuSlide ul li .aprt[data-v-04c29797] {\n  background: url(" + escape(__webpack_require__(/*! ../../img/ico/dashboard/ico-dash-lgt.svg */ "./resources/img/ico/dashboard/ico-dash-lgt.svg")) + ") no-repeat center/contain;\n}\n.subMenu .contSubMenuSlide ul li a[data-v-04c29797] {\n  text-decoration: none;\n  color: #4b5663;\n  font-size: 1.2em;\n}\nul[data-v-04c29797] {\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  display: flex;\n  flex-direction: column;\n  gap: 25px;\n  margin: 0 auto;\n}\nul li[data-v-04c29797] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\nul li .ico[data-v-04c29797] {\n  width: 30px;\n  height: 30px;\n  background-color: violet;\n}\nul li .aprt[data-v-04c29797] {\n  background: url(" + escape(__webpack_require__(/*! ../../img/ico/dashboard/ico-dash-lgt.svg */ "./resources/img/ico/dashboard/ico-dash-lgt.svg")) + ") no-repeat center/contain;\n}\nul li a[data-v-04c29797] {\n  text-decoration: none;\n  color: #8da1b3;\n  font-size: 1.2em;\n}\n\n/* MENU-SLIDE-DOWN */\n.scrollToTop[data-v-04c29797] {\n  position: fixed;\n  width: 50px;\n  height: 50px;\n  display: none;\n  bottom: 200px;\n  right: 60px;\n  border-radius: 50%;\n  cursor: pointer;\n  background: url(" + escape(__webpack_require__(/*! ../../img/arrowUp.svg */ "./resources/img/arrowUp.svg")) + ") no-repeat center;\n  background-size: contain;\n  background-color: white;\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);\n}\n@media screen and (max-width: 1024px) {\n.main-usr-set[data-v-04c29797] {\n    display: none;\n}\n.cnt-layout[data-v-04c29797] {\n    padding: 80px 0 0;\n}\n.cnt-layout .cnt-section .cnt-section-layout[data-v-04c29797] {\n    flex-direction: column;\n    padding: 0;\n}\n.cnt-layout .cnt-section .second[data-v-04c29797] {\n    flex-direction: column-reverse;\n}\n.cnt-layout .cnt-section .cnt-lft[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt[data-v-04c29797] {\n    width: 100%;\n}\n}\n@media screen and (max-width: 750px) {\nfooter .cnt-main-rows-ftr .row-ftr[data-v-04c29797] {\n    padding: 20px 0;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr[data-v-04c29797] {\n    flex-direction: column-reverse;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-04c29797] {\n    flex-direction: column;\n    align-items: center;\n    margin: 0 auto;\n    padding: 10px 0;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797] {\n    justify-content: center;\n}\n}\n@media screen and (max-width: 480px) {\nmain h1[data-v-04c29797] {\n    padding: 0 20px;\n}\nmain h2[data-v-04c29797] {\n    padding: 0;\n}\nmain .cnt-layout[data-v-04c29797] {\n    padding: 0;\n}\n.cnt-layout .cnt-section[data-v-04c29797] {\n    margin-bottom: 50px;\n    padding: 0;\n}\n.cnt-layout .cnt-section[data-v-04c29797]:nth-child(1) {\n    padding: 100px 0 0;\n}\n.cnt-layout .cnt-section .cnt-section-layout[data-v-04c29797] {\n    flex-direction: column;\n    padding: 0;\n}\n.cnt-layout .cnt-section .second[data-v-04c29797] {\n    flex-direction: column-reverse;\n}\n.cnt-layout .cnt-section .cnt-lft[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt[data-v-04c29797] {\n    padding: 30px 0;\n}\n.cnt-layout .cnt-section .cnt-lft h2[data-v-04c29797],\n.cnt-layout .cnt-section .cnt-rgt h2[data-v-04c29797] {\n    font-size: 1.5em;\n}\nfooter .cnt-main-rows-ftr .row-ftr[data-v-04c29797] {\n    padding: 20px 0;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr[data-v-04c29797] {\n    flex-direction: column-reverse;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-04c29797] {\n    flex-direction: column;\n    align-items: center;\n    margin: 0 auto;\n    padding: 10px 0;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-04c29797] {\n    justify-content: center;\n}\n.scrollToTop[data-v-04c29797] {\n    right: 20px;\n    bottom: 50px;\n}\n}", ""]);
 
 // exports
 
@@ -3669,12 +4195,10 @@ exports.push([module.i, "* a {\n  text-decoration: none;\n  color: black;\n}\n* 
 var escape = __webpack_require__(/*! ../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
-exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Lobster&display=swap);", ""]);
-exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&family=Lobster&display=swap);", ""]);
 exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader!../../sass/layout-preset.css */ "./node_modules/css-loader/index.js!./resources/sass/layout-preset.css"), "");
 
 // module
-exports.push([module.i, ".title-box[data-v-8c392a88] {\n  margin-top: 1%;\n  margin-bottom: 1%;\n  display: flex;\n  justify-content: center;\n}\n.title-box h2[data-v-8c392a88] {\n  font-family: \"Edu SA Beginner\", cursive;\n  font-weight: bold;\n}\nmain[data-v-8c392a88] {\n  display: flex;\n  width: 100%;\n  margin: 0 auto;\n  flex-direction: column;\n}\nmain .cnt-cards[data-v-8c392a88] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 25px;\n}\nmain .cnt-cards .box-card[data-v-8c392a88] {\n  display: flex;\n  flex-direction: column;\n  position: relative;\n  width: calc(25% - 25px);\n  padding: 30px 0 80px;\n  margin-bottom: 8px;\n  background-color: #d2d9ff;\n  text-align: center;\n  overflow: hidden;\n  border-radius: 20px;\n  border: 1px solid #dfdfdf;\n  box-shadow: 0px 0px 10px 5px rgba(150, 150, 150, 0.2);\n}\nmain .cnt-cards .box-card .picture[data-v-8c392a88] {\n  position: relative;\n  display: inline-block;\n  height: 130px;\n  width: 130px;\n  margin: 0 auto 20px;\n  z-index: 1;\n}\nmain .cnt-cards .box-card .picture[data-v-8c392a88]::before {\n  content: \"\";\n  width: 100%;\n  height: 0;\n  border-radius: 50%;\n  background-color: #9eadff;\n  position: absolute;\n  bottom: 135%;\n  right: 0;\n  left: 0;\n  opacity: 0.9;\n  transform: scale(3);\n  transition: all 0.3s linear 0s;\n}\nmain .cnt-cards .box-card .picture img[data-v-8c392a88] {\n  width: 100%;\n  height: auto;\n  border-radius: 50%;\n  transform: scale(1);\n  transition: all 0.9s ease 0s;\n}\nmain .cnt-cards .box-card:hover .picture[data-v-8c392a88]::before {\n  height: 100%;\n}\nmain .cnt-cards .box-card .picture img[data-v-8c392a88] {\n  box-shadow: 0 0 0 5px #f7f5ec;\n  transform: scale(0.7);\n}\nmain .cnt-cards .box-card .team-content[data-v-8c392a88] {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n}\nmain .cnt-cards .box-card .team-content h3[data-v-8c392a88],\nmain .cnt-cards .box-card .team-content h5[data-v-8c392a88] {\n  color: #3b426c;\n}\nmain .cnt-cards .box-card .team-content h4[data-v-8c392a88] {\n  color: #fff;\n}\nmain .cnt-cards .box-card .title[data-v-8c392a88] {\n  display: block;\n  font-size: 15px;\n  color: #4e5052;\n  text-transform: capitalize;\n}\nmain .cnt-cards .box-card .social[data-v-8c392a88] {\n  display: flex;\n  padding: 10px;\n  justify-content: center;\n  width: 100%;\n  margin: 0;\n  background-color: #313131;\n  position: absolute;\n  bottom: -100px;\n  left: 0;\n  transition: all 0.5s ease 0s;\n}\nmain .cnt-cards .box-card .social li[data-v-8c392a88] {\n  display: inline-block;\n}\nmain .cnt-cards .box-card .social li a[data-v-8c392a88] {\n  display: block;\n  padding: 10px;\n  font-size: 17px;\n  color: white;\n  transition: all 0.3s ease 0s;\n  text-decoration: none;\n}\nmain .cnt-cards .box-card .social li .ico[data-v-8c392a88] {\n  width: 30px;\n  height: 30px;\n  background-color: lightgray;\n}\nmain .cnt-cards .box-card .social li .ico-lnkd[data-v-8c392a88] {\n  background: url(" + escape(__webpack_require__(/*! ../../img/ico/ico-lnkd.svg */ "./resources/img/ico/ico-lnkd.svg")) + ");\n}\nmain .cnt-cards .box-card:hover .social[data-v-8c392a88] {\n  bottom: 0;\n}\n@media screen and (max-width: 1200px) {\nmain .cnt-cards .box-card[data-v-8c392a88] {\n    width: calc(33.3333333333% - 25px);\n}\n}\n@media screen and (max-width: 800px) {\nmain .cnt-cards .box-card[data-v-8c392a88] {\n    width: calc(50% - 25px);\n}\n}\n@media screen and (max-width: 650px) {\nmain .cnt-cards .box-card[data-v-8c392a88] {\n    width: 100%;\n    max-width: 300px;\n}\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\nmain[data-v-8c392a88] {\n  padding-top: 150px;\n}\nmain .cnt-h1 h1[data-v-8c392a88],\nmain .cnt-h1 h2[data-v-8c392a88],\nmain .cnt-h1 p[data-v-8c392a88] {\n  text-align: center;\n  color: #7174b6;\n}\nmain .cnt-h1 h1[data-v-8c392a88] {\n  font-size: 5em;\n}\nmain .cnt-h1 h2[data-v-8c392a88] {\n  font-size: 3.5em;\n  font-family: \"Changa One\", sans-serif;\n}\nmain .cnt-h1 p[data-v-8c392a88] {\n  font-size: 2em;\n  font-weight: bold;\n}\nmain .box-card[data-v-8c392a88] {\n  display: flex;\n  flex-direction: column;\n  position: relative;\n  width: 300px;\n  padding: 30px 0 80px;\n  margin: 0 auto;\n  background-color: #d2d9ff;\n  text-align: center;\n  overflow: hidden;\n  border-radius: 20px;\n  border: 1px solid #dfdfdf;\n  box-shadow: 0px 0px 10px 5px rgba(150, 150, 150, 0.2);\n}\nmain .box-card .picture[data-v-8c392a88] {\n  position: relative;\n  display: inline-block;\n  height: 130px;\n  width: 130px;\n  margin: 0 auto 20px;\n  z-index: 1;\n}\nmain .box-card .picture[data-v-8c392a88]::before {\n  content: \"\";\n  width: 100%;\n  height: 0;\n  border-radius: 50%;\n  background-color: #9eadff;\n  position: absolute;\n  bottom: 135%;\n  right: 0;\n  left: 0;\n  opacity: 0.9;\n  transform: scale(3);\n  transition: all 0.3s linear 0s;\n}\nmain .box-card .picture img[data-v-8c392a88] {\n  width: 100%;\n  height: auto;\n  border-radius: 50%;\n  transform: scale(1);\n  transition: all 0.9s ease 0s;\n}\nmain .box-card:hover .picture[data-v-8c392a88]::before {\n  height: 100%;\n}\nmain .box-card .picture img[data-v-8c392a88] {\n  box-shadow: 0 0 0 5px #f7f5ec;\n  transform: scale(0.7);\n}\nmain .box-card .team-content[data-v-8c392a88] {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n}\nmain .box-card .team-content h3[data-v-8c392a88],\nmain .box-card .team-content h5[data-v-8c392a88] {\n  color: #3b426c;\n}\nmain .box-card .team-content h4[data-v-8c392a88] {\n  color: #fff;\n}\nmain .box-card .title[data-v-8c392a88] {\n  display: block;\n  font-size: 15px;\n  color: #4e5052;\n  text-transform: capitalize;\n}\nmain .box-card .social[data-v-8c392a88] {\n  display: flex;\n  padding: 10px;\n  justify-content: center;\n  width: 100%;\n  margin: 0;\n  background-color: #313131;\n  position: absolute;\n  bottom: -100px;\n  left: 0;\n  transition: all 0.5s ease 0s;\n}\nmain .box-card .social li[data-v-8c392a88] {\n  display: inline-block;\n}\nmain .box-card .social li a[data-v-8c392a88] {\n  display: block;\n  padding: 10px;\n  font-size: 17px;\n  color: white;\n  transition: all 0.3s ease 0s;\n  text-decoration: none;\n}\nmain .box-card .social li .ico[data-v-8c392a88] {\n  width: 30px;\n  height: 30px;\n  background-color: lightgray;\n}\nmain .box-card .social li .ico-lnkd[data-v-8c392a88] {\n  background: url(" + escape(__webpack_require__(/*! ../../img/ico/ico-lnkd.svg */ "./resources/img/ico/ico-lnkd.svg")) + ");\n}\nmain .box-card:hover .social[data-v-8c392a88] {\n  bottom: 0;\n}\n.cnt-layout[data-v-8c392a88] {\n  width: 90%;\n  max-width: 1400px;\n  margin: 0 auto;\n}\n.cnt-layout .cnt-section[data-v-8c392a88] {\n  position: relative;\n  display: flex;\n  width: 100%;\n  background-size: cover;\n  padding: 50px 0;\n}\n.cnt-layout .cnt-section .cnt-section-layout[data-v-8c392a88] {\n  display: flex;\n  width: 100%;\n  padding: 50px;\n  align-items: center;\n}\n.cnt-layout .cnt-section .cnt-cntr[data-v-8c392a88] {\n  width: 100%;\n  padding: 20px;\n}\n.cnt-layout .cnt-section .cnt-lft-tm[data-v-8c392a88],\n.cnt-layout .cnt-section .cnt-rgt-tm[data-v-8c392a88] {\n  display: flex;\n  position: relative;\n  width: 50%;\n  padding: 50px;\n  gap: 50px;\n  flex-direction: column;\n  visibility: hidden;\n}\n.cnt-layout .cnt-section .cnt-lft-tm img[data-v-8c392a88],\n.cnt-layout .cnt-section .cnt-rgt-tm img[data-v-8c392a88] {\n  width: 100%;\n  max-width: 500px;\n  margin: 0 auto;\n}\n.cnt-layout .cnt-section .cnt-lft-tm h2[data-v-8c392a88],\n.cnt-layout .cnt-section .cnt-rgt-tm h2[data-v-8c392a88] {\n  font-size: 2em;\n  font-weight: 600;\n}\n.cnt-layout .cnt-section .cnt-lft-tm p[data-v-8c392a88],\n.cnt-layout .cnt-section .cnt-rgt-tm p[data-v-8c392a88] {\n  line-height: 1.8em;\n}\n.cnt-layout .cnt-section .cnt-lft-tm p strong[data-v-8c392a88],\n.cnt-layout .cnt-section .cnt-rgt-tm p strong[data-v-8c392a88] {\n  font-size: 1.2em;\n  color: #7174b6;\n}\n.fadeLeft-tm[data-v-8c392a88],\n.fadeRight-tm[data-v-8c392a88] {\n  visibility: hidden;\n}\n.fadeLeft-tm.fadein-left-tm[data-v-8c392a88] {\n  visibility: visible !important;\n  -webkit-animation: animateleft-8c392a88 1.5s;\n  animation: animateleft-8c392a88 1.5s;\n  padding: 0 0 0 60px;\n}\n.fadeRight-tm.fadein-right-tm[data-v-8c392a88] {\n  visibility: visible !important;\n  -webkit-animation: animateright-8c392a88 2s;\n  animation: animateright-8c392a88 2s;\n}\n@-webkit-keyframes animateleft-8c392a88 {\nfrom {\n    left: -300px;\n    opacity: 0;\n}\nto {\n    left: 0px;\n    opacity: 1;\n}\n}\n@keyframes animateleft-8c392a88 {\nfrom {\n    left: -300px;\n    opacity: 0;\n}\nto {\n    left: 0px;\n    opacity: 1;\n}\n}\n@-webkit-keyframes animateright-8c392a88 {\nfrom {\n    right: -300px;\n    opacity: 0;\n}\nto {\n    right: 0px;\n    opacity: 1;\n}\n}\n@keyframes animateright-8c392a88 {\nfrom {\n    right: -300px;\n    opacity: 0;\n}\nto {\n    right: 0px;\n    opacity: 1;\n}\n}\n/* FOOTER */\nfooter[data-v-8c392a88] {\n  display: grid;\n  position: relative;\n  bottom: 0;\n  width: 100%;\n  background-color: #2f2e41;\n  padding: 0;\n}\nfooter .cnt-main-rows-ftr .row-ftr[data-v-8c392a88] {\n  width: 100%;\n  display: flex;\n  background-color: transparent;\n  padding: 20px 50px;\n}\nfooter .cnt-main-rows-ftr .row-ftr[data-v-8c392a88]:nth-child(2) {\n  padding: 10px;\n  border-top: 1px solid #403f52;\n}\nfooter .cnt-main-rows-ftr .row-ftr[data-v-8c392a88]:nth-child(3) {\n  padding: 10px;\n  border-top: 1px solid #403f52;\n}\nfooter .cnt-main-rows-ftr .row-ftr .weare[data-v-8c392a88] {\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  font-size: 1.5em;\n}\nfooter .cnt-main-rows-ftr .row-ftr .weare a[data-v-8c392a88] {\n  color: #888aba;\n}\nfooter .cnt-main-rows-ftr .row-ftr .weare a[data-v-8c392a88]:hover {\n  color: #a8aaeb;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr[data-v-8c392a88] {\n  position: relative;\n  width: 100%;\n  background-color: transparent;\n  display: flex;\n  gap: 10px;\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 0;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-8c392a88] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info[data-v-8c392a88] {\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info a[data-v-8c392a88] {\n  color: #b3b3b3;\n  text-decoration: none;\n  font-size: 0.8em;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info a[data-v-8c392a88]:hover {\n  color: #a4a7ea;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info[data-v-8c392a88]:nth-child(1) {\n  display: flex;\n  align-items: center;\n  gap: 20px;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .cnt-obj-ftr .cnt-info[data-v-8c392a88]:nth-child(4) {\n  display: flex;\n  justify-content: flex-end;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-8c392a88] {\n  display: flex;\n  gap: 20px;\n  justify-content: flex-end;\n  width: 100%;\n  background-color: transparent;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-8c392a88]:nth-child(3) {\n  display: flex;\n  gap: 15px;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr a[data-v-8c392a88] {\n  color: #b3b3b3;\n  text-decoration: none;\n  font-size: 0.8em;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr a[data-v-8c392a88]:hover {\n  color: #a4a7ea;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr h4[data-v-8c392a88] {\n  color: #d2d2d2;\n  font-size: 1.2em;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr p[data-v-8c392a88] {\n  color: #d2d2d2;\n  font-size: 0.6em;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-8c392a88],\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-8c392a88]::nth-child(1) {\n  position: relative;\n  width: 100px;\n  height: 30px;\n  background-size: contain;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-8c392a88]:after,\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-8c392a88]::nth-child(1):after {\n  content: \"\\2122\";\n  position: absolute;\n  right: -5px;\n  top: 0px;\n  color: grey;\n  font-size: 0.8em;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-8c392a88]::nth-child(1),\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr .logo-tm[data-v-8c392a88]::nth-child(1)::nth-child(1) {\n  width: 150px;\n  height: 50px;\n}\nfooter .cnt-main-rows-ftr .obj-cont-tm[data-v-8c392a88] {\n  display: flex;\n  position: relative;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  padding: 0px;\n  color: white;\n  justify-content: center;\n  align-items: center;\n  margin: 0 auto;\n}\nfooter .cnt-main-rows-ftr .obj-cont-tm p.tm[data-v-8c392a88] {\n  display: inline-block;\n  font-size: 1em;\n  letter-spacing: 1px;\n  margin: 0;\n}\nfooter .cnt-main-rows-ftr .obj-cont-tm .logo-tm[data-v-8c392a88],\nfooter .cnt-main-rows-ftr .obj-cont-tm .logo-tm[data-v-8c392a88]:nth-child(1) {\n  position: relative;\n  width: 100px;\n  height: 30px;\n  background: url(" + escape(__webpack_require__(/*! ../../img/pitto-logotype.svg */ "./resources/img/pitto-logotype.svg")) + ") no-repeat center/contain;\n  background-size: contain;\n}\nfooter .cnt-main-rows-ftr .obj-cont-tm .logo-tm[data-v-8c392a88]:nth-child(1) {\n  width: 150px;\n  height: 50px;\n}\nfooter .cnt-main-rows-ftr .obj-cont-tm .logo-tm[data-v-8c392a88]:after {\n  content: \"\\2122\";\n  position: absolute;\n  right: -5px;\n  top: 0px;\n  color: grey;\n  font-size: 0.8em;\n}\n.ico-soc[data-v-8c392a88] {\n  width: 30px;\n  height: 30px;\n  cursor: pointer;\n}\n.fb[data-v-8c392a88] {\n  background: url(" + escape(__webpack_require__(/*! ../../img/fb-g.svg */ "./resources/img/fb-g.svg")) + ") no-repeat center;\n  background-size: contain;\n}\n.ig[data-v-8c392a88] {\n  background: url(" + escape(__webpack_require__(/*! ../../img/ig-g.svg */ "./resources/img/ig-g.svg")) + ") no-repeat center;\n  background-size: contain;\n}\n.fb[data-v-8c392a88]:hover {\n  background: url(" + escape(__webpack_require__(/*! ../../img/fb.svg */ "./resources/img/fb.svg")) + ");\n}\n.ig[data-v-8c392a88]:hover {\n  background: url(" + escape(__webpack_require__(/*! ../../img/ig.svg */ "./resources/img/ig.svg")) + ");\n}\nul.ul-ftr[data-v-8c392a88] {\n  position: relative;\n  display: block;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  margin: 0 auto;\n  gap: 30px;\n}\nul.ul-ftr li[data-v-8c392a88] {\n  position: relative;\n  display: block;\n  overflow: hidden;\n}\nul.ul-ftr li:hover a[data-v-8c392a88]:hover {\n  color: #7174b6;\n}\nul.ul-ftr li a[data-v-8c392a88] {\n  text-decoration: none;\n  color: #a2a2a2;\n  font-size: 1em;\n  font-weight: 300;\n}\n\n/* FOOTER */\n/* MENU-SLIDE-DOWN */\n.subMenu[data-v-8c392a88] {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 70px;\n  max-height: 0;\n  overflow: hidden;\n  background: white;\n  transition: all 0.5s ease-in-out;\n  z-index: 2;\n}\n.subMenu[data-v-8c392a88]::-webkit-scrollbar {\n  display: none;\n}\n.subMenu .contSubMenuSlide[data-v-8c392a88] {\n  padding: 50px 0;\n  box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.2);\n}\n.subMenu .contSubMenuSlide[data-v-8c392a88]::-webkit-scrollbar {\n  display: none;\n}\n.subMenu .contSubMenuSlide ul[data-v-8c392a88] {\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  display: flex;\n  flex-direction: column;\n  gap: 25px;\n  margin: 0 auto;\n}\n.subMenu .contSubMenuSlide ul li[data-v-8c392a88] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.subMenu .contSubMenuSlide ul li .ico[data-v-8c392a88] {\n  width: 30px;\n  height: 30px;\n  background-color: violet;\n}\n.subMenu .contSubMenuSlide ul li .aprt[data-v-8c392a88] {\n  background: url(" + escape(__webpack_require__(/*! ../../img/ico/dashboard/ico-dash-lgt.svg */ "./resources/img/ico/dashboard/ico-dash-lgt.svg")) + ") no-repeat center/contain;\n}\n.subMenu .contSubMenuSlide ul li a[data-v-8c392a88] {\n  text-decoration: none;\n  color: #4b5663;\n  font-size: 1.2em;\n}\nul[data-v-8c392a88] {\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  display: flex;\n  flex-direction: column;\n  gap: 25px;\n  margin: 0 auto;\n}\nul li[data-v-8c392a88] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\nul li .ico[data-v-8c392a88] {\n  width: 30px;\n  height: 30px;\n  background-color: violet;\n}\nul li .aprt[data-v-8c392a88] {\n  background: url(" + escape(__webpack_require__(/*! ../../img/ico/dashboard/ico-dash-lgt.svg */ "./resources/img/ico/dashboard/ico-dash-lgt.svg")) + ") no-repeat center/contain;\n}\nul li a[data-v-8c392a88] {\n  text-decoration: none;\n  color: #8da1b3;\n  font-size: 1.2em;\n}\n\n/* MENU-SLIDE-DOWN */\n.scrollToTop[data-v-8c392a88] {\n  position: fixed;\n  width: 50px;\n  height: 50px;\n  display: none;\n  bottom: 200px;\n  right: 60px;\n  border-radius: 50%;\n  cursor: pointer;\n  background: url(" + escape(__webpack_require__(/*! ../../img/arrowUp.svg */ "./resources/img/arrowUp.svg")) + ") no-repeat center;\n  background-size: contain;\n  background-color: white;\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);\n}\n@media screen and (max-width: 1200px) {\nmain .cnt-cards .box-card[data-v-8c392a88] {\n    width: calc(33.3333333333% - 25px);\n}\n}\n@media screen and (max-width: 1024px) {\n.cnt-layout[data-v-8c392a88] {\n    padding: 80px 0 0;\n}\n.cnt-layout .cnt-section .cnt-section-layout[data-v-8c392a88] {\n    flex-direction: column;\n    padding: 0;\n}\n.cnt-layout .cnt-section .second[data-v-8c392a88] {\n    flex-direction: column-reverse;\n}\n.cnt-layout .cnt-section .cnt-lft-tm[data-v-8c392a88],\n.cnt-layout .cnt-section .cnt-rgt-tm[data-v-8c392a88] {\n    width: 100%;\n}\n}\n@media screen and (max-width: 800px) {\nmain .cnt-cards .box-card[data-v-8c392a88] {\n    width: calc(50% - 25px);\n}\n}\n@media screen and (max-width: 750px) {\nfooter .cnt-main-rows-ftr .row-ftr[data-v-8c392a88] {\n    padding: 20px 0;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr[data-v-8c392a88] {\n    flex-direction: column-reverse;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .cnt-obj-ftr[data-v-8c392a88] {\n    flex-direction: column;\n    align-items: center;\n    margin: 0 auto;\n    padding: 10px 0;\n}\nfooter .cnt-main-rows-ftr .row-ftr .obj-cont-ftr .row-obj-ftr[data-v-8c392a88] {\n    justify-content: center;\n}\n}\n@media screen and (max-width: 650px) {\nmain[data-v-8c392a88] {\n    padding-top: 30px;\n}\nmain .cnt-h1[data-v-8c392a88] {\n    margin-bottom: 50px;\n}\nmain .cnt-h1 h1[data-v-8c392a88],\nmain .cnt-h1 h2[data-v-8c392a88] {\n    text-align: center;\n    color: #7174b6;\n}\nmain .cnt-h1 h1[data-v-8c392a88] {\n    font-size: 3em;\n}\nmain .cnt-h1 h2[data-v-8c392a88] {\n    font-size: 2em;\n}\nmain .cnt-section-layout[data-v-8c392a88] {\n    flex-direction: column-reverse !important;\n    padding: 0;\n}\nmain .box-card[data-v-8c392a88] {\n    width: 100%;\n}\n}", ""]);
 
 // exports
 
@@ -3691,9 +4215,10 @@ exports.push([module.i, ".title-box[data-v-8c392a88] {\n  margin-top: 1%;\n  mar
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Montserrat&display=swap);", ""]);
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Changa+One);", ""]);
 
 // module
-exports.push([module.i, "* {\n    font-family: \"Montserrat\", sans-serif;\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n.container {\n    display: flex;\n    width: 100%;\n    height: 100%;\n    max-width: 1170px;\n    margin: 0 auto;\n}\n\n[class*=\"col-\"] {\n    /* flex-direction: grow basis width; */\n    /* flex-direction: 0 0 auto; */\n}\n\n[class*=\"col-\"] {\n    position: relative;\n}\n\n.row {\n    display: flex;\n}\n\n.col-1 {\n    flex-basis: calc((100% / 12) * 1);\n}\n\n.col-2 {\n    flex-basis: calc((100% / 12) * 2);\n}\n\n.col-3 {\n    flex-basis: calc((100% / 12) * 3);\n}\n\n.col-4 {\n    flex-basis: calc((100% / 12) * 4);\n}\n\n.col-5 {\n    flex-basis: calc((100% / 12) * 5);\n}\n\n.col-6 {\n    flex-basis: calc((100% / 12) * 6);\n}\n\n.col-7 {\n    flex-basis: calc((100% / 12) * 7);\n}\n\n.col-8 {\n    flex-basis: calc((100% / 12) * 8);\n}\n\n.col-9 {\n    flex-basis: calc((100% / 12) * 9);\n}\n\n.col-10 {\n    flex-basis: calc((100% / 12) * 10);\n}\n\n.col-11 {\n    flex-basis: calc((100% / 12) * 11);\n}\n\n.col-12 {\n    flex-basis: calc((100% / 12) * 12);\n}\n\n.d-flex {\n    display: flex;\n}\n\n.flex-dr-col {\n    flex-direction: column;\n}\n\n.w-auto {\n    width: auto;\n}\n\n.h-vh {\n    height: 100vh;\n}\n\n.gp-5 {\n    gap: 5px;\n}\n\n.gp-10 {\n    gap: 10px;\n}\n\n.gp-15 {\n    gap: 15px;\n}\n\n.gp-20 {\n    gap: 20px;\n}\n\n.gp-25 {\n    gap: 25px;\n}\n\n.gp-30 {\n    gap: 30px;\n}\n\n.jc-c {\n    justify-content: center;\n}\n\n.ai-c {\n    align-items: center;\n}\n\n.w-100 {\n    width: 100%;\n}\n\n.wmax-100 {\n    max-width: 100%;\n}\n\n.w-max {\n    width: max-content;\n}\n\n.h-100 {\n    height: 100%;\n}\n\n.txt-c {\n    font-weight: 600;\n    margin: 0 15px;\n    text-align: center;\n}\n\n.m-tb {\n    margin: 10px 0;\n}\n\n.pd-20 {\n    padding: 20px !important;\n}\n\n.pd-20-lr {\n    padding: 0 20px !important;\n}\n\n.algn-itm-init {\n    align-items: initial !important;\n}\n\n.b-0 {\n    border: 0 !important;\n}\n\n.red {\n    color: red !important;\n}\n\n.d-block {\n    display: block;\n    color: red;\n}\n\n.d-none {\n    display: none;\n}\n\n#address-error {\n    position: absolute;\n    bottom: -25px;\n    left: 0;\n}\n\n.error {\n    color: red;\n    font-size: 15px;\n    position: relative;\n}\n\nlabel.error {\n    position: absolute !important;\n    bottom: -10px;\n    margin-bottom: 5px;\n}\n\n.tbl-title {\n    font-weight: 900;\n}\n\n.f-grow {\n    flex-grow: 1;\n}\n\n.p-20 {\n    padding: 20px;\n}\n\n.mt-2 {\n    margin-top: 2rem;\n}\n\n.gap-20 {\n    gap: 20px;\n}\n\n.cnt-item-service label:nth-child(2) {\n    bottom: -30px;\n    left: 0;\n}\n\n@media screen and (max-width: 480px) {\n    .col-xs-12 {\n        flex-basis: calc((100% / 12) * 12);\n    }\n}\n\n@media screen and (max-width: 820px) {\n    .col-md-1 {\n        flex-basis: calc((100% / 12) * 1);\n    }\n\n    .col-md-2 {\n        flex-basis: calc((100% / 12) * 2);\n    }\n\n    .col-md-3 {\n        flex-basis: calc((100% / 12) * 3);\n    }\n\n    .col-md-4 {\n        flex-basis: calc((100% / 12) * 4);\n    }\n\n    .col-md-5 {\n        flex-basis: calc((100% / 12) * 5);\n    }\n\n    .col-md-12 {\n        flex: calc((100% / 12) * 12);\n    }\n}\n", ""]);
+exports.push([module.i, "* {\n    font-family: \"Montserrat\", sans-serif;\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\nbody {\n    overflow-x: hidden !important;\n}\n.container {\n    display: flex;\n    width: 100%;\n    height: 100%;\n    max-width: 1170px;\n    margin: 0 auto;\n}\n\n[class*=\"col-\"] {\n    /* flex-direction: grow width; */\n    /* flex-direction: 0 0 auto; */\n}\n\n[class*=\"col-\"] {\n    position: relative;\n}\n\n.row {\n    display: flex;\n}\n\n.col-1 {\n    flex: calc((100% / 12) * 1);\n}\n\n.col-2 {\n    flex: calc((100% / 12) * 2);\n}\n\n.col-3 {\n    flex: calc((100% / 12) * 3);\n}\n\n.col-4 {\n    flex: calc((100% / 12) * 4);\n}\n\n.col-5 {\n    flex: calc((100% / 12) * 5);\n}\n\n.col-6 {\n    flex: calc((100% / 12) * 6);\n}\n\n.col-7 {\n    flex: calc((100% / 12) * 7);\n}\n\n.col-8 {\n    flex: calc((100% / 12) * 8);\n}\n\n.col-9 {\n    flex: calc((100% / 12) * 9);\n}\n\n.col-10 {\n    flex: calc((100% / 12) * 10);\n}\n\n.col-11 {\n    flex: calc((100% / 12) * 11);\n}\n\n.col-12 {\n    flex: calc((100% / 12) * 12);\n}\n\n.d-flex {\n    display: flex;\n}\n\n.flex-dr-col {\n    flex-direction: column;\n}\n\n.w-auto {\n    width: auto;\n}\n\n.h-vh {\n    height: 100vh;\n}\n\n.gp-5 {\n    gap: 5px;\n}\n\n.gp-10 {\n    gap: 10px;\n}\n\n.gp-15 {\n    gap: 15px;\n}\n\n.gp-20 {\n    gap: 20px;\n}\n\n.gp-25 {\n    gap: 25px;\n}\n\n.gp-30 {\n    gap: 30px;\n}\n\n.jc-c {\n    justify-content: center;\n}\n\n.ai-c {\n    align-items: center;\n}\n\n.w-100 {\n    width: 100%;\n}\n\n.wmax-100 {\n    max-width: 100%;\n}\n\n.w-max {\n    width: max-content;\n}\n\n.h-100 {\n    height: 100%;\n}\n\n.txt-c {\n    font-weight: 600;\n    margin: 0 15px;\n    text-align: center;\n}\n\n.m-tb {\n    margin: 10px 0;\n}\n\n.pd-20 {\n    padding: 20px !important;\n}\n\n.pd-20-lr {\n    padding: 0 20px !important;\n}\n\n.algn-itm-init {\n    align-items: initial !important;\n}\n\n.b-0 {\n    border: 0 !important;\n}\n\n.red {\n    color: red !important;\n}\n\n.d-block {\n    display: block;\n    color: red;\n}\n\n.d-none {\n    display: none;\n}\n\n#address-error {\n    position: absolute;\n    bottom: -25px;\n    left: 0;\n}\n\n.error {\n    color: red;\n    font-size: 15px;\n    position: relative;\n}\n\nlabel.error {\n    position: absolute !important;\n    bottom: -10px;\n    margin-bottom: 5px;\n}\n\n.tbl-title {\n    font-weight: 900;\n}\n\n.f-grow {\n    flex-grow: 1;\n}\n\n.p-20 {\n    padding: 20px;\n}\n\n.mt-2 {\n    margin-top: 2rem;\n}\n\n.gap-20 {\n    gap: 20px;\n}\n\n.cnt-item-service label:nth-child(2) {\n    bottom: -30px;\n    left: 0;\n}\n\n@media screen and (max-width: 480px) {\n    .col-xs-12 {\n        flex: calc((100% / 12) * 12);\n    }\n}\n\n@media screen and (max-width: 820px) {\n    .col-md-1 {\n        flex: calc((100% / 12) * 1);\n    }\n\n    .col-md-2 {\n        flex: calc((100% / 12) * 2);\n    }\n\n    .col-md-3 {\n        flex: calc((100% / 12) * 3);\n    }\n\n    .col-md-4 {\n        flex: calc((100% / 12) * 4);\n    }\n\n    .col-md-5 {\n        flex: calc((100% / 12) * 5);\n    }\n\n    .col-md-12 {\n        flex: calc((100% / 12) * 12);\n    }\n}\n", ""]);
 
 // exports
 
@@ -50735,6 +51260,17 @@ module.exports = "/images/fb-g.svg?618649db81b56cc4443b3adb7cb03321";
 /***/ (function(module, exports) {
 
 module.exports = "/images/fb.svg?427f029e1c5cdd761ad04aed367498be";
+
+/***/ }),
+
+/***/ "./resources/img/ico/dashboard/ico-dash-lgt.svg":
+/*!******************************************************!*\
+  !*** ./resources/img/ico/dashboard/ico-dash-lgt.svg ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/ico-dash-lgt.svg?d32ffe6a06df88f4a6aff4f1c3a006d7";
 
 /***/ }),
 

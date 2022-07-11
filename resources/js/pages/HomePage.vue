@@ -1,7 +1,6 @@
 <template>
   <div>
-    <!--Header-->
-
+    <!--HEADER-->
     <header>
       <div class="container wmax-100 h-100 pd-20-lr">
         <div class="cnt-hdr-items">
@@ -26,26 +25,28 @@
 
           <!-- SEARCH -->
           <div class="cnt-nav col-8 h-100">
-            <div class="search">
-              <div class="cnt-lens"></div>
-              <div class="contStringSrc">
-                <input
-                  id="userInput"
-                  class="accountInput"
-                  type="text"
-                  placeholder="Cerca appartamento"
-                  v-model="input"
-                  @input="onInputChanged"
-                />
+            <div class="cnt-search">
+              <div class="search">
+                <div class="cnt-lens"></div>
+                <div class="contStringSrc">
+                  <input
+                    id="userInput"
+                    class="accountInput"
+                    type="text"
+                    placeholder="Cerca appartamento"
+                    v-model="input"
+                    @input="onInputChanged"
+                  />
+                </div>
+                <router-link
+                  :to="{
+                    name: 'search',
+                    params: { input: input },
+                  }"
+                >
+                  <div class="cnt-fine"></div>
+                </router-link>
               </div>
-              <router-link
-                :to="{
-                  name: 'search',
-                  params: { input: input },
-                }"
-              >
-                <div class="cnt-fine"></div>
-              </router-link>
             </div>
           </div>
           <!-- SEARCH -->
@@ -57,57 +58,24 @@
               v-show="$route.name === 'home' ? true : false"
             >
               <ul class="ul-log-reg">
-                <!-- Authentication Links -->
-                <!-- <a href="{{ route('login') }}"> -->
-                <li>
-                  <div class="ico-log ico-login"></div>
-                  <a href=" /login">Login</a>
-                </li>
-                <!-- </a> -->
-                <!-- <a href="{{ route('register') }}"> -->
-                <li>
-                  <div class="ico-log ico-reg"></div>
-                  <a href="/register">Register</a>
-                </li>
-                <!-- </a> -->
-                <!-- <div class="cnt-usr-set">
-									<div class="cnt-span">
-										<span>{{ Auth:: user()-> name }}</span>
-										<span>{{ Auth:: user()-> email }}</span>
-										<a id="arrowUsr" href="#">
-											<div class="cnt-arrow">
-												<span class="arrow"></span>
-											</div>
-										</a>
-									</div>
-									<div id="subMenuUsr" class="contUlAccount">
-										<ul class="ulSet-usr">
-											<li>
-												<a href="{{ route('logout') }}"
-													onclick="event.preventDefault();
-																												 document.getElementById('logout-form').submit();">
-													{{ __('Logout') }}
-												</a>
-												<form id="logout-form" action="{{ route('logout') }}"
-													method="POST" class="d-none">
-												</form>
-											</li>
-										</ul>
-									</div>
-								</div> -->
+                <div class="cnt-ul">
+                  <ul>
+                    <li>
+                      <div class="ico aprt"></div>
+                      <a href="/admin/apartments">Dashboard</a>
+                    </li>
+                  </ul>
+                </div>
               </ul>
             </div>
-
             <!-- LOGIN-REGISTER -->
 
             <!-- BTN-HAMBURGER -->
-            <div class="col-2 h-100 d-flex jc-c ai-c">
-              <div id="btn-hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+            <div id="btn-hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
             <!-- BTN-HAMBURGER -->
 
@@ -126,22 +94,49 @@
           </div>
         </div>
       </div>
-    </header>
-    <div class="cnt-result-adress" v-if="!isClicked">
-      <div
-        class="cnt-items"
-        v-for="(indirizzo, i) in indirizzi"
-        :key="i + indirizzo.address"
-      >
-        <a href="#" @click="take(indirizzo.address.freeformAddress)">
-          {{ indirizzo.address["freeformAddress"] }}
-        </a>
+      <div class="container container-src wmax-100 h-100 pd-20-lr bg-white">
+        <div class="cnt-hdr-src">
+          <!--search-->
+          <div class="search">
+            <div class="cnt-lens"></div>
+            <div class="contStringSrc">
+              <input
+                id="userInput"
+                class="accountInput"
+                type="text"
+                placeholder="Cerca appartamento"
+                v-model="input"
+                @input="onInputChanged"
+              />
+            </div>
+            <router-link
+              :to="{
+                name: 'search',
+                params: { input: input },
+              }"
+            >
+              <div class="cnt-fine"></div>
+            </router-link>
+          </div>
+          <!--search-->
+        </div>
       </div>
-    </div>
+      <div class="cnt-result-adress" v-if="!isClicked">
+        <div
+          class="cnt-items"
+          v-for="(indirizzo, i) in indirizzi"
+          :key="i + indirizzo.address"
+        >
+          <a href="#" @click="take(indirizzo.address.freeformAddress)">
+            {{ indirizzo.address["freeformAddress"] }}
+          </a>
+        </div>
+      </div>
+    </header>
 
-    <!--Header-->
-    <!--Main-->
+    <!--HEADER-->
 
+    <!--MAIN-->
     <main>
       <!-- <div class="container"> -->
       <!-- MAIN-CAROUSEL-LAYOUT -->
@@ -252,40 +247,70 @@
       <!-- MAIN-CAROUSEL-LAYOUT -->
       <!-- </div> -->
     </main>
-
     <!-- MAIN -->
 
+    <!-- FOOTER -->
     <footer>
-      <div class="row-ftr">
-        <div class="obj-cont-ftr">
-          <div class="col-5 cnt-obj-ftr col-md-12">
-            <div class="cnt-info">
-              <a href="#"> Contact us </a>
-            </div>
-            <div class="cnt-info">
-              <a href="#"> Privacy Policy </a>
-            </div>
-            <div class="cnt-info">
-              <a href="#">Terms & condition </a>
-            </div>
+      <div class="cnt-main-rows-ftr">
+        <div class="row-ftr">
+          <div class="cnt-info weare">
+            <router-link to="weare"> Chi Siamo </router-link>
           </div>
-          <div class="col-7 cnt-obj-ftr col-md-12">
-            <div class="row-obj-ftr">
-              <div class="ico-soc fb"></div>
-              <div class="ico-soc ig"></div>
+        </div>
+        <div class="row-ftr">
+          <div class="obj-cont-ftr">
+            <div class="col-5 cnt-obj-ftr col-md-12">
+              <div class="cnt-info">
+                <a href="#"> Contact us </a>
+              </div>
+              <div class="cnt-info">
+                <a href="#"> Privacy Policy </a>
+              </div>
+              <div class="cnt-info">
+                <a href="#">Terms & condition </a>
+              </div>
+            </div>
+            <div class="col-7 cnt-obj-ftr col-md-12">
+              <div class="row-obj-ftr">
+                <div class="ico-soc fb"></div>
+                <div class="ico-soc ig"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row-ftr">
-        <div class="obj-cont-ftr obj-cont-tm">
-          <p class="tm">©{{ new Date().getFullYear() }}</p>
-          <div class="logo-tm"></div>
-          <p class="tm">- All Rights Reserved</p>
+        <div class="row-ftr">
+          <div class="obj-cont-ftr obj-cont-tm">
+            <p class="tm">©{{ new Date().getFullYear() }}</p>
+            <div class="logo-tm"></div>
+            <p class="tm">- All Rights Reserved</p>
+          </div>
         </div>
       </div>
     </footer>
-    <!--Footer-->
+    <!-- FOOTER -->
+
+    <!--MENU-SLIDE-->
+    <div
+      class="subMenu closeMenu"
+      id="subMenuSlide"
+      style="
+        filter: progid:DXImageTransform.Microsoft.Shadow(color='#dedede', Direction=135, Strength=10);
+        -webkit-overflow-scrolling: touch;
+      "
+    >
+      <div class="contSubMenuSlide">
+        <div class="cnt-ul">
+          <ul>
+            <li>
+              <div class="ico aprt"></div>
+              <a href="/admin/apartments">Dashboard</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--MENU-SLIDE-->
+
     <div class="scrollToTop"></div>
   </div>
 </template>
@@ -319,6 +344,19 @@ export default {
     Slide,
   },
   mounted() {
+    $(document).ready(function () {
+      $("#btn-hamburger").click(function () {
+        ShowMenu();
+      });
+    });
+    function ShowMenu() {
+      let tag = document.getElementById("subMenuSlide");
+      if (tag.style.maxHeight !== "100%") {
+        tag.style.maxHeight = "100%";
+      } else {
+        tag.style.maxHeight = "0";
+      }
+    }
     $("#btn-hamburger").click(function () {
       $(this).toggleClass("open");
     });
@@ -347,6 +385,18 @@ export default {
         }
       });
     }
+    /*
+Lancio la funzione al verificarsi di alcuni eventi (scrolling e resize)
+legati alla finestra del browser
+*/
+    $(window).on("scroll resize", function () {
+      // applico l'effetto alle sole immagini con classe 'fadeimg'
+      imgFadeIn(".fadeLeft, .fadeRight");
+    });
+    $(window).on("load resize", function () {
+      // applico l'effetto alle sole immagini con classe 'fadeimg'
+      imgFadeIn(".fadeLeft, .fadeRight");
+    });
     $(document).ready(function () {
       $(window).scroll(function () {
         if ($(this).scrollTop() > 250) {
@@ -363,18 +413,6 @@ export default {
           900
         );
       });
-    });
-    /*
-Lancio la funzione al verificarsi di alcuni eventi (scrolling e resize)
-legati alla finestra del browser
-*/
-    $(window).on("scroll resize", function () {
-      // applico l'effetto alle sole immagini con classe 'fadeimg'
-      imgFadeIn(".fadeLeft, .fadeRight");
-    });
-    $(window).on("load resize", function () {
-      // applico l'effetto alle sole immagini con classe 'fadeimg'
-      imgFadeIn(".fadeLeft, .fadeRight");
     });
 
     //prendo tutti gli appartamenti dal database
@@ -432,15 +470,11 @@ legati alla finestra del browser
 </script>
 
 <style scoped lang="scss">
-// style header
-
-// style main
-
 main {
   .title {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 3%;
+    margin-bottom: 50px;
   }
   h2 {
     font-weight: bold;
@@ -476,7 +510,7 @@ main {
     .cnt-section-layout {
       display: flex;
       width: 100%;
-      padding: 80px 0;
+      padding: 50px 0;
       align-items: center;
     }
     .cnt-cntr {
@@ -691,29 +725,76 @@ footer {
   width: 100%;
   background-color: #2f2e41;
   padding: 0;
-  .row-ftr {
-    width: 100%;
-    display: flex;
-    background-color: transparent;
-    padding: 20px 50px;
-    &:nth-child(2) {
-      padding: 10px;
-      border-top: 1px solid #403f52;
-    }
-    .obj-cont-ftr {
-      position: relative;
+  .cnt-main-rows-ftr {
+    .row-ftr {
       width: 100%;
-      background-color: transparent;
       display: flex;
-      gap: 10px;
-      padding: 50px 50px 0px;
-      padding: 0;
-      .cnt-obj-ftr {
+      background-color: transparent;
+      padding: 20px 50px;
+      &:nth-child(2) {
+        padding: 10px;
+        border-top: 1px solid #403f52;
+      }
+      &:nth-child(3) {
+        padding: 10px;
+        border-top: 1px solid #403f52;
+      }
+      .weare {
+        width: 100%;
         display: flex;
-        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+        a {
+          color: #888aba;
+          &:hover {
+            color: #a8aaeb;
+          }
+        }
+      }
+      .obj-cont-ftr {
+        position: relative;
+        width: 100%;
+        background-color: transparent;
+        display: flex;
         gap: 10px;
-        .cnt-info {
-          width: max-content;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0;
+        .cnt-obj-ftr {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          .cnt-info {
+            width: max-content;
+            a {
+              color: #b3b3b3;
+              text-decoration: none;
+              font-size: 0.8em;
+              &:hover {
+                color: #a4a7ea;
+              }
+            }
+            &:nth-child(1) {
+              display: flex;
+              align-items: center;
+              gap: 20px;
+            }
+            &:nth-child(4) {
+              display: flex;
+              justify-content: flex-end;
+            }
+          }
+        }
+        .row-obj-ftr {
+          display: flex;
+          gap: 20px;
+          justify-content: flex-end;
+          width: 100%;
+          background-color: transparent;
+          &:nth-child(3) {
+            display: flex;
+            gap: 15px;
+          }
           a {
             color: #b3b3b3;
             text-decoration: none;
@@ -722,99 +803,72 @@ footer {
               color: #a4a7ea;
             }
           }
-          &:nth-child(1) {
-            display: flex;
-            align-items: center;
-            gap: 20px;
+          & h4 {
+            color: #d2d2d2;
+            font-size: 1.2em;
           }
-          &:nth-child(4) {
-            display: flex;
-            justify-content: flex-end;
+          & p {
+            color: #d2d2d2;
+            font-size: 0.6em;
           }
-        }
-      }
-      .row-obj-ftr {
-        display: flex;
-        gap: 20px;
-        justify-content: flex-end;
-        width: 100%;
-        background-color: transparent;
-        &:nth-child(3) {
-          display: flex;
-          gap: 15px;
-        }
-        a {
-          color: #b3b3b3;
-          text-decoration: none;
-          font-size: 0.8em;
-          &:hover {
-            color: #a4a7ea;
-          }
-        }
-        & h4 {
-          color: #d2d2d2;
-          font-size: 1.2em;
-        }
-        & p {
-          color: #d2d2d2;
-          font-size: 0.6em;
-        }
-        .logo-tm,
-        .logo-tm::nth-child(1) {
-          position: relative;
-          width: 100px;
-          height: 30px;
-          background-size: contain;
-          &:after {
-            content: "™";
-            position: absolute;
-            right: -5px;
-            top: 0px;
-            color: grey;
-            font-size: 0.8em;
-          }
-          &::nth-child(1) {
-            width: 150px;
-            height: 50px;
+          .logo-tm,
+          .logo-tm::nth-child(1) {
+            position: relative;
+            width: 100px;
+            height: 30px;
+            background-size: contain;
+            &:after {
+              content: "™";
+              position: absolute;
+              right: -5px;
+              top: 0px;
+              color: grey;
+              font-size: 0.8em;
+            }
+            &::nth-child(1) {
+              width: 150px;
+              height: 50px;
+            }
           }
         }
       }
     }
-  }
-  .obj-cont-tm {
-    display: flex;
-    position: relative;
-    width: max-content;
-    padding: 0px;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    p.tm {
-      display: inline-block;
-      font-size: 1em;
-      letter-spacing: 1px;
-      margin: 0;
-    }
-    .logo-tm,
-    .logo-tm:nth-child(1) {
+
+    .obj-cont-tm {
+      display: flex;
       position: relative;
-      width: 100px;
-      height: 30px;
-      background: url("../../img/pitto-logotype.svg") no-repeat center/contain;
-      background-size: contain;
-    }
-    .logo-tm:nth-child(1) {
-      width: 150px;
-      height: 50px;
-    }
-    .logo-tm:after {
-      content: "™";
-      position: absolute;
-      right: -5px;
-      top: 0px;
-      color: grey;
-      font-size: 0.8em;
+      width: max-content;
+      padding: 0px;
+      color: white;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      p.tm {
+        display: inline-block;
+        font-size: 1em;
+        letter-spacing: 1px;
+        margin: 0;
+      }
+      .logo-tm,
+      .logo-tm:nth-child(1) {
+        position: relative;
+        width: 100px;
+        height: 30px;
+        background: url("../../img/pitto-logotype.svg") no-repeat center/contain;
+        background-size: contain;
+      }
+      .logo-tm:nth-child(1) {
+        width: 150px;
+        height: 50px;
+      }
+      .logo-tm:after {
+        content: "™";
+        position: absolute;
+        right: -5px;
+        top: 0px;
+        color: grey;
+        font-size: 0.8em;
+      }
     }
   }
 }
@@ -861,6 +915,87 @@ ul.ul-ftr {
 }
 /* FOOTER */
 
+/* MENU-SLIDE-DOWN */
+.subMenu {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 70px;
+  max-height: 0;
+  overflow: hidden;
+  background: white;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  z-index: 2;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .contSubMenuSlide {
+    padding: 50px 0;
+    -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.2);
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    ul {
+      width: max-content;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      margin: 0 auto;
+      li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        .ico {
+          width: 30px;
+          height: 30px;
+          background-color: violet;
+        }
+        .aprt {
+          background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat
+            center/contain;
+        }
+        a {
+          text-decoration: none;
+          color: #4b5663;
+          font-size: 1.2em;
+        }
+      }
+    }
+  }
+}
+ul {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin: 0 auto;
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .ico {
+      width: 30px;
+      height: 30px;
+      background-color: violet;
+    }
+    .aprt {
+      background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat
+        center/contain;
+    }
+    a {
+      text-decoration: none;
+      color: #8da1b3;
+      font-size: 1.2em;
+    }
+  }
+}
+/* MENU-SLIDE-DOWN */
 .scrollToTop {
   position: fixed;
   width: 50px;
@@ -877,29 +1012,7 @@ ul.ul-ftr {
   -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 }
-@media screen and (max-width: 1000px) {
-  /* header {
-    .cnt-hdr-items {
-      .cnt-nav {
-        nav {
-          display: none;
-        }
-      }
-    }
-    #btn-hamburger {
-      display: block;
-    }
-    .cnt-hdr-src-mob {
-      display: flex;
-      width: 100%;
-      height: 70px;
-      justify-content: center;
-      align-items: center;
-    }
-    .container-src {
-      display: none;
-    }
-  } */
+@media screen and (max-width: 1024px) {
   .main-usr-set {
     display: none;
   }
@@ -922,18 +1035,22 @@ ul.ul-ftr {
 }
 @media screen and (max-width: 750px) {
   footer {
-    .row-ftr {
-      padding: 20px 0;
-      .obj-cont-ftr {
-        flex-direction: column-reverse;
-        .cnt-obj-ftr {
-          flex-direction: column;
-          align-items: center;
-          margin: 0 auto;
-          padding: 10px 0;
-        }
-        .row-obj-ftr {
-          justify-content: center;
+    .cnt-main-rows-ftr {
+      .weare {
+      }
+      .row-ftr {
+        padding: 20px 0;
+        .obj-cont-ftr {
+          flex-direction: column-reverse;
+          .cnt-obj-ftr {
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+            padding: 10px 0;
+          }
+          .row-obj-ftr {
+            justify-content: center;
+          }
         }
       }
     }
@@ -975,18 +1092,20 @@ ul.ul-ftr {
     }
   }
   footer {
-    .row-ftr {
-      padding: 20px 0;
-      .obj-cont-ftr {
-        flex-direction: column-reverse;
-        .cnt-obj-ftr {
-          flex-direction: column;
-          align-items: center;
-          margin: 0 auto;
-          padding: 10px 0;
-        }
-        .row-obj-ftr {
-          justify-content: center;
+    .cnt-main-rows-ftr {
+      .row-ftr {
+        padding: 20px 0;
+        .obj-cont-ftr {
+          flex-direction: column-reverse;
+          .cnt-obj-ftr {
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+            padding: 10px 0;
+          }
+          .row-obj-ftr {
+            justify-content: center;
+          }
         }
       }
     }
