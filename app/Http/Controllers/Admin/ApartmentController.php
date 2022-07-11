@@ -24,7 +24,7 @@ class ApartmentController extends Controller
     public function index()
     {
         $user = Auth::user();
-        
+
         $apartments = Apartment::where('user_id', $user->id)->get();
         //  dd($apartments);
         return view('admin.apartments.index', compact('apartments'));
@@ -148,12 +148,11 @@ class ApartmentController extends Controller
      */
     public function edit($id)
     {
-        //dd(Auth::id());
         $user = Auth::user()->id;
 
         $apartment = Apartment::where('user_id', '=', $user)->findOrFail($id);
-
         $services = Service::all();
+
         return view('admin.apartments.edit', compact('apartment', 'services'));
     }
 
@@ -211,7 +210,10 @@ class ApartmentController extends Controller
         );
 
         $data = $request->all();
-        //  dd($data);
+
+        /* dd($data); */
+
+
         if (array_key_exists('img', $data)) {
             Storage::delete($apartment->img);
 
@@ -219,15 +221,6 @@ class ApartmentController extends Controller
             $data['img'] = $img_path;
         }
 
-
-        //  if(array_key_exists('image', $postData)){
-        //     if($post->cover){
-        //         Storage::delete($post->cover);
-        //     }
-
-        //     $img_path = Storage::put('uploads', $postData['image']);
-        //     $postData['cover'] = $img_path;
-        // }
 
 
         $apartment->visible = $data['visible'];
