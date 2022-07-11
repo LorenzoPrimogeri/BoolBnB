@@ -2106,6 +2106,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       input: "",
       searchedAdress: "",
+      username: "",
       //  lat: 0, //Riferito all'indirizzo inserito dal utente
       //  lng: 0, //Riferito all'indirizzo inserito dal utente
       indirizzi: [],
@@ -2205,7 +2206,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     });
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/user/".concat(this.user_id)).then(function (risp) {
-      return console.log(risp);
+      console.log(risp);
+      _this.username = risp.data[0].name;
     }); //prendo tutti gli appartamenti dal database
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments").then(function (results) {
@@ -2696,7 +2698,7 @@ var render = function render() {
     staticClass: "container flex"
   }, [_c("div", {
     staticClass: "cnt-row col-12 text-box"
-  }, [_c("h2", [_vm._v(_vm._s(_vm.apartment.title))]), _vm._v(" "), _c("h5", [_vm._m(0), _vm._v(_vm._s(_vm.apartment.address) + "\n        ")])]), _vm._v(" "), _c("div", {
+  }, [_c("h2", [_vm._v(_vm._s(_vm.apartment.title))]), _vm._v(" "), _c("h5", [_vm._m(0), _vm._v(_vm._s(_vm.apartment.address) + "\r\n        ")])]), _vm._v(" "), _c("div", {
     staticClass: "cnt-row col-12 img-box"
   }, [_c("div", {
     staticClass: "cont-img"
@@ -2719,35 +2721,35 @@ var render = function render() {
       src: __webpack_require__(/*! ../../../public/img/room-svgrepo-com.svg */ "./public/img/room-svgrepo-com.svg"),
       alt: "room"
     }
-  }), _vm._v(_vm._s(_vm.apartment.room) + "\n            ")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(_vm._s(_vm.apartment.room) + "\r\n            ")])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex service-icon"
   }, [_c("p", [_c("img", {
     attrs: {
       src: __webpack_require__(/*! ../../../public/img/bathroom-svgrepo-com.svg */ "./public/img/bathroom-svgrepo-com.svg"),
       alt: "bath"
     }
-  }), _vm._v(_vm._s(_vm.apartment.bathroom) + "\n            ")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(_vm._s(_vm.apartment.bathroom) + "\r\n            ")])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex service-icon"
   }, [_c("p", [_c("img", {
     attrs: {
       src: __webpack_require__(/*! ../../../public/img/bed-svgrepo-com.svg */ "./public/img/bed-svgrepo-com.svg"),
       alt: "bed"
     }
-  }), _vm._v(_vm._s(_vm.apartment.bed) + "\n            ")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(_vm._s(_vm.apartment.bed) + "\r\n            ")])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex service-icon"
   }, [_c("p", [_c("img", {
     attrs: {
       src: __webpack_require__(/*! ../../../public/img/square-layout-with-boxes-svgrepo-com.svg */ "./public/img/square-layout-with-boxes-svgrepo-com.svg"),
       alt: "square-meter"
     }
-  }), _vm._v(_vm._s(_vm.apartment.mq) + "mq\n            ")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(_vm._s(_vm.apartment.mq) + "mq\r\n            ")])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex service-icon"
   }, [_c("p", [_c("img", {
     attrs: {
       src: __webpack_require__(/*! ../../../public/img/euro-svgrepo-com.svg */ "./public/img/euro-svgrepo-com.svg"),
       alt: "euro"
     }
-  }), _vm._v(_vm._s(_vm.apartment.price) + "€ /notte\n            ")])]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("div", {
+  }), _vm._v(_vm._s(_vm.apartment.price) + "€ /notte\r\n            ")])]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("div", {
     staticClass: "services col-4"
   }, [_c("div", {
     staticClass: "cnt-row col-12"
@@ -2881,7 +2883,7 @@ var render = function render() {
       display: "flex",
       "justify-content": "center"
     }
-  }, [_vm._v("\n              Messaggio inviato!\n            ")]) : _vm._e(), _vm._v(" "), _c("div", {
+  }, [_vm._v("\r\n              Messaggio inviato!\r\n            ")]) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "d-flex jc-c"
   }, [_c("button", {
     staticClass: "btn-cta",
@@ -2889,7 +2891,7 @@ var render = function render() {
       type: "submit",
       disabled: _vm.sending
     }
-  }, [_vm._v("\n                Invia mail\n              ")])])])])])])]);
+  }, [_vm._v("\r\n                Invia mail\r\n              ")])])])])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -3028,7 +3030,7 @@ var render = function render() {
     staticClass: "cnt-fine"
   })])], 1)])]), _vm._v(" "), _c("div", {
     staticClass: "col-2 d-flex jc-c ai-c"
-  }, [_c("div", {
+  }, [_vm.user_id ? _c("div", [_c("span", [_vm._v(_vm._s(_vm.username))])]) : _c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -3036,9 +3038,7 @@ var render = function render() {
       expression: "$route.name === 'home' ? true : false"
     }],
     staticClass: "main-usr-set"
-  }, [_c("ul", {
-    staticClass: "ul-log-reg"
-  }, [_c("span", [_vm._v(_vm._s(_vm.user_id))]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)])]), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
+  }, [_vm._m(0)]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "col-2 d-flex jc-c ai-c"
   }, [_c("div", {
     directives: [{
@@ -3111,12 +3111,12 @@ var render = function render() {
           return _vm.take(indirizzo.address.freeformAddress);
         }
       }
-    }, [_vm._v("\n            " + _vm._s(indirizzo.address["freeformAddress"]) + "\n          ")])]);
+    }, [_vm._v("\r\n            " + _vm._s(indirizzo.address["freeformAddress"]) + "\r\n          ")])]);
   }), 0) : _vm._e()]), _vm._v(" "), _c("main", [_c("div", {
     staticClass: "main-carousel-layout"
   }, [_c("div", {
     staticClass: "cnt-carousel"
-  }, [_vm._m(3), _vm._v(" "), _c("div", {
+  }, [_vm._m(2), _vm._v(" "), _c("div", {
     staticClass: "container w-100 h-100 d-flex jc-c ai-c"
   }, [_c("carousel", {
     staticClass: "w-100"
@@ -3149,7 +3149,7 @@ var render = function render() {
     }, [_c("h2", [_vm._v(_vm._s(apartment.title))]), _vm._v(" "), _c("h3", [_vm._v(_vm._s(apartment.address))])]), _vm._v(" "), _c("div", {
       staticClass: "price col-12"
     }, [_c("span", [_vm._v(_vm._s(apartment.price) + " €/notte")])])], 1)]);
-  }), 1)], 1)]), _vm._v(" "), _vm._m(4)])]), _vm._v(" "), _c("footer", [_c("div", {
+  }), 1)], 1)]), _vm._v(" "), _vm._m(3)])]), _vm._v(" "), _c("footer", [_c("div", {
     staticClass: "cnt-main-rows-ftr"
   }, [_c("div", {
     staticClass: "row-ftr"
@@ -3159,7 +3159,7 @@ var render = function render() {
     attrs: {
       to: "weare"
     }
-  }, [_vm._v(" Chi Siamo ")])], 1)]), _vm._v(" "), _vm._m(5), _vm._v(" "), _c("div", {
+  }, [_vm._v(" Chi Siamo ")])], 1)]), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("div", {
     staticClass: "row-ftr"
   }, [_c("div", {
     staticClass: "obj-cont-ftr obj-cont-tm"
@@ -3169,7 +3169,7 @@ var render = function render() {
     staticClass: "logo-tm"
   }), _vm._v(" "), _c("p", {
     staticClass: "tm"
-  }, [_vm._v("- All Rights Reserved")])])])])]), _vm._v(" "), _vm._m(6), _vm._v(" "), _c("div", {
+  }, [_vm._v("- All Rights Reserved")])])])])]), _vm._v(" "), _vm._m(5), _vm._v(" "), _c("div", {
     staticClass: "scrollToTop"
   })]);
 };
@@ -3178,24 +3178,21 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("li", [_c("div", {
+  return _c("ul", {
+    staticClass: "ul-log-reg"
+  }, [_c("li", [_c("div", {
     staticClass: "ico-log ico-login"
   }), _vm._v(" "), _c("a", {
     attrs: {
       href: " /login"
     }
-  }, [_vm._v("Login")])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("li", [_c("div", {
+  }, [_vm._v("Login")])]), _vm._v(" "), _c("li", [_c("div", {
     staticClass: "ico-log ico-reg"
   }), _vm._v(" "), _c("a", {
     attrs: {
       href: "/register"
     }
-  }, [_vm._v("Register")])]);
+  }, [_vm._v("Register")])])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
@@ -3224,7 +3221,7 @@ var staticRenderFns = [function () {
     staticClass: "cnt-section-layout first"
   }, [_c("div", {
     staticClass: "cnt-lft fadeLeft"
-  }, [_c("h2", [_vm._v("\n                  Boolbnb ti aiuta a trovare l'appartamento per le tue vacanze\n                  da sogno\n                ")]), _vm._v(" "), _c("p", [_vm._v("\n                  Boolbnb ha una delle più grandi raccolte d'Italia di\n                  appartamenti di livello medio alto che ogni città d’italia ha\n                  da offrire."), _c("br"), _vm._v("\n                  Con una ricerca intuitiva e semplificata, garantiamo\n                  un'esperienza utente il più completa e soddisfacente\n                  possibile.\n                ")])]), _vm._v(" "), _c("div", {
+  }, [_c("h2", [_vm._v("\r\n                  Boolbnb ti aiuta a trovare l'appartamento per le tue vacanze\r\n                  da sogno\r\n                ")]), _vm._v(" "), _c("p", [_vm._v("\r\n                  Boolbnb ha una delle più grandi raccolte d'Italia di\r\n                  appartamenti di livello medio alto che ogni città d’italia ha\r\n                  da offrire."), _c("br"), _vm._v("\r\n                  Con una ricerca intuitiva e semplificata, garantiamo\r\n                  un'esperienza utente il più completa e soddisfacente\r\n                  possibile.\r\n                ")])]), _vm._v(" "), _c("div", {
     staticClass: "cnt-rgt fadeRight"
   }, [_c("img", {
     attrs: {
@@ -3246,13 +3243,13 @@ var staticRenderFns = [function () {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "cnt-rgt fadeRight"
-  }, [_c("h2", [_vm._v("Le migliori proposte di appartamenti intorno a te")]), _vm._v(" "), _c("p", [_vm._v("\n                  Ti proponiamo i migliori alloggi nella località di tuo\n                  interesse focalizzando la ricerca sulle strutture ricettive\n                  maggiormente richieste tra cui:"), _c("br"), _vm._v(" "), _c("strong", [_vm._v("B&b, Case Vacanze, BeautyFarm e Agriturismo")])])])])]), _vm._v(" "), _c("section", {
+  }, [_c("h2", [_vm._v("Le migliori proposte di appartamenti intorno a te")]), _vm._v(" "), _c("p", [_vm._v("\r\n                  Ti proponiamo i migliori alloggi nella località di tuo\r\n                  interesse focalizzando la ricerca sulle strutture ricettive\r\n                  maggiormente richieste tra cui:"), _c("br"), _vm._v(" "), _c("strong", [_vm._v("B&b, Case Vacanze, BeautyFarm e Agriturismo")])])])])]), _vm._v(" "), _c("section", {
     staticClass: "cnt-section tre"
   }, [_c("div", {
     staticClass: "cnt-section-layout third"
   }, [_c("div", {
     staticClass: "cnt-lft fadeLeft"
-  }, [_c("h2", [_vm._v("Possibilità di scelta tra servizi aggiuntivi")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Boolbnb")]), _vm._v(" propone anche dei servizi aggiuntivi\n                  per rendere la tua esperienza di viaggio il più\n                  "), _c("strong", [_vm._v("completa")]), _vm._v(" possibile, senza doverti preoccupare\n                  di nulla e godereti la tua vacanza da semplice turista a\n                  ospite nella località da te scelta.\n                ")])]), _vm._v(" "), _c("div", {
+  }, [_c("h2", [_vm._v("Possibilità di scelta tra servizi aggiuntivi")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Boolbnb")]), _vm._v(" propone anche dei servizi aggiuntivi\r\n                  per rendere la tua esperienza di viaggio il più\r\n                  "), _c("strong", [_vm._v("completa")]), _vm._v(" possibile, senza doverti preoccupare\r\n                  di nulla e godereti la tua vacanza da semplice turista a\r\n                  ospite nella località da te scelta.\r\n                ")])]), _vm._v(" "), _c("div", {
     staticClass: "cnt-rgt fadeRight"
   }, [_c("img", {
     attrs: {
@@ -3349,7 +3346,7 @@ var render = function render() {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-12 text-center"
-  }, [_vm._v("\n               Mi Dispiace, la pagina cercata non esiste\n           ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\r\n               Mi Dispiace, la pagina cercata non esiste\r\n           ")]), _vm._v(" "), _c("div", {
     staticClass: "col-12 text-center"
   }, [_c("router-link", {
     attrs: {
@@ -3476,7 +3473,7 @@ var render = function render() {
           return _vm.take(indirizzo.address.freeformAddress);
         }
       }
-    }, [_vm._v("\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\n        ")])]);
+    }, [_vm._v("\r\n          " + _vm._s(indirizzo.address["freeformAddress"]) + "\r\n        ")])]);
   }), 0) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "bgExpandFilter",
     attrs: {
@@ -3864,7 +3861,7 @@ var render = function render() {
           return _vm.take(indirizzo.address.freeformAddress);
         }
       }
-    }, [_vm._v("\n            " + _vm._s(indirizzo.address["freeformAddress"]) + "\n          ")])]);
+    }, [_vm._v("\r\n            " + _vm._s(indirizzo.address["freeformAddress"]) + "\r\n          ")])]);
   }), 0) : _vm._e()]), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("footer", [_c("div", {
     staticClass: "cnt-main-rows-ftr"
   }, [_c("div", {
@@ -3928,7 +3925,7 @@ var staticRenderFns = [function () {
     staticClass: "cnt-section-layout"
   }, [_c("div", {
     staticClass: "cnt-lft-tm fadeLeft-tm"
-  }, [_c("h2", [_vm._v("Lorenzo Primogeri")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Boolbnb")]), _vm._v(" propone anche dei servizi aggiuntivi\n                per rendere la tua esperienza di viaggio il più\n                "), _c("strong", [_vm._v("completa")]), _vm._v(" possibile, senza doverti preoccupare\n                di nulla e godereti la tua vacanza da semplice turista a ospite\n                nella località da te scelta.\n              ")])]), _vm._v(" "), _c("div", {
+  }, [_c("h2", [_vm._v("Lorenzo Primogeri")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Boolbnb")]), _vm._v(" propone anche dei servizi aggiuntivi\r\n                per rendere la tua esperienza di viaggio il più\r\n                "), _c("strong", [_vm._v("completa")]), _vm._v(" possibile, senza doverti preoccupare\r\n                di nulla e godereti la tua vacanza da semplice turista a ospite\r\n                nella località da te scelta.\r\n              ")])]), _vm._v(" "), _c("div", {
     staticClass: "cnt-rgt-tm fadeRight-tm"
   }, [_c("div", {
     staticClass: "cards box-card"
@@ -3959,7 +3956,7 @@ var staticRenderFns = [function () {
     staticClass: "cnt-section-layout"
   }, [_c("div", {
     staticClass: "cnt-lft-tm fadeLeft-tm"
-  }, [_c("h2", [_vm._v("Antonio Ruggiero")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Boolbnb")]), _vm._v(" propone anche dei servizi aggiuntivi\n                per rendere la tua esperienza di viaggio il più\n                "), _c("strong", [_vm._v("completa")]), _vm._v(" possibile, senza doverti preoccupare\n                di nulla e godereti la tua vacanza da semplice turista a ospite\n                nella località da te scelta.\n              ")])]), _vm._v(" "), _c("div", {
+  }, [_c("h2", [_vm._v("Antonio Ruggiero")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Boolbnb")]), _vm._v(" propone anche dei servizi aggiuntivi\r\n                per rendere la tua esperienza di viaggio il più\r\n                "), _c("strong", [_vm._v("completa")]), _vm._v(" possibile, senza doverti preoccupare\r\n                di nulla e godereti la tua vacanza da semplice turista a ospite\r\n                nella località da te scelta.\r\n              ")])]), _vm._v(" "), _c("div", {
     staticClass: "cnt-rgt-tm fadeRight-tm"
   }, [_c("div", {
     staticClass: "cards box-card"
@@ -3990,7 +3987,7 @@ var staticRenderFns = [function () {
     staticClass: "cnt-section-layout"
   }, [_c("div", {
     staticClass: "cnt-lft-tm fadeLeft-tm"
-  }, [_c("h2", [_vm._v("Francesco Moles")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Boolbnb")]), _vm._v(" propone anche dei servizi aggiuntivi\n                per rendere la tua esperienza di viaggio il più\n                "), _c("strong", [_vm._v("completa")]), _vm._v(" possibile, senza doverti preoccupare\n                di nulla e godereti la tua vacanza da semplice turista a ospite\n                nella località da te scelta.\n              ")])]), _vm._v(" "), _c("div", {
+  }, [_c("h2", [_vm._v("Francesco Moles")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Boolbnb")]), _vm._v(" propone anche dei servizi aggiuntivi\r\n                per rendere la tua esperienza di viaggio il più\r\n                "), _c("strong", [_vm._v("completa")]), _vm._v(" possibile, senza doverti preoccupare\r\n                di nulla e godereti la tua vacanza da semplice turista a ospite\r\n                nella località da te scelta.\r\n              ")])]), _vm._v(" "), _c("div", {
     staticClass: "cnt-rgt-tm fadeRight-tm"
   }, [_c("div", {
     staticClass: "cards box-card"
@@ -4021,7 +4018,7 @@ var staticRenderFns = [function () {
     staticClass: "cnt-section-layout"
   }, [_c("div", {
     staticClass: "cnt-lft-tm fadeLeft-tm"
-  }, [_c("h2", [_vm._v("Michele Camera")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Boolbnb")]), _vm._v(" propone anche dei servizi aggiuntivi\n                per rendere la tua esperienza di viaggio il più\n                "), _c("strong", [_vm._v("completa")]), _vm._v(" possibile, senza doverti preoccupare\n                di nulla e godereti la tua vacanza da semplice turista a ospite\n                nella località da te scelta.\n              ")])]), _vm._v(" "), _c("div", {
+  }, [_c("h2", [_vm._v("Michele Camera")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Boolbnb")]), _vm._v(" propone anche dei servizi aggiuntivi\r\n                per rendere la tua esperienza di viaggio il più\r\n                "), _c("strong", [_vm._v("completa")]), _vm._v(" possibile, senza doverti preoccupare\r\n                di nulla e godereti la tua vacanza da semplice turista a ospite\r\n                nella località da te scelta.\r\n              ")])]), _vm._v(" "), _c("div", {
     staticClass: "cnt-rgt-tm fadeRight-tm"
   }, [_c("div", {
     staticClass: "cards box-card"
@@ -4052,7 +4049,7 @@ var staticRenderFns = [function () {
     staticClass: "cnt-section-layout"
   }, [_c("div", {
     staticClass: "cnt-lft-tm fadeLeft-tm"
-  }, [_c("h2", [_vm._v("Marco Cataldi")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Boolbnb")]), _vm._v(" propone anche dei servizi aggiuntivi\n                per rendere la tua esperienza di viaggio il più\n                "), _c("strong", [_vm._v("completa")]), _vm._v(" possibile, senza doverti preoccupare\n                di nulla e godereti la tua vacanza da semplice turista a ospite\n                nella località da te scelta.\n              ")])]), _vm._v(" "), _c("div", {
+  }, [_c("h2", [_vm._v("Marco Cataldi")]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Boolbnb")]), _vm._v(" propone anche dei servizi aggiuntivi\r\n                per rendere la tua esperienza di viaggio il più\r\n                "), _c("strong", [_vm._v("completa")]), _vm._v(" possibile, senza doverti preoccupare\r\n                di nulla e godereti la tua vacanza da semplice turista a ospite\r\n                nella località da te scelta.\r\n              ")])]), _vm._v(" "), _c("div", {
     staticClass: "cnt-rgt-tm fadeRight-tm"
   }, [_c("div", {
     staticClass: "cards box-card"
@@ -4237,7 +4234,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Mon
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Changa+One);", ""]);
 
 // module
-exports.push([module.i, "* {\n    font-family: \"Montserrat\", sans-serif;\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\nbody {\n    overflow-x: hidden !important;\n}\n.container {\n    display: flex;\n    width: 100%;\n    height: 100%;\n    max-width: 1170px;\n    margin: 0 auto;\n}\n\n[class*=\"col-\"] {\n    /* flex-direction: grow width; */\n    /* flex-direction: 0 0 auto; */\n}\n\n[class*=\"col-\"] {\n    position: relative;\n}\n\n.row {\n    display: flex;\n}\n\n.col-1 {\n    flex: calc((100% / 12) * 1);\n}\n\n.col-2 {\n    flex: calc((100% / 12) * 2);\n}\n\n.col-3 {\n    flex: calc((100% / 12) * 3);\n}\n\n.col-4 {\n    flex: calc((100% / 12) * 4);\n}\n\n.col-5 {\n    flex: calc((100% / 12) * 5);\n}\n\n.col-6 {\n    flex: calc((100% / 12) * 6);\n}\n\n.col-7 {\n    flex: calc((100% / 12) * 7);\n}\n\n.col-8 {\n    flex: calc((100% / 12) * 8);\n}\n\n.col-9 {\n    flex: calc((100% / 12) * 9);\n}\n\n.col-10 {\n    flex: calc((100% / 12) * 10);\n}\n\n.col-11 {\n    flex: calc((100% / 12) * 11);\n}\n\n.col-12 {\n    flex: calc((100% / 12) * 12);\n}\n\n.d-flex {\n    display: flex;\n}\n\n.flex-dr-col {\n    flex-direction: column;\n}\n\n.w-auto {\n    width: auto;\n}\n\n.h-vh {\n    height: 100vh;\n}\n\n.gp-5 {\n    gap: 5px;\n}\n\n.gp-10 {\n    gap: 10px;\n}\n\n.gp-15 {\n    gap: 15px;\n}\n\n.gp-20 {\n    gap: 20px;\n}\n\n.gp-25 {\n    gap: 25px;\n}\n\n.gp-30 {\n    gap: 30px;\n}\n\n.jc-c {\n    justify-content: center;\n}\n\n.ai-c {\n    align-items: center;\n}\n\n.w-100 {\n    width: 100%;\n}\n\n.wmax-100 {\n    max-width: 100%;\n}\n\n.w-max {\n    width: max-content;\n}\n\n.h-100 {\n    height: 100%;\n}\n\n.txt-c {\n    font-weight: 600;\n    margin: 0 15px;\n    text-align: center;\n}\n\n.m-tb {\n    margin: 10px 0;\n}\n\n.pd-20 {\n    padding: 20px !important;\n}\n\n.pd-20-lr {\n    padding: 0 20px !important;\n}\n\n.algn-itm-init {\n    align-items: initial !important;\n}\n\n.b-0 {\n    border: 0 !important;\n}\n\n.red {\n    color: red !important;\n}\n\n.d-block {\n    display: block;\n    color: red;\n}\n\n.d-none {\n    display: none;\n}\n\n#address-error {\n    position: absolute;\n    bottom: -25px;\n    left: 0;\n}\n\n.error {\n    color: red;\n    font-size: 15px;\n    position: relative;\n}\n\nlabel.error {\n    position: absolute !important;\n    bottom: -10px;\n    margin-bottom: 5px;\n}\n\n.tbl-title {\n    font-weight: 900;\n}\n\n.f-grow {\n    flex-grow: 1;\n}\n\n.p-20 {\n    padding: 20px;\n}\n\n.mt-2 {\n    margin-top: 2rem;\n}\n\n.gap-20 {\n    gap: 20px;\n}\n\n.cnt-item-service label:nth-child(2) {\n    bottom: -30px;\n    left: 0;\n}\n\n@media screen and (max-width: 480px) {\n    .col-xs-12 {\n        flex: calc((100% / 12) * 12);\n    }\n}\n\n@media screen and (max-width: 820px) {\n    .col-md-1 {\n        flex: calc((100% / 12) * 1);\n    }\n\n    .col-md-2 {\n        flex: calc((100% / 12) * 2);\n    }\n\n    .col-md-3 {\n        flex: calc((100% / 12) * 3);\n    }\n\n    .col-md-4 {\n        flex: calc((100% / 12) * 4);\n    }\n\n    .col-md-5 {\n        flex: calc((100% / 12) * 5);\n    }\n\n    .col-md-12 {\n        flex: calc((100% / 12) * 12);\n    }\n}\n", ""]);
+exports.push([module.i, "* {\r\n    font-family: \"Montserrat\", sans-serif;\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n}\r\nbody {\r\n    overflow-x: hidden !important;\r\n}\r\n.container {\r\n    display: flex;\r\n    width: 100%;\r\n    height: 100%;\r\n    max-width: 1170px;\r\n    margin: 0 auto;\r\n}\r\n\r\n[class*=\"col-\"] {\r\n    /* flex-direction: grow width; */\r\n    /* flex-direction: 0 0 auto; */\r\n}\r\n\r\n[class*=\"col-\"] {\r\n    position: relative;\r\n}\r\n\r\n.row {\r\n    display: flex;\r\n}\r\n\r\n.col-1 {\r\n    flex: calc((100% / 12) * 1);\r\n}\r\n\r\n.col-2 {\r\n    flex: calc((100% / 12) * 2);\r\n}\r\n\r\n.col-3 {\r\n    flex: calc((100% / 12) * 3);\r\n}\r\n\r\n.col-4 {\r\n    flex: calc((100% / 12) * 4);\r\n}\r\n\r\n.col-5 {\r\n    flex: calc((100% / 12) * 5);\r\n}\r\n\r\n.col-6 {\r\n    flex: calc((100% / 12) * 6);\r\n}\r\n\r\n.col-7 {\r\n    flex: calc((100% / 12) * 7);\r\n}\r\n\r\n.col-8 {\r\n    flex: calc((100% / 12) * 8);\r\n}\r\n\r\n.col-9 {\r\n    flex: calc((100% / 12) * 9);\r\n}\r\n\r\n.col-10 {\r\n    flex: calc((100% / 12) * 10);\r\n}\r\n\r\n.col-11 {\r\n    flex: calc((100% / 12) * 11);\r\n}\r\n\r\n.col-12 {\r\n    flex: calc((100% / 12) * 12);\r\n}\r\n\r\n.d-flex {\r\n    display: flex;\r\n}\r\n\r\n.flex-dr-col {\r\n    flex-direction: column;\r\n}\r\n\r\n.w-auto {\r\n    width: auto;\r\n}\r\n\r\n.h-vh {\r\n    height: 100vh;\r\n}\r\n\r\n.gp-5 {\r\n    gap: 5px;\r\n}\r\n\r\n.gp-10 {\r\n    gap: 10px;\r\n}\r\n\r\n.gp-15 {\r\n    gap: 15px;\r\n}\r\n\r\n.gp-20 {\r\n    gap: 20px;\r\n}\r\n\r\n.gp-25 {\r\n    gap: 25px;\r\n}\r\n\r\n.gp-30 {\r\n    gap: 30px;\r\n}\r\n\r\n.jc-c {\r\n    justify-content: center;\r\n}\r\n\r\n.ai-c {\r\n    align-items: center;\r\n}\r\n\r\n.w-100 {\r\n    width: 100%;\r\n}\r\n\r\n.wmax-100 {\r\n    max-width: 100%;\r\n}\r\n\r\n.w-max {\r\n    width: max-content;\r\n}\r\n\r\n.h-100 {\r\n    height: 100%;\r\n}\r\n\r\n.txt-c {\r\n    font-weight: 600;\r\n    margin: 0 15px;\r\n    text-align: center;\r\n}\r\n\r\n.m-tb {\r\n    margin: 10px 0;\r\n}\r\n\r\n.pd-20 {\r\n    padding: 20px !important;\r\n}\r\n\r\n.pd-20-lr {\r\n    padding: 0 20px !important;\r\n}\r\n\r\n.algn-itm-init {\r\n    align-items: initial !important;\r\n}\r\n\r\n.b-0 {\r\n    border: 0 !important;\r\n}\r\n\r\n.red {\r\n    color: red !important;\r\n}\r\n\r\n.d-block {\r\n    display: block;\r\n    color: red;\r\n}\r\n\r\n.d-none {\r\n    display: none;\r\n}\r\n\r\n#address-error {\r\n    position: absolute;\r\n    bottom: -25px;\r\n    left: 0;\r\n}\r\n\r\n.error {\r\n    color: red;\r\n    font-size: 15px;\r\n    position: relative;\r\n}\r\n\r\nlabel.error {\r\n    position: absolute !important;\r\n    bottom: -10px;\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.tbl-title {\r\n    font-weight: 900;\r\n}\r\n\r\n.f-grow {\r\n    flex-grow: 1;\r\n}\r\n\r\n.p-20 {\r\n    padding: 20px;\r\n}\r\n\r\n.mt-2 {\r\n    margin-top: 2rem;\r\n}\r\n\r\n.gap-20 {\r\n    gap: 20px;\r\n}\r\n\r\n.cnt-item-service label:nth-child(2) {\r\n    bottom: -30px;\r\n    left: 0;\r\n}\r\n\r\n@media screen and (max-width: 480px) {\r\n    .col-xs-12 {\r\n        flex: calc((100% / 12) * 12);\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 820px) {\r\n    .col-md-1 {\r\n        flex: calc((100% / 12) * 1);\r\n    }\r\n\r\n    .col-md-2 {\r\n        flex: calc((100% / 12) * 2);\r\n    }\r\n\r\n    .col-md-3 {\r\n        flex: calc((100% / 12) * 3);\r\n    }\r\n\r\n    .col-md-4 {\r\n        flex: calc((100% / 12) * 4);\r\n    }\r\n\r\n    .col-md-5 {\r\n        flex: calc((100% / 12) * 5);\r\n    }\r\n\r\n    .col-md-12 {\r\n        flex: calc((100% / 12) * 12);\r\n    }\r\n}\r\n", ""]);
 
 // exports
 
@@ -51168,7 +51165,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/bathroom-svgrepo-com.svg?b2d6572b9df7417b463c45dc47b35b71";
+module.exports = "/images/bathroom-svgrepo-com.svg?341b8b9156e45ba7c7d8697f2dbe38e8";
 
 /***/ }),
 
@@ -51179,7 +51176,7 @@ module.exports = "/images/bathroom-svgrepo-com.svg?b2d6572b9df7417b463c45dc47b35
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/bed-svgrepo-com.svg?d11497d4ff7ee111b6e9341afe3a3b18";
+module.exports = "/images/bed-svgrepo-com.svg?362611fbc513962611e9857175cd2e3e";
 
 /***/ }),
 
@@ -51190,7 +51187,7 @@ module.exports = "/images/bed-svgrepo-com.svg?d11497d4ff7ee111b6e9341afe3a3b18";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/boolbnb-logo.svg?3d280ce93a87d5787e75541b133a5ee5";
+module.exports = "/images/boolbnb-logo.svg?f1aced8f583f3dbbaa6c6fd70901e200";
 
 /***/ }),
 
@@ -51201,7 +51198,7 @@ module.exports = "/images/boolbnb-logo.svg?3d280ce93a87d5787e75541b133a5ee5";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/euro-svgrepo-com.svg?98f0b04e44aa53477cbcd122b968fe44";
+module.exports = "/images/euro-svgrepo-com.svg?6be28595eeb9e114a9c4f6a0e578ed3c";
 
 /***/ }),
 
@@ -51212,7 +51209,7 @@ module.exports = "/images/euro-svgrepo-com.svg?98f0b04e44aa53477cbcd122b968fe44"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/filter.svg?1292f7e21681da2478caee5e12acd748";
+module.exports = "/images/filter.svg?2b53b7d29056335c4ec769058393830d";
 
 /***/ }),
 
@@ -51223,7 +51220,7 @@ module.exports = "/images/filter.svg?1292f7e21681da2478caee5e12acd748";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/position-svgrepo-com.svg?aa6ca64d6c082e36a5f2525fd96e4cc2";
+module.exports = "/images/position-svgrepo-com.svg?1f238e05684b622a1332e92c81028a7f";
 
 /***/ }),
 
@@ -51234,7 +51231,7 @@ module.exports = "/images/position-svgrepo-com.svg?aa6ca64d6c082e36a5f2525fd96e4
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/room-svgrepo-com.svg?bf8078af8c6edf27e34bb786df407b62";
+module.exports = "/images/room-svgrepo-com.svg?ef873c2538fab9dc90045907763b1f15";
 
 /***/ }),
 
@@ -51245,7 +51242,7 @@ module.exports = "/images/room-svgrepo-com.svg?bf8078af8c6edf27e34bb786df407b62"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/square-layout-with-boxes-svgrepo-com.svg?8e5d221275620c525869035a60184014";
+module.exports = "/images/square-layout-with-boxes-svgrepo-com.svg?58452092e36d4f3c329132273b0c35dd";
 
 /***/ }),
 
@@ -51256,7 +51253,7 @@ module.exports = "/images/square-layout-with-boxes-svgrepo-com.svg?8e5d221275620
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/arrowUp.svg?69c93130ff8c276950bf58f5e705f178";
+module.exports = "/images/arrowUp.svg?4a1431c2c69ce35b24abf5322508e11d";
 
 /***/ }),
 
@@ -51267,7 +51264,7 @@ module.exports = "/images/arrowUp.svg?69c93130ff8c276950bf58f5e705f178";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/fb-g.svg?618649db81b56cc4443b3adb7cb03321";
+module.exports = "/images/fb-g.svg?7755cad3a47567a33e945f1b8d77e7de";
 
 /***/ }),
 
@@ -51278,7 +51275,7 @@ module.exports = "/images/fb-g.svg?618649db81b56cc4443b3adb7cb03321";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/fb.svg?427f029e1c5cdd761ad04aed367498be";
+module.exports = "/images/fb.svg?5047fab4814fae2b96faf251b162ad2b";
 
 /***/ }),
 
@@ -51289,7 +51286,7 @@ module.exports = "/images/fb.svg?427f029e1c5cdd761ad04aed367498be";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/ico-dash-lgt.svg?d32ffe6a06df88f4a6aff4f1c3a006d7";
+module.exports = "/images/ico-dash-lgt.svg?ab50abde4e770438b5ee75c3c8bd8a81";
 
 /***/ }),
 
@@ -51300,7 +51297,7 @@ module.exports = "/images/ico-dash-lgt.svg?d32ffe6a06df88f4a6aff4f1c3a006d7";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/ico-lnkd.svg?1818b2d362ae200b5e1aae534b2de671";
+module.exports = "/images/ico-lnkd.svg?9b2a808c9a9dbb5877627399f9eec8b1";
 
 /***/ }),
 
@@ -51311,7 +51308,7 @@ module.exports = "/images/ico-lnkd.svg?1818b2d362ae200b5e1aae534b2de671";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/ig-g.svg?16aee3329d7194ec9f7bf2f3af84e760";
+module.exports = "/images/ig-g.svg?7447cc21a569d15e4c06a1587a68d7cd";
 
 /***/ }),
 
@@ -51322,7 +51319,7 @@ module.exports = "/images/ig-g.svg?16aee3329d7194ec9f7bf2f3af84e760";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/ig.svg?2774bbbaf1b0df7f1beb186e50055bd0";
+module.exports = "/images/ig.svg?1f7277f4e3563d239d47507a8c67b994";
 
 /***/ }),
 
@@ -51366,7 +51363,7 @@ module.exports = "/images/undraw_travel_booking_re_6umu.svg?3ee5847d5ad4c6f042e3
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/pitto-logotype.svg?3d280ce93a87d5787e75541b133a5ee5";
+module.exports = "/images/pitto-logotype.svg?f1aced8f583f3dbbaa6c6fd70901e200";
 
 /***/ }),
 
@@ -51377,7 +51374,7 @@ module.exports = "/images/pitto-logotype.svg?3d280ce93a87d5787e75541b133a5ee5";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/pitto.svg?61e365b40d898378307dce1715d98800";
+module.exports = "/images/pitto.svg?63a42ba89915f5803f9738c35fa5abf4";
 
 /***/ }),
 
@@ -52007,7 +52004,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/prove lezioni/BoolBnB/resources/js/front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\Amministratore\Desktop\BooleanProject\php\BoolBnB\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })

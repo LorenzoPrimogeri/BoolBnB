@@ -53,52 +53,26 @@
 
           <!-- LOGIN-REGISTER -->
           <div class="col-2 d-flex jc-c ai-c">
+            <div v-if="user_id">
+              <span>{{ username }}</span>
+            </div>
             <div
+              v-else
               class="main-usr-set"
               v-show="$route.name === 'home' ? true : false"
             >
               <ul class="ul-log-reg">
-                <span>{{ user_id }}</span>
                 <li>
                   <div class="ico-log ico-login"></div>
                   <a href=" /login">Login</a>
                 </li>
-                <!-- </a> -->
-                <!-- <a href="{{ route('register') }}"> -->
                 <li>
                   <div class="ico-log ico-reg"></div>
                   <a href="/register">Register</a>
                 </li>
-                <!-- </a> -->
-                <!-- <div class="cnt-usr-set">
-									<div class="cnt-span">
-										<span>{{ Auth:: user()-> name }}</span>
-										<span>{{ Auth:: user()-> email }}</span>
-										<a id="arrowUsr" href="#">
-											<div class="cnt-arrow">
-												<span class="arrow"></span>
-											</div>
-										</a>
-									</div>
-									<div id="subMenuUsr" class="contUlAccount">
-										<ul class="ulSet-usr">
-											<li>
-												<a href="{{ route('logout') }}"
-													onclick="event.preventDefault();
-																												 document.getElementById('logout-form').submit();">
-													{{ __('Logout') }}
-												</a>
-												<form id="logout-form" action="{{ route('logout') }}"
-													method="POST" class="d-none">
-												</form>
-											</li>
-										</ul>
-									</div>
-								</div> -->
               </ul>
             </div>
             <!-- LOGIN-REGISTER -->
-
             <!-- BTN-HAMBURGER -->
             <div id="btn-hamburger">
               <span></span>
@@ -354,6 +328,7 @@ export default {
     return {
       input: "",
       searchedAdress: "",
+      username: "",
       //  lat: 0, //Riferito all'indirizzo inserito dal utente
       //  lng: 0, //Riferito all'indirizzo inserito dal utente
       indirizzi: [], //indirizzi che stampo per l'auto complete
@@ -446,7 +421,10 @@ legati alla finestra del browser
       });
     });
 
-    axios.get(`/api/user/${this.user_id}`).then((risp) => console.log(risp));
+    axios.get(`/api/user/${this.user_id}`).then((risp) => {
+      console.log(risp);
+      this.username = risp.data[0].name;
+    });
     //prendo tutti gli appartamenti dal database
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       let result = [];
