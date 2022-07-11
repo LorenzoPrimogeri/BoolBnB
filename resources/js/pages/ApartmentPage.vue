@@ -1,151 +1,298 @@
 <template>
-  <div class="main">
-    <div class="container flex">
-
-      <!-- title -->
-      <div class="cnt-row col-12 text-box">
-        <h2>{{ apartment.title }}</h2>
-        <h5>
-          <span><img src="../../../public/img/position-svgrepo-com.svg"
-              alt="position" /></span>{{ apartment.address }}
-        </h5>
-      </div>
-      <!-- title-->
-
-      <!-- img-box -->
-      <div class="cnt-row col-12 img-box">
-        <div class="cont-img">
-          <img class="img-fluid" :src="`/storage/${apartment.img}`"
-            :alt="apartment.title" />
-        </div>
-      </div>
-      <!-- img-box -->
-
-      <!-- description -->
-      <div class="description-text cnt-row col-12">
-        <p>{{ apartment.description }}</p>
-      </div>
-      <!-- description -->
-
-      <!-- service and tecnic data -->
-      <div class="services-box cnt-row col-12">
-
-        <div class="details col-3">
-          <h3 class="mb-4">Caratteristiche:</h3>
-          <div class="d-flex service-icon">
-            <p>
-              <img src="../../../public/img/room-svgrepo-com.svg"
-                alt="room" />{{ apartment.room }}
-            </p>
+  <div>
+    <header>
+      <div class="container wmax-100 h-100 pd-20-lr">
+        <div class="cnt-hdr-items">
+          <!-- LOGO -->
+          <div class="col-2 col-xs-12">
+            <div class="cnt-logo">
+              <router-link to="/">
+                <img class="logo-desk" src="../../img/pitto-logotype.svg"
+                  alt="logo-BoolBnb" />
+                <img class="logo-mob" src="../../img/pitto.svg"
+                  alt="logo-BoolBnb" />
+              </router-link>
+            </div>
           </div>
+          <!-- LOGO -->
 
-          <div class="d-flex service-icon">
-            <p>
-              <img src="../../../public/img/bathroom-svgrepo-com.svg"
-                alt="bath" />{{ apartment.bathroom }}
-            </p>
+          <!-- SEARCH -->
+          <div class="cnt-nav col-8 h-100">
+            <div class="cnt-search">
+              <div class="search">
+                <div class="cnt-lens"></div>
+                <div class="contStringSrc">
+                  <input id="userInput" class="accountInput" type="text"
+                    placeholder="Cerca appartamento" v-model="input"
+                    @input="onInputChanged" />
+                </div>
+                <router-link :to="{
+                  name: 'search',
+                  params: { input: input },
+                }">
+                  <div class="cnt-fine"></div>
+                </router-link>
+              </div>
+            </div>
           </div>
+          <!-- SEARCH -->
 
-          <div class="d-flex service-icon">
-            <p>
-              <img src="../../../public/img/bed-svgrepo-com.svg" alt="bed" />{{
-                  apartment.bed
-              }}
-            </p>
-          </div>
+          <!-- LOGIN-REGISTER -->
+          <div class="col-2 d-flex jc-c ai-c">
+            <div v-if="user_id">
+              <span>{{ username }}</span>
+            </div>
+            <div v-else class="main-usr-set"
+              v-show="$route.name === 'home' ? true : false">
+              <ul class="ul-log-reg">
+                <li>
+                  <div class="ico-log ico-login"></div>
+                  <a href=" /login">Login</a>
+                </li>
+                <li>
+                  <div class="ico-log ico-reg"></div>
+                  <a href="/register">Register</a>
+                </li>
+              </ul>
+            </div>
+            <!-- LOGIN-REGISTER -->
+            <!-- BTN-HAMBURGER -->
+            <div id="btn-hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <!-- BTN-HAMBURGER -->
 
-          <div class="d-flex service-icon">
-            <p>
-              <img
-                src="../../../public/img/square-layout-with-boxes-svgrepo-com.svg"
-                alt="square-meter" />{{ apartment.mq }}mq
-            </p>
-          </div>
-
-          <div class="d-flex service-icon">
-            <p>
-              <img src="../../../public/img/euro-svgrepo-com.svg"
-                alt="euro" />{{ apartment.price }}€ /notte
-            </p>
-          </div>
-
-
-        </div>
-
-        <div class="services col-4">
-          <div class="cnt-row col-12">
-            <h3 class="mb-4">Servizi:</h3>
-            <div v-for="(service, j) in services" :key="j">{{ service }}</div>
+            <!-- FILTER-BTN -->
+            <div class="col-2 d-flex jc-c ai-c">
+              <div id="filter" class="cnt-btn-filter"
+                v-show="$route.name === 'search' ? true : false">
+                <div class="btn-filter"></div>
+                <span>Filtri</span>
+              </div>
+            </div>
+            <!-- FILTER-BTN -->
           </div>
         </div>
-
       </div>
-      <!-- service and tecnic data -->
-
-      <!-- map -->
-      <div class="main-map mt-5">
-        <div class="cnt-map">
-          <div id="map"></div>
+      <div class="container container-src wmax-100 h-100 pd-20-lr bg-white">
+        <div class="cnt-hdr-src">
+          <!--search-->
+          <div class="search">
+            <div class="cnt-lens"></div>
+            <div class="contStringSrc">
+              <input id="userInput" class="accountInput" type="text"
+                placeholder="Cerca appartamento" v-model="input"
+                @input="onInputChanged" />
+            </div>
+            <router-link :to="{
+              name: 'search',
+              params: { input: input },
+            }">
+              <div class="cnt-fine"></div>
+            </router-link>
+          </div>
+          <!--search-->
         </div>
       </div>
-      <!-- map -->
-
-      <!-- contacts -->
-      <div class="col-12  d-flex jc-c mb-5 mt-5">
-        <a id="contacts" class="btn-cta">Contatta</a>
+      <div class="cnt-result-adress" v-if="!isClicked">
+        <div class="cnt-items" v-for="(indirizzo, i) in indirizzi"
+          :key="i + indirizzo.address">
+          <a href="#" @click="take(indirizzo.address.freeformAddress)">
+            {{ indirizzo.address["freeformAddress"] }}
+          </a>
+        </div>
       </div>
-      <!-- contacts -->
+    </header>
+    <div class="main">
+      <div class="container flex">
+
+        <!-- title -->
+        <div class="cnt-row col-12 text-box">
+          <h2>{{ apartment.title }}</h2>
+          <h5>
+            <span><img src="../../../public/img/position-svgrepo-com.svg"
+                alt="position" /></span>{{ apartment.address }}
+          </h5>
+        </div>
+        <!-- title-->
+
+        <!-- img-box -->
+        <div class="cnt-row col-12 img-box">
+          <div class="cont-img">
+            <img class="img-fluid" :src="`/storage/${apartment.img}`"
+              :alt="apartment.title" />
+          </div>
+        </div>
+        <!-- img-box -->
+
+        <!-- description -->
+        <div class="description-text cnt-row col-12">
+          <p>{{ apartment.description }}</p>
+        </div>
+        <!-- description -->
+
+        <!-- service and tecnic data -->
+        <div class="services-box cnt-row col-12">
+
+          <div class="details col-6">
+            <h3 class="mb-4">Caratteristiche:</h3>
+            <div class="d-flex service-icon">
+              <p>
+                <img src="../../../public/img/room-svgrepo-com.svg"
+                  alt="room" />{{ apartment.room }}
+              </p>
+            </div>
+
+            <div class="d-flex service-icon">
+              <p>
+                <img src="../../../public/img/bathroom-svgrepo-com.svg"
+                  alt="bath" />{{ apartment.bathroom }}
+              </p>
+            </div>
+
+            <div class="d-flex service-icon">
+              <p>
+                <img src="../../../public/img/bed-svgrepo-com.svg"
+                  alt="bed" />{{
+                      apartment.bed
+                  }}
+              </p>
+            </div>
+
+            <div class="d-flex service-icon">
+              <p>
+                <img
+                  src="../../../public/img/square-layout-with-boxes-svgrepo-com.svg"
+                  alt="square-meter" />{{ apartment.mq }}mq
+              </p>
+            </div>
+
+            <div class="d-flex service-icon">
+              <p>
+                <img src="../../../public/img/euro-svgrepo-com.svg"
+                  alt="euro" />{{ apartment.price }}€ /notte
+              </p>
+            </div>
+
+
+          </div>
+
+          <div class="services col-6">
+            <div class="cnt-row col-12">
+              <h3 class="mb-4">Servizi:</h3>
+              <div v-for="(service, j) in services" :key="j">{{ service }}</div>
+            </div>
+          </div>
+
+        </div>
+        <!-- service and tecnic data -->
+
+        <!-- map -->
+        <div class="main-map mt-5">
+          <div class="cnt-map">
+            <div id="map"></div>
+          </div>
+        </div>
+        <!-- map -->
+
+        <!-- contacts -->
+        <div class="col-12  d-flex jc-c mb-5 mt-5">
+          <a id="contacts" class="btn-cta">Contatta</a>
+        </div>
+        <!-- contacts -->
+
+      </div>
+
+      <div id="bgExpand" class="bgExpandFilter"></div>
+      <div id="cntExpand" class="cntExpandFilter">
+        <div class="main-filter">
+          <div class="row-filter-ttl jc-e">
+            <div class="cnt-ttl">
+              <h2>Messaggio</h2>
+            </div>
+            <div class="cnt-btn-close">
+              <div class="btn-closed"></div>
+            </div>
+          </div>
+          <div class="cnt-row">
+            <form method="POST" @submit.prevent="sendForm()">
+              <div class="row-filter d-flex jc-c">
+                <div class="cnt-filter">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" v-model="email"
+                    id="email" placeholder="name@example.com" required />
+                </div>
+              </div>
+              <div class="row-filter d-flex jc-c">
+                <div class="cnt-filter">
+                  <label for="object" class="form-label">Oggetto</label>
+                  <input type="text" class="form-control" id="object"
+                    v-model="object" placeholder="Oggetto dell'email"
+                    required />
+                </div>
+              </div>
+              <div class="row-filter d-flex jc-c">
+                <div class="cnt-filter">
+                  <label for="body" class="form-label">Messaggio</label>
+                  <textarea class="form-control" id="body" rows="3"
+                    v-model="body" required></textarea>
+                </div>
+              </div>
+              <div class="cnt-row" v-if="success"
+                style="color: blue; display: flex; justify-content: center">
+                Messaggio inviato!
+              </div>
+              <div class="d-flex jc-c">
+                <button class="btn-cta" type="submit" :disabled="sending">
+                  Invia mail
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
 
     </div>
-
-    <div id="bgExpand" class="bgExpandFilter"></div>
-    <div id="cntExpand" class="cntExpandFilter">
-      <div class="main-filter">
-        <div class="row-filter-ttl jc-e">
-          <div class="cnt-ttl">
-            <h2>Messaggio</h2>
-          </div>
-          <div class="cnt-btn-close">
-            <div class="btn-closed"></div>
+    <footer>
+      <div class="cnt-main-rows-ftr">
+        <div class="row-ftr">
+          <div class="cnt-info weare">
+            <router-link to="/weare"> Chi Siamo </router-link>
           </div>
         </div>
-        <div class="cnt-row">
-          <form method="POST" @submit.prevent="sendForm()">
-            <div class="row-filter d-flex jc-c">
-              <div class="cnt-filter">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" v-model="email"
-                  id="email" placeholder="name@example.com" required />
+        <div class="row-ftr">
+          <div class="obj-cont-ftr">
+            <div class="col-5 cnt-obj-ftr col-md-12">
+              <div class="cnt-info">
+                <a href="#"> Contact us </a>
+              </div>
+              <div class="cnt-info">
+                <a href="#"> Privacy Policy </a>
+              </div>
+              <div class="cnt-info">
+                <a href="#">Terms & condition </a>
               </div>
             </div>
-            <div class="row-filter d-flex jc-c">
-              <div class="cnt-filter">
-                <label for="object" class="form-label">Oggetto</label>
-                <input type="text" class="form-control" id="object"
-                  v-model="object" placeholder="Oggetto dell'email" required />
+            <div class="col-7 cnt-obj-ftr col-md-12">
+              <div class="row-obj-ftr">
+                <div class="ico-soc fb"></div>
+                <div class="ico-soc ig"></div>
               </div>
             </div>
-            <div class="row-filter d-flex jc-c">
-              <div class="cnt-filter">
-                <label for="body" class="form-label">Messaggio</label>
-                <textarea class="form-control" id="body" rows="3" v-model="body"
-                  required></textarea>
-              </div>
-            </div>
-            <div class="cnt-row" v-if="success"
-              style="color: blue; display: flex; justify-content: center">
-              Messaggio inviato!
-            </div>
-            <div class="d-flex jc-c">
-              <button class="btn-cta" type="submit" :disabled="sending">
-                Invia mail
-              </button>
-            </div>
-          </form>
+          </div>
+        </div>
+        <div class="row-ftr">
+          <div class="obj-cont-ftr obj-cont-tm">
+            <p class="tm">©{{ new Date().getFullYear() }}</p>
+            <div class="logo-tm"></div>
+            <p class="tm">- All Rights Reserved</p>
+          </div>
         </div>
       </div>
-    </div>
-
+    </footer>
   </div>
 </template>
 
@@ -367,6 +514,7 @@ export default {
 
   .services-box {
     border-bottom: 1px solid #80808070;
+    justify-content: space-between;
     display: flex;
 
     p {
@@ -413,6 +561,239 @@ export default {
     height: 299px;
   }
 }
+
+/* FOOTER */
+footer {
+  display: grid;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: #2f2e41;
+  padding: 0;
+
+  .cnt-main-rows-ftr {
+    .row-ftr {
+      width: 100%;
+      display: flex;
+      background-color: transparent;
+      padding: 20px 50px;
+
+      &:nth-child(2) {
+        padding: 10px;
+        border-top: 1px solid #403f52;
+      }
+
+      &:nth-child(3) {
+        padding: 10px;
+        border-top: 1px solid #403f52;
+      }
+
+      .weare {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        font-size: 1.5em;
+
+        a {
+          color: #888aba;
+
+          &:hover {
+            color: #a8aaeb;
+          }
+        }
+      }
+
+      .obj-cont-ftr {
+        position: relative;
+        width: 100%;
+        background-color: transparent;
+        display: flex;
+        gap: 10px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0;
+
+        .cnt-obj-ftr {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          .cnt-info {
+            width: max-content;
+
+            a {
+              color: #b3b3b3;
+              text-decoration: none;
+              font-size: 0.8em;
+
+              &:hover {
+                color: #a4a7ea;
+              }
+            }
+
+            &:nth-child(1) {
+              display: flex;
+              align-items: center;
+              gap: 20px;
+            }
+
+            &:nth-child(4) {
+              display: flex;
+              justify-content: flex-end;
+            }
+          }
+        }
+
+        .row-obj-ftr {
+          display: flex;
+          gap: 20px;
+          justify-content: flex-end;
+          width: 100%;
+          background-color: transparent;
+
+          &:nth-child(3) {
+            display: flex;
+            gap: 15px;
+          }
+
+          a {
+            color: #b3b3b3;
+            text-decoration: none;
+            font-size: 0.8em;
+
+            &:hover {
+              color: #a4a7ea;
+            }
+          }
+
+          & h4 {
+            color: #d2d2d2;
+            font-size: 1.2em;
+          }
+
+          & p {
+            color: #d2d2d2;
+            font-size: 0.6em;
+          }
+
+          .logo-tm,
+          .logo-tm::nth-child(1) {
+            position: relative;
+            width: 100px;
+            height: 30px;
+            background-size: contain;
+
+            &:after {
+              content: "™";
+              position: absolute;
+              right: -5px;
+              top: 0px;
+              color: grey;
+              font-size: 0.8em;
+            }
+
+            &::nth-child(1) {
+              width: 150px;
+              height: 50px;
+            }
+          }
+        }
+      }
+    }
+
+    .obj-cont-tm {
+      display: flex;
+      position: relative;
+      width: max-content;
+      padding: 0px;
+      color: white;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+
+      p.tm {
+        display: inline-block;
+        font-size: 1em;
+        letter-spacing: 1px;
+        margin: 0;
+      }
+
+      .logo-tm,
+      .logo-tm:nth-child(1) {
+        position: relative;
+        width: 100px;
+        height: 30px;
+        background: url("../../img/pitto-logotype.svg") no-repeat center/contain;
+        background-size: contain;
+      }
+
+      .logo-tm:nth-child(1) {
+        width: 150px;
+        height: 50px;
+      }
+
+      .logo-tm:after {
+        content: "™";
+        position: absolute;
+        right: -5px;
+        top: 0px;
+        color: grey;
+        font-size: 0.8em;
+      }
+    }
+  }
+}
+
+.ico-soc {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.fb {
+  background: url(../../img/fb-g.svg) no-repeat center;
+  background-size: contain;
+}
+
+.ig {
+  background: url(../../img/ig-g.svg) no-repeat center;
+  background-size: contain;
+}
+
+.fb:hover {
+  background: url(../../img/fb.svg);
+}
+
+.ig:hover {
+  background: url(../../img/ig.svg);
+}
+
+ul.ul-ftr {
+  position: relative;
+  display: block;
+  width: max-content;
+  margin: 0 auto;
+  gap: 30px;
+
+  li {
+    position: relative;
+    display: block;
+    overflow: hidden;
+
+    &:hover a:hover {
+      color: #7174b6;
+    }
+
+    a {
+      text-decoration: none;
+      color: #a2a2a2;
+      font-size: 1em;
+      font-weight: 300;
+    }
+  }
+}
+
+/* FOOTER */
 
 .btn-cta {
   text-align: center;
@@ -487,6 +868,28 @@ body.enlargeFilter {
   width: 100%;
   height: 100%;
   border-bottom: 1px solid #80808070;
+}
+
+@media only screen and (max-width: 700px) {
+  .img-box {
+    .cont-img {
+      img {
+        width: 100%;
+        height: 350px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .img-box {
+    .cont-img {
+      img {
+        width: 100%;
+        height: 250px;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 360px) {

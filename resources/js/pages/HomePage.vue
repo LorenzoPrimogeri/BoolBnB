@@ -1,6 +1,7 @@
 <template>
   <div>
     <!--HEADER-->
+
     <header>
       <div class="container wmax-100 h-100 pd-20-lr">
         <div class="cnt-hdr-items">
@@ -37,11 +38,11 @@
             </div>
           </div>
           <!-- SEARCH -->
-
           <!-- LOGIN-REGISTER -->
           <div class="col-2 d-flex jc-c ai-c">
             <div v-if="user_id">
               <span>{{ username }}</span>
+              <!-- inserire dashboard -->
             </div>
             <div v-else class="main-usr-set"
               v-show="$route.name === 'home' ? true : false">
@@ -221,7 +222,7 @@
       <div class="cnt-main-rows-ftr">
         <div class="row-ftr">
           <div class="cnt-info weare">
-            <router-link to="weare"> Chi Siamo </router-link>
+            <router-link to="/weare"> Chi Siamo </router-link>
           </div>
         </div>
         <div class="row-ftr">
