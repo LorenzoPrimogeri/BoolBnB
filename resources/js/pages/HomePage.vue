@@ -442,6 +442,8 @@ legati alla finestra del browser
 
 <style scoped lang="scss">
 main {
+  min-height: 100vh;
+
   .title {
     display: flex;
     justify-content: space-around;

@@ -54,7 +54,7 @@ class ApartmentController extends Controller
         $request->validate(
             [
                 'title' => 'required|min:5|max:30',
-                'description' => 'required|min:10|max:300',
+                'description' => 'required|min:10|max:700',
                 'room' => 'required|numeric|min:1|max:15',
                 'bed' => 'required|numeric|min:1|max:30',
                 'bathroom' => 'required|numeric|min:1|max:15',
@@ -169,7 +169,7 @@ class ApartmentController extends Controller
         $request->validate(
             [
                 'title' => 'required|min:5|max:30',
-                'description' => 'required|min:10|max:300',
+                'description' => 'required|min:10|max:700',
                 'room' => 'required|numeric|min:1|max:15',
                 'bed' => 'required|numeric|min:1|max:30',
                 'bathroom' => 'required|numeric|min:1|max:15',
@@ -273,8 +273,8 @@ class ApartmentController extends Controller
         // dd($apartment);
         $apartment->services()->sync([]);
         $apartment->sponsorships()->sync([]);
-        $message = Message::where("apartment_id",$apartment->id);
-        $view = View::where("apartment_id",$apartment->id);
+        $message = Message::where("apartment_id", $apartment->id);
+        $view = View::where("apartment_id", $apartment->id);
         $message->delete();
         $view->delete();
         $apartment->delete();
