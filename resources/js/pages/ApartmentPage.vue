@@ -7,10 +7,16 @@
           <div class="col-2 col-xs-12">
             <div class="cnt-logo">
               <router-link to="/">
-                <img class="logo-desk" src="../../img/pitto-logotype.svg"
-                  alt="logo-BoolBnb" />
-                <img class="logo-mob" src="../../img/pitto.svg"
-                  alt="logo-BoolBnb" />
+                <img
+                  class="logo-desk"
+                  src="../../img/pitto-logotype.svg"
+                  alt="logo-BoolBnb"
+                />
+                <img
+                  class="logo-mob"
+                  src="../../img/pitto.svg"
+                  alt="logo-BoolBnb"
+                />
               </router-link>
             </div>
           </div>
@@ -22,14 +28,21 @@
               <div class="search">
                 <div class="cnt-lens"></div>
                 <div class="contStringSrc">
-                  <input id="userInput" class="accountInput" type="text"
-                    placeholder="Cerca appartamento" v-model="input"
-                    @input="onInputChanged" />
+                  <input
+                    id="userInput"
+                    class="accountInput"
+                    type="text"
+                    placeholder="Cerca appartamento"
+                    v-model="input"
+                    @input="onInputChanged"
+                  />
                 </div>
-                <router-link :to="{
-                  name: 'search',
-                  params: { input: input },
-                }">
+                <router-link
+                  :to="{
+                    name: 'search',
+                    params: { input: input },
+                  }"
+                >
                   <div class="cnt-fine"></div>
                 </router-link>
               </div>
@@ -38,12 +51,23 @@
           <!-- SEARCH -->
 
           <!-- LOGIN-REGISTER -->
-          <div class="col-2 d-flex jc-c ai-c">
+          <div class="col-3 d-flex jc-c ai-c">
             <div v-if="user_id">
-              <span>{{ username }}</span>
+              <span class="usr-log">{{ username }}</span>
+              <div class="cnt-ul cnt-ul-mob">
+                <ul>
+                  <li>
+                    <div class="ico aprt"></div>
+                    <a href="/admin/apartments">Dashboard</a>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div v-else class="main-usr-set"
-              v-show="$route.name === 'home' ? true : false">
+            <div
+              v-else
+              class="main-usr-set"
+              v-show="$route.name === 'single-apartment' ? true : false"
+            >
               <ul class="ul-log-reg">
                 <li>
                   <div class="ico-log ico-login"></div>
@@ -56,6 +80,7 @@
               </ul>
             </div>
             <!-- LOGIN-REGISTER -->
+
             <!-- BTN-HAMBURGER -->
             <div id="btn-hamburger">
               <span></span>
@@ -67,8 +92,11 @@
 
             <!-- FILTER-BTN -->
             <div class="col-2 d-flex jc-c ai-c">
-              <div id="filter" class="cnt-btn-filter"
-                v-show="$route.name === 'search' ? true : false">
+              <div
+                id="filter"
+                class="cnt-btn-filter"
+                v-show="$route.name === 'search' ? true : false"
+              >
                 <div class="btn-filter"></div>
                 <span>Filtri</span>
               </div>
@@ -83,14 +111,21 @@
           <div class="search">
             <div class="cnt-lens"></div>
             <div class="contStringSrc">
-              <input id="userInput" class="accountInput" type="text"
-                placeholder="Cerca appartamento" v-model="input"
-                @input="onInputChanged" />
+              <input
+                id="userInput"
+                class="accountInput"
+                type="text"
+                placeholder="Cerca appartamento"
+                v-model="input"
+                @input="onInputChanged"
+              />
             </div>
-            <router-link :to="{
-              name: 'search',
-              params: { input: input },
-            }">
+            <router-link
+              :to="{
+                name: 'search',
+                params: { input: input },
+              }"
+            >
               <div class="cnt-fine"></div>
             </router-link>
           </div>
@@ -98,8 +133,11 @@
         </div>
       </div>
       <div class="cnt-result-adress" v-if="!isClicked">
-        <div class="cnt-items" v-for="(indirizzo, i) in indirizzi"
-          :key="i + indirizzo.address">
+        <div
+          class="cnt-items"
+          v-for="(indirizzo, i) in indirizzi"
+          :key="i + indirizzo.address"
+        >
           <a href="#" @click="take(indirizzo.address.freeformAddress)">
             {{ indirizzo.address["freeformAddress"] }}
           </a>
@@ -108,13 +146,15 @@
     </header>
     <div class="main">
       <div class="container flex">
-
         <!-- title -->
         <div class="cnt-row col-12 text-box">
           <h2>{{ apartment.title }}</h2>
           <h5>
-            <span><img src="../../../public/img/position-svgrepo-com.svg"
-                alt="position" /></span>{{ apartment.address }}
+            <span
+              ><img
+                src="../../../public/img/position-svgrepo-com.svg"
+                alt="position" /></span
+            >{{ apartment.address }}
           </h5>
         </div>
         <!-- title-->
@@ -122,8 +162,11 @@
         <!-- img-box -->
         <div class="cnt-row col-12 img-box">
           <div class="cont-img">
-            <img class="img-fluid" :src="`/storage/${apartment.img}`"
-              :alt="apartment.title" />
+            <img
+              class="img-fluid"
+              :src="`/storage/${apartment.img}`"
+              :alt="apartment.title"
+            />
           </div>
         </div>
         <!-- img-box -->
@@ -136,29 +179,32 @@
 
         <!-- service and tecnic data -->
         <div class="services-box cnt-row col-12">
-
           <div class="details col-6">
             <h3 class="mb-4">Caratteristiche:</h3>
             <div class="d-flex service-icon">
               <p>
-                <img src="../../../public/img/room-svgrepo-com.svg"
-                  alt="room" />{{ apartment.room }}
+                <img
+                  src="../../../public/img/room-svgrepo-com.svg"
+                  alt="room"
+                />{{ apartment.room }}
               </p>
             </div>
 
             <div class="d-flex service-icon">
               <p>
-                <img src="../../../public/img/bathroom-svgrepo-com.svg"
-                  alt="bath" />{{ apartment.bathroom }}
+                <img
+                  src="../../../public/img/bathroom-svgrepo-com.svg"
+                  alt="bath"
+                />{{ apartment.bathroom }}
               </p>
             </div>
 
             <div class="d-flex service-icon">
               <p>
-                <img src="../../../public/img/bed-svgrepo-com.svg"
-                  alt="bed" />{{
-                      apartment.bed
-                  }}
+                <img
+                  src="../../../public/img/bed-svgrepo-com.svg"
+                  alt="bed"
+                />{{ apartment.bed }}
               </p>
             </div>
 
@@ -166,18 +212,19 @@
               <p>
                 <img
                   src="../../../public/img/square-layout-with-boxes-svgrepo-com.svg"
-                  alt="square-meter" />{{ apartment.mq }}mq
+                  alt="square-meter"
+                />{{ apartment.mq }}mq
               </p>
             </div>
 
             <div class="d-flex service-icon">
               <p>
-                <img src="../../../public/img/euro-svgrepo-com.svg"
-                  alt="euro" />{{ apartment.price }}€ /notte
+                <img
+                  src="../../../public/img/euro-svgrepo-com.svg"
+                  alt="euro"
+                />{{ apartment.price }}€ /notte
               </p>
             </div>
-
-
           </div>
 
           <div class="services col-6">
@@ -186,7 +233,6 @@
               <div v-for="(service, j) in services" :key="j">{{ service }}</div>
             </div>
           </div>
-
         </div>
         <!-- service and tecnic data -->
 
@@ -199,11 +245,10 @@
         <!-- map -->
 
         <!-- contacts -->
-        <div class="col-12  d-flex jc-c mb-5 mt-5">
+        <div class="col-12 d-flex jc-c mb-5 mt-5">
           <a id="contacts" class="btn-cta">Contatta</a>
         </div>
         <!-- contacts -->
-
       </div>
 
       <div id="bgExpand" class="bgExpandFilter"></div>
@@ -222,27 +267,46 @@
               <div class="row-filter d-flex jc-c">
                 <div class="cnt-filter">
                   <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control" v-model="email"
-                    id="email" placeholder="name@example.com" required />
+                  <input
+                    type="email"
+                    class="form-control"
+                    v-model="email"
+                    id="email"
+                    placeholder="name@example.com"
+                    required
+                  />
                 </div>
               </div>
               <div class="row-filter d-flex jc-c">
                 <div class="cnt-filter">
                   <label for="object" class="form-label">Oggetto</label>
-                  <input type="text" class="form-control" id="object"
-                    v-model="object" placeholder="Oggetto dell'email"
-                    required />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="object"
+                    v-model="object"
+                    placeholder="Oggetto dell'email"
+                    required
+                  />
                 </div>
               </div>
               <div class="row-filter d-flex jc-c">
                 <div class="cnt-filter">
                   <label for="body" class="form-label">Messaggio</label>
-                  <textarea class="form-control" id="body" rows="3"
-                    v-model="body" required></textarea>
+                  <textarea
+                    class="form-control"
+                    id="body"
+                    rows="3"
+                    v-model="body"
+                    required
+                  ></textarea>
                 </div>
               </div>
-              <div class="cnt-row" v-if="success"
-                style="color: blue; display: flex; justify-content: center">
+              <div
+                class="cnt-row"
+                v-if="success"
+                style="color: blue; display: flex; justify-content: center"
+              >
                 Messaggio inviato!
               </div>
               <div class="d-flex jc-c">
@@ -254,7 +318,6 @@
           </div>
         </div>
       </div>
-
     </div>
     <footer>
       <div class="cnt-main-rows-ftr">
@@ -293,6 +356,29 @@
         </div>
       </div>
     </footer>
+    <!--MENU-SLIDE-->
+    <div
+      class="subMenu closeMenu"
+      id="subMenuSlide"
+      style="
+        filter: progid:DXImageTransform.Microsoft.Shadow(color='#dedede', Direction=135, Strength=10);
+        -webkit-overflow-scrolling: touch;
+      "
+    >
+      <div class="contSubMenuSlide">
+        <div class="cnt-ul">
+          <ul>
+            <li>
+              <div class="ico aprt"></div>
+              <a href="/admin/apartments">Dashboard</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--MENU-SLIDE-->
+
+    <div class="scrollToTop"></div>
   </div>
 </template>
 
@@ -305,6 +391,7 @@ export default {
   },
   data() {
     return {
+      input: "",
       apartment: [],
       lat: 0,
       lng: 0,
@@ -316,16 +403,40 @@ export default {
       sending: false,
       success: false,
       user_id: this.$userId,
+      isClicked: false,
+      username: "",
+      indirizzi: [],
     };
   },
   mounted() {
+    $(document).ready(function () {
+      $("#btn-hamburger").click(function () {
+        ShowMenu();
+      });
+    });
+    function ShowMenu() {
+      let tag = document.getElementById("subMenuSlide");
+      if (tag.style.maxHeight !== "100%") {
+        tag.style.maxHeight = "100%";
+      } else {
+        tag.style.maxHeight = "0";
+      }
+    }
 
-    axios.get(`/api/user/${this.user_id}`).then(risp => {
+    $("#btn-hamburger").click(function () {
+      $(this).toggleClass("open");
+    });
+
+    axios.get(`/api/user/${this.user_id}`).then((risp) => {
+      console.log(risp);
+      this.username = risp.data[0].name;
+    });
+
+    /* axios.get(`/api/user/${this.user_id}`).then((risp) => {
       console.log(risp);
       this.user_email = risp.data[0].email;
       this.email = this.user_email;
-    });
-
+    }); */
 
     const id = this.$route.params.id;
     // console.log(id)
@@ -357,6 +468,22 @@ export default {
       .then((resp) => console.log(resp))
       .catch((err) => console.log(err));
 
+    axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
+      let result = [];
+      result = results.data.apartments;
+      console.log(results);
+      for (let i = 0; i < result.length; i++) {
+        let apartment = result[i];
+        if (apartment.sponsorships.length >= 1) {
+          console.log("ciao sono apparso");
+          this.allApartaments.push(apartment);
+        }
+      }
+      console.log(this.allApartaments);
+      // this.allServices = results.data.services;
+      // console.log(this.allServices);
+    });
+
     $("#contacts").click(function () {
       $("#bgExpand").toggleClass("enlargeFilter");
       $("#cntExpand").toggleClass("enlargeFilter");
@@ -370,6 +497,36 @@ export default {
     });
   },
   methods: {
+    gotoDetails(id) {
+      const url = " " / home / " + id ";
+      return url;
+    },
+    onInputChanged() {
+      this.isClicked = false;
+      // console.log(this.distanceKm);
+      //Call axios che restituisce gli indirizzi autocomplete
+      delete axios.defaults.headers.common["X-Requested-With"];
+      this.indirizzi = [];
+      axios
+        .get(
+          "https://api.tomtom.com/search/2/geocode/.json?storeResult=false&limit=5&view=Unified&key=GpuJFPNSTUcwZDlHR1mIhVAs6Z457GsK",
+          { params: { query: this.input } }
+        )
+        .then((risp) => {
+          const risultati = risp.data.results;
+          // console.log('risultato', this.input);
+          this.indirizzi = risultati;
+        });
+      //return this.indirizzi;
+    },
+    take(indirizzo) {
+      // const searchedAdress = indirizzo;
+      this.input = indirizzo;
+      this.isClicked = true;
+      //   return searchedAdress;
+      // console.log('risultato nuovo input', this.input);
+    },
+
     createMap() {
       let center = [this.lng, this.lat];
 
@@ -466,6 +623,71 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.usr-log {
+  position: absolute;
+  right: 180px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.cnt-ul-mob {
+  position: absolute;
+  width: max-content;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+ul.ul-log-reg {
+  position: absolute;
+  display: flex;
+  width: max-content;
+  gap: 20px;
+  list-style-type: none;
+  margin: 0 !important;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    &:hover .ico-login {
+      background: url("../../img/ico/login/login.svg") no-repeat center/contain;
+    }
+
+    &:hover .ico-reg {
+      background: url("../../img/ico/login/register.svg") no-repeat
+        center/contain;
+    }
+
+    &:hover span {
+      color: #4b5663;
+      /* transition: 0.4s ease-in-out; */
+    }
+  }
+
+  .ico-log {
+    width: 30px;
+    height: 30px;
+  }
+
+  .ico-login {
+    background: url("../../img/ico/login/login-lgt.svg") no-repeat
+      center/contain;
+  }
+
+  .ico-reg {
+    background: url("../../img/ico/login/register-lgt.svg") no-repeat
+      center/contain;
+  }
+
+  a {
+    font-weight: 600;
+    text-decoration: none;
+    color: grey;
+    font-size: 0.9em;
+  }
+}
+
 .main {
   min-height: 100vh;
   padding: 100px 0px;
@@ -554,7 +776,8 @@ export default {
 
 .main-map {
   .cnt-txt {
-    h2 {}
+    h2 {
+    }
   }
 
   .cnt-map {
@@ -815,11 +1038,13 @@ ul.ul-ftr {
   &:hover {
     box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);
     transform: scale(1.1);
-    background-image: -webkit-gradient(linear,
-        left top,
-        right bottom,
-        from(#8b9cf2),
-        to(#5870f0));
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      right bottom,
+      from(#8b9cf2),
+      to(#5870f0)
+    );
     background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
     background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
     background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
@@ -871,6 +1096,120 @@ body.enlargeFilter {
   border-bottom: 1px solid #80808070;
 }
 
+/* MENU-SLIDE-DOWN */
+.subMenu {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 70px;
+  max-height: 0;
+  overflow: hidden;
+  background: white;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  z-index: 2;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .contSubMenuSlide {
+    padding: 50px 0;
+    -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.2);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    ul {
+      width: max-content;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      margin: 0 auto;
+      padding: 0;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .ico {
+          width: 30px;
+          height: 30px;
+          background-color: violet;
+        }
+
+        .aprt {
+          background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat
+            center/contain;
+        }
+
+        a {
+          text-decoration: none;
+          color: #4b5663;
+          font-size: 1.2em;
+        }
+      }
+    }
+  }
+}
+
+ul {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin: 0 auto;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .ico {
+      width: 30px;
+      height: 30px;
+      background-color: violet;
+    }
+
+    .aprt {
+      background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat
+        center/contain;
+    }
+
+    a {
+      text-decoration: none;
+      color: #8da1b3;
+      font-size: 1.2em;
+    }
+  }
+}
+
+/* MENU-SLIDE-DOWN */
+.scrollToTop {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  display: none;
+  bottom: 200px;
+  right: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: url(../../img/arrowUp.svg) no-repeat center;
+  background-size: contain;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
 @media only screen and (max-width: 700px) {
   .img-box {
     .cont-img {
@@ -881,7 +1220,11 @@ body.enlargeFilter {
     }
   }
 }
-
+@media only screen and (max-width: 650px) {
+  .main {
+    padding: 160px 0 0;
+  }
+}
 @media only screen and (max-width: 550px) {
   .img-box {
     .cont-img {
