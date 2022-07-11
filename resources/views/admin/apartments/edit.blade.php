@@ -103,7 +103,10 @@
                             <div class="cnt-item-service">
                                 <label for="{{ $service->name }}">
                                     <input type="checkbox" value="{{ $service->id }}" name="services[]"
-                                        {{ in_array($service->id, old('services', [])) ? 'checked' : '' }} required>
+                                        {{ in_array($service->id, old('services', [])) ? 'checked' : '' }} required
+                                        @foreach ($apartment->services as $appserv) @if ($appserv->name == $service->name)
+                                                checked @endif
+                                        @endforeach>
                                     {{ $service->name }}</label>
                             </div>
                         @endforeach

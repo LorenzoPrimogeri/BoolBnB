@@ -58,14 +58,43 @@
               v-show="$route.name === 'home' ? true : false"
             >
               <ul class="ul-log-reg">
-                <div class="cnt-ul">
-                  <ul>
-                    <li>
-                      <div class="ico aprt"></div>
-                      <a href="/admin/apartments">Dashboard</a>
-                    </li>
-                  </ul>
-                </div>
+                <span>{{ user_id }}</span>
+                <li>
+                  <div class="ico-log ico-login"></div>
+                  <a href=" /login">Login</a>
+                </li>
+                <!-- </a> -->
+                <!-- <a href="{{ route('register') }}"> -->
+                <li>
+                  <div class="ico-log ico-reg"></div>
+                  <a href="/register">Register</a>
+                </li>
+                <!-- </a> -->
+                <!-- <div class="cnt-usr-set">
+									<div class="cnt-span">
+										<span>{{ Auth:: user()-> name }}</span>
+										<span>{{ Auth:: user()-> email }}</span>
+										<a id="arrowUsr" href="#">
+											<div class="cnt-arrow">
+												<span class="arrow"></span>
+											</div>
+										</a>
+									</div>
+									<div id="subMenuUsr" class="contUlAccount">
+										<ul class="ulSet-usr">
+											<li>
+												<a href="{{ route('logout') }}"
+													onclick="event.preventDefault();
+																												 document.getElementById('logout-form').submit();">
+													{{ __('Logout') }}
+												</a>
+												<form id="logout-form" action="{{ route('logout') }}"
+													method="POST" class="d-none">
+												</form>
+											</li>
+										</ul>
+									</div>
+								</div> -->
               </ul>
             </div>
             <!-- LOGIN-REGISTER -->
@@ -331,6 +360,7 @@ export default {
       allApartaments: [], //tutti gli appartamenti visible
       correctApartments: [], //appartamenti che soddisfano la ricerca
       isClicked: false,
+      user_id: this.$userId,
       //  allServices: [],
       //  services: [],
       //  distanceKm: 20,
@@ -357,6 +387,7 @@ export default {
         tag.style.maxHeight = "0";
       }
     }
+
     $("#btn-hamburger").click(function () {
       $(this).toggleClass("open");
     });
@@ -415,6 +446,7 @@ legati alla finestra del browser
       });
     });
 
+    axios.get(`/api/user/${this.user_id}`).then((risp) => console.log(risp));
     //prendo tutti gli appartamenti dal database
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       let result = [];
@@ -1033,7 +1065,13 @@ ul {
     }
   }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 840px) {
+  .container {
+    .box-card {
+      width: 340px;
+      max-width: 340px;
+    }
+  }
   footer {
     .cnt-main-rows-ftr {
       .weare {
@@ -1057,6 +1095,23 @@ ul {
   }
 }
 @media screen and (max-width: 480px) {
+  .container {
+    .box-card {
+      display: flex;
+      width: 150px;
+      max-width: 150px;
+      height: 430px;
+      .cnt-img {
+        width: 100%;
+        height: 200px;
+        img {
+          height: 85%;
+          width: 100%;
+          border-radius: 20px;
+        }
+      }
+    }
+  }
   main {
     h1 {
       padding: 0 20px;

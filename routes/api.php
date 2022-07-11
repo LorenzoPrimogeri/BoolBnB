@@ -24,3 +24,4 @@ Route::get('/apartments/{id}', 'Api\ApartmentController@show')->name('apartments
 
 
 
+Route::get('/user/{id}', 'Api\AuthController@getAuthUser')->name('getUser');
