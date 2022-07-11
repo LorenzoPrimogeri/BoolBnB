@@ -4,32 +4,45 @@
       <div class="container wmax-100 h-100 pd-20-lr">
         <div class="cnt-hdr-items">
           <!-- LOGO -->
-          <div class="col-2 col-xs-12">
+          <div class="col-3 col-xs-12">
             <div class="cnt-logo">
               <router-link to="/">
-                <img class="logo-desk" src="../../img/pitto-logotype.svg"
-                  alt="logo-BoolBnb" />
-                <img class="logo-mob" src="../../img/pitto.svg"
-                  alt="logo-BoolBnb" />
+                <img
+                  class="logo-desk"
+                  src="../../img/pitto-logotype.svg"
+                  alt="logo-BoolBnb"
+                />
+                <img
+                  class="logo-mob"
+                  src="../../img/pitto.svg"
+                  alt="logo-BoolBnb"
+                />
               </router-link>
             </div>
           </div>
           <!-- LOGO -->
 
           <!-- SEARCH -->
-          <div class="cnt-nav col-8 h-100">
+          <div class="cnt-nav col-6 h-100">
             <div class="cnt-search">
               <div class="search">
                 <div class="cnt-lens"></div>
                 <div class="contStringSrc">
-                  <input id="userInput" class="accountInput" type="text"
-                    placeholder="Cerca appartamento" v-model="input"
-                    @input="onInputChanged" />
+                  <input
+                    id="userInput"
+                    class="accountInput"
+                    type="text"
+                    placeholder="Cerca appartamento"
+                    v-model="input"
+                    @input="onInputChanged"
+                  />
                 </div>
-                <router-link :to="{
-                  name: 'search',
-                  params: { input: input },
-                }">
+                <router-link
+                  :to="{
+                    name: 'search',
+                    params: { input: input },
+                  }"
+                >
                   <div class="cnt-fine"></div>
                 </router-link>
               </div>
@@ -38,18 +51,32 @@
           <!-- SEARCH -->
 
           <!-- LOGIN-REGISTER -->
-          <div class="col-2 d-flex jc-c ai-c">
-            <div class="main-usr-set"
-              v-show="$route.name === 'weare' ? true : false">
+          <div class="col-3 d-flex jc-c ai-c">
+            <div v-if="user_id">
+              <span class="usr-log">{{ username }}</span>
+              <div class="cnt-ul cnt-ul-mob">
+                <ul>
+                  <li>
+                    <div class="ico aprt"></div>
+                    <a href="/admin/apartments">Dashboard</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              v-else
+              class="main-usr-set"
+              v-show="$route.name === 'single-apartment' ? true : false"
+            >
               <ul class="ul-log-reg">
-                <div class="cnt-ul">
-                  <ul>
-                    <li>
-                      <div class="ico aprt"></div>
-                      <a href="/admin/apartments">Dashboard</a>
-                    </li>
-                  </ul>
-                </div>
+                <li>
+                  <div class="ico-log ico-login"></div>
+                  <a href=" /login">Login</a>
+                </li>
+                <li>
+                  <div class="ico-log ico-reg"></div>
+                  <a href="/register">Register</a>
+                </li>
               </ul>
             </div>
             <!-- LOGIN-REGISTER -->
@@ -67,8 +94,11 @@
 
             <!-- FILTER-BTN -->
             <div class="col-2 d-flex jc-c ai-c">
-              <div id="filter" class="cnt-btn-filter"
-                v-show="$route.name === 'search' ? true : false">
+              <div
+                id="filter"
+                class="cnt-btn-filter"
+                v-show="$route.name === 'search' ? true : false"
+              >
                 <div class="btn-filter"></div>
                 <span>Filtri</span>
               </div>
@@ -83,14 +113,21 @@
           <div class="search">
             <div class="cnt-lens"></div>
             <div class="contStringSrc">
-              <input id="userInput" class="accountInput" type="text"
-                placeholder="Cerca appartamento" v-model="input"
-                @input="onInputChanged" />
+              <input
+                id="userInput"
+                class="accountInput"
+                type="text"
+                placeholder="Cerca appartamento"
+                v-model="input"
+                @input="onInputChanged"
+              />
             </div>
-            <router-link :to="{
-              name: 'search',
-              params: { input: input },
-            }">
+            <router-link
+              :to="{
+                name: 'search',
+                params: { input: input },
+              }"
+            >
               <div class="cnt-fine"></div>
             </router-link>
           </div>
@@ -98,8 +135,11 @@
         </div>
       </div>
       <div class="cnt-result-adress" v-if="!isClicked">
-        <div class="cnt-items" v-for="(indirizzo, i) in indirizzi"
-          :key="i + indirizzo.address">
+        <div
+          class="cnt-items"
+          v-for="(indirizzo, i) in indirizzi"
+          :key="i + indirizzo.address"
+        >
           <a href="#" @click="take(indirizzo.address.freeformAddress)">
             {{ indirizzo.address["freeformAddress"] }}
           </a>
@@ -320,10 +360,14 @@
     <!-- FOOTER -->
 
     <!--MENU-SLIDE-->
-    <div class="subMenu closeMenu" id="subMenuSlide" style="
+    <div
+      class="subMenu closeMenu"
+      id="subMenuSlide"
+      style="
         filter: progid:DXImageTransform.Microsoft.Shadow(color='#dedede', Direction=135, Strength=10);
         -webkit-overflow-scrolling: touch;
-      ">
+      "
+    >
       <div class="contSubMenuSlide">
         <div class="cnt-ul">
           <ul>
@@ -355,6 +399,8 @@ export default {
       allApartaments: [], //tutti gli appartamenti visible
       correctApartments: [], //appartamenti che soddisfano la ricerca
       isClicked: false,
+      user_id: this.$userId,
+      username: "",
       //  allServices: [],
       //  services: [],
       //  distanceKm: 20,
@@ -442,6 +488,11 @@ legati alla finestra del browser
       });
     });
 
+    axios.get(`/api/user/${this.user_id}`).then((risp) => {
+      console.log(risp);
+      this.username = risp.data[0].name;
+    });
+
     //prendo tutti gli appartamenti dal database
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
       let result = [];
@@ -498,13 +549,75 @@ legati alla finestra del browser
 
 <style scoped lang="scss">
 @import url("../../sass/layout-preset.css");
+.usr-log {
+  position: absolute;
+  right: 180px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.cnt-ul-mob {
+  position: absolute;
+  width: max-content;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}
 
+ul.ul-log-reg {
+  position: absolute;
+  display: flex;
+  width: max-content;
+  gap: 20px;
+  list-style-type: none;
+  margin: 0 !important;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    &:hover .ico-login {
+      background: url("../../img/ico/login/login.svg") no-repeat center/contain;
+    }
+
+    &:hover .ico-reg {
+      background: url("../../img/ico/login/register.svg") no-repeat
+        center/contain;
+    }
+
+    &:hover span {
+      color: #4b5663;
+      /* transition: 0.4s ease-in-out; */
+    }
+  }
+
+  .ico-log {
+    width: 30px;
+    height: 30px;
+  }
+
+  .ico-login {
+    background: url("../../img/ico/login/login-lgt.svg") no-repeat
+      center/contain;
+  }
+
+  .ico-reg {
+    background: url("../../img/ico/login/register-lgt.svg") no-repeat
+      center/contain;
+  }
+
+  a {
+    font-weight: 600;
+    text-decoration: none;
+    color: grey;
+    font-size: 0.9em;
+  }
+}
 main {
   min-height: 100vh;
   padding-top: 150px;
 
   .cnt-h1 {
-
     h1,
     h2,
     p {
@@ -634,6 +747,7 @@ main {
           width: 30px;
           height: 30px;
           background-color: lightgray;
+          margin: 0 auto;
         }
 
         .ico-lnkd {
@@ -1077,7 +1191,8 @@ ul.ul-ftr {
         }
 
         .aprt {
-          background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat center/contain;
+          background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat
+            center/contain;
         }
 
         a {
@@ -1109,7 +1224,8 @@ ul {
     }
 
     .aprt {
-      background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat center/contain;
+      background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat
+        center/contain;
     }
 
     a {
@@ -1150,8 +1266,13 @@ ul {
 }
 
 @media screen and (max-width: 1024px) {
+  .main-usr-set,
+  .usr-log,
+  .cnt-ul-mob {
+    display: none;
+  }
   .cnt-layout {
-    padding: 80px 0 0;
+    padding: 180px 0 0;
 
     .cnt-section {
       .cnt-section-layout {
@@ -1184,7 +1305,8 @@ ul {
 @media screen and (max-width: 750px) {
   footer {
     .cnt-main-rows-ftr {
-      .weare {}
+      .weare {
+      }
 
       .row-ftr {
         padding: 20px 0;
@@ -1213,7 +1335,6 @@ ul {
     padding-top: 30px;
 
     .cnt-h1 {
-
       h1,
       h2 {
         text-align: center;

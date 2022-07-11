@@ -68,6 +68,7 @@ header ul.ul-log-reg {
   gap: 20px;
   list-style-type: none;
   margin: 0 !important;
+  right: -50px;
 }
 
 header ul.ul-log-reg li {

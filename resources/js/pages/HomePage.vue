@@ -57,6 +57,14 @@
           <div class="col-3 d-flex jc-c ai-c">
             <div v-if="user_id">
               <span class="usr-log">{{ username }}</span>
+              <div class="cnt-ul cnt-ul-mob">
+                <ul>
+                  <li>
+                    <div class="ico aprt"></div>
+                    <a href="/admin/apartments">Dashboard</a>
+                  </li>
+                </ul>
+              </div>
             </div>
             <div
               v-else
@@ -74,14 +82,7 @@
                 </li>
               </ul>
             </div>
-            <div class="cnt-ul cnt-ul-mob">
-              <ul>
-                <li>
-                  <div class="ico aprt"></div>
-                  <a href="/admin/apartments">Dashboard</a>
-                </li>
-              </ul>
-            </div>
+
             <!-- LOGIN-REGISTER -->
 
             <!-- BTN-HAMBURGER -->
@@ -151,7 +152,6 @@
 
     <!--MAIN-->
     <main>
-      <!-- <div class="container"> -->
       <!-- MAIN-CAROUSEL-LAYOUT -->
       <div class="main-carousel-layout">
         <!-- CAROUSEL -->
@@ -582,9 +582,11 @@ main {
   transform: translate(0, -50%);
 }
 .cnt-ul-mob {
+  position: absolute;
   width: max-content;
   right: 0;
-  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 .fadeLeft,
