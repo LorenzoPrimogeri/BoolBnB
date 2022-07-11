@@ -500,6 +500,7 @@ legati alla finestra del browser
 @import url("../../sass/layout-preset.css");
 
 main {
+  min-height: 100vh;
   padding-top: 150px;
 
   .cnt-h1 {

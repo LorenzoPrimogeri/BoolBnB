@@ -467,6 +467,7 @@ export default {
 
 <style lang="scss" scoped>
 .main {
+  min-height: 100vh;
   padding: 100px 0px;
 
   .flex {

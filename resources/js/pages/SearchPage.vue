@@ -458,6 +458,7 @@ export default {
 main {
   display: flex;
   width: 100%;
+  min-height: 100vh;
   margin: 0 !important;
   padding: 180px 0 100px;
   -webkit-box-orient: vertical;
