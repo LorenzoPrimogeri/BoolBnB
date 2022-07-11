@@ -12,6 +12,7 @@ header {
     -moz-box-shadow: 0 4px 10px -5px rgba(0, 0, 0, 0.2);
     box-shadow: 0 4px 10px -5px rgba(0, 0, 0, 0.2);
     z-index: 2;
+
     .cnt-nav {
         display: flex;
         align-items: center;
@@ -24,20 +25,24 @@ header {
         height: 100%;
         justify-content: space-between;
         align-items: center;
+
         .cnt-logo {
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100%;
             width: 150px;
+
             img,
             a {
                 width: 100%;
             }
         }
+
         .logo-mob {
             display: none;
         }
+
         .cnt-btn-filter {
             border-radius: 30px;
             display: flex;
@@ -59,9 +64,11 @@ header {
     }
 
     ul.ul-log-reg {
+
         position: absolute;
         display: flex;
         width: max-content;
+        flex-direction: row;
         gap: 20px;
         list-style-type: none;
         margin: 0 !important;
@@ -72,13 +79,11 @@ header {
             gap: 5px;
 
             &:hover .ico-login {
-                background: url("../img/ico/login/login.svg") no-repeat
-                    center/contain;
+                background: url("../img/ico/login/login.svg") no-repeat center/contain;
             }
 
             &:hover .ico-reg {
-                background: url("../img/ico/login/register.svg") no-repeat
-                    center/contain;
+                background: url("../img/ico/login/register.svg") no-repeat center/contain;
             }
 
             &:hover span {
@@ -93,13 +98,11 @@ header {
         }
 
         .ico-login {
-            background: url("../img/ico/login/login-lgt.svg") no-repeat
-                center/contain;
+            background: url("../img/ico/login/login-lgt.svg") no-repeat center/contain;
         }
 
         .ico-reg {
-            background: url("../img/ico/login/register-lgt.svg") no-repeat
-                center/contain;
+            background: url("../img/ico/login/register-lgt.svg") no-repeat center/contain;
         }
 
         a {
@@ -109,6 +112,7 @@ header {
             font-size: 0.9em;
         }
     }
+
     .container-src {
         display: none;
     }
@@ -121,22 +125,24 @@ header {
     background: #fff;
     z-index: 1;
     padding: 0 20px;
+
     .cnt-items {
         width: 50%;
         margin: 0 auto;
         border-bottom: 1px solid #e6e6e6;
+
         &:hover {
             transition: 0.5s ease-in-out;
-            background-image: linear-gradient(
-                to bottom,
-                transparent 93%,
-                #7174b6 0%
-            );
+            background-image: linear-gradient(to bottom,
+                    transparent 93%,
+                    #7174b6 0%);
         }
+
         &:hover a {
             color: #7174b6;
             transition: 0.5s ease-in-out;
         }
+
         a {
             width: 100%;
             display: block;
@@ -195,6 +201,7 @@ header {
         background: url(../../../public/img/fineIcon.svg) no-repeat center;
     }
 }
+
 @media only screen and(max-width:1024px) {
     #btn-hamburger {
         display: block;
@@ -208,6 +215,7 @@ header {
         z-index: 1;
         cursor: pointer;
     }
+
     #btn-hamburger span {
         display: block;
         position: absolute;
@@ -221,33 +229,41 @@ header {
         transform: rotate(0deg);
         transition: 0.25s ease-in-out;
     }
+
     #btn-hamburger span:nth-child(1) {
         top: 0px;
     }
+
     #btn-hamburger span:nth-child(2),
     header #btn-hamburger span:nth-child(3) {
         top: 12px;
     }
+
     #btn-hamburger span:nth-child(4) {
         top: 24px;
     }
+
     #btn-hamburger.open span:nth-child(1) {
         top: 18px;
         width: 0%;
         left: 50%;
     }
+
     #btn-hamburger.open span:nth-child(2) {
         transform: rotate(45deg);
     }
+
     #btn-hamburger.open span:nth-child(3) {
         transform: rotate(-45deg);
     }
+
     #btn-hamburger.open span:nth-child(4) {
         top: 18px;
         width: 0%;
         left: 50%;
     }
 }
+
 @media only screen and(max-width:890px) {
     header {
         .cnt-hdr-items {
@@ -256,18 +272,23 @@ header {
             }
         }
     }
+
     .logo-desk {
         display: none;
     }
+
     .logo-mob {
         display: block !important;
     }
+
     .container-src {
         display: flex;
         align-items: center;
         justify-content: center;
+
         .cnt-hdr-src {
             width: 100%;
+
             .search {
                 width: 100%;
                 max-width: 500px;
@@ -275,17 +296,20 @@ header {
             }
         }
     }
+
     .cnt-result-adress {
         .cnt-items {
             width: 100%;
         }
     }
 }
+
 @media only screen and(max-width:740px) {
     .cnt-search {
         display: none;
     }
 }
+
 @media only screen and(max-width:650px) {
     header {
         .cnt-hdr-items {
@@ -293,20 +317,25 @@ header {
                 width: 55px;
             }
         }
+
         .cnt-search {
             display: none;
         }
+
         .container-src {
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 10px 20px !important;
+
             .cnt-hdr-src {
                 width: 100%;
+
                 .search {
                     width: 100%;
                     max-width: 500px;
                     margin: 0 auto;
+
                     .contStringSrc {
                         input {
                             font-size: 0.8em;
@@ -316,9 +345,11 @@ header {
             }
         }
     }
+
     .logo-desk {
         display: none;
     }
+
     .logo-mob {
         display: block !important;
     }

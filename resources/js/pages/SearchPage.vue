@@ -10,10 +10,8 @@
 
             <div class="cnt-logo">
               <router-link to="/">
-                <img
-                  src="../../../public/img/boolbnb-logo.svg"
-                  alt="logo-BoolBnb"
-                />
+                <img src="../../../public/img/boolbnb-logo.svg"
+                  alt="logo-BoolBnb" />
               </router-link>
             </div>
 
@@ -25,14 +23,9 @@
             <div class="search">
               <div class="cnt-lens"></div>
               <div class="contStringSrc">
-                <input
-                  id="userInput"
-                  class="accountInput"
-                  type="text"
-                  placeholder="Cerca appartamento"
-                  v-model="input"
-                  @input="onInputChanged"
-                />
+                <input id="userInput" class="accountInput" type="text"
+                  placeholder="Cerca appartamento" v-model="input"
+                  @input="onInputChanged" />
               </div>
               <a @click="takeLatLng()">
                 <div class="cnt-fine"></div>
@@ -44,10 +37,8 @@
           <div class="col-2 d-flex jc-c ai-c">
             <!--login/register button-->
 
-            <div
-              class="main-usr-set"
-              v-show="$route.name === 'home' ? true : false"
-            >
+            <div class="main-usr-set"
+              v-show="$route.name === 'home' ? true : false">
               <ul class="ul-log-reg">
                 <!-- Authentication Links -->
                 <!-- <a href="{{ route('login') }}"> -->
@@ -96,11 +87,8 @@
             <!--filter button-->
 
             <div class="col-2 d-flex jc-c ai-c">
-              <div
-                id="filter"
-                class="cnt-btn-filter"
-                v-show="$route.name === 'search' ? true : false"
-              >
+              <div id="filter" class="cnt-btn-filter"
+                v-show="$route.name === 'search' ? true : false">
                 <div class="btn-filter"></div>
                 <span>Filtri</span>
               </div>
@@ -112,11 +100,8 @@
       </div>
     </header>
     <div class="cnt-result-adress" v-if="!isClicked">
-      <div
-        class="cnt-items"
-        v-for="(indirizzo, i) in indirizzi"
-        :key="i + indirizzo.address"
-      >
+      <div class="cnt-items" v-for="(indirizzo, i) in indirizzi"
+        :key="i + indirizzo.address">
         <a href="#" @click="take(indirizzo.address.freeformAddress)">
           {{ indirizzo.address["freeformAddress"] }}
         </a>
@@ -157,19 +142,11 @@
             <div class="cnt-filter">
               <h3>Servizi</h3>
               <div class="cnt-filter-select d-flex gp-20">
-                <div
-                  v-for="(service, index) in allServiceFilter"
-                  :key="index + service"
-                  class="main-check"
-                >
+                <div v-for="(service, index) in allServiceFilter"
+                  :key="index + service" class="main-check">
                   <div all class="cnt-checkbox">
-                    <input
-                      class="input-check"
-                      type="checkbox"
-                      :value="service"
-                      :name="service"
-                      v-model="allServiceFiltered"
-                    />
+                    <input class="input-check" type="checkbox" :value="service"
+                      :name="service" v-model="allServiceFiltered" />
                     <span class="checkmark"></span>
                   </div>
                   <div class="form-check-label">{{ service }}</div>
@@ -197,13 +174,17 @@
     <!-- v-if nessun risultato se appartment è correctApartment >=1 -->
     <main>
       <div class="container w-100">
+
+        <!-- <div v-if="this.correctApartments.length >= 1">
+          <p>
+            Nessun risultat
+          </p>
+        </div> -->
+
+
         <div class="cnt-cards pd-20">
-          <router-link
-            class="box-card"
-            v-for="apartment in correctApartments"
-            :key="apartment.id"
-            :to="'/home/' + apartment.id"
-          >
+          <router-link class="box-card" v-for="apartment in correctApartments"
+            :key="apartment.id" :to="'/home/' + apartment.id">
             <div>
               <div class="cnt-img">
                 <img :src="'/storage/' + apartment.img" alt="" />
@@ -223,7 +204,43 @@
 
     <!--Main-->
     <!--Footer-->
-
+    <footer>
+      <div class="cnt-main-rows-ftr">
+        <div class="row-ftr">
+          <div class="cnt-info weare">
+            <router-link to="/weare"> Chi Siamo </router-link>
+          </div>
+        </div>
+        <div class="row-ftr">
+          <div class="obj-cont-ftr">
+            <div class="col-5 cnt-obj-ftr col-md-12">
+              <div class="cnt-info">
+                <a href="#"> Contact us </a>
+              </div>
+              <div class="cnt-info">
+                <a href="#"> Privacy Policy </a>
+              </div>
+              <div class="cnt-info">
+                <a href="#">Terms & condition </a>
+              </div>
+            </div>
+            <div class="col-7 cnt-obj-ftr col-md-12">
+              <div class="row-obj-ftr">
+                <div class="ico-soc fb"></div>
+                <div class="ico-soc ig"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row-ftr">
+          <div class="obj-cont-ftr obj-cont-tm">
+            <p class="tm">©{{ new Date().getFullYear() }}</p>
+            <div class="logo-tm"></div>
+            <p class="tm">- All Rights Reserved</p>
+          </div>
+        </div>
+      </div>
+    </footer>
     <!--Footer-->
   </div>
 </template>
@@ -430,6 +447,7 @@ export default {
 *a {
   text-decoration: none;
   color: black;
+
   &:hover {
     color: black;
   }
@@ -440,6 +458,7 @@ export default {
 main {
   display: flex;
   width: 100%;
+  min-height: 100vh;
   margin: 0 !important;
   padding: 180px 0 100px;
   -webkit-box-orient: vertical;
@@ -452,6 +471,7 @@ main {
 
 .container {
   position: relative;
+
   .cnt-label {
     position: sticky;
     display: flex;
@@ -464,38 +484,47 @@ main {
     font-weight: 600;
     font-size: 2em;
   }
+
   .cnt-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
   }
+
   .box-card {
     display: flex;
     width: 300px;
     flex-direction: column;
+
     .cnt-img {
       width: 100%;
       height: 200px;
+
       img {
         height: 100%;
         width: 100%;
         border-radius: 20px;
       }
     }
+
     .cnt-h {
       height: 50px;
       padding: 10px 0;
+
       h2 {
         font-size: 1em;
       }
+
       h3 {
         color: grey;
         font-size: 0.8em;
       }
     }
+
     .price {
       display: contents;
+
       span {
         width: 100%;
         text-align: left;
@@ -506,6 +535,239 @@ main {
 }
 
 // style footer
+
+/* FOOTER */
+footer {
+  display: grid;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: #2f2e41;
+  padding: 0;
+
+  .cnt-main-rows-ftr {
+    .row-ftr {
+      width: 100%;
+      display: flex;
+      background-color: transparent;
+      padding: 20px 50px;
+
+      &:nth-child(2) {
+        padding: 10px;
+        border-top: 1px solid #403f52;
+      }
+
+      &:nth-child(3) {
+        padding: 10px;
+        border-top: 1px solid #403f52;
+      }
+
+      .weare {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        font-size: 1.5em;
+
+        a {
+          color: #888aba;
+
+          &:hover {
+            color: #a8aaeb;
+          }
+        }
+      }
+
+      .obj-cont-ftr {
+        position: relative;
+        width: 100%;
+        background-color: transparent;
+        display: flex;
+        gap: 10px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0;
+
+        .cnt-obj-ftr {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          .cnt-info {
+            width: max-content;
+
+            a {
+              color: #b3b3b3;
+              text-decoration: none;
+              font-size: 0.8em;
+
+              &:hover {
+                color: #a4a7ea;
+              }
+            }
+
+            &:nth-child(1) {
+              display: flex;
+              align-items: center;
+              gap: 20px;
+            }
+
+            &:nth-child(4) {
+              display: flex;
+              justify-content: flex-end;
+            }
+          }
+        }
+
+        .row-obj-ftr {
+          display: flex;
+          gap: 20px;
+          justify-content: flex-end;
+          width: 100%;
+          background-color: transparent;
+
+          &:nth-child(3) {
+            display: flex;
+            gap: 15px;
+          }
+
+          a {
+            color: #b3b3b3;
+            text-decoration: none;
+            font-size: 0.8em;
+
+            &:hover {
+              color: #a4a7ea;
+            }
+          }
+
+          & h4 {
+            color: #d2d2d2;
+            font-size: 1.2em;
+          }
+
+          & p {
+            color: #d2d2d2;
+            font-size: 0.6em;
+          }
+
+          .logo-tm,
+          .logo-tm::nth-child(1) {
+            position: relative;
+            width: 100px;
+            height: 30px;
+            background-size: contain;
+
+            &:after {
+              content: "™";
+              position: absolute;
+              right: -5px;
+              top: 0px;
+              color: grey;
+              font-size: 0.8em;
+            }
+
+            &::nth-child(1) {
+              width: 150px;
+              height: 50px;
+            }
+          }
+        }
+      }
+    }
+
+    .obj-cont-tm {
+      display: flex;
+      position: relative;
+      width: max-content;
+      padding: 0px;
+      color: white;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+
+      p.tm {
+        display: inline-block;
+        font-size: 1em;
+        letter-spacing: 1px;
+        margin: 0;
+      }
+
+      .logo-tm,
+      .logo-tm:nth-child(1) {
+        position: relative;
+        width: 100px;
+        height: 30px;
+        background: url("../../img/pitto-logotype.svg") no-repeat center/contain;
+        background-size: contain;
+      }
+
+      .logo-tm:nth-child(1) {
+        width: 150px;
+        height: 50px;
+      }
+
+      .logo-tm:after {
+        content: "™";
+        position: absolute;
+        right: -5px;
+        top: 0px;
+        color: grey;
+        font-size: 0.8em;
+      }
+    }
+  }
+}
+
+.ico-soc {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.fb {
+  background: url(../../img/fb-g.svg) no-repeat center;
+  background-size: contain;
+}
+
+.ig {
+  background: url(../../img/ig-g.svg) no-repeat center;
+  background-size: contain;
+}
+
+.fb:hover {
+  background: url(../../img/fb.svg);
+}
+
+.ig:hover {
+  background: url(../../img/ig.svg);
+}
+
+ul.ul-ftr {
+  position: relative;
+  display: block;
+  width: max-content;
+  margin: 0 auto;
+  gap: 30px;
+
+  li {
+    position: relative;
+    display: block;
+    overflow: hidden;
+
+    &:hover a:hover {
+      color: #7174b6;
+    }
+
+    a {
+      text-decoration: none;
+      color: #a2a2a2;
+      font-size: 1em;
+      font-weight: 300;
+    }
+  }
+}
+
+/* FOOTER */
 
 // style filter
 
@@ -575,15 +837,15 @@ body.enlargeFilter {
     -ms-user-select: none;
     user-select: none;
 
-    .cnt-checkbox:hover input ~ .checkmark {
+    .cnt-checkbox:hover input~.checkmark {
       background-color: #ccc;
     }
 
-    .cnt-checkbox input:checked ~ .checkmark {
+    .cnt-checkbox input:checked~.checkmark {
       background-color: #2196f3;
     }
 
-    .cnt-checkbox input:checked ~ .checkmark:after {
+    .cnt-checkbox input:checked~.checkmark:after {
       display: block;
     }
 
@@ -639,16 +901,15 @@ body.enlargeFilter {
   font-size: 1.1em;
   font-weight: 600;
   transition: 0.3s ease-in-out;
+
   &:hover {
     box-shadow: 0px 0px 0px 0px rgb(0, 0, 0), 0px 0px 5px 4px rgb(189, 189, 189);
     transform: scale(1.1);
-    background-image: -webkit-gradient(
-      linear,
-      left top,
-      right bottom,
-      from(#8b9cf2),
-      to(#5870f0)
-    );
+    background-image: -webkit-gradient(linear,
+        left top,
+        right bottom,
+        from(#8b9cf2),
+        to(#5870f0));
     background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
     background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
     background-image: linear-gradient(180deg, #8b9cf2, #5870f0);
@@ -678,6 +939,7 @@ body.enlargeFilter {
   background-color: #010b26;
   background-color: transparent;
   cursor: pointer;
+
   .btn-closed {
     &::after {
       content: "";
@@ -796,6 +1058,7 @@ body.enlargeFilter {
 }
 
 @media screen and (max-width: 1050px) {
+
   .contExpandLogMob,
   .contExpandLogRegMob {
     width: 90%;
@@ -825,6 +1088,7 @@ body.enlargeFilter {
     }
   }
 }
+
 @media screen and (max-width: 800px) {
   .container {
     .box-card {
@@ -833,6 +1097,7 @@ body.enlargeFilter {
     }
   }
 }
+
 @media screen and (max-width: 650px) {
   .container {
     .box-card {
@@ -841,6 +1106,7 @@ body.enlargeFilter {
       max-width: 300px;
     }
   }
+
   /* header {
     .cnt-hdr-items {
       .cnt-nav {
