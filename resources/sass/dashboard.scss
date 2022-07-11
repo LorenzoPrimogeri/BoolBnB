@@ -151,13 +151,13 @@ main {
                     gap: 15px;
                     flex-wrap: wrap;
 
-                    .cnt-item-service {}
+                    .cnt-item-service {
+                    }
                 }
             }
         }
 
         .cnt-item-details {
-
             h3,
             p {
                 color: #707070;
@@ -270,35 +270,43 @@ main {
         cursor: pointer;
 
         &:hover .btn-show {
-            background: url("../img/ico/dashboard/ico-show.svg") no-repeat center/contain;
+            background: url("../img/ico/dashboard/ico-show.svg") no-repeat
+                center/contain;
         }
 
         &:hover .btn-modify {
-            background: url("../img/ico/dashboard/ico-modify.svg") no-repeat center/contain;
+            background: url("../img/ico/dashboard/ico-modify.svg") no-repeat
+                center/contain;
         }
 
         &:hover .btn-delete {
-            background: url("../img/ico/dashboard/ico-delete.svg") no-repeat center/contain;
+            background: url("../img/ico/dashboard/ico-delete.svg") no-repeat
+                center/contain;
         }
 
         &:hover .btn-msg {
-            background: url("../img/ico/dashboard/ico-msg.svg") no-repeat center/contain;
+            background: url("../img/ico/dashboard/ico-msg.svg") no-repeat
+                center/contain;
         }
 
         &:hover .btn-add {
-            background: url("../img/ico/dashboard/ico-add.svg") no-repeat center/contain;
+            background: url("../img/ico/dashboard/ico-add.svg") no-repeat
+                center/contain;
         }
 
         &:hover .btn-home {
-            background: url("../img/ico/dashboard/ico-dash.svg") no-repeat center/contain;
+            background: url("../img/ico/dashboard/ico-dash.svg") no-repeat
+                center/contain;
         }
 
         &:hover .btn-ads {
-            background: url("../img/ico/dashboard/ico-ads.svg") no-repeat center/contain;
+            background: url("../img/ico/dashboard/ico-ads.svg") no-repeat
+                center/contain;
         }
 
         &:hover .btn-stcs {
-            background: url("../img/ico/dashboard/ico-stcs.svg") no-repeat center/contain;
+            background: url("../img/ico/dashboard/ico-stcs.svg") no-repeat
+                center/contain;
         }
 
         .btn {
@@ -309,35 +317,43 @@ main {
         }
 
         .btn-show {
-            background: url("../img/ico/dashboard/ico-show-lgt.svg") no-repeat center/contain;
+            background: url("../img/ico/dashboard/ico-show-lgt.svg") no-repeat
+                center/contain;
         }
 
         .btn-modify {
-            background: url("../img/ico/dashboard/ico-modify-lgt.svg") no-repeat center/contain;
+            background: url("../img/ico/dashboard/ico-modify-lgt.svg") no-repeat
+                center/contain;
         }
 
         .btn-delete {
-            background: url("../img/ico/dashboard/ico-delete-lgt.svg") no-repeat center/contain;
+            background: url("../img/ico/dashboard/ico-delete-lgt.svg") no-repeat
+                center/contain;
         }
 
         .btn-msg {
-            background: url("../img/ico/dashboard/ico-msg-lgt.svg") no-repeat center/contain;
+            background: url("../img/ico/dashboard/ico-msg-lgt.svg") no-repeat
+                center/contain;
         }
 
         .btn-add {
-            background: url("../img/ico/dashboard/ico-add-lgt.svg") no-repeat center/contain;
+            background: url("../img/ico/dashboard/ico-add-lgt.svg") no-repeat
+                center/contain;
         }
 
         .btn-home {
-            background: url("../img/ico/dashboard/ico-dash-lgt.svg") no-repeat center/contain;
+            background: url("../img/ico/dashboard/ico-dash-lgt.svg") no-repeat
+                center/contain;
         }
 
         .btn-ads {
-            background: url("../img/ico/dashboard/ico-ads-lgt.svg") no-repeat center/contain;
+            background: url("../img/ico/dashboard/ico-ads-lgt.svg") no-repeat
+                center/contain;
         }
 
         .btn-stcs {
-            background: url("../img/ico/dashboard/ico-stcs-lgt.svg") no-repeat center/contain;
+            background: url("../img/ico/dashboard/ico-stcs-lgt.svg") no-repeat
+                center/contain;
         }
     }
 }
@@ -346,9 +362,59 @@ main {
     cursor: not-allowed;
     pointer-events: none;
 }
+ul.ul-log-reg {
+    position: absolute;
+    display: flex;
+    width: max-content;
+    gap: 20px;
+    list-style-type: none;
+    margin: 0 !important;
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        &:hover .ico-login {
+            background: url("../img/ico/login/login.svg") no-repeat
+                center/contain;
+        }
+
+        &:hover .ico-reg {
+            background: url("../img/ico/login/register.svg") no-repeat
+                center/contain;
+        }
+
+        &:hover span {
+            color: #4b5663;
+            /* transition: 0.4s ease-in-out; */
+        }
+    }
+
+    .ico-log {
+        width: 30px;
+        height: 30px;
+    }
+
+    .ico-login {
+        background: url("../img/ico/login/login-lgt.svg") no-repeat
+            center/contain;
+    }
+
+    .ico-reg {
+        background: url("../img/ico/login/register-lgt.svg") no-repeat
+            center/contain;
+    }
+
+    a {
+        font-weight: 600;
+        text-decoration: none;
+        color: grey;
+        font-size: 0.9em;
+    }
+}
 
 .cnt-ul {
-
     /* background-color: coral; */
     ul {
         width: 100%;
@@ -368,19 +434,23 @@ main {
             transition: 4s ease-in-out;
 
             &:hover .aprt {
-                background: url("../img/ico/dashboard/ico-dash.svg") no-repeat center/contain;
+                background: url("../img/ico/dashboard/ico-dash.svg") no-repeat
+                    center/contain;
             }
 
             &:hover .msg {
-                background: url("../img/ico/dashboard/ico-msg.svg") no-repeat center/contain;
+                background: url("../img/ico/dashboard/ico-msg.svg") no-repeat
+                    center/contain;
             }
 
             &:hover .ads {
-                background: url("../img/ico/dashboard/ico-ads.svg") no-repeat center/contain;
+                background: url("../img/ico/dashboard/ico-ads.svg") no-repeat
+                    center/contain;
             }
 
             &:hover .stcs {
-                background: url("../img/ico/dashboard/ico-stcs.svg") no-repeat center/contain;
+                background: url("../img/ico/dashboard/ico-stcs.svg") no-repeat
+                    center/contain;
             }
 
             &:hover a {
@@ -401,19 +471,23 @@ main {
             }
 
             .aprt {
-                background: url("../img/ico/dashboard/ico-dash-lgt.svg") no-repeat center/contain;
+                background: url("../img/ico/dashboard/ico-dash-lgt.svg")
+                    no-repeat center/contain;
             }
 
             .msg {
-                background: url("../img/ico/dashboard/ico-msg-lgt.svg") no-repeat center/contain;
+                background: url("../img/ico/dashboard/ico-msg-lgt.svg")
+                    no-repeat center/contain;
             }
 
             .ads {
-                background: url("../img/ico/dashboard/ico-ads-lgt.svg") no-repeat center/contain;
+                background: url("../img/ico/dashboard/ico-ads-lgt.svg")
+                    no-repeat center/contain;
             }
 
             .stcs {
-                background: url("../img/ico/dashboard/ico-stcs-lgt.svg") no-repeat center/contain;
+                background: url("../img/ico/dashboard/ico-stcs-lgt.svg")
+                    no-repeat center/contain;
             }
         }
     }
@@ -506,17 +580,20 @@ main {
                 }
 
                 .gold {
-                    background: url("../img/ico/ads-gold.svg") no-repeat center/contain,
+                    background: url("../img/ico/ads-gold.svg") no-repeat
+                            center/contain,
                         linear-gradient(to right, #fff, #fff);
                 }
 
                 .silver {
-                    background: url("../img/ico/ads-silver.svg") no-repeat center/contain,
+                    background: url("../img/ico/ads-silver.svg") no-repeat
+                            center/contain,
                         linear-gradient(to right, #fff, #fff);
                 }
 
                 .bronze {
-                    background: url("../img/ico/ads-bronze.svg") no-repeat center/contain,
+                    background: url("../img/ico/ads-bronze.svg") no-repeat
+                            center/contain,
                         linear-gradient(to right, #fff, #fff);
                 }
             }

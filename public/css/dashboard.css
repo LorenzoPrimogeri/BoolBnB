@@ -598,6 +598,56 @@ main .main-slct-item select {
   pointer-events: none;
 }
 
+ul.ul-log-reg {
+  position: absolute;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  gap: 20px;
+  list-style-type: none;
+  margin: 0 !important;
+}
+
+ul.ul-log-reg li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+ul.ul-log-reg li:hover .ico-login {
+  background: url(/images/login.svg?d99977f35d4b129a95cb2787c1422611) no-repeat center/contain;
+}
+
+ul.ul-log-reg li:hover .ico-reg {
+  background: url(/images/register.svg?3c6cd24aee4ad0f0e4b064ed5e4190bc) no-repeat center/contain;
+}
+
+ul.ul-log-reg li:hover span {
+  color: #4b5663;
+  /* transition: 0.4s ease-in-out; */
+}
+
+ul.ul-log-reg .ico-log {
+  width: 30px;
+  height: 30px;
+}
+
+ul.ul-log-reg .ico-login {
+  background: url(/images/login-lgt.svg?dd9f332e91b8436aa908f505efae312d) no-repeat center/contain;
+}
+
+ul.ul-log-reg .ico-reg {
+  background: url(/images/register-lgt.svg?950dc65f8f6315451e3371d54df438b9) no-repeat center/contain;
+}
+
+ul.ul-log-reg a {
+  font-weight: 600;
+  text-decoration: none;
+  color: grey;
+  font-size: 0.9em;
+}
+
 .cnt-ul {
   /* background-color: coral; */
 }
