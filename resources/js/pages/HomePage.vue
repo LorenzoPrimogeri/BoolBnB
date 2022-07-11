@@ -188,7 +188,7 @@
                     </div>
                   </router-link>
                   <!-- </div> -->
-                  <div class="cnt-txt cnt-h col-12">
+                  <div class="cnt-txt cnt-h">
                     <h2>{{ apartment.title }}</h2>
                     <h3>{{ apartment.address }}</h3>
                   </div>
