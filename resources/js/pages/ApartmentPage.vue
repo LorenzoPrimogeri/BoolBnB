@@ -30,7 +30,7 @@
       <!-- service and tecnic data -->
       <div class="services-box cnt-row col-12">
 
-        <div class="details col-3">
+        <div class="details col-6">
           <h3 class="mb-4">Caratteristiche:</h3>
           <div class="d-flex service-icon">
             <p>
@@ -72,7 +72,7 @@
 
         </div>
 
-        <div class="services col-4">
+        <div class="services col-6">
           <div class="cnt-row col-12">
             <h3 class="mb-4">Servizi:</h3>
             <div v-for="(service, j) in services" :key="j">{{ service }}</div>
@@ -367,6 +367,7 @@ export default {
 
   .services-box {
     border-bottom: 1px solid #80808070;
+    justify-content: space-between;
     display: flex;
 
     p {
@@ -487,6 +488,28 @@ body.enlargeFilter {
   width: 100%;
   height: 100%;
   border-bottom: 1px solid #80808070;
+}
+
+@media only screen and (max-width: 700px) {
+  .img-box {
+    .cont-img {
+      img {
+        width: 100%;
+        height: 350px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .img-box {
+    .cont-img {
+      img {
+        width: 100%;
+        height: 250px;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 360px) {
