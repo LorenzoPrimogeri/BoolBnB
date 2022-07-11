@@ -73,6 +73,14 @@
                     <p> {{ $service->name }} </p>
                 @endforeach
             </div>
+            <div class="cnt-row col-12">
+                <h3>Sponsor attiva:</h3>
+                @if (sizeof($apartment->sponsorships) == 0)
+                    <p>Nessuna sponsorizzazione</p>
+                @else
+                    <p>{{ $apartment->sponsorships[0]['type'] }}</p>
+                @endif
+            </div>
         </div>
     </div>
 @endsection
