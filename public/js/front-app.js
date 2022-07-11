@@ -1941,12 +1941,18 @@ __webpack_require__.r(__webpack_exports__);
       body: "",
       apartment_id: null,
       sending: false,
-      success: false
+      success: false,
+      user_id: this.$userId
     };
   },
   mounted: function mounted() {
     var _this = this;
 
+    axios.get("/api/user/".concat(this.user_id)).then(function (risp) {
+      console.log(risp);
+      _this.user_email = risp.data[0].email;
+      _this.email = _this.user_email;
+    });
     var id = this.$route.params.id; // console.log(id)
 
     var url = "/api/apartments/" + id;
@@ -2108,7 +2114,8 @@ __webpack_require__.r(__webpack_exports__);
       //tutti gli appartamenti visible
       correctApartments: [],
       //appartamenti che soddisfano la ricerca
-      isClicked: false //  allServices: [],
+      isClicked: false,
+      user_id: this.$userId //  allServices: [],
       //  services: [],
       //  distanceKm: 20,
       //  room: 1,
@@ -2124,6 +2131,9 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/user/".concat(this.user_id)).then(function (risp) {
+      return console.log(risp);
+    });
     $("#btn-hamburger").click(function () {
       $(this).toggleClass("open");
     });
@@ -2867,7 +2877,9 @@ var render = function render() {
       expression: "$route.name === 'home' ? true : false"
     }],
     staticClass: "main-usr-set"
-  }, [_vm._m(0)]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
+  }, [_c("ul", {
+    staticClass: "ul-log-reg"
+  }, [_c("span", [_vm._v(_vm._s(_vm.user_id))]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)])]), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
     staticClass: "col-2 d-flex jc-c ai-c"
   }, [_c("div", {
     directives: [{
@@ -2902,7 +2914,7 @@ var render = function render() {
     staticClass: "main-carousel-layout"
   }, [_c("div", {
     staticClass: "cnt-carousel"
-  }, [_vm._m(2), _vm._v(" "), _c("div", {
+  }, [_vm._m(3), _vm._v(" "), _c("div", {
     staticClass: "container w-100 h-100 d-flex jc-c ai-c"
   }, [_c("carousel", {
     staticClass: "w-100"
@@ -2935,7 +2947,7 @@ var render = function render() {
     }, [_c("h2", [_vm._v(_vm._s(apartment.title))]), _vm._v(" "), _c("h3", [_vm._v(_vm._s(apartment.address))])]), _vm._v(" "), _c("div", {
       staticClass: "price col-12"
     }, [_c("span", [_vm._v(_vm._s(apartment.price) + " €/notte")])])], 1)]);
-  }), 1)], 1)]), _vm._v(" "), _vm._m(3)])]), _vm._v(" "), _c("footer", [_vm._m(4), _vm._v(" "), _c("div", {
+  }), 1)], 1)]), _vm._v(" "), _vm._m(4)])]), _vm._v(" "), _c("footer", [_vm._m(5), _vm._v(" "), _c("div", {
     staticClass: "row-ftr"
   }, [_c("div", {
     staticClass: "obj-cont-ftr obj-cont-tm"
@@ -2954,21 +2966,24 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("ul", {
-    staticClass: "ul-log-reg"
-  }, [_c("li", [_c("div", {
+  return _c("li", [_c("div", {
     staticClass: "ico-log ico-login"
   }), _vm._v(" "), _c("a", {
     attrs: {
       href: " /login"
     }
-  }, [_vm._v("Login")])]), _vm._v(" "), _c("li", [_c("div", {
+  }, [_vm._v("Login")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("li", [_c("div", {
     staticClass: "ico-log ico-reg"
   }), _vm._v(" "), _c("a", {
     attrs: {
       href: "/register"
     }
-  }, [_vm._v("Register")])])]);
+  }, [_vm._v("Register")])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
@@ -51030,16 +51045,13 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/**
-window.axios
-    .get("http://127.0.0.1:8000/api/apartments")
-    .then((results) => {
-        console.log(results);
-    })
-    .catch((e) => {
-        console.log(e);
-    });
- */
+var user = document.querySelector("meta[name='user_id']");
+
+if (user) {
+  Vue.prototype.$userId = document.querySelector("meta[name='user_id']").getAttribute('content');
+} else {
+  console.log("user non trovato");
+}
 
 
 

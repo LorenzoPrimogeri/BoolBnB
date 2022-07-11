@@ -2,16 +2,17 @@ require("./bootstrap");
 
 window.axios = require("axios");
 window.Vue = require("vue");
-/**
-window.axios
-    .get("http://127.0.0.1:8000/api/apartments")
-    .then((results) => {
-        console.log(results);
-    })
-    .catch((e) => {
-        console.log(e);
-    });
- */
+
+
+let user = document.querySelector("meta[name='user_id']");
+
+if (user) {
+    Vue.prototype.$userId = document.querySelector("meta[name='user_id']").getAttribute('content');
+} else {
+    console.log("user non trovato");
+}
+
+
 import AppComponent from "./app/AppComponent";
 import router from "./routes";
 

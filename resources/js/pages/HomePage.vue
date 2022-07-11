@@ -57,8 +57,7 @@
               v-show="$route.name === 'home' ? true : false"
             >
               <ul class="ul-log-reg">
-                <!-- Authentication Links -->
-                <!-- <a href="{{ route('login') }}"> -->
+                <span>{{user_id}}</span>
                 <li>
                   <div class="ico-log ico-login"></div>
                   <a href=" /login">Login</a>
@@ -306,6 +305,7 @@ export default {
       allApartaments: [], //tutti gli appartamenti visible
       correctApartments: [], //appartamenti che soddisfano la ricerca
       isClicked: false,
+      user_id: this.$userId
       //  allServices: [],
       //  services: [],
       //  distanceKm: 20,
@@ -319,6 +319,9 @@ export default {
     Slide,
   },
   mounted() {
+    axios.get(`/api/user/${this.user_id}`).then(risp => console.log(risp));
+
+
     $("#btn-hamburger").click(function () {
       $(this).toggleClass("open");
     });

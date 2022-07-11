@@ -178,9 +178,18 @@ export default {
       apartment_id: null,
       sending: false,
       success: false,
+      user_id: this.$userId,
     };
   },
   mounted() {
+
+    axios.get(`/api/user/${this.user_id}`).then(risp => {
+        console.log(risp);
+        this.user_email = risp.data[0].email;
+        this.email = this.user_email;
+        });
+
+
     const id = this.$route.params.id;
     // console.log(id)
     const url = "/api/apartments/" + id;
