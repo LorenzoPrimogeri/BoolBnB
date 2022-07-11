@@ -4,48 +4,65 @@
 
     <header>
       <div class="container wmax-100 h-100 pd-20-lr">
+        <!-- CNT-HEADER-ITEMS -->
         <div class="cnt-hdr-items">
           <!-- LOGO -->
-          <div class="col-2 col-xs-12">
+          <div class="col-3 col-xs-12">
             <div class="cnt-logo">
               <router-link to="/">
-                <img class="logo-desk" src="../../img/pitto-logotype.svg"
-                  alt="logo-BoolBnb" />
-                <img class="logo-mob" src="../../img/pitto.svg"
-                  alt="logo-BoolBnb" />
+                <img
+                  class="logo-desk"
+                  src="../../img/pitto-logotype.svg"
+                  alt="logo-BoolBnb"
+                />
+                <img
+                  class="logo-mob"
+                  src="../../img/pitto.svg"
+                  alt="logo-BoolBnb"
+                />
               </router-link>
             </div>
           </div>
           <!-- LOGO -->
 
           <!-- SEARCH -->
-          <div class="cnt-nav col-8 h-100">
+          <div class="cnt-nav col-6 h-100">
             <div class="cnt-search">
               <div class="search">
                 <div class="cnt-lens"></div>
                 <div class="contStringSrc">
-                  <input id="userInput" class="accountInput" type="text"
-                    placeholder="Cerca appartamento" v-model="input"
-                    @input="onInputChanged" />
+                  <input
+                    id="userInput"
+                    class="accountInput"
+                    type="text"
+                    placeholder="Cerca appartamento"
+                    v-model="input"
+                    @input="onInputChanged"
+                  />
                 </div>
-                <router-link :to="{
-                  name: 'search',
-                  params: { input: input },
-                }">
+                <router-link
+                  :to="{
+                    name: 'search',
+                    params: { input: input },
+                  }"
+                >
                   <div class="cnt-fine"></div>
                 </router-link>
               </div>
             </div>
           </div>
           <!-- SEARCH -->
+
           <!-- LOGIN-REGISTER -->
-          <div class="col-2 d-flex jc-c ai-c">
+          <div class="col-3 d-flex jc-c ai-c">
             <div v-if="user_id">
-              <span>{{ username }}</span>
-              <!-- inserire dashboard -->
+              <span class="usr-log">{{ username }}</span>
             </div>
-            <div v-else class="main-usr-set"
-              v-show="$route.name === 'home' ? true : false">
+            <div
+              v-else
+              class="main-usr-set"
+              v-show="$route.name === 'home' ? true : false"
+            >
               <ul class="ul-log-reg">
                 <li>
                   <div class="ico-log ico-login"></div>
@@ -57,7 +74,16 @@
                 </li>
               </ul>
             </div>
+            <div class="cnt-ul cnt-ul-mob">
+              <ul>
+                <li>
+                  <div class="ico aprt"></div>
+                  <a href="/admin/apartments">Dashboard</a>
+                </li>
+              </ul>
+            </div>
             <!-- LOGIN-REGISTER -->
+
             <!-- BTN-HAMBURGER -->
             <div id="btn-hamburger">
               <span></span>
@@ -69,8 +95,11 @@
 
             <!-- FILTER-BTN -->
             <div class="col-2 d-flex jc-c ai-c">
-              <div id="filter" class="cnt-btn-filter"
-                v-show="$route.name === 'search' ? true : false">
+              <div
+                id="filter"
+                class="cnt-btn-filter"
+                v-show="$route.name === 'search' ? true : false"
+              >
                 <div class="btn-filter"></div>
                 <span>Filtri</span>
               </div>
@@ -85,14 +114,21 @@
           <div class="search">
             <div class="cnt-lens"></div>
             <div class="contStringSrc">
-              <input id="userInput" class="accountInput" type="text"
-                placeholder="Cerca appartamento" v-model="input"
-                @input="onInputChanged" />
+              <input
+                id="userInput"
+                class="accountInput"
+                type="text"
+                placeholder="Cerca appartamento"
+                v-model="input"
+                @input="onInputChanged"
+              />
             </div>
-            <router-link :to="{
-              name: 'search',
-              params: { input: input },
-            }">
+            <router-link
+              :to="{
+                name: 'search',
+                params: { input: input },
+              }"
+            >
               <div class="cnt-fine"></div>
             </router-link>
           </div>
@@ -100,15 +136,17 @@
         </div>
       </div>
       <div class="cnt-result-adress" v-if="!isClicked">
-        <div class="cnt-items" v-for="(indirizzo, i) in indirizzi"
-          :key="i + indirizzo.address">
+        <div
+          class="cnt-items"
+          v-for="(indirizzo, i) in indirizzi"
+          :key="i + indirizzo.address"
+        >
           <a href="#" @click="take(indirizzo.address.freeformAddress)">
             {{ indirizzo.address["freeformAddress"] }}
           </a>
         </div>
       </div>
     </header>
-
     <!--HEADER-->
 
     <!--MAIN-->
@@ -169,15 +207,20 @@
               <div class="cnt-rgt fadeRight">
                 <img
                   src="../../img/illustrations/undraw_travel_booking_re_6umu.svg"
-                  loading="lazy" alt="Coder Boy" />
+                  loading="lazy"
+                  alt="Coder Boy"
+                />
               </div>
             </div>
           </section>
           <section class="cnt-section due">
             <div class="cnt-section-layout second">
               <div class="cnt-lft fadeLeft">
-                <img src="../../img/illustrations/Current-Location.svg"
-                  loading="lazy" alt="Coder Girl" />
+                <img
+                  src="../../img/illustrations/Current-Location.svg"
+                  loading="lazy"
+                  alt="Coder Girl"
+                />
               </div>
               <div class="cnt-rgt fadeRight">
                 <h2>Le migliori proposte di appartamenti intorno a te</h2>
@@ -205,7 +248,9 @@
               <div class="cnt-rgt fadeRight">
                 <img
                   src="../../img/illustrations/Family-walking-ocean-beach.svg"
-                  loading="lazy" alt="LoFi Mood" />
+                  loading="lazy"
+                  alt="LoFi Mood"
+                />
               </div>
             </div>
           </section>
@@ -258,10 +303,14 @@
     <!-- FOOTER -->
 
     <!--MENU-SLIDE-->
-    <div class="subMenu closeMenu" id="subMenuSlide" style="
+    <div
+      class="subMenu closeMenu"
+      id="subMenuSlide"
+      style="
         filter: progid:DXImageTransform.Microsoft.Shadow(color='#dedede', Direction=135, Strength=10);
         -webkit-overflow-scrolling: touch;
-      ">
+      "
+    >
       <div class="contSubMenuSlide">
         <div class="cnt-ul">
           <ul>
@@ -465,7 +514,8 @@ main {
 }
 
 /* MAIN-CAROUSEL-LAYOUT */
-.main-carousel-layout {}
+.main-carousel-layout {
+}
 
 /* MAIN-CAROUSEL-LAYOUT */
 
@@ -527,6 +577,17 @@ main {
       }
     }
   }
+}
+.usr-log {
+  position: absolute;
+  right: 180px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.cnt-ul-mob {
+  width: max-content;
+  right: 0;
+  position: absolute;
 }
 
 .fadeLeft,
@@ -999,6 +1060,7 @@ ul.ul-ftr {
       flex-direction: column;
       gap: 25px;
       margin: 0 auto;
+      padding: 0;
 
       li {
         display: flex;
@@ -1012,7 +1074,8 @@ ul.ul-ftr {
         }
 
         .aprt {
-          background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat center/contain;
+          background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat
+            center/contain;
         }
 
         a {
@@ -1031,6 +1094,7 @@ ul {
   flex-direction: column;
   gap: 25px;
   margin: 0 auto;
+  padding: 0;
 
   li {
     display: flex;
@@ -1044,7 +1108,8 @@ ul {
     }
 
     .aprt {
-      background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat center/contain;
+      background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat
+        center/contain;
     }
 
     a {
@@ -1074,7 +1139,9 @@ ul {
 }
 
 @media screen and (max-width: 1024px) {
-  .main-usr-set {
+  .main-usr-set,
+  .usr-log,
+  .cnt-ul-mob {
     display: none;
   }
 
@@ -1109,7 +1176,8 @@ ul {
 
   footer {
     .cnt-main-rows-ftr {
-      .weare {}
+      .weare {
+      }
 
       .row-ftr {
         padding: 20px 0;

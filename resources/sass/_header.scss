@@ -64,7 +64,6 @@ header {
     }
 
     ul.ul-log-reg {
-
         position: absolute;
         display: flex;
         width: max-content;
@@ -79,11 +78,13 @@ header {
             gap: 5px;
 
             &:hover .ico-login {
-                background: url("../img/ico/login/login.svg") no-repeat center/contain;
+                background: url("../img/ico/login/login.svg") no-repeat
+                    center/contain;
             }
 
             &:hover .ico-reg {
-                background: url("../img/ico/login/register.svg") no-repeat center/contain;
+                background: url("../img/ico/login/register.svg") no-repeat
+                    center/contain;
             }
 
             &:hover span {
@@ -98,11 +99,13 @@ header {
         }
 
         .ico-login {
-            background: url("../img/ico/login/login-lgt.svg") no-repeat center/contain;
+            background: url("../img/ico/login/login-lgt.svg") no-repeat
+                center/contain;
         }
 
         .ico-reg {
-            background: url("../img/ico/login/register-lgt.svg") no-repeat center/contain;
+            background: url("../img/ico/login/register-lgt.svg") no-repeat
+                center/contain;
         }
 
         a {
@@ -133,9 +136,11 @@ header {
 
         &:hover {
             transition: 0.5s ease-in-out;
-            background-image: linear-gradient(to bottom,
-                    transparent 93%,
-                    #7174b6 0%);
+            background-image: linear-gradient(
+                to bottom,
+                transparent 93%,
+                #7174b6 0%
+            );
         }
 
         &:hover a {
@@ -210,8 +215,8 @@ header {
         height: 30px;
         margin: 0;
         top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        right: 10px;
+        transform: translate(0, -50%);
         z-index: 1;
         cursor: pointer;
     }
