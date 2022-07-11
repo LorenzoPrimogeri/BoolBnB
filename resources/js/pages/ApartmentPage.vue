@@ -32,6 +32,7 @@
         </div>
 
         <div class="details col-3">
+          <h3>Caratteristiche:</h3>
           <div class="d-flex service-box">
             <p>
               <img
@@ -83,6 +84,7 @@
 
         <div class="services col-4">
           <div class="cnt-row col-12">
+            <h3>Servizi:</h3>
             <div v-for="(service, j) in services" :key="j">{{ service }}</div>
           </div>
         </div>
