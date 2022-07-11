@@ -749,6 +749,7 @@ main .main-slct-item select {
 }
 
 .main-heading-ads .main-cards-ads .box-card-ads .picture .pic-ads {
+  background-color: #fff;
   width: 100%;
   height: 100%;
   box-shadow: 0 0 0 3px #f7f5ec;
