@@ -175,11 +175,11 @@
     <main>
       <div class="container w-100">
 
-        <!-- <div v-if="this.correctApartments.length >= 1">
+        <div v-if="!correctApartments.length">
           <p>
-            Nessun risultat
+            Nessun risultato!
           </p>
-        </div> -->
+        </div>
 
 
         <div class="cnt-cards pd-20">
