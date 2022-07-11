@@ -222,7 +222,7 @@
       <div class="cnt-main-rows-ftr">
         <div class="row-ftr">
           <div class="cnt-info weare">
-            <router-link to="weare"> Chi Siamo </router-link>
+            <router-link to="/weare"> Chi Siamo </router-link>
           </div>
         </div>
         <div class="row-ftr">
