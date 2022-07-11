@@ -174,6 +174,14 @@
     <!-- v-if nessun risultato se appartment è correctApartment >=1 -->
     <main>
       <div class="container w-100">
+
+        <div v-if="this.correctApartments.length >= 1">
+          <p>
+            Nessun risultat
+          </p>
+        </div>
+
+
         <div class="cnt-cards pd-20">
           <router-link class="box-card" v-for="apartment in correctApartments"
             :key="apartment.id" :to="'/home/' + apartment.id">

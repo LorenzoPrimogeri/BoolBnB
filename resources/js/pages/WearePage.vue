@@ -7,16 +7,10 @@
           <div class="col-2 col-xs-12">
             <div class="cnt-logo">
               <router-link to="/">
-                <img
-                  class="logo-desk"
-                  src="../../img/pitto-logotype.svg"
-                  alt="logo-BoolBnb"
-                />
-                <img
-                  class="logo-mob"
-                  src="../../img/pitto.svg"
-                  alt="logo-BoolBnb"
-                />
+                <img class="logo-desk" src="../../img/pitto-logotype.svg"
+                  alt="logo-BoolBnb" />
+                <img class="logo-mob" src="../../img/pitto.svg"
+                  alt="logo-BoolBnb" />
               </router-link>
             </div>
           </div>
@@ -28,21 +22,14 @@
               <div class="search">
                 <div class="cnt-lens"></div>
                 <div class="contStringSrc">
-                  <input
-                    id="userInput"
-                    class="accountInput"
-                    type="text"
-                    placeholder="Cerca appartamento"
-                    v-model="input"
-                    @input="onInputChanged"
-                  />
+                  <input id="userInput" class="accountInput" type="text"
+                    placeholder="Cerca appartamento" v-model="input"
+                    @input="onInputChanged" />
                 </div>
-                <router-link
-                  :to="{
-                    name: 'search',
-                    params: { input: input },
-                  }"
-                >
+                <router-link :to="{
+                  name: 'search',
+                  params: { input: input },
+                }">
                   <div class="cnt-fine"></div>
                 </router-link>
               </div>
@@ -52,10 +39,8 @@
 
           <!-- LOGIN-REGISTER -->
           <div class="col-2 d-flex jc-c ai-c">
-            <div
-              class="main-usr-set"
-              v-show="$route.name === 'weare' ? true : false"
-            >
+            <div class="main-usr-set"
+              v-show="$route.name === 'weare' ? true : false">
               <ul class="ul-log-reg">
                 <div class="cnt-ul">
                   <ul>
@@ -82,11 +67,8 @@
 
             <!-- FILTER-BTN -->
             <div class="col-2 d-flex jc-c ai-c">
-              <div
-                id="filter"
-                class="cnt-btn-filter"
-                v-show="$route.name === 'search' ? true : false"
-              >
+              <div id="filter" class="cnt-btn-filter"
+                v-show="$route.name === 'search' ? true : false">
                 <div class="btn-filter"></div>
                 <span>Filtri</span>
               </div>
@@ -101,21 +83,14 @@
           <div class="search">
             <div class="cnt-lens"></div>
             <div class="contStringSrc">
-              <input
-                id="userInput"
-                class="accountInput"
-                type="text"
-                placeholder="Cerca appartamento"
-                v-model="input"
-                @input="onInputChanged"
-              />
+              <input id="userInput" class="accountInput" type="text"
+                placeholder="Cerca appartamento" v-model="input"
+                @input="onInputChanged" />
             </div>
-            <router-link
-              :to="{
-                name: 'search',
-                params: { input: input },
-              }"
-            >
+            <router-link :to="{
+              name: 'search',
+              params: { input: input },
+            }">
               <div class="cnt-fine"></div>
             </router-link>
           </div>
@@ -123,11 +98,8 @@
         </div>
       </div>
       <div class="cnt-result-adress" v-if="!isClicked">
-        <div
-          class="cnt-items"
-          v-for="(indirizzo, i) in indirizzi"
-          :key="i + indirizzo.address"
-        >
+        <div class="cnt-items" v-for="(indirizzo, i) in indirizzi"
+          :key="i + indirizzo.address">
           <a href="#" @click="take(indirizzo.address.freeformAddress)">
             {{ indirizzo.address["freeformAddress"] }}
           </a>
@@ -348,14 +320,10 @@
     <!-- FOOTER -->
 
     <!--MENU-SLIDE-->
-    <div
-      class="subMenu closeMenu"
-      id="subMenuSlide"
-      style="
+    <div class="subMenu closeMenu" id="subMenuSlide" style="
         filter: progid:DXImageTransform.Microsoft.Shadow(color='#dedede', Direction=135, Strength=10);
         -webkit-overflow-scrolling: touch;
-      "
-    >
+      ">
       <div class="contSubMenuSlide">
         <div class="cnt-ul">
           <ul>
@@ -396,6 +364,13 @@ export default {
     };
   },
   mounted() {
+    let cards = $(".sctn-cards");
+    for (var i = 0; i < cards.length; i++) {
+      var target = Math.floor(Math.random() * cards.length - 1) + 1;
+      var target2 = Math.floor(Math.random() * cards.length - 1) + 1;
+      cards.eq(target).before(cards.eq(target2));
+    }
+
     $(document).ready(function () {
       $("#btn-hamburger").click(function () {
         ShowMenu();
@@ -523,27 +498,34 @@ legati alla finestra del browser
 
 <style scoped lang="scss">
 @import url("../../sass/layout-preset.css");
+
 main {
   padding-top: 150px;
+
   .cnt-h1 {
+
     h1,
     h2,
     p {
       text-align: center;
       color: #7174b6;
     }
+
     h1 {
       font-size: 5em;
     }
+
     h2 {
       font-size: 3.5em;
       font-family: "Changa One", sans-serif;
     }
+
     p {
       font-size: 2em;
       font-weight: bold;
     }
   }
+
   .box-card {
     display: flex;
     flex-direction: column;
@@ -559,6 +541,7 @@ main {
     -webkit-box-shadow: 0px 0px 10px 5px rgba(150, 150, 150, 0.2);
     -moz-box-shadow: 0px 0px 10px 5px rgba(150, 150, 150, 0.2);
     box-shadow: 0px 0px 10px 5px rgba(150, 150, 150, 0.2);
+
     .picture {
       position: relative;
       display: inline-block;
@@ -566,6 +549,7 @@ main {
       width: 130px;
       margin: 0 auto 20px;
       z-index: 1;
+
       &::before {
         content: "";
         width: 100%;
@@ -580,6 +564,7 @@ main {
         transform: scale(3);
         transition: all 0.3s linear 0s;
       }
+
       img {
         width: 100%;
         height: auto;
@@ -588,31 +573,38 @@ main {
         transition: all 0.9s ease 0s;
       }
     }
+
     &:hover .picture::before {
       height: 100%;
     }
+
     .picture img {
       box-shadow: 0 0 0 5px #f7f5ec;
       transform: scale(0.7);
     }
+
     .team-content {
       display: flex;
       flex-direction: column;
       gap: 5px;
+
       h3,
       h5 {
         color: #3b426c;
       }
+
       h4 {
         color: #fff;
       }
     }
+
     .title {
       display: block;
       font-size: 15px;
       color: #4e5052;
       text-transform: capitalize;
     }
+
     .social {
       display: flex;
       padding: 10px;
@@ -624,8 +616,10 @@ main {
       bottom: -100px;
       left: 0;
       transition: all 0.5s ease 0s;
+
       li {
         display: inline-block;
+
         a {
           display: block;
           padding: 10px;
@@ -634,41 +628,49 @@ main {
           transition: all 0.3s ease 0s;
           text-decoration: none;
         }
+
         .ico {
           width: 30px;
           height: 30px;
           background-color: lightgray;
         }
+
         .ico-lnkd {
           background: url("../../img/ico/ico-lnkd.svg");
         }
       }
     }
+
     &:hover .social {
       bottom: 0;
     }
   }
 }
+
 .cnt-layout {
   width: 90%;
   max-width: 1400px;
   margin: 0 auto;
+
   .cnt-section {
     position: relative;
     display: flex;
     width: 100%;
     background-size: cover;
     padding: 50px 0;
+
     .cnt-section-layout {
       display: flex;
       width: 100%;
       padding: 50px;
       align-items: center;
     }
+
     .cnt-cntr {
       width: 100%;
       padding: 20px;
     }
+
     .cnt-lft-tm,
     .cnt-rgt-tm {
       display: flex;
@@ -678,17 +680,21 @@ main {
       gap: 50px;
       flex-direction: column;
       visibility: hidden;
+
       img {
         width: 100%;
         max-width: 500px;
         margin: 0 auto;
       }
+
       h2 {
         font-size: 2em;
         font-weight: 600;
       }
+
       p {
         line-height: 1.8em;
+
         strong {
           font-size: 1.2em;
           color: #7174b6;
@@ -697,6 +703,7 @@ main {
     }
   }
 }
+
 .fadeLeft-tm,
 .fadeRight-tm {
   visibility: hidden;
@@ -708,71 +715,85 @@ main {
   animation: animateleft 1.5s;
   padding: 0 0 0 60px;
 }
+
 .fadeRight-tm.fadein-right-tm {
   visibility: visible !important;
   -webkit-animation: animateright 2s;
   animation: animateright 2s;
 }
+
 @-moz-keyframes animateleft {
   from {
     left: -300px;
     opacity: 0;
   }
+
   to {
     left: 0px;
     opacity: 1;
   }
 }
+
 @-webkit-keyframes animateleft {
   from {
     left: -300px;
     opacity: 0;
   }
+
   to {
     left: 0px;
     opacity: 1;
   }
 }
+
 @keyframes animateleft {
   from {
     left: -300px;
     opacity: 0;
   }
+
   to {
     left: 0px;
     opacity: 1;
   }
 }
+
 @-moz-keyframes animateright {
   from {
     right: -300px;
     opacity: 0;
   }
+
   to {
     right: 0px;
     opacity: 1;
   }
 }
+
 @-webkit-keyframes animateright {
   from {
     right: -300px;
     opacity: 0;
   }
+
   to {
     right: 0px;
     opacity: 1;
   }
 }
+
 @keyframes animateright {
   from {
     right: -300px;
     opacity: 0;
   }
+
   to {
     right: 0px;
     opacity: 1;
   }
 }
+
 /* FOOTER */
 footer {
   display: grid;
@@ -781,32 +802,39 @@ footer {
   width: 100%;
   background-color: #2f2e41;
   padding: 0;
+
   .cnt-main-rows-ftr {
     .row-ftr {
       width: 100%;
       display: flex;
       background-color: transparent;
       padding: 20px 50px;
+
       &:nth-child(2) {
         padding: 10px;
         border-top: 1px solid #403f52;
       }
+
       &:nth-child(3) {
         padding: 10px;
         border-top: 1px solid #403f52;
       }
+
       .weare {
         width: 100%;
         display: flex;
         justify-content: center;
         font-size: 1.5em;
+
         a {
           color: #888aba;
+
           &:hover {
             color: #a8aaeb;
           }
         }
       }
+
       .obj-cont-ftr {
         position: relative;
         width: 100%;
@@ -816,63 +844,77 @@ footer {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0;
+
         .cnt-obj-ftr {
           display: flex;
           align-items: center;
           gap: 10px;
+
           .cnt-info {
             width: max-content;
+
             a {
               color: #b3b3b3;
               text-decoration: none;
               font-size: 0.8em;
+
               &:hover {
                 color: #a4a7ea;
               }
             }
+
             &:nth-child(1) {
               display: flex;
               align-items: center;
               gap: 20px;
             }
+
             &:nth-child(4) {
               display: flex;
               justify-content: flex-end;
             }
           }
         }
+
         .row-obj-ftr {
           display: flex;
           gap: 20px;
           justify-content: flex-end;
           width: 100%;
           background-color: transparent;
+
           &:nth-child(3) {
             display: flex;
             gap: 15px;
           }
+
           a {
             color: #b3b3b3;
             text-decoration: none;
             font-size: 0.8em;
+
             &:hover {
               color: #a4a7ea;
             }
           }
+
           & h4 {
             color: #d2d2d2;
             font-size: 1.2em;
           }
+
           & p {
             color: #d2d2d2;
             font-size: 0.6em;
           }
+
           .logo-tm,
           .logo-tm::nth-child(1) {
             position: relative;
             width: 100px;
             height: 30px;
             background-size: contain;
+
             &:after {
               content: "™";
               position: absolute;
@@ -881,6 +923,7 @@ footer {
               color: grey;
               font-size: 0.8em;
             }
+
             &::nth-child(1) {
               width: 150px;
               height: 50px;
@@ -899,12 +942,14 @@ footer {
       justify-content: center;
       align-items: center;
       margin: 0 auto;
+
       p.tm {
         display: inline-block;
         font-size: 1em;
         letter-spacing: 1px;
         margin: 0;
       }
+
       .logo-tm,
       .logo-tm:nth-child(1) {
         position: relative;
@@ -913,10 +958,12 @@ footer {
         background: url("../../img/pitto-logotype.svg") no-repeat center/contain;
         background-size: contain;
       }
+
       .logo-tm:nth-child(1) {
         width: 150px;
         height: 50px;
       }
+
       .logo-tm:after {
         content: "™";
         position: absolute;
@@ -934,33 +981,41 @@ footer {
   height: 30px;
   cursor: pointer;
 }
+
 .fb {
   background: url(../../img/fb-g.svg) no-repeat center;
   background-size: contain;
 }
+
 .ig {
   background: url(../../img/ig-g.svg) no-repeat center;
   background-size: contain;
 }
+
 .fb:hover {
   background: url(../../img/fb.svg);
 }
+
 .ig:hover {
   background: url(../../img/ig.svg);
 }
+
 ul.ul-ftr {
   position: relative;
   display: block;
   width: max-content;
   margin: 0 auto;
   gap: 30px;
+
   li {
     position: relative;
     display: block;
     overflow: hidden;
+
     &:hover a:hover {
       color: #7174b6;
     }
+
     a {
       text-decoration: none;
       color: #a2a2a2;
@@ -969,6 +1024,7 @@ ul.ul-ftr {
     }
   }
 }
+
 /* FOOTER */
 
 /* MENU-SLIDE-DOWN */
@@ -986,36 +1042,43 @@ ul.ul-ftr {
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   z-index: 2;
+
   &::-webkit-scrollbar {
     display: none;
   }
+
   .contSubMenuSlide {
     padding: 50px 0;
     -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
     box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.2);
+
     &::-webkit-scrollbar {
       display: none;
     }
+
     ul {
       width: max-content;
       display: flex;
       flex-direction: column;
       gap: 25px;
       margin: 0 auto;
+
       li {
         display: flex;
         align-items: center;
         gap: 10px;
+
         .ico {
           width: 30px;
           height: 30px;
           background-color: violet;
         }
+
         .aprt {
-          background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat
-            center/contain;
+          background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat center/contain;
         }
+
         a {
           text-decoration: none;
           color: #4b5663;
@@ -1025,25 +1088,29 @@ ul.ul-ftr {
     }
   }
 }
+
 ul {
   width: max-content;
   display: flex;
   flex-direction: column;
   gap: 25px;
   margin: 0 auto;
+
   li {
     display: flex;
     align-items: center;
     gap: 10px;
+
     .ico {
       width: 30px;
       height: 30px;
       background-color: violet;
     }
+
     .aprt {
-      background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat
-        center/contain;
+      background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat center/contain;
     }
+
     a {
       text-decoration: none;
       color: #8da1b3;
@@ -1051,6 +1118,7 @@ ul {
     }
   }
 }
+
 /* MENU-SLIDE-DOWN */
 
 .scrollToTop {
@@ -1069,6 +1137,7 @@ ul {
   -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 }
+
 @media screen and (max-width: 1200px) {
   main {
     .cnt-cards {
@@ -1078,17 +1147,21 @@ ul {
     }
   }
 }
+
 @media screen and (max-width: 1024px) {
   .cnt-layout {
     padding: 80px 0 0;
+
     .cnt-section {
       .cnt-section-layout {
         flex-direction: column;
         padding: 0;
       }
+
       .second {
         flex-direction: column-reverse;
       }
+
       .cnt-lft-tm,
       .cnt-rgt-tm {
         width: 100%;
@@ -1096,6 +1169,7 @@ ul {
     }
   }
 }
+
 @media screen and (max-width: 800px) {
   main {
     .cnt-cards {
@@ -1105,21 +1179,25 @@ ul {
     }
   }
 }
+
 @media screen and (max-width: 750px) {
   footer {
     .cnt-main-rows-ftr {
-      .weare {
-      }
+      .weare {}
+
       .row-ftr {
         padding: 20px 0;
+
         .obj-cont-ftr {
           flex-direction: column-reverse;
+
           .cnt-obj-ftr {
             flex-direction: column;
             align-items: center;
             margin: 0 auto;
             padding: 10px 0;
           }
+
           .row-obj-ftr {
             justify-content: center;
           }
@@ -1128,27 +1206,35 @@ ul {
     }
   }
 }
+
 @media screen and (max-width: 650px) {
   main {
     padding-top: 30px;
+
     .cnt-h1 {
+
       h1,
       h2 {
         text-align: center;
         color: #7174b6;
       }
+
       h1 {
         font-size: 3em;
       }
+
       h2 {
         font-size: 2em;
       }
+
       margin-bottom: 50px;
     }
+
     .cnt-section-layout {
       flex-direction: column-reverse !important;
       padding: 0;
     }
+
     .box-card {
       width: 100%;
     }
