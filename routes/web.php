@@ -37,7 +37,7 @@ Route::middleware('auth')
         Route::get('/confirmed', function () {
             return view('admin.confirmed');
         })->name('confirmed');
-        Route::put('/payment', "ApartmentController@confirmed")->name('payment');
+        Route::put('/payment/{id}', "ApartmentController@confirmed")->name('payment');
         Route::get('/stats/{id}', 'ChartController@index')->name("apartments.views.index");
     });
 

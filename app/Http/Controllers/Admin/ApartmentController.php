@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\View;
+use Carbon\Carbon;
 
 class ApartmentController extends Controller
 {
@@ -257,7 +258,7 @@ class ApartmentController extends Controller
         // dd($apartment_id);
         $apartment = Apartment::find($apartment_id);
 
-        $apartment->sponsorships()->sync($sponsor_id);
+        /* $apartment->sponsorships()->sync($sponsor_id); */
 
 
         return view('admin.checkout', [
@@ -280,12 +281,22 @@ class ApartmentController extends Controller
         $apartment->delete();
         return redirect()->route("admin.apartments.index");
     }
-    public function confirmed(Request $request, Gateway $gateway)
+    public function confirmed(Request $request, Gateway $gateway, $apa_id)
     {
-        // $apartment = Apartment::id();
-        // dd($apartment);
+
+        $apartment = Apartment::find($apa_id);
         $idSponsor = $request->id;
         $sponsor = Sponsorship::find($idSponsor);
+
+        $created_at = Carbon::now()/* ->toDateTimeString() */;
+        $exp_date = Carbon::now()->addHours((int)$sponsor->duration);
+        /* dd($exp_date); */
+        if($apartment->sponsorships){return "Già sponsorizzato";}else{
+        $apartment->sponsorships()->attach($idSponsor, ["created_at" => $created_at,"expiration_date" => $exp_date] );
+
+        /* $book->authors()->attach($authorId, ['best_seller' => true]); */
+
+
         //   $apartment = Apartment::find(Apartment::id());
         //  $activeSponsor = $apartment->sponsorShips;
         $amount = $sponsor->price;
@@ -299,5 +310,6 @@ class ApartmentController extends Controller
             ]
         ]);
         return view('admin.confirmed', ['sponsor' => $sponsor]);
+    }
     }
 }
