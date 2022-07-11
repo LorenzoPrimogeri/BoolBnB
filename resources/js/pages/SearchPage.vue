@@ -174,6 +174,14 @@
     <!-- v-if nessun risultato se appartment è correctApartment >=1 -->
     <main>
       <div class="container w-100">
+
+        <!-- <div v-if="this.correctApartments.length >= 1">
+          <p>
+            Nessun risultat
+          </p>
+        </div> -->
+
+
         <div class="cnt-cards pd-20">
           <router-link class="box-card" v-for="apartment in correctApartments"
             :key="apartment.id" :to="'/home/' + apartment.id">
@@ -200,7 +208,7 @@
       <div class="cnt-main-rows-ftr">
         <div class="row-ftr">
           <div class="cnt-info weare">
-            <router-link to="weare"> Chi Siamo </router-link>
+            <router-link to="/weare"> Chi Siamo </router-link>
           </div>
         </div>
         <div class="row-ftr">
@@ -450,6 +458,7 @@ export default {
 main {
   display: flex;
   width: 100%;
+  min-height: 100vh;
   margin: 0 !important;
   padding: 180px 0 100px;
   -webkit-box-orient: vertical;

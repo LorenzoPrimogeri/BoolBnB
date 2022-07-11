@@ -260,7 +260,7 @@
       <div class="cnt-main-rows-ftr">
         <div class="row-ftr">
           <div class="cnt-info weare">
-            <router-link to="weare"> Chi Siamo </router-link>
+            <router-link to="/weare"> Chi Siamo </router-link>
           </div>
         </div>
         <div class="row-ftr">
@@ -467,6 +467,7 @@ export default {
 
 <style lang="scss" scoped>
 .main {
+  min-height: 100vh;
   padding: 100px 0px;
 
   .flex {

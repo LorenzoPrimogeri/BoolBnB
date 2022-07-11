@@ -222,7 +222,7 @@
       <div class="cnt-main-rows-ftr">
         <div class="row-ftr">
           <div class="cnt-info weare">
-            <router-link to="weare"> Chi Siamo </router-link>
+            <router-link to="/weare"> Chi Siamo </router-link>
           </div>
         </div>
         <div class="row-ftr">
@@ -442,6 +442,8 @@ legati alla finestra del browser
 
 <style scoped lang="scss">
 main {
+  min-height: 100vh;
+
   .title {
     display: flex;
     justify-content: space-around;
