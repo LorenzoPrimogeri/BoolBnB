@@ -147,7 +147,6 @@
       </div>
     </header>
     <!-- HEADER -->
-
     <!-- MAIN -->
     <main>
       <div class="cnt-layout">
@@ -161,22 +160,21 @@
             <div class="cnt-lft-tm fadeLeft-tm">
               <h2>Lorenzo Primogeri</h2>
               <p>
-                <strong>Boolbnb</strong> propone anche dei servizi aggiuntivi
-                per rendere la tua esperienza di viaggio il più
-                <strong>completa</strong> possibile, senza doverti preoccupare
-                di nulla e godereti la tua vacanza da semplice turista a ospite
-                nella località da te scelta.
+                L’umiltà la fa da padrone, mai fuori posto è sempre in prima
+                linea….lo descrive al meglio una celebre frase: Io sono io e voi
+                non siete un caxxo.
               </p>
+              <h5>L'Umile</h5>
             </div>
             <div class="cnt-rgt-tm fadeRight-tm">
               <div class="cards box-card">
                 <div class="picture">
-                  <img class="img-fluid" src="assets/img/photo.jpg" />
+                  <img class="img-fluid" src="../../img/lorenzo.jpeg" />
                 </div>
                 <div class="team-content">
                   <h3 class="name">Lorenzo Primogeri</h3>
                   <h4 class="title">Jr. FullStack Developer</h4>
-                  <h5>Front-Back Developer</h5>
+                  <!-- <h5>Front-Back Developer</h5> -->
                 </div>
                 <ul class="social">
                   <li>
@@ -193,22 +191,20 @@
             <div class="cnt-lft-tm fadeLeft-tm">
               <h2>Antonio Ruggiero</h2>
               <p>
-                <strong>Boolbnb</strong> propone anche dei servizi aggiuntivi
-                per rendere la tua esperienza di viaggio il più
-                <strong>completa</strong> possibile, senza doverti preoccupare
-                di nulla e godereti la tua vacanza da semplice turista a ospite
-                nella località da te scelta.
+                Nessun bug può sfuggirgli, grazie al suo potere di ricerca ogni
+                soluzione è sempre a portata di mano.
               </p>
+              <h5>Il Ricercatore</h5>
             </div>
             <div class="cnt-rgt-tm fadeRight-tm">
               <div class="cards box-card">
                 <div class="picture">
-                  <img class="img-fluid" src="assets/img/photo.jpg" />
+                  <img class="img-fluid" src="../../img/antonio.jpg" />
                 </div>
                 <div class="team-content">
                   <h3 class="name">Antonio Ruggiero</h3>
                   <h4 class="title">Jr. FullStack Developer</h4>
-                  <h5>Front-Back Developer</h5>
+                  <!-- <h5>Front-Back Developer</h5> -->
                 </div>
                 <ul class="social">
                   <li>
@@ -225,22 +221,20 @@
             <div class="cnt-lft-tm fadeLeft-tm">
               <h2>Francesco Moles</h2>
               <p>
-                <strong>Boolbnb</strong> propone anche dei servizi aggiuntivi
-                per rendere la tua esperienza di viaggio il più
-                <strong>completa</strong> possibile, senza doverti preoccupare
-                di nulla e godereti la tua vacanza da semplice turista a ospite
-                nella località da te scelta.
+                Lavora nell’ombra, pensi non ci sia, invece è sempre lì al tuo
+                fianco, pronto a risolvere ogni problema…
               </p>
+              <h5>Il Cavaliere Oscuro</h5>
             </div>
             <div class="cnt-rgt-tm fadeRight-tm">
               <div class="cards box-card">
                 <div class="picture">
-                  <img class="img-fluid" src="assets/img/photo.jpg" />
+                  <img class="img-fluid" src="../../img/Moles.jpg" />
                 </div>
                 <div class="team-content">
                   <h3 class="name">Francesco Moles</h3>
                   <h4 class="title">Jr. FullStack Developer</h4>
-                  <h5>Front-Back Developer</h5>
+                  <!-- <h5>Front-Back Developer</h5> -->
                 </div>
                 <ul class="social">
                   <li>
@@ -257,22 +251,21 @@
             <div class="cnt-lft-tm fadeLeft-tm">
               <h2>Michele Camera</h2>
               <p>
-                <strong>Boolbnb</strong> propone anche dei servizi aggiuntivi
-                per rendere la tua esperienza di viaggio il più
-                <strong>completa</strong> possibile, senza doverti preoccupare
-                di nulla e godereti la tua vacanza da semplice turista a ospite
-                nella località da te scelta.
+                Un'entità suprema di cui ignoto è il verbo…non servono tante
+                parole, lui ti legge nel pensiero e in tempi di crisi energetica
+                è una grande qualità.
               </p>
+              <h5>X Files</h5>
             </div>
             <div class="cnt-rgt-tm fadeRight-tm">
               <div class="cards box-card">
                 <div class="picture">
-                  <img class="img-fluid" src="assets/img/photo.jpg" />
+                  <img class="img-fluid" src="../../img/camera.jpg" />
                 </div>
                 <div class="team-content">
                   <h3 class="name">Michele Camera</h3>
                   <h4 class="title">Jr. FullStack Developer</h4>
-                  <h5>Front-Back Developer</h5>
+                  <!-- <h5>Front-Back Developer</h5> -->
                 </div>
                 <ul class="social">
                   <li>
@@ -289,22 +282,20 @@
             <div class="cnt-lft-tm fadeLeft-tm">
               <h2>Marco Cataldi</h2>
               <p>
-                <strong>Boolbnb</strong> propone anche dei servizi aggiuntivi
-                per rendere la tua esperienza di viaggio il più
-                <strong>completa</strong> possibile, senza doverti preoccupare
-                di nulla e godereti la tua vacanza da semplice turista a ospite
-                nella località da te scelta.
+                Quando tutto sembra non andare o c'è bisongo di tenere alto il
+                morale eccolo che ti ricarica.
               </p>
+              <h5>Supradyn</h5>
             </div>
             <div class="cnt-rgt-tm fadeRight-tm">
               <div class="cards box-card">
                 <div class="picture">
-                  <img class="img-fluid" src="assets/img/photo.jpg" />
+                  <img class="img-fluid" src="../../img/marco.jpg" />
                 </div>
                 <div class="team-content">
                   <h3 class="name">Marco Cataldi</h3>
                   <h4 class="title">Jr. FullStack Developer</h4>
-                  <h5>Front-Back Developer</h5>
+                  <!-- <h5>Front-Back Developer</h5> -->
                 </div>
                 <ul class="social">
                   <li>
@@ -792,7 +783,7 @@ main {
       position: relative;
       width: 50%;
       padding: 50px;
-      gap: 50px;
+      gap: 5px;
       flex-direction: column;
       visibility: hidden;
 

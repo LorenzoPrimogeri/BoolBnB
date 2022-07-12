@@ -328,7 +328,9 @@ export default {
       });
     //prendo tutti gli appartamenti dal database
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
-      this.allApartaments = results.data.apartments;
+      console.log(results);
+      this.allApartaments = results.data.allApartments;
+      console.log(this.allApartaments);
       const array = results.data.services;
       for (let i = 0; i < array.length; i++) {
         const element = array[i]["name"];
