@@ -291,7 +291,7 @@ class ApartmentController extends Controller
         $created_at = Carbon::now()/* ->toDateTimeString() */;
         $exp_date = Carbon::now()->addHours((int)$sponsor->duration);
         /* dd($exp_date); */
-        if($apartment->sponsorships){return "Già sponsorizzato";}else{
+        if(sizeof($apartment->sponsorships)>0){return "Già sponsorizzato";}else{
         $apartment->sponsorships()->attach($idSponsor, ["created_at" => $created_at,"expiration_date" => $exp_date] );
 
         /* $book->authors()->attach($authorId, ['best_seller' => true]); */

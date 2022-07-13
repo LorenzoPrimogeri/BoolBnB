@@ -21,12 +21,13 @@ class ApartmentController extends Controller
 
         /* dd($dateNow); */
 
-        $apartments = Apartment::where('visible', 1)->with(['services'])->whereHas('sponsorships',function($q){
+        $apartments = Apartment::where('visible', 1)->with(['services'])->whereHas('sponsorships', function ($q) {
             $q->where('expiration_date', '>', Carbon::now());
         })->get();
+        $allApartments = Apartment::where('visible', 1)->with(['services'])->get();
         // $sApartments = Apartment::where('visible', 1)->with(['sponsorships'])->get();
         $services = Service::all();
-        $result = ['apartments' => $apartments, 'services' => $services, 'success' => true];
+        $result = ['apartments' => $apartments, 'allApartments' => $allApartments, 'services' => $services, 'success' => true];
         return response()->json($result);
     }
 
