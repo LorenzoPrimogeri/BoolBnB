@@ -7,7 +7,7 @@
         <!-- CNT-HEADER-ITEMS -->
         <div class="cnt-hdr-items">
           <!-- LOGO -->
-          <div class="col-3 col-xs-12">
+          <div class="col-3">
             <div class="cnt-logo">
               <router-link to="/">
                 <img
@@ -588,6 +588,37 @@ main {
   top: 50%;
   transform: translate(0, -50%);
 }
+ul {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin: 0 auto;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .ico {
+      width: 30px;
+      height: 30px;
+      background-color: violet;
+    }
+
+    .aprt {
+      background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat
+        center/contain;
+    }
+
+    a {
+      text-decoration: none;
+      color: #8da1b3;
+      font-size: 1.2em;
+    }
+  }
+}
 
 .fadeLeft,
 .fadeRight {
@@ -1083,38 +1114,6 @@ ul.ul-ftr {
           font-size: 1.2em;
         }
       }
-    }
-  }
-}
-
-ul {
-  width: max-content;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  margin: 0 auto;
-  padding: 0;
-
-  li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    .ico {
-      width: 30px;
-      height: 30px;
-      background-color: violet;
-    }
-
-    .aprt {
-      background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat
-        center/contain;
-    }
-
-    a {
-      text-decoration: none;
-      color: #8da1b3;
-      font-size: 1.2em;
     }
   }
 }

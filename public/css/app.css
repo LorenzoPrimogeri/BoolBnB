@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 header {
   position: fixed;
   width: 100%;
@@ -147,11 +151,19 @@ header .container-src {
   padding: 20px;
 }
 
-.search {
+.cnt-search,
+.cnt-hdr-src {
+  width: 100%;
+}
+
+.cnt-search .search,
+.cnt-hdr-src .search {
   display: flex;
   position: relative;
-  width: 500px;
+  width: 100%;
   height: 50px;
+  max-width: 500px;
+  margin: 0 auto;
   border-radius: 30px;
   align-items: center;
   padding: 0 20px;
@@ -161,24 +173,29 @@ header .container-src {
   gap: 20px;
 }
 
-.search .cnt-lens,
-.search .cnt-fine {
+.cnt-search .search .cnt-lens,
+.cnt-search .search .cnt-fine,
+.cnt-hdr-src .search .cnt-lens,
+.cnt-hdr-src .search .cnt-fine {
   width: 30px;
   height: 30px;
 }
 
-.search .cnt-lens {
+.cnt-search .search .cnt-lens,
+.cnt-hdr-src .search .cnt-lens {
   background: url(/images/lente.svg?e79ab83e0ec1b531a929aac3de5dbf7a) no-repeat center;
 }
 
-.search .contStringSrc {
+.cnt-search .search .contStringSrc,
+.cnt-hdr-src .search .contStringSrc {
   width: 100%;
   background-color: transparent;
   color: black;
   text-align: left;
 }
 
-.search .contStringSrc input {
+.cnt-search .search .contStringSrc input,
+.cnt-hdr-src .search .contStringSrc input {
   border: 0;
   -webkit-appearance: none;
   width: 100%;
@@ -189,7 +206,8 @@ header .container-src {
   border: 0;
 }
 
-.search .cnt-fine {
+.cnt-search .search .cnt-fine,
+.cnt-hdr-src .search .cnt-fine {
   background-color: rgb(153, 51, 0);
   background: url(/images/fineIcon.svg?551757e6b172e6d3b801ea9d9dfe8a56) no-repeat center;
 }
@@ -257,18 +275,6 @@ header .container-src {
 }
 
 @media only screen and (max-width: 890px) {
-  header .cnt-hdr-items .cnt-logo {
-    width: 55px;
-  }
-
-  .logo-desk {
-    display: none;
-  }
-
-  .logo-mob {
-    display: block !important;
-  }
-
   .container-src {
     display: flex;
     align-items: center;
@@ -291,6 +297,25 @@ header .container-src {
 }
 
 @media only screen and (max-width: 740px) {
+  header .cnt-hdr-items .cnt-logo {
+    width: 55px;
+  }
+
+  header .cnt-hdr-items .cnt-btn-filter {
+    position: fixed;
+    left: 50%;
+    top: 40px;
+    transform: translate(-50%, -50%);
+  }
+
+  .logo-desk {
+    display: none;
+  }
+
+  .logo-mob {
+    display: block !important;
+  }
+
   .cnt-search {
     display: none;
   }

@@ -134,7 +134,7 @@ main {
                 display: flex;
                 align-items: center;
                 gap: 5px;
-                padding: 20px;
+                padding: 20px 0;
                 border-bottom: 1px solid #dbdbdb;
             }
 
@@ -617,7 +617,6 @@ ul.ul-log-reg {
             }
 
             .ico-ads {
-
                 display: flex;
                 padding: 10px;
                 justify-content: center;
@@ -947,7 +946,6 @@ ul.ul-log-reg {
         .cnt-heading {
             padding: 0 20px;
         }
-
         .main-cards-ads {
             padding: 0 20px 100px;
 
@@ -962,6 +960,30 @@ ul.ul-log-reg {
     header {
         .cnt-logo {
             width: 100px;
+        }
+    }
+    .main-heading-ads {
+        .cnt-heading {
+            h1 {
+                color: #7174b6;
+                font-size: 1.9em;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+            h3 {
+                font-size: 1.2em;
+                margin-bottom: 20px;
+            }
+            h2,
+            h3,
+            p {
+                color: #626262;
+            }
+
+            p {
+                font-size: 1.2em;
+            }
         }
     }
 

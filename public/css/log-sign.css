@@ -1,12 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat&display=swap);@import url(https://fonts.googleapis.com/css2?family=Changa+One);* {
+@import url(https://fonts.googleapis.com/css?family=Montserrat&display=swap);* {
     font-family: "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    overflow-x: hidden !important;
-}
+
 .container {
     display: flex;
     width: 100%;
@@ -115,11 +113,15 @@ body {
 .gp-30 {
     gap: 30px;
 }
-
+.flex-dr-col {
+    flex-direction: column;
+}
 .jc-c {
     justify-content: center;
 }
-
+.jc-strt {
+    justify-content: start;
+}
 .ai-c {
     align-items: center;
 }
@@ -170,58 +172,6 @@ body {
 
 .red {
     color: red !important;
-}
-
-.d-block {
-    display: block;
-    color: red;
-}
-
-.d-none {
-    display: none;
-}
-
-#address-error {
-    position: absolute;
-    bottom: -25px;
-    left: 0;
-}
-
-.error {
-    color: red;
-    font-size: 15px;
-    position: relative;
-}
-
-label.error {
-    position: absolute !important;
-    bottom: -10px;
-    margin-bottom: 5px;
-}
-
-.tbl-title {
-    font-weight: 900;
-}
-
-.f-grow {
-    flex-grow: 1;
-}
-
-.p-20 {
-    padding: 20px;
-}
-
-.mt-2 {
-    margin-top: 2rem;
-}
-
-.gap-20 {
-    gap: 20px;
-}
-
-.cnt-item-service label:nth-child(2) {
-    bottom: -30px;
-    left: 0;
 }
 
 @media screen and (max-width: 480px) {

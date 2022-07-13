@@ -1,12 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat&display=swap);@import url(https://fonts.googleapis.com/css2?family=Changa+One);* {
+@import url(https://fonts.googleapis.com/css?family=Montserrat&display=swap);* {
     font-family: "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    overflow-x: hidden !important;
-}
+
 .container {
     display: flex;
     width: 100%;
@@ -115,11 +113,15 @@ body {
 .gp-30 {
     gap: 30px;
 }
-
+.flex-dr-col {
+    flex-direction: column;
+}
 .jc-c {
     justify-content: center;
 }
-
+.jc-strt {
+    justify-content: start;
+}
 .ai-c {
     align-items: center;
 }
@@ -170,58 +172,6 @@ body {
 
 .red {
     color: red !important;
-}
-
-.d-block {
-    display: block;
-    color: red;
-}
-
-.d-none {
-    display: none;
-}
-
-#address-error {
-    position: absolute;
-    bottom: -25px;
-    left: 0;
-}
-
-.error {
-    color: red;
-    font-size: 15px;
-    position: relative;
-}
-
-label.error {
-    position: absolute !important;
-    bottom: -10px;
-    margin-bottom: 5px;
-}
-
-.tbl-title {
-    font-weight: 900;
-}
-
-.f-grow {
-    flex-grow: 1;
-}
-
-.p-20 {
-    padding: 20px;
-}
-
-.mt-2 {
-    margin-top: 2rem;
-}
-
-.gap-20 {
-    gap: 20px;
-}
-
-.cnt-item-service label:nth-child(2) {
-    bottom: -30px;
-    left: 0;
 }
 
 @media screen and (max-width: 480px) {
@@ -391,7 +341,7 @@ main .main-slct-item .cnt-item-details .cnt-row {
   display: flex;
   align-items: center;
   gap: 5px;
-  padding: 20px;
+  padding: 20px 0;
   border-bottom: 1px solid #dbdbdb;
 }
 
@@ -523,15 +473,15 @@ main .main-slct-item select {
 }
 
 .cnt-btns .cnt-btn:hover .btn-show {
-  background: url(/images/ico-show.svg?5d63836a62a4f05d00126f48bdb57619) no-repeat center/contain;
+  background: url(/images/ico-show.svg?548640e114a0b7007ddf736fbd86c92d) no-repeat center/contain;
 }
 
 .cnt-btns .cnt-btn:hover .btn-modify {
-  background: url(/images/ico-modify.svg?4efd78cd0cc9d4937672f75213146935) no-repeat center/contain;
+  background: url(/images/ico-modify.svg?156ea583eb51c7f9f021a230496c41cf) no-repeat center/contain;
 }
 
 .cnt-btns .cnt-btn:hover .btn-delete {
-  background: url(/images/ico-delete.svg?33ecb11b49378b33d56a4519136474d5) no-repeat center/contain;
+  background: url(/images/ico-delete.svg?1d7e500d807c7112f0552e15c31685c3) no-repeat center/contain;
 }
 
 .cnt-btns .cnt-btn:hover .btn-msg {
@@ -539,7 +489,7 @@ main .main-slct-item select {
 }
 
 .cnt-btns .cnt-btn:hover .btn-add {
-  background: url(/images/ico-add.svg?6b5976890260fbba41fa549ec40983e2) no-repeat center/contain;
+  background: url(/images/ico-add.svg?7ccb7a2831a18f63f6224192011faac3) no-repeat center/contain;
 }
 
 .cnt-btns .cnt-btn:hover .btn-home {
@@ -562,15 +512,15 @@ main .main-slct-item select {
 }
 
 .cnt-btns .cnt-btn .btn-show {
-  background: url(/images/ico-show-lgt.svg?1353f4c629315802cfe84785fb677b1b) no-repeat center/contain;
+  background: url(/images/ico-show-lgt.svg?71d9e37bae7dabd8dc11fd9fd1cde07b) no-repeat center/contain;
 }
 
 .cnt-btns .cnt-btn .btn-modify {
-  background: url(/images/ico-modify-lgt.svg?4bfd61bcdd5406ff2619f75e0827ad31) no-repeat center/contain;
+  background: url(/images/ico-modify-lgt.svg?624d50d20ceb14b699a9922799bd8ac3) no-repeat center/contain;
 }
 
 .cnt-btns .cnt-btn .btn-delete {
-  background: url(/images/ico-delete-lgt.svg?d72595b13ba28e3804f0398ff1e3a79d) no-repeat center/contain;
+  background: url(/images/ico-delete-lgt.svg?d50f5199e339d0eb8a09ddfe7c2e59e6) no-repeat center/contain;
 }
 
 .cnt-btns .cnt-btn .btn-msg {
@@ -578,7 +528,7 @@ main .main-slct-item select {
 }
 
 .cnt-btns .cnt-btn .btn-add {
-  background: url(/images/ico-add-lgt.svg?0518e2cd3023a64f97ad1ec515a8baf3) no-repeat center/contain;
+  background: url(/images/ico-add-lgt.svg?f15b72c693011e5361ecd091aefd5e50) no-repeat center/contain;
 }
 
 .cnt-btns .cnt-btn .btn-home {
@@ -872,7 +822,7 @@ ul.ul-log-reg a {
 }
 
 .main-heading-ads .main-cards-ads .box-card-ads .ico-ads li .ico-lnkd {
-  background: url(/images/ico-lnkd.svg?9b2a808c9a9dbb5877627399f9eec8b1);
+  background: url(/images/ico-lnkd.svg?1818b2d362ae200b5e1aae534b2de671);
 }
 
 .main-heading-ads .main-cards-ads .box-card-ads:hover .social {
@@ -1166,6 +1116,30 @@ ul.ul-log-reg a {
 @media only screen and (max-width: 680px) {
   header .cnt-logo {
     width: 100px;
+  }
+
+  .main-heading-ads .cnt-heading h1 {
+    color: #7174b6;
+    font-size: 1.9em;
+  }
+
+  .main-heading-ads .cnt-heading h2 {
+    font-size: 1.4em;
+  }
+
+  .main-heading-ads .cnt-heading h3 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+
+  .main-heading-ads .cnt-heading h2,
+  .main-heading-ads .cnt-heading h3,
+  .main-heading-ads .cnt-heading p {
+    color: #626262;
+  }
+
+  .main-heading-ads .cnt-heading p {
+    font-size: 1.2em;
   }
 
   .form-container {
