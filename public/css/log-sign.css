@@ -244,12 +244,19 @@
   color: rgb(53, 52, 100);
 }
 
+.form-container form.formLog .invalid-feedback {
+  display: block;
+  color: red;
+  font-size: 0.8em;
+  margin: 5px 0;
+}
+
 .form-container form.formLog .row-log-reg {
   position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 30px 0;
+  margin: 30px 0 15px;
   /* } */
 }
 
@@ -257,13 +264,6 @@
   color: rgb(137, 137, 137);
   font-size: 0.8em;
   margin: 0 0 5px;
-}
-
-.form-container form.formLog .row-log-reg .invalid-feedback {
-  display: block;
-  color: red;
-  font-size: 0.8em;
-  margin: 5px 0;
 }
 
 .form-container form.formLog .row-log-reg .ico {

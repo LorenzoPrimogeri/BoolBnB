@@ -101,7 +101,7 @@
                 <div class="cnt-hdr-items">
                     <div class="col-2 col-xs-12">
                         <div class="cnt-logo">
-                            <a href="#">
+                            <a href="/">
                                 <img src="{{ url('/img/boolbnb-logo.svg') }}" alt="logo">
                             </a>
                         </div>
