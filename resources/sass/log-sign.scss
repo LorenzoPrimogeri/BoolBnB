@@ -275,3 +275,18 @@
         outline: 1px solid red;
     }
 }
+
+@media only screen and (max-width: 480px) {
+    .main-usr-set {
+        display: none;
+    }
+    .form-container {
+        form.formLog {
+            .row-log-reg {
+                .ico {
+                    left: -5px;
+                }
+            }
+        }
+    }
+}

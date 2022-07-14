@@ -63,7 +63,15 @@ header .cnt-hdr-items .cnt-btn-filter .btn-filter {
 }
 
 header ul.ul-log-reg {
-  position: absolute;
+  /* position: absolute;
+  display: flex;
+  width: max-content;
+  flex-direction: row;
+  gap: 20px;
+  list-style-type: none;
+  margin: 0 !important;
+  right: -50px; */
+  position: relative;
   display: flex;
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -72,7 +80,6 @@ header ul.ul-log-reg {
   gap: 20px;
   list-style-type: none;
   margin: 0 !important;
-  right: -50px;
 }
 
 header ul.ul-log-reg li {
@@ -82,11 +89,11 @@ header ul.ul-log-reg li {
 }
 
 header ul.ul-log-reg li:hover .ico-login {
-  background: url(/images/login.svg?dc85f1b5e4949dc8ac9498bb1d7fffc8) no-repeat center/contain;
+  background: url(/images/login.svg?d99977f35d4b129a95cb2787c1422611) no-repeat center/contain;
 }
 
 header ul.ul-log-reg li:hover .ico-reg {
-  background: url(/images/register.svg?0b27b7ec2b77bd97fd41b51307437c4a) no-repeat center/contain;
+  background: url(/images/register.svg?3c6cd24aee4ad0f0e4b064ed5e4190bc) no-repeat center/contain;
 }
 
 header ul.ul-log-reg li:hover span {
@@ -100,11 +107,11 @@ header ul.ul-log-reg .ico-log {
 }
 
 header ul.ul-log-reg .ico-login {
-  background: url(/images/login-lgt.svg?5165130587df9f1860fc5179cf2c5bdc) no-repeat center/contain;
+  background: url(/images/login-lgt.svg?dd9f332e91b8436aa908f505efae312d) no-repeat center/contain;
 }
 
 header ul.ul-log-reg .ico-reg {
-  background: url(/images/register-lgt.svg?55437a987bb5ff96396c014f67d0cb1e) no-repeat center/contain;
+  background: url(/images/register-lgt.svg?950dc65f8f6315451e3371d54df438b9) no-repeat center/contain;
 }
 
 header ul.ul-log-reg a {
@@ -183,7 +190,7 @@ header .container-src {
 
 .cnt-search .search .cnt-lens,
 .cnt-hdr-src .search .cnt-lens {
-  background: url(/images/lente.svg?961ddecce9f71114810035e04b769a37) no-repeat center;
+  background: url(/images/lente.svg?e79ab83e0ec1b531a929aac3de5dbf7a) no-repeat center;
 }
 
 .cnt-search .search .contStringSrc,
@@ -209,7 +216,7 @@ header .container-src {
 .cnt-search .search .cnt-fine,
 .cnt-hdr-src .search .cnt-fine {
   background-color: rgb(153, 51, 0);
-  background: url(/images/fineIcon.svg?5484589d8bcac7ef1999ec5d2dda0e84) no-repeat center;
+  background: url(/images/fineIcon.svg?551757e6b172e6d3b801ea9d9dfe8a56) no-repeat center;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -350,21 +357,81 @@ header .container-src {
   header .container-src .cnt-hdr-src .search .contStringSrc input {
     font-size: 0.8em;
   }
+}
 
-  .logo-desk {
-    display: none;
-  }
+.main-usr-set-mob {
+  display: flex;
+}
 
-  .logo-mob {
-    display: block !important;
-  }
+.main-usr-set-mob ul.ul-log-reg {
+  position: relative;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  flex-direction: row;
+  gap: 20px;
+  list-style-type: none;
+  flex-direction: row !important;
+  padding: 40px 0 0;
+}
+
+.main-usr-set-mob ul.ul-log-reg {
+  border-top: 1px solid lightgray;
+}
+
+.main-usr-set-mob ul.ul-log-reg li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.main-usr-set-mob ul.ul-log-reg li:hover .ico-login {
+  background: url(/images/login.svg?d99977f35d4b129a95cb2787c1422611) no-repeat center/contain;
+}
+
+.main-usr-set-mob ul.ul-log-reg li:hover .ico-reg {
+  background: url(/images/register.svg?3c6cd24aee4ad0f0e4b064ed5e4190bc) no-repeat center/contain;
+}
+
+.main-usr-set-mob ul.ul-log-reg li:hover span {
+  color: #4b5663;
+  /* transition: 0.4s ease-in-out; */
+}
+
+.main-usr-set-mob ul.ul-log-reg .ico-log {
+  width: 30px;
+  height: 30px;
+}
+
+.main-usr-set-mob ul.ul-log-reg .ico-login {
+  background: url(/images/login-lgt.svg?dd9f332e91b8436aa908f505efae312d) no-repeat center/contain;
+}
+
+.main-usr-set-mob ul.ul-log-reg .ico-reg {
+  background: url(/images/register-lgt.svg?950dc65f8f6315451e3371d54df438b9) no-repeat center/contain;
+}
+
+.main-usr-set-mob ul.ul-log-reg a {
+  font-weight: 600;
+  text-decoration: none;
+  color: grey;
+  font-size: 0.9em;
+}
+
+.main-usr-set-mob .logo-desk {
+  display: none;
+}
+
+.main-usr-set-mob .logo-mob {
+  display: block !important;
 }
 
 .main-usr-set {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  position: absolute;
   height: 100%;
   width: 350px;
   top: 50%;
@@ -423,11 +490,11 @@ header .container-src {
 }
 
 .main-usr-set .cnt-usr-set .ico-login {
-  background: url(/images/login-lgt.svg?5165130587df9f1860fc5179cf2c5bdc) no-repeat center/contain;
+  background: url(/images/login-lgt.svg?dd9f332e91b8436aa908f505efae312d) no-repeat center/contain;
 }
 
 .main-usr-set .cnt-usr-set .ico-reg {
-  background: url(/images/register-lgt.svg?55437a987bb5ff96396c014f67d0cb1e) no-repeat center/contain;
+  background: url(/images/register-lgt.svg?950dc65f8f6315451e3371d54df438b9) no-repeat center/contain;
 }
 
 .main-usr-set .cnt-usr-set a {

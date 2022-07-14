@@ -66,15 +66,23 @@ header {
     }
 
     ul.ul-log-reg {
-        position: absolute;
+        /* position: absolute;
         display: flex;
         width: max-content;
         flex-direction: row;
         gap: 20px;
         list-style-type: none;
         margin: 0 !important;
-        right: -50px;
-
+        right: -50px; */
+        position: relative;
+        display: flex;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        flex-direction: row;
+        gap: 20px;
+        list-style-type: none;
+        margin: 0 !important;
         li {
             display: flex;
             align-items: center;
@@ -363,7 +371,65 @@ header {
             }
         }
     }
+}
+.main-usr-set-mob {
+    display: flex;
+    ul.ul-log-reg {
+        position: relative;
+        display: flex;
+        width: max-content;
+        flex-direction: row;
+        gap: 20px;
+        list-style-type: none;
+        flex-direction: row !important;
+        padding: 40px 0 0;
+        & {
+            border-top: 1px solid lightgray;
+        }
 
+        li {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            &:hover .ico-login {
+                background: url("../img/ico/login/login.svg") no-repeat
+                    center/contain;
+            }
+
+            &:hover .ico-reg {
+                background: url("../img/ico/login/register.svg") no-repeat
+                    center/contain;
+            }
+
+            &:hover span {
+                color: #4b5663;
+                /* transition: 0.4s ease-in-out; */
+            }
+        }
+
+        .ico-log {
+            width: 30px;
+            height: 30px;
+        }
+
+        .ico-login {
+            background: url("../img/ico/login/login-lgt.svg") no-repeat
+                center/contain;
+        }
+
+        .ico-reg {
+            background: url("../img/ico/login/register-lgt.svg") no-repeat
+                center/contain;
+        }
+
+        a {
+            font-weight: 600;
+            text-decoration: none;
+            color: grey;
+            font-size: 0.9em;
+        }
+    }
     .logo-desk {
         display: none;
     }

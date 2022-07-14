@@ -54,7 +54,7 @@
           <!-- SEARCH -->
 
           <!-- LOGIN-REGISTER -->
-          <div class="col-3 d-flex jc-c ai-c">
+          <div class="col-3 d-flex jc-end ai-c">
             <div v-if="user_id">
               <span class="usr-log">{{ username }}</span>
               <div class="cnt-ul cnt-ul-mob">
@@ -69,9 +69,9 @@
             <div
               v-else
               class="main-usr-set"
-              v-show="$route.name === 'home' ? true : false"
+              v-show="$route.name === 'search' ? true : false"
             >
-              <ul class="ul-log-reg">
+              <ul class="ul-log-reg d-none-xs">
                 <li>
                   <div class="ico-log ico-login"></div>
                   <a href=" /login">Login</a>
@@ -94,16 +94,16 @@
             <!-- BTN-HAMBURGER -->
 
             <!-- FILTER-BTN -->
-            <div class="col-2 d-flex jc-strt ai-c">
-              <div
-                id="filter"
-                class="cnt-btn-filter"
-                v-show="$route.name === 'search' ? true : false"
-              >
-                <div class="btn-filter"></div>
-                <span>Filtri</span>
-              </div>
+            <!-- <div class="col-2 d-flex jc-strt ai-c"> -->
+            <div
+              id="filter"
+              class="cnt-btn-filter"
+              v-show="$route.name === 'search' ? true : false"
+            >
+              <div class="btn-filter"></div>
+              <span>Filtri</span>
             </div>
+            <!-- </div> -->
             <!-- FILTER-BTN -->
           </div>
         </div>
@@ -148,75 +148,6 @@
       </div>
     </header>
     <!--HEADER-->
-
-    <!--FILTER-->
-    <div id="bgExpand" class="bgExpandFilter"></div>
-    <div id="cntExpand" class="cntExpandFilter">
-      <div class="main-filter">
-        <div class="row-filter-ttl jc-e">
-          <div class="cnt-ttl">
-            <h2>Filtri</h2>
-          </div>
-          <div class="cnt-btn-close">
-            <div class="btn-closed"></div>
-          </div>
-        </div>
-        <div class="cnt-row">
-          <div class="row-filter">
-            <div class="cnt-filter">
-              <h3>Numero Stanze</h3>
-              <div class="cnt-filter-select">
-                <input type="number" min="1" max="30" v-model="room" />
-              </div>
-            </div>
-          </div>
-          <div class="row-filter">
-            <div class="cnt-filter">
-              <h3>Numero posti Letto</h3>
-              <div class="cnt-filter-select">
-                <input type="number" min="1" max="30" v-model="bed" />
-              </div>
-            </div>
-          </div>
-          <div class="row-filter">
-            <div class="cnt-filter">
-              <h3>Servizi</h3>
-              <div class="cnt-filter-select d-flex gp-20">
-                <div
-                  v-for="(service, index) in allServiceFilter"
-                  :key="index + service"
-                  class="main-check"
-                >
-                  <div all class="cnt-checkbox">
-                    <input
-                      class="input-check"
-                      type="checkbox"
-                      :value="service"
-                      :name="service"
-                      v-model="allServiceFiltered"
-                    />
-                    <span class="checkmark"></span>
-                  </div>
-                  <div class="form-check-label">{{ service }}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row-filter">
-            <div class="cnt-filter">
-              <h3>Distanza</h3>
-              <div class="cnt-filter-select">
-                <input type="number" v-model="distanceKm" />
-              </div>
-            </div>
-          </div>
-          <div class="cnt-filter d-flex jc-c">
-            <button class="btn-cta" @click="takeLatLng()">Invio</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--FILTER-->
 
     <!--MAIN-->
     <main>
@@ -307,10 +238,91 @@
               <a href="/admin/apartments">Dashboard</a>
             </li>
           </ul>
+          <div class="main-usr-set-mob">
+            <ul class="ul-log-reg">
+              <li>
+                <div class="ico-log ico-login"></div>
+                <a href=" /login">Login</a>
+              </li>
+              <li>
+                <div class="ico-log ico-reg"></div>
+                <a href="/register">Register</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
     <!--MENU-SLIDE-->
+
+    <!--FILTER-->
+    <div id="bgExpand" class="bgExpandFilter"></div>
+    <div id="cntExpand" class="cntExpandFilter">
+      <div class="main-filter">
+        <div class="row-filter-ttl jc-e">
+          <div class="cnt-ttl">
+            <h2>Filtri</h2>
+          </div>
+          <div class="cnt-btn-close">
+            <div class="btn-closed"></div>
+          </div>
+        </div>
+        <div class="cnt-row">
+          <div class="row-filter">
+            <div class="cnt-filter">
+              <h3>Numero Stanze</h3>
+              <div class="cnt-filter-select">
+                <input type="number" min="1" max="30" v-model="room" />
+              </div>
+            </div>
+          </div>
+          <div class="row-filter">
+            <div class="cnt-filter">
+              <h3>Numero posti Letto</h3>
+              <div class="cnt-filter-select">
+                <input type="number" min="1" max="30" v-model="bed" />
+              </div>
+            </div>
+          </div>
+          <div class="row-filter">
+            <div class="cnt-filter">
+              <h3>Servizi</h3>
+              <div class="cnt-filter-select d-flex gp-20">
+                <div
+                  v-for="(service, index) in allServiceFilter"
+                  :key="index + service"
+                  class="main-check"
+                >
+                  <div all class="cnt-checkbox">
+                    <input
+                      class="input-check"
+                      type="checkbox"
+                      :value="service"
+                      :name="service"
+                      v-model="allServiceFiltered"
+                    />
+                    <span class="checkmark"></span>
+                  </div>
+                  <div class="form-check-label">{{ service }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row-filter">
+            <div class="cnt-filter">
+              <h3>Distanza</h3>
+              <div class="cnt-filter-select">
+                <input type="number" v-model="distanceKm" />
+              </div>
+            </div>
+          </div>
+          <div class="cnt-filter d-flex jc-c">
+            <button class="btn-cta" @click="takeLatLng()">Invio</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--FILTER-->
   </div>
 </template>
 
@@ -920,13 +932,15 @@ ul.ul-ftr {
 /* FILTER */
 
 .cnt-btn-filter {
-  height: 40px;
-  border-radius: 30px;
   display: flex;
+  position: absolute;
+  height: 40px;
   align-items: center;
   justify-content: center;
+  left: 0;
   gap: 10px;
   padding: 10px;
+  border-radius: 30px;
   border: 1px solid lightgray;
   -webkit-box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);
   -moz-box-shadow: 0px 0px 20px 0px rgba(121, 121, 121, 0.46);
@@ -969,6 +983,7 @@ body.enlargeFilter {
   margin-top: auto;
   left: 0;
   margin-left: auto;
+  overflow: auto;
 }
 
 .main-check {
@@ -1192,8 +1207,9 @@ body.enlargeFilter {
         .cnt-filter-select {
           display: flex;
           flex-wrap: wrap;
+          flex-direction: column;
+          max-height: 150px;
           margin: 20px 0;
-
           input[type="number"] {
             display: inline-block;
             width: max-content;
@@ -1233,24 +1249,26 @@ body.enlargeFilter {
     -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
     box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.2);
-
     &::-webkit-scrollbar {
       display: none;
     }
-
-    ul {
-      width: max-content;
+    .cnt-ul {
       display: flex;
       flex-direction: column;
+      gap: 50px;
+    }
+    ul {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       gap: 25px;
       margin: 0 auto;
-      padding: 0;
-
       li {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 10px;
-
         .ico {
           width: 30px;
           height: 30px;
@@ -1333,9 +1351,14 @@ body.enlargeFilter {
     .main-filter {
       width: 95%;
       height: fit-content;
-      margin: 100px 0;
+      margin: 30px 0;
       .cnt-row {
         padding: 50px 10px;
+        .row-filter {
+          .cnt-filter-select {
+            flex-direction: column;
+          }
+        }
       }
     }
   }

@@ -124,6 +124,9 @@
 .jc-strt {
     justify-content: start;
 }
+.jc-end {
+    justify-content: end;
+}
 .ai-c {
     align-items: center;
 }
@@ -174,12 +177,6 @@
     color: red !important;
 }
 
-@media screen and (max-width: 480px) {
-    .col-xs-12 {
-        flex: calc((100% / 12) * 12);
-    }
-}
-
 @media screen and (max-width: 820px) {
     .col-md-1 {
         flex: calc((100% / 12) * 1);
@@ -203,5 +200,13 @@
 
     .col-md-12 {
         flex: calc((100% / 12) * 12);
+    }
+}
+@media screen and (max-width: 480px) {
+    .col-xs-12 {
+        flex: calc((100% / 12) * 12);
+    }
+    .d-none-xs {
+        display: none !important;
     }
 }

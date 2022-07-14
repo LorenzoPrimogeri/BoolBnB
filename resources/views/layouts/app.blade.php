@@ -93,6 +93,18 @@
                             <div class="ico stcs"></div><a href="#">Statistiche</a>
                         </li> --}}
                     </ul>
+                    <div class="main-usr-set-mob">
+                        <ul class="ul-log-reg">
+                            <li>
+                                <div class="ico-log ico-login"></div>
+                                <a href=" /login">Login</a>
+                            </li>
+                            <li>
+                                <div class="ico-log ico-reg"></div>
+                                <a href="/register">Register</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
