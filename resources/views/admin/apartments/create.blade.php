@@ -104,7 +104,7 @@
                     </div>
                 </div>
                 <div class="cnt-th cnt-btn h-100" id='btn-submit'>
-                    <button class="btn-modify" type="submit" {{-- onclick="SelezTT()" --}}>Inserisci</button>
+                    <button class="btn-modify" type="submit">Inserisci</button>
                 </div>
             </form>
 

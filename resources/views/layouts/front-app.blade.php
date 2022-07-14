@@ -11,15 +11,13 @@
         <meta name="user_id" content="{{ Auth::user()->id }}" />
     @endif
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Boolbnb') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/front-app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
 
     <!-- Styles -->
     <!-- CSS only -->

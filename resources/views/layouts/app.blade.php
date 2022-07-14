@@ -50,7 +50,6 @@
     </script>
     <!-- Scripts -->
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
-    <script src="{{ asset('js/validation-check.js') }}"></script>
     <script src="{{ asset('js/validation-input.js') }}"></script>
     <script src="{{ asset('js/dropDwn-menu.js') }}"></script>
     <script src="{{ asset('js/check-password-equal.js') }}"></script>
@@ -68,7 +67,6 @@
     <link href="{{ asset('css/log-sign.css') }}" rel="stylesheet">
     <link href="{{ asset('css/btn-burger.css') }}" rel="stylesheet">
     <link href="{{ asset('css/menuSlide.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/searchstyle.css') }}" rel="stylesheet">
 
 </head>
 
