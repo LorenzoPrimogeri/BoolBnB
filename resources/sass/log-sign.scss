@@ -165,9 +165,9 @@
             }
         }
 
-        .row-psw:nth-child(6) {
+        /* .row-psw:nth-child(6) {
             margin: 0 0 15px;
-        }
+        } */
         .row-psw:nth-child(8) {
             margin: 20px 0 10px;
         }
@@ -204,12 +204,6 @@
         justify-content: space-around;
         align-items: center;
         .cnt-checkbox {
-            /* display: block;
-            position: relative;
-            padding: 0;
-            margin: 0;
-            cursor: pointer;
-            font-size: 22px; */
             top: 8px;
             position: relative;
             -webkit-user-select: none;
