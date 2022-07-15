@@ -363,13 +363,13 @@ main {
     pointer-events: none;
 }
 ul.ul-log-reg {
-    position: absolute;
+    position: relative;
     display: flex;
     width: max-content;
     gap: 20px;
     list-style-type: none;
     margin: 0 !important;
-
+    /* left: 50%; */
     li {
         display: flex;
         align-items: center;

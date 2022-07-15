@@ -1130,8 +1130,8 @@ body.enlargeFilter {
         gap: 10px;
 
         .ico {
-          width: 30px;
-          height: 30px;
+          width: 25px;
+          height: 25px;
           background-color: violet;
         }
 
@@ -1143,14 +1143,14 @@ body.enlargeFilter {
         a {
           text-decoration: none;
           color: #4b5663;
-          font-size: 1.2em;
+          font-size: 1em;
         }
       }
     }
   }
 }
 
-ul {
+/* ul {
   width: max-content;
   display: flex;
   flex-direction: column;
@@ -1164,9 +1164,8 @@ ul {
     gap: 10px;
 
     .ico {
-      width: 30px;
-      height: 30px;
-      background-color: violet;
+      width: 25px;
+      height: 25px;
     }
 
     .aprt {
@@ -1177,10 +1176,10 @@ ul {
     a {
       text-decoration: none;
       color: #8da1b3;
-      font-size: 1.2em;
+      font-size: 1em;
     }
   }
-}
+} */
 
 /* MENU-SLIDE-DOWN */
 .scrollToTop {

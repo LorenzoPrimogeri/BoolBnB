@@ -615,15 +615,14 @@ main {
     p {
       text-align: center;
       color: #7174b6;
+      font-family: "Changa One", sans-serif;
     }
-
     h1 {
       font-size: 5em;
     }
 
     h2 {
       font-size: 3.5em;
-      font-family: "Changa One", sans-serif;
     }
 
     p {

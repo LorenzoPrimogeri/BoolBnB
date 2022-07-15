@@ -102,8 +102,8 @@ header ul.ul-log-reg li:hover span {
 }
 
 header ul.ul-log-reg .ico-log {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 header ul.ul-log-reg .ico-login {
@@ -115,10 +115,9 @@ header ul.ul-log-reg .ico-reg {
 }
 
 header ul.ul-log-reg a {
-  font-weight: 600;
   text-decoration: none;
   color: grey;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 header .container-src {
@@ -400,8 +399,8 @@ header .container-src {
 }
 
 .main-usr-set-mob ul.ul-log-reg .ico-log {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 .main-usr-set-mob ul.ul-log-reg .ico-login {
@@ -413,7 +412,6 @@ header .container-src {
 }
 
 .main-usr-set-mob ul.ul-log-reg a {
-  font-weight: 600;
   text-decoration: none;
   color: grey;
   font-size: 0.9em;
@@ -430,30 +428,32 @@ header .container-src {
 .main-usr-set {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   position: absolute;
   height: 100%;
   width: 350px;
   top: 50%;
   transform: translate(0, -50%);
+  right: 20px;
 }
 
 .main-usr-set .cnt-usr-set {
   position: relative;
   width: 100%;
+  right: 100px;
 }
 
 .main-usr-set .cnt-usr-set .contUlAccount {
   position: fixed;
   max-height: 0;
-  left: 50%;
+  /* left: 50%; */
   top: 55px;
   overflow: hidden;
   transition: all 0.5s ease-in-out;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
   background: #fff;
   z-index: 4;
-  transform: translate(-50%, 0);
+  /* transform: translate(-50%, 0); */
 }
 
 .main-usr-set .cnt-usr-set .contUlAccount::-webkit-scrollbar {
@@ -560,6 +560,10 @@ header .container-src {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  .main-usr-set .cnt-usr-set {
+    right: auto;
   }
 }
 
