@@ -1,7 +1,7 @@
 .main-usr-set {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   position: absolute;
   height: 100%;
   width: 350px;

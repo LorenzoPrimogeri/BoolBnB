@@ -151,7 +151,7 @@
 
     <!--MAIN-->
     <main>
-      <div class="container w-100 flex-dr-col">
+      <div class="container wmax-100 flex-dr-col">
         <div class="cnt-notMatch" v-if="!correctApartments.length">
           <h2>Nessun risultato!</h2>
         </div>
@@ -669,9 +669,11 @@ main {
     }
 
     .cnt-h {
-      height: 50px;
       padding: 10px 0;
-
+      h2,
+      h3 {
+        font-weight: 400;
+      }
       h2 {
         font-size: 1em;
       }
@@ -683,8 +685,6 @@ main {
     }
 
     .price {
-      display: contents;
-
       span {
         width: 100%;
         text-align: left;

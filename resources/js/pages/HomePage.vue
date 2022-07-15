@@ -499,17 +499,21 @@ legati alla finestra del browser
 </script>
 
 <style scoped lang="scss">
+.VueCarousel-inner {
+  display: flex !important;
+  gap: 30px;
+}
 main {
   min-height: 100vh;
 
   .title {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin-bottom: 50px;
+    color: #7174b6;
   }
 
   h2 {
-    font-weight: bold;
     font-size: 2.2rem;
   }
 
@@ -582,6 +586,7 @@ main {
         strong {
           font-size: 1.2em;
           color: #7174b6;
+          font-weight: 600;
         }
       }
     }
@@ -765,22 +770,21 @@ ul {
     }
 
     .cnt-h {
-      height: 50px;
       padding: 10px 0;
 
       h2 {
         font-size: 1em;
+        font-weight: 400;
       }
 
       h3 {
         color: grey;
         font-size: 0.8em;
+        font-weight: 400;
       }
     }
 
     .price {
-      display: contents;
-
       span {
         width: 100%;
         text-align: left;
@@ -806,7 +810,6 @@ ul {
     }
 
     .cnt-h {
-      height: 50px;
       padding: 10px 0;
 
       h2 {
@@ -820,8 +823,6 @@ ul {
     }
 
     .price {
-      display: contents;
-
       span {
         width: 100%;
         text-align: left;
@@ -1218,7 +1219,6 @@ ul.ul-ftr {
       display: flex;
       width: 150px;
       max-width: 150px;
-      height: 430px;
 
       .cnt-img {
         width: 100%;
@@ -1228,6 +1228,13 @@ ul.ul-ftr {
           height: 85%;
           width: 100%;
           border-radius: 20px;
+        }
+      }
+      .cnt-h {
+        h3 {
+          display: flex;
+          align-items: center;
+          height: 50px;
         }
       }
     }

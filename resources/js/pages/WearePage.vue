@@ -541,6 +541,7 @@ legati alla finestra del browser
 
 <style scoped lang="scss">
 @import url("../../sass/layout-preset.css");
+@import url("https://fonts.googleapis.com/css2?family=Changa+One&family=Montserrat:wght@200;400;600;900&family=Splash&display=swap");
 .usr-log {
   position: absolute;
   right: 180px;
