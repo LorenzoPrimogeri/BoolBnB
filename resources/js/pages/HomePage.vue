@@ -1158,6 +1158,7 @@ ul.ul-ftr {
   }
 
   .cnt-layout {
+    width: 100%;
     padding: 80px 0 0;
 
     .cnt-section {
@@ -1211,6 +1212,10 @@ ul.ul-ftr {
       }
     }
   }
+  .scrollToTop {
+    right: 20px;
+    bottom: 50px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -1246,10 +1251,6 @@ ul.ul-ftr {
     }
 
     h2 {
-      padding: 0;
-    }
-
-    .cnt-layout {
       padding: 0;
     }
   }
@@ -1304,11 +1305,6 @@ ul.ul-ftr {
         }
       }
     }
-  }
-
-  .scrollToTop {
-    right: 20px;
-    bottom: 50px;
   }
 }
 </style>

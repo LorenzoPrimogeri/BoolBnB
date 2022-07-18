@@ -1342,10 +1342,12 @@ ul {
 
       margin-bottom: 50px;
     }
-
-    .cnt-section-layout {
-      flex-direction: column-reverse !important;
-      padding: 0;
+    .cnt-layout {
+      width: 100%;
+      .cnt-section-layout {
+        flex-direction: column-reverse !important;
+        padding: 0;
+      }
     }
 
     .box-card {

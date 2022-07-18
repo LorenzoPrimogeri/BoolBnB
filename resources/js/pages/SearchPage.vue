@@ -1196,13 +1196,16 @@ body.enlargeFilter {
 
     .cnt-row {
       padding: 50px;
-
       .row-filter {
         position: relative;
         display: flex;
         padding: 10px;
         border-bottom: 1px solid #d9d9d9;
-
+        .cnt-filter {
+          h3 {
+            font-weight: 400;
+          }
+        }
         .cnt-filter-select {
           display: flex;
           flex-wrap: wrap;
@@ -1294,6 +1297,17 @@ body.enlargeFilter {
     display: none;
   }
 }
+@media screen and (max-width: 1200px) {
+  .container {
+    .box-card {
+      display: flex;
+      width: calc(100% / 3 - 25px);
+    }
+  }
+  .main-usr-set {
+    display: none;
+  }
+}
 @media screen and (max-width: 1050px) {
   .contExpandLogMob,
   .contExpandLogRegMob {
@@ -1313,15 +1327,6 @@ body.enlargeFilter {
     opacity: 1;
     width: 100%;
     height: 100%;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .container {
-    .box-card {
-      display: flex;
-      width: calc(100% / 3 - 25px);
-    }
   }
 }
 
