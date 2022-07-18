@@ -4377,7 +4377,7 @@ var staticRenderFns = [function () {
     staticClass: "cnt-section-layout"
   }, [_c("div", {
     staticClass: "cnt-lft-tm fadeLeft-tm"
-  }, [_c("h2", [_vm._v("Lorenzo Primogeri")]), _vm._v(" "), _c("p", [_vm._v("\r\n                L’umiltà la fa da padrone, mai fuori posto è sempre in prima\r\n                linea….lo descrive al meglio una celebre frase: Io sono io e voi\r\n                non siete un caxxo.\r\n              ")]), _vm._v(" "), _c("h5", [_vm._v("L'Umile")])]), _vm._v(" "), _c("div", {
+  }, [_c("h2", [_vm._v("Lorenzo Primogeri")]), _vm._v(" "), _c("p", [_vm._v("\r\n                L’umiltà la fa da padrone, mai fuori posto è sempre in prima\r\n                linea….lo descrive al meglio una celebre frase: Io sono io e voi\r\n                non siete un ca..o. (cit. Giuseppe Gioachino Belli )\r\n              ")]), _vm._v(" "), _c("h5", [_vm._v("L'Umile")])]), _vm._v(" "), _c("div", {
     staticClass: "cnt-rgt-tm fadeRight-tm"
   }, [_c("div", {
     staticClass: "cards box-card"
