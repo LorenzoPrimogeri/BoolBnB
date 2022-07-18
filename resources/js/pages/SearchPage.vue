@@ -336,6 +336,7 @@ export default {
     return {
       input: "",
       userInput: "",
+      username: "",
       lat: 0, //Riferito all'indirizzo inserito dal utente
       lng: 0, //Riferito all'indirizzo inserito dal utente
       indirizzi: [], //indirizzi che stampo per l'auto complete
@@ -389,7 +390,7 @@ export default {
       $("body").toggleClass("enlargeFilter");
     });
     axios.get(`/api/user/${this.user_id}`).then((risp) => {
-      console.log(risp);
+      // console.log(risp);
       this.username = risp.data[0].name;
     });
     delete axios.defaults.headers.common["X-Requested-With"];
@@ -409,7 +410,9 @@ export default {
       });
     //prendo tutti gli appartamenti dal database
     axios.get("http://127.0.0.1:8000/api/apartments").then((results) => {
-      this.allApartaments = results.data.apartments;
+      //console.log(results);
+      this.allApartaments = results.data.allApartments;
+      //console.log(this.allApartaments);
       const array = results.data.services;
       for (let i = 0; i < array.length; i++) {
         const element = array[i]["name"];

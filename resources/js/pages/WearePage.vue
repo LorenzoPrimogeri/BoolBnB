@@ -482,7 +482,7 @@ legati alla finestra del browser
 
     axios.get(`/api/user/${this.user_id}`).then((risp) => {
       console.log(risp);
-      this.username = risp.data[0].name;
+       this.username = risp.data[0].name;
     });
 
     //prendo tutti gli appartamenti dal database
