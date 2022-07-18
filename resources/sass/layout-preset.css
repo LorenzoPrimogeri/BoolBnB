@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Changa+One");
 
 * {
     font-family: "Montserrat", sans-serif;
@@ -7,10 +6,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    overflow-x: hidden !important;
-}
+
 .container {
+    position: relative;
     display: flex;
     width: 100%;
     height: 100%;
@@ -118,11 +116,18 @@ body {
 .gp-30 {
     gap: 30px;
 }
-
+.flex-dr-col {
+    flex-direction: column;
+}
 .jc-c {
     justify-content: center;
 }
-
+.jc-strt {
+    justify-content: start;
+}
+.jc-end {
+    justify-content: end;
+}
 .ai-c {
     align-items: center;
 }
@@ -173,64 +178,6 @@ body {
     color: red !important;
 }
 
-.d-block {
-    display: block;
-    color: red;
-}
-
-.d-none {
-    display: none;
-}
-
-#address-error {
-    position: absolute;
-    bottom: -25px;
-    left: 0;
-}
-
-.error {
-    color: red;
-    font-size: 15px;
-    position: relative;
-}
-
-label.error {
-    position: absolute !important;
-    bottom: -10px;
-    margin-bottom: 5px;
-}
-
-.tbl-title {
-    font-weight: 900;
-}
-
-.f-grow {
-    flex-grow: 1;
-}
-
-.p-20 {
-    padding: 20px;
-}
-
-.mt-2 {
-    margin-top: 2rem;
-}
-
-.gap-20 {
-    gap: 20px;
-}
-
-.cnt-item-service label:nth-child(2) {
-    bottom: -30px;
-    left: 0;
-}
-
-@media screen and (max-width: 480px) {
-    .col-xs-12 {
-        flex: calc((100% / 12) * 12);
-    }
-}
-
 @media screen and (max-width: 820px) {
     .col-md-1 {
         flex: calc((100% / 12) * 1);
@@ -254,5 +201,13 @@ label.error {
 
     .col-md-12 {
         flex: calc((100% / 12) * 12);
+    }
+}
+@media screen and (max-width: 480px) {
+    .col-xs-12 {
+        flex: calc((100% / 12) * 12);
+    }
+    .d-none-xs {
+        display: none !important;
     }
 }

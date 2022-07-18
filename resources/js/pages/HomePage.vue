@@ -7,7 +7,7 @@
         <!-- CNT-HEADER-ITEMS -->
         <div class="cnt-hdr-items">
           <!-- LOGO -->
-          <div class="col-3 col-xs-12">
+          <div class="col-3">
             <div class="cnt-logo">
               <router-link to="/">
                 <img
@@ -319,6 +319,18 @@
               <a href="/admin/apartments">Dashboard</a>
             </li>
           </ul>
+          <div class="main-usr-set-mob">
+            <ul class="ul-log-reg">
+              <li>
+                <div class="ico-log ico-login"></div>
+                <a href=" /login">Login</a>
+              </li>
+              <li>
+                <div class="ico-log ico-reg"></div>
+                <a href="/register">Register</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -487,17 +499,21 @@ legati alla finestra del browser
 </script>
 
 <style scoped lang="scss">
+.VueCarousel-inner {
+  display: flex !important;
+  gap: 30px;
+}
 main {
   min-height: 100vh;
 
   .title {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin-bottom: 50px;
+    color: #7174b6;
   }
 
   h2 {
-    font-weight: bold;
     font-size: 2.2rem;
   }
 
@@ -570,6 +586,7 @@ main {
         strong {
           font-size: 1.2em;
           color: #7174b6;
+          font-weight: 600;
         }
       }
     }
@@ -587,6 +604,37 @@ main {
   right: 0;
   top: 50%;
   transform: translate(0, -50%);
+}
+ul {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin: 0 auto;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .ico {
+      width: 25px;
+      height: 25px;
+      background-color: violet;
+    }
+
+    .aprt {
+      background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat
+        center/contain;
+    }
+
+    a {
+      text-decoration: none;
+      color: #8da1b3;
+      font-size: 1em;
+    }
+  }
 }
 
 .fadeLeft,
@@ -722,22 +770,21 @@ main {
     }
 
     .cnt-h {
-      height: 50px;
       padding: 10px 0;
 
       h2 {
         font-size: 1em;
+        font-weight: 400;
       }
 
       h3 {
         color: grey;
         font-size: 0.8em;
+        font-weight: 400;
       }
     }
 
     .price {
-      display: contents;
-
       span {
         width: 100%;
         text-align: left;
@@ -763,7 +810,6 @@ main {
     }
 
     .cnt-h {
-      height: 50px;
       padding: 10px 0;
 
       h2 {
@@ -777,8 +823,6 @@ main {
     }
 
     .price {
-      display: contents;
-
       span {
         width: 100%;
         text-align: left;
@@ -1023,7 +1067,7 @@ ul.ul-ftr {
 
 /* FOOTER */
 
-/* MENU-SLIDE-DOWN */
+/* MENU-SLIDE */
 .subMenu {
   position: fixed;
   width: 100%;
@@ -1048,28 +1092,29 @@ ul.ul-ftr {
     -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
     box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.2);
-
     &::-webkit-scrollbar {
       display: none;
     }
-
-    ul {
-      width: max-content;
+    .cnt-ul {
       display: flex;
       flex-direction: column;
+      gap: 50px;
+    }
+    ul {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       gap: 25px;
       margin: 0 auto;
-      padding: 0;
-
       li {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 10px;
-
         .ico {
-          width: 30px;
-          height: 30px;
-          background-color: violet;
+          width: 25px;
+          height: 25px;
         }
 
         .aprt {
@@ -1080,46 +1125,14 @@ ul.ul-ftr {
         a {
           text-decoration: none;
           color: #4b5663;
-          font-size: 1.2em;
+          font-size: 1em;
         }
       }
     }
   }
 }
+/* MENU-SLIDE */
 
-ul {
-  width: max-content;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  margin: 0 auto;
-  padding: 0;
-
-  li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    .ico {
-      width: 30px;
-      height: 30px;
-      background-color: violet;
-    }
-
-    .aprt {
-      background: url("../../img/ico/dashboard/ico-dash-lgt.svg") no-repeat
-        center/contain;
-    }
-
-    a {
-      text-decoration: none;
-      color: #8da1b3;
-      font-size: 1.2em;
-    }
-  }
-}
-
-/* MENU-SLIDE-DOWN */
 .scrollToTop {
   position: fixed;
   width: 50px;
@@ -1206,7 +1219,6 @@ ul {
       display: flex;
       width: 150px;
       max-width: 150px;
-      height: 430px;
 
       .cnt-img {
         width: 100%;
@@ -1216,6 +1228,13 @@ ul {
           height: 85%;
           width: 100%;
           border-radius: 20px;
+        }
+      }
+      .cnt-h {
+        h3 {
+          display: flex;
+          align-items: center;
+          height: 50px;
         }
       }
     }

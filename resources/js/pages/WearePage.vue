@@ -4,7 +4,7 @@
       <div class="container wmax-100 h-100 pd-20-lr">
         <div class="cnt-hdr-items">
           <!-- LOGO -->
-          <div class="col-3 col-xs-12">
+          <div class="col-3">
             <div class="cnt-logo">
               <router-link to="/">
                 <img
@@ -147,6 +147,7 @@
       </div>
     </header>
     <!-- HEADER -->
+
     <!-- MAIN -->
     <main>
       <div class="cnt-layout">
@@ -169,7 +170,7 @@
             <div class="cnt-rgt-tm fadeRight-tm">
               <div class="cards box-card">
                 <div class="picture">
-                  <img class="img-fluid" src="../../img/lorenzo.jpeg" />
+                  <img class="img-fluid" src="assets/img/photo.jpg" />
                 </div>
                 <div class="team-content">
                   <h3 class="name">Lorenzo Primogeri</h3>
@@ -199,7 +200,7 @@
             <div class="cnt-rgt-tm fadeRight-tm">
               <div class="cards box-card">
                 <div class="picture">
-                  <img class="img-fluid" src="../../img/antonio.jpg" />
+                  <img class="img-fluid" src="assets/img/photo.jpg" />
                 </div>
                 <div class="team-content">
                   <h3 class="name">Antonio Ruggiero</h3>
@@ -229,7 +230,7 @@
             <div class="cnt-rgt-tm fadeRight-tm">
               <div class="cards box-card">
                 <div class="picture">
-                  <img class="img-fluid" src="../../img/Moles.jpg" />
+                  <img class="img-fluid" src="assets/img/photo.jpg" />
                 </div>
                 <div class="team-content">
                   <h3 class="name">Francesco Moles</h3>
@@ -251,7 +252,7 @@
             <div class="cnt-lft-tm fadeLeft-tm">
               <h2>Michele Camera</h2>
               <p>
-                Un'entità suprema di cui ignoto è il verbo…non servono tante
+                Un entità suprema di cui ignoto è il verbo…non servono tante
                 parole, lui ti legge nel pensiero e in tempi di crisi energetica
                 è una grande qualità.
               </p>
@@ -260,7 +261,7 @@
             <div class="cnt-rgt-tm fadeRight-tm">
               <div class="cards box-card">
                 <div class="picture">
-                  <img class="img-fluid" src="../../img/camera.jpg" />
+                  <img class="img-fluid" src="assets/img/photo.jpg" />
                 </div>
                 <div class="team-content">
                   <h3 class="name">Michele Camera</h3>
@@ -290,7 +291,7 @@
             <div class="cnt-rgt-tm fadeRight-tm">
               <div class="cards box-card">
                 <div class="picture">
-                  <img class="img-fluid" src="../../img/marco.jpg" />
+                  <img class="img-fluid" src="assets/img/photo.jpg" />
                 </div>
                 <div class="team-content">
                   <h3 class="name">Marco Cataldi</h3>
@@ -540,6 +541,7 @@ legati alla finestra del browser
 
 <style scoped lang="scss">
 @import url("../../sass/layout-preset.css");
+@import url("https://fonts.googleapis.com/css2?family=Changa+One&family=Montserrat:wght@200;400;600;900&family=Splash&display=swap");
 .usr-log {
   position: absolute;
   right: 180px;
@@ -614,15 +616,14 @@ main {
     p {
       text-align: center;
       color: #7174b6;
+      font-family: "Changa One", sans-serif;
     }
-
     h1 {
       font-size: 5em;
     }
 
     h2 {
       font-size: 3.5em;
-      font-family: "Changa One", sans-serif;
     }
 
     p {
@@ -1263,9 +1264,10 @@ ul {
     display: none;
   }
   .cnt-layout {
-    padding: 180px 0 0;
+    padding: 80px 0 0;
 
     .cnt-section {
+      padding: 0;
       .cnt-section-layout {
         flex-direction: column;
         padding: 0;
@@ -1323,8 +1325,6 @@ ul {
 
 @media screen and (max-width: 650px) {
   main {
-    padding-top: 30px;
-
     .cnt-h1 {
       h1,
       h2 {
@@ -1351,6 +1351,10 @@ ul {
     .box-card {
       width: 100%;
     }
+  }
+  .scrollToTop {
+    right: 20px;
+    bottom: 50px;
   }
 }
 </style>

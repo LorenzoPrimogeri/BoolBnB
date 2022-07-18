@@ -50,7 +50,6 @@
     </script>
     <!-- Scripts -->
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
-    <script src="{{ asset('js/validation-check.js') }}"></script>
     <script src="{{ asset('js/validation-input.js') }}"></script>
     <script src="{{ asset('js/dropDwn-menu.js') }}"></script>
     <script src="{{ asset('js/check-password-equal.js') }}"></script>
@@ -61,14 +60,12 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dropDwn-menu.css') }}" rel="stylesheet">
     <link href="{{ asset('css/log-sign.css') }}" rel="stylesheet">
     <link href="{{ asset('css/btn-burger.css') }}" rel="stylesheet">
     <link href="{{ asset('css/menuSlide.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/searchstyle.css') }}" rel="stylesheet">
 
 </head>
 
@@ -93,6 +90,18 @@
                             <div class="ico stcs"></div><a href="#">Statistiche</a>
                         </li> --}}
                     </ul>
+                    <div class="main-usr-set-mob">
+                        <ul class="ul-log-reg">
+                            <li>
+                                <div class="ico-log ico-login"></div>
+                                <a href=" /login">Login</a>
+                            </li>
+                            <li>
+                                <div class="ico-log ico-reg"></div>
+                                <a href="/register">Register</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

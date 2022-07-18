@@ -1,5 +1,7 @@
 //@import 'layout-preset.css';
-
+body {
+    overflow-x: hidden;
+}
 header {
     position: fixed;
     width: 100%;
@@ -64,15 +66,23 @@ header {
     }
 
     ul.ul-log-reg {
-        position: absolute;
+        /* position: absolute;
         display: flex;
         width: max-content;
         flex-direction: row;
         gap: 20px;
         list-style-type: none;
         margin: 0 !important;
-        right: -50px;
-
+        right: -50px; */
+        position: relative;
+        display: flex;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        flex-direction: row;
+        gap: 20px;
+        list-style-type: none;
+        margin: 0 !important;
         li {
             display: flex;
             align-items: center;
@@ -95,8 +105,8 @@ header {
         }
 
         .ico-log {
-            width: 30px;
-            height: 30px;
+            width: 25px;
+            height: 25px;
         }
 
         .ico-login {
@@ -110,10 +120,9 @@ header {
         }
 
         a {
-            font-weight: 600;
             text-decoration: none;
             color: grey;
-            font-size: 0.9em;
+            font-size: 1em;
         }
     }
 
@@ -158,53 +167,58 @@ header {
         }
     }
 }
-
-.search {
-    display: flex;
-    position: relative;
-    width: 500px;
-    height: 50px;
-    border-radius: 30px;
-    align-items: center;
-    padding: 0 20px;
-    background-color: #fff;
-    border: 1px solid #ececec;
-    -webkit-box-shadow: 0px 0px 8px 5px rgba(121, 121, 121, 0.1);
-    -moz-box-shadow: 0px 0px 8px 5px rgba(121, 121, 121, 0.1);
-    box-shadow: 0px 0px 8px 5px rgba(121, 121, 121, 0.1);
-    gap: 20px;
-
-    .cnt-lens,
-    .cnt-fine {
-        width: 30px;
-        height: 30px;
-    }
-
-    .cnt-lens {
-        background: url(../../../public/img/lente.svg) no-repeat center;
-    }
-
-    .contStringSrc {
+.cnt-search,
+.cnt-hdr-src {
+    width: 100%;
+    .search {
+        display: flex;
+        position: relative;
         width: 100%;
-        background-color: transparent;
-        color: black;
-        text-align: left;
+        height: 50px;
+        max-width: 500px;
+        margin: 0 auto;
+        border-radius: 30px;
+        align-items: center;
+        padding: 0 20px;
+        background-color: #fff;
+        border: 1px solid #ececec;
+        -webkit-box-shadow: 0px 0px 8px 5px rgba(121, 121, 121, 0.1);
+        -moz-box-shadow: 0px 0px 8px 5px rgba(121, 121, 121, 0.1);
+        box-shadow: 0px 0px 8px 5px rgba(121, 121, 121, 0.1);
+        gap: 20px;
 
-        & input {
-            border: 0;
-            -webkit-appearance: none;
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            outline: none;
-            text-align: left;
-            border: 0;
+        .cnt-lens,
+        .cnt-fine {
+            width: 30px;
+            height: 30px;
         }
-    }
 
-    .cnt-fine {
-        background-color: rgba(153, 51, 0, 1);
-        background: url(../../../public/img/fineIcon.svg) no-repeat center;
+        .cnt-lens {
+            background: url(../../../public/img/lente.svg) no-repeat center;
+        }
+
+        .contStringSrc {
+            width: 100%;
+            background-color: transparent;
+            color: black;
+            text-align: left;
+
+            & input {
+                border: 0;
+                -webkit-appearance: none;
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                outline: none;
+                text-align: left;
+                border: 0;
+            }
+        }
+
+        .cnt-fine {
+            background-color: rgba(153, 51, 0, 1);
+            background: url(../../../public/img/fineIcon.svg) no-repeat center;
+        }
     }
 }
 
@@ -271,22 +285,6 @@ header {
 }
 
 @media only screen and(max-width:890px) {
-    header {
-        .cnt-hdr-items {
-            .cnt-logo {
-                width: 55px;
-            }
-        }
-    }
-
-    .logo-desk {
-        display: none;
-    }
-
-    .logo-mob {
-        display: block !important;
-    }
-
     .container-src {
         display: flex;
         align-items: center;
@@ -311,6 +309,27 @@ header {
 }
 
 @media only screen and(max-width:740px) {
+    header {
+        .cnt-hdr-items {
+            .cnt-logo {
+                width: 55px;
+            }
+            .cnt-btn-filter {
+                position: fixed;
+                left: 50%;
+                top: 40px;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+    .logo-desk {
+        display: none;
+    }
+
+    .logo-mob {
+        display: block !important;
+    }
     .cnt-search {
         display: none;
     }
@@ -351,7 +370,64 @@ header {
             }
         }
     }
+}
+.main-usr-set-mob {
+    display: flex;
+    ul.ul-log-reg {
+        position: relative;
+        display: flex;
+        width: max-content;
+        flex-direction: row;
+        gap: 20px;
+        list-style-type: none;
+        flex-direction: row !important;
+        padding: 40px 0 0;
+        & {
+            border-top: 1px solid lightgray;
+        }
 
+        li {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            &:hover .ico-login {
+                background: url("../img/ico/login/login.svg") no-repeat
+                    center/contain;
+            }
+
+            &:hover .ico-reg {
+                background: url("../img/ico/login/register.svg") no-repeat
+                    center/contain;
+            }
+
+            &:hover span {
+                color: #4b5663;
+                /* transition: 0.4s ease-in-out; */
+            }
+        }
+
+        .ico-log {
+            width: 25px;
+            height: 25px;
+        }
+
+        .ico-login {
+            background: url("../img/ico/login/login-lgt.svg") no-repeat
+                center/contain;
+        }
+
+        .ico-reg {
+            background: url("../img/ico/login/register-lgt.svg") no-repeat
+                center/contain;
+        }
+
+        a {
+            text-decoration: none;
+            color: grey;
+            font-size: 0.9em;
+        }
+    }
     .logo-desk {
         display: none;
     }

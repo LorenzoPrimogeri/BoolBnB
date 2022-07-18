@@ -1,26 +1,28 @@
 .main-usr-set {
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
+    justify-content: flex-end;
+    position: absolute;
     height: 100%;
     width: 350px;
     top: 50%;
     transform: translate(0, -50%);
+    right: 20px;
     .cnt-usr-set {
         position: relative;
         width: 100%;
+        right: 100px;
         .contUlAccount {
             position: fixed;
             max-height: 0;
-            left: 50%;
+            /* left: 50%; */
             top: 55px;
             overflow: hidden;
             transition: all 0.5s ease-in-out;
             box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
             background: #fff;
             z-index: 4;
-            transform: translate(-50%, 0);
+            /* transform: translate(-50%, 0); */
             &::-webkit-scrollbar {
                 display: none;
             }
@@ -126,5 +128,8 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+        .cnt-usr-set {
+            right: auto;
+        }
     }
 }
