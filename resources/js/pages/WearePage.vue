@@ -163,7 +163,7 @@
               <p>
                 L’umiltà la fa da padrone, mai fuori posto è sempre in prima
                 linea….lo descrive al meglio una celebre frase: Io sono io e voi
-                non siete un cazzo.
+                non siete un ca..o. (cit. Giuseppe Gioachino Belli )
               </p>
               <h5>L'Umile</h5>
             </div>
@@ -482,7 +482,7 @@ legati alla finestra del browser
 
     axios.get(`/api/user/${this.user_id}`).then((risp) => {
       console.log(risp);
-      this.username = risp.data[0].name;
+       this.username = risp.data[0].name;
     });
 
     //prendo tutti gli appartamenti dal database
