@@ -6,7 +6,7 @@
                 <div class="cnt-heading">
                     <h1>Piani di Sponsorizzazione</h1>
                     <h2>Dai un boost al tuo appartamento</h2>
-                    <h3>Scegli tra Gold, Silver e Bronze</h3>
+                    <h3>Scegli tra <strong>Gold</strong>, <strong>Silver</strong> e <strong>Bronze</strong></h3>
                     <p>Maggiori possibilità di ricevere prenotazioni per il tuo appartamento</p>
                 </div>
                 <div class="main-cards-ads">

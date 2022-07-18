@@ -163,7 +163,7 @@
               <p>
                 L’umiltà la fa da padrone, mai fuori posto è sempre in prima
                 linea….lo descrive al meglio una celebre frase: Io sono io e voi
-                non siete un ca..o. (cit. Giuseppe Gioachino Belli )
+                non siete un caxxo.
               </p>
               <h5>L'Umile</h5>
             </div>
@@ -283,7 +283,7 @@
             <div class="cnt-lft-tm fadeLeft-tm">
               <h2>Marco Cataldi</h2>
               <p>
-                Quando tutto sembra non andare o c'è bisongo di tenere alto il
+                Quando tutto sembra non andare o c'è bisogno di tenere alto il
                 morale eccolo che ti ricarica.
               </p>
               <h5>Supradyn</h5>
@@ -482,7 +482,7 @@ legati alla finestra del browser
 
     axios.get(`/api/user/${this.user_id}`).then((risp) => {
       console.log(risp);
-       this.username = risp.data[0].name;
+      this.username = risp.data[0].name;
     });
 
     //prendo tutti gli appartamenti dal database
@@ -631,7 +631,10 @@ main {
       font-weight: bold;
     }
   }
-
+  h5 {
+    font-size: 1.3em;
+    color: #7174b6;
+  }
   .box-card {
     display: flex;
     flex-direction: column;

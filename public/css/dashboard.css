@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-weight: 400;
 }
 
 .container {
@@ -705,6 +706,11 @@ ul.ul-log-reg a {
 
 .main-heading-ads .cnt-heading p {
   font-size: 1.2em;
+}
+
+.main-heading-ads .cnt-heading strong {
+  font-weight: 900;
+  color: #7174b6;
 }
 
 .main-heading-ads .main-cards-ads {
